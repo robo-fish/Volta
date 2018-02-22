@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<library title="Semiconductors">
+
+  <element name="" type="NODE" modelName="Node" />
+  <element name="Gnd" type="GRND" modelName="Ground" labelPosition="none" />
+
+  <element name="D1" type="D" modelName="DefaultDiode" labelPosition="top" />
+  <element name="M1" type="MOSFET" modelName="DepletionNMOSFET" labelPosition="right" />
+  <element name="M2" type="MOSFET" modelName="DepletionPMOSFET" labelPosition="right" />
+  <element name="Q1" type="BJT" modelName="DefaultNPN" labelPosition="right" />
+  <element name="Q2" type="BJT" modelName="DefaultPNP" labelPosition="right" />
+  <element name="J1" type="JFET" modelName="DefaultNJFET" labelPosition="right" />
+  <element name="J2" type="JFET" modelName="DefaultPJFET" labelPosition="right" />
+
+</library>
+</volta>

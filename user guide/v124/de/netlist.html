@@ -1,0 +1,50 @@
+<!--
+title Volta 1.2 - Der Netlist-Editor
+-->
+
+<style>
+  @import "../style/netlist_large.css";
+  @import "../style/netlist_small.css";
+</style>
+
+<div id="volta_help_netlist_editor">
+  <div id="volta_help_netlist_editor_text">
+    <p>
+      Der Netlist-Editor zeigt das Ergebnis der Diagrammerfassung.
+      Abgesehen von der Zeilennummerierung und der Farbcodierung ist der
+      Netlist-Editor ein simpler Texteditor in dem die Netlist beliebig
+      bearbeitet werden kann bevor sie dem Simulator übergeben wird.
+    </p>
+    <p>
+      Eine Netlist ist eine textbasierte Beschreibung einer Schaltung.
+      Sie enthält eine Liste von Schaltungskomponenten, zusammen mit den
+      verbundenen Knoten, und Befehle für die Schaltungsanalyse.
+      Eine ausführliche Beschreibung finden Sie in der englischen
+      <a href="http://ngspice.sourceforge.net/docs.html">Ngspice Dokumentation</a>.
+    </p>
+    <div id="volta_help_netlist_editor_screenshot_inline">
+      <span class="figure">Abb. 1: Erfasste Netlist</span>
+      <img id="volta_help_netlist_editor_screenshot_image" class="framed_screenshot" src="../images/common/netlist.png"/>
+    </div>
+    <p>
+      Beachten Sie, dass Änderungen, die Sie an der Netlist machen, bei
+      nochmaligem Erfassen des Diagramms überschrieben werden.
+    </p>
+    <p>
+      Der Netlist-Editor wendet folgendes Farbschema an:
+    </p>
+    <ul id="volta_help_netlist_highlighted_types">
+      <li><span style="color:rgb(  0,   0, 102)">Komponenten</span></li>
+      <li><span style="color:rgb(102,   0,   0)">Analysebefehle</span></li>
+      <li><span style="color:rgb(128, 102,   0)">Modelldefinitionen</span></li>
+      <li><span style="color:rgb(153, 153, 255)">Teilschaltungsdefinitionen</span></li>
+      <li><span style="color:rgb(207, 115,  36)">Ausgabebefehle</span></li>
+      <li><span style="color:rgb(255,   0,   0)">Fehler</span></li>
+      <li><span style="color:rgb(179, 179, 179)">Kommentare and Schaltungsende</span></li>
+    </ul>
+  </div>
+  <div id="volta_help_netlist_editor_screenshot">
+    <span class="figure">Abb. 1: Erfasste Netlist</span>
+    <img id="volta_help_netlist_editor_screenshot_image" class="framed_screenshot" src="../images/common/netlist.png"/>
+  </div>
+</div>

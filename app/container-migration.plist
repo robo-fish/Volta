@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Move</key>
+	<array>
+		<array>
+			<string>${ApplicationSupport}/Volta/Libraries</string>
+			<string>${ApplicationSupport}/Volta/Models</string>
+		</array>
+		<array>
+			<string>${ApplicationSupport}/Volta/Subcircuits</string>
+			<string>${ApplicationSupport}/Volta/Subcircuits</string>
+		</array>
+		<string>${AutosavedInformation}/Volta</string>
+	</array>
+</dict>
+</plist>

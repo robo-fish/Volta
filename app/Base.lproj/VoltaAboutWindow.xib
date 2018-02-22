@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FXVoltaMainController">
+            <connections>
+                <outlet property="aboutPanel" destination="G8m-Sk-y03" id="Qrf-fp-vn5"/>
+                <outlet property="aboutPanel_copyrightTextView" destination="1nf-YG-Eho" id="cdO-GU-5Du"/>
+                <outlet property="aboutPanel_versionView" destination="JOu-id-Ef6" id="vS1-fA-9GA"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="G8m-Sk-y03" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="81" width="276" height="378"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="bUe-0K-pt1">
+                <rect key="frame" x="0.0" y="0.0" width="276" height="378"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <colorWell bordered="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSY-zD-O1j">
+                        <rect key="frame" x="-10" y="-10" width="296" height="398"/>
+                        <color key="color" red="0.096404188439999997" green="0.1467391304" blue="0.1213565303" alpha="1" colorSpace="calibratedRGB"/>
+                    </colorWell>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DVO-hb-eeu">
+                        <rect key="frame" x="74" y="221" width="128" height="128"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="about_volta_background" id="niv-gC-uAx"/>
+                    </imageView>
+                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="ty0-UX-e2p">
+                        <rect key="frame" x="0.0" y="41" width="276" height="163"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ho6-fZ-3Cq">
+                            <rect key="frame" x="0.0" y="0.0" width="276" height="163"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="1nf-YG-Eho">
+                                    <rect key="frame" x="0.0" y="0.0" width="276" height="163"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="276" height="163"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="ayB-Vj-Q0S">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="QUT-U5-qiW">
+                            <rect key="frame" x="260" y="0.0" width="16" height="163"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <scrollView focusRingType="none" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="HN9-hq-0mT">
+                        <rect key="frame" x="59" y="264" width="159" height="51"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="e36-js-6o2">
+                            <rect key="frame" x="0.0" y="0.0" width="159" height="51"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="JOu-id-Ef6">
+                                    <rect key="frame" x="0.0" y="0.0" width="159" height="51"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="159" height="51"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <attributedString key="textStorage">
+                                        <fragment content="1.2.4">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="28" name="Verdana"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="51" id="Nej-9m-YXF"/>
+                            <constraint firstAttribute="width" constant="159" id="aKO-Zo-qEj"/>
+                        </constraints>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="1RZ-av-qwp">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="5BU-DS-s82">
+                            <rect key="frame" x="-100" y="-100" width="16" height="51"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ty0-UX-e2p" secondAttribute="bottom" constant="41" id="5UY-Yd-nig"/>
+                    <constraint firstItem="PSY-zD-O1j" firstAttribute="leading" secondItem="bUe-0K-pt1" secondAttribute="leading" constant="-10" id="EuS-3T-qAC"/>
+                    <constraint firstAttribute="bottom" secondItem="PSY-zD-O1j" secondAttribute="bottom" constant="-10" id="QMP-wa-FCC"/>
+                    <constraint firstItem="DVO-hb-eeu" firstAttribute="top" secondItem="HN9-hq-0mT" secondAttribute="bottom" constant="-85" id="TQZ-BR-iHf"/>
+                    <constraint firstAttribute="trailing" secondItem="ty0-UX-e2p" secondAttribute="trailing" id="WvO-Ii-HUq"/>
+                    <constraint firstAttribute="trailing" secondItem="PSY-zD-O1j" secondAttribute="trailing" constant="-10" id="csd-jX-zns"/>
+                    <constraint firstItem="PSY-zD-O1j" firstAttribute="top" secondItem="bUe-0K-pt1" secondAttribute="top" constant="-10" id="gN2-d8-ml5"/>
+                    <constraint firstItem="DVO-hb-eeu" firstAttribute="top" secondItem="bUe-0K-pt1" secondAttribute="top" constant="29" id="gqK-Vs-R9Q"/>
+                    <constraint firstItem="ty0-UX-e2p" firstAttribute="leading" secondItem="bUe-0K-pt1" secondAttribute="leading" id="h1C-vZ-2gd"/>
+                    <constraint firstItem="HN9-hq-0mT" firstAttribute="centerX" secondItem="DVO-hb-eeu" secondAttribute="centerX" id="n1G-Ls-4PQ"/>
+                    <constraint firstItem="DVO-hb-eeu" firstAttribute="centerX" secondItem="bUe-0K-pt1" secondAttribute="centerX" id="ofD-A7-Clv"/>
+                    <constraint firstItem="ty0-UX-e2p" firstAttribute="top" secondItem="bUe-0K-pt1" secondAttribute="top" constant="174" id="pXc-l1-ZUf"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="118" y="131"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="about_volta_background" width="128" height="128"/>
+    </resources>
+</document>

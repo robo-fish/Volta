@@ -1,0 +1,73 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Common */
+"Error: " = "Error: ";
+"wrong name prefix" = "%@ has an incorrect name prefix. Expected: '%@'.";
+"pin not wired" = "Pin \"%s\" of component %@ is not wired.";
+"Unknown scale type." = "%@ has unknown scale type. Expected 'dec', 'oct' or 'lin'.";
+"missing start frequency" = "%@ missing start frequency";
+"missing stop frequency" = "%@ missing stop frequency";
+"Expected ON or OFF" = "%@ has an invalid parameter. Expected ON or OFF.";
+"missing number of analysis points" = "%@ missing number of analysis points";
+
+/* Circuit */
+"The circuit is not grounded." = "Some circuit parts are not grounded!";
+
+/* METER */
+"missing voltage source" = "%@ missing voltage source";
+"missing start voltage" = "%@ missing start voltage";
+"missing stop voltage" = "%@ missing stop voltage";
+"missing voltage step size" = "%@ missing voltage step size";
+"missing scale type" = "%@ missing scale type";
+"missing step time interval" = "%@ missing time step";
+"missing stop time" = "%@ missing stop time";
+"missing current source" = "%@ missing current source";
+"missing start current" = "%@ missing start current";
+"missing stop current" = "%@ missing stop current";
+"missing current step size" = "%@ missing current step size";
+
+/* V, I */
+"missing voltage value" = "%@ missing voltage value";
+"missing offset" = "%@ missing offset";
+"missing amplitude" = "%@ missing amplitude";
+"missing initial value" = "%@ missing initial value";
+"missing pulsed value" = "%@ missing pulsed value";
+"missing gain value" = "%@ missing gain value";
+"missing voltage source name" = "%@ missing voltage source name";
+"missing transresistance value" = "%@ missing transresistance value";
+"missing current value" = "%@ missing current value";
+"missing transconductance value" = "%@ missing transconductance value";
+"missing current gain" = "missing current gain";
+"missing nonlinear voltage expression" = "%@ missing voltage expression";
+"missing nonlinear current expression" = "%@ missing current expression";
+
+/* LM */
+"missing inductance value for first inductor" = "%@ missing inductance value for first inductor";
+"missing inductance value for second inductor" = "%@ missing inductance value for second inductor";
+"missing coupling factor between the two inductors" = "%@ missing coupling factor between the two inductors";
+
+/* SW */
+"missing control voltage source name" = "%@ missing control voltage source name";
+
+/* SUBCKT */
+"subcircuit pin not wired" = "Pin \"%@\" of %@ is not wired.";
+"subcircuit pin no internal wiring" = "Pin \"%@\" of subcircuit %@ is wired externally but not wired internally.";
+"Subcircuit name is missing." = "The subcircuit name is missing.";

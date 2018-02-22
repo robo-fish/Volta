@@ -1,0 +1,33 @@
+@media screen and (min-width: 40em) {
+  div.shortcut {
+    display: block;
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+  div.key_combination {
+    display: inline-block;
+    width: 14%;
+    min-width:6em;
+    vertical-align: top;
+    color: #008;
+  }
+  div.description {
+    display: inline-block;
+    width: 85%;
+    vertical-align: top;
+  }
+}
+@media screen and (max-width: 40em) {
+  div.shortcut {
+    display: block;
+    margin-top: 0.5em;
+    margin-left: 0;
+  }
+  div.key_combination {
+    display: block;
+    color: blue;
+  }
+  div.description {
+    display: block;
+  }
+}

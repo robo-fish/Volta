@@ -1,0 +1,96 @@
+<!--
+title Volta 1.2 - Introduction
+-->
+
+<style>
+  @import "../style/introduction_large.css";
+  @import "../style/introduction_small.css";
+</style>
+
+<div id="volta_help_introdcution_what">
+  <h4>What is Volta?</h4>
+  <p>
+    Volta is a software application for designing analog electric circuits
+    on Mac OS X. It offers graphical frontend and backend tools for
+    SPICE-like command-line circuit simulators.
+  </p>
+</div>
+<div id="volta_help_introduction_workflow">
+  <h4>Circuits</h4>
+  <p>
+    There is one window for each circuit design. You can work on
+    multiple circuits at the same time, each in its own window.
+    A circuit window contains four resizable areas as shown in figure 1.
+  </p>
+  <h4>Design Workflow</h4>
+  <p>
+    You typically start designing your circuit in the schematic
+    editor where you assemble and interconnect circuit components.
+    You then repeatedly test and refine your design with the help
+    of circuit simulations.
+    To run circuit simulations, you 'capture' the schematic
+    in a format that the simulator can process.
+    When the simulation is done, depending on the output of the
+    simulator, the results will be displayed graphically in the
+    plotter area at the bottom.
+  </p>
+</div>
+<div id="volta_help_introduction_screenshot" class="screenshot">
+  <span class="figure">Figure 1: The circuit window areas</span>
+  <a href="../images/en/document_areas.png" class="FXOverlayImage">
+    <img id="volta_help_introduction_screenshot_image" class="framed_screenshot" src="../images/en/document_areas.png"/>
+  </a>
+</div>
+<div id="volta_help_introduction_toolbar_buttons">
+  <div id="volta_help_introduction_toolbar_buttons_text">
+    <div id="volta_help_introduction_toolbar_buttons_text1">
+      <p>
+        The first three buttons in the toolbar of the window ('Plot',
+        'Capture' and 'Analyze') are your workflow buttons, where Plot and Analyze
+        do more than their names imply. The Plot button also captures the schematic
+        and runs the simulation. It is the button you will use most frequently.
+        The Analyze button not only feeds the netlist and the analysis
+        commands to the simulator but also plots the simulation results if
+        sufficient data points exist. Use this button if you want to preserve
+        changes that you made to the netlist after the schematic was captured.
+      </p>
+    </div>
+    <div id="volta_help_introduction_toolbar_buttons_screenshot_inline1">
+      <span class="figure">Figure 2: Workflow buttons</span>
+      <img class="framed_screenshot" style="height:100px" src="../images/en/toolbar_plot_capture_analyze.png" />
+    </div>
+    <div id="volta_help_introduction_toolbar_buttons_text2">
+      <p>
+        The last two toolbar buttons, seen in figure 3, open or
+        close the bottom plotter area and the right hand tools area, respectively.
+      </p>
+    </div>
+    <div id="volta_help_introduction_toolbar_buttons_screenshot_inline2">
+      <span class="figure">Figure 3: Area buttons</span>
+      <img class="framed_screenshot" style="height:100px" src="../images/common/toolbar_toggle_window_areas.png" />
+    </div>
+  </div>
+  <div id="volta_help_introduction_toolbar_buttons_screenshots" class="screenshot">
+    <div id="volta_help_introduction_toolbar_buttons_screenshot1">
+      <span class="figure">Figure 2: Workflow buttons</span>
+      <img class="framed_screenshot" style="height:100px" src="../images/en/toolbar_plot_capture_analyze.png" />
+    </div>
+    <div id="volta_help_introduction_toolbar_buttons_screenshot2">
+      <span class="figure">Figure 3: Area buttons</span>
+      <img class="framed_screenshot" style="height:100px" src="../images/common/toolbar_toggle_window_areas.png" />
+    </div>
+  </div>
+</div>
+<div id="volta_help_introduction_ngspice">
+  <h4>Ngspice</h4>
+  <p>
+    Volta ships with the free circuit simulator <a href="http://ngspice.sf.net">Ngspice</a>.
+    One of the long-term goals of Volta is to wrap all Ngspice capabilities
+    in easy-to-discover and, hopefully, easy-to-use graphical controls.
+    Ideally, everything you can express with a netlist should be configurable in the
+    schematic editor so that even for advanced use cases there is no need to
+    edit netlists. Until this goal is reached you will need to know how to use
+    Ngspice. Please refer to the detailed user manual on the
+    <a href="http://ngspice.sourceforge.net/docs.html">Ngspice documentation page</a>.
+  </p>
+</div>

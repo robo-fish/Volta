@@ -1,0 +1,7 @@
+/* Analysis type names */
+"AnalysisTypeDescription_AC" = "AC Analysis";
+"AnalysisTypeDescription_DC" = "DC Analysis";
+"AnalysisTypeDescription_DC_TRANS" = "DC Transfer Characteristic";
+"AnalysisTypeDescription_Transient" = "Transient Analysis";
+"AnalysisTypeDescription_Unknown" = "Unknown Analysis Type";
+"NoData" = "No plotting data";

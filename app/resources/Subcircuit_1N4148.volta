@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit title="">
+	<schematic>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="true" name="1N4148" vendor="NXP Semiconductors" revision="1" labelPosition="top">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="1" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="2" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v="1N4148"/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="0.71"/>
+	<m k="FXVoltaMac_WindowHeight" v="782"/>
+	<m k="FXVoltaMac_WindowWidth" v="567"/>
+	<m k="FXVolta_Netlist" v="******************************************* {FX_newline}* {FX_newline}*1N4148 {FX_newline}* {FX_newline}*NXP Semiconductors {FX_newline}* {FX_newline}*High-speed diodes {FX_newline}* {FX_newline}* {FX_newline}* {FX_newline}*VRRM = 100V {FX_newline}*IFRM = 450 mA  {FX_newline}*trr  = 4ns {FX_newline}* {FX_newline}*Package: SOD 27 {FX_newline}* {FX_newline}*Package Pin 1 : Cathode {FX_newline}*Package Pin 2 : Anode {FX_newline}* {FX_newline}* {FX_newline}*Simulator: PSPICE {FX_newline}* {FX_newline}******************************************* {FX_newline}* {FX_newline}.SUBCKT NXP.Semiconductors.1N4148 1 2  {FX_newline}* {FX_newline}* The resistor R1 does not reflect  {FX_newline}* a physical device. Instead it {FX_newline}* improves modeling in the reverse  {FX_newline}* mode of operation. {FX_newline}* {FX_newline}R1 1 2 5.827E+9  {FX_newline}D1 1 2 1N4148 {FX_newline}* {FX_newline}.MODEL 1N4148 D  {FX_newline}+ IS = 4.352E-9  {FX_newline}+ N = 1.906  {FX_newline}+ BV = 110  {FX_newline}+ IBV = 0.0001  {FX_newline}+ RS = 0.6458  {FX_newline}+ CJO = 7.048E-13  {FX_newline}+ VJ = 0.869  {FX_newline}+ M = 0.03  {FX_newline}+ FC = 0.5  {FX_newline}+ TT = 3.48E-9  {FX_newline}.ENDS {FX_newline}* {FX_newline}"/>
+</circuit>
+</volta>

@@ -1,0 +1,25 @@
+@media screen and (max-width: 40em) {
+  #volta_help_header {
+    display:block;
+    text-align: center;
+    margin-top: 1em;
+  }
+  #volta_help_icon {
+    display: none;
+  }
+  #FXHelpBrowser_topic_links {
+    display:block;
+    width: 100%;
+    margin-top: 1em;
+    text-align: center;
+  }
+  #FXHelpBrowser_display_area {
+    display:block;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  div.volta_help_link {
+    display:block;
+    margin-top: 1em;
+  }
+}

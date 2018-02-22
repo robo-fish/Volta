@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<library title="Standard Capacitors (E12)">
+
+  <element name="" type="NODE" modelName="Node" />
+  <element name="Gnd" type="GRND" modelName="Ground" labelPosition="none" />
+
+  <element name="C2.2p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.0p" /></element>
+  <element name="C3.3p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.2p" /></element>
+  <element name="C4.7p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="5.6p" /></element>
+  <element name="C6.8p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="6.8p" /></element>
+
+  <element name="C10p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="10p" /></element>
+  <element name="C12p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="12p" /></element>
+  <element name="C15p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="15p" /></element>
+  <element name="C18p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="18p" /></element>
+  <element name="C22p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="22p" /></element>
+  <element name="C27p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="27p" /></element>
+  <element name="C33p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="33p" /></element>
+  <element name="C39p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="39p" /></element>
+  <element name="C47p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="47p" /></element>
+  <element name="C56p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="56p" /></element>
+  <element name="C68p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="68p" /></element>
+  <element name="C82p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="82p" /></element>
+
+  <element name="C100p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="100p" /></element>
+  <element name="C120p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="120p" /></element>
+  <element name="C150p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="150p" /></element>
+  <element name="C180p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="180p" /></element>
+  <element name="C220p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="220p" /></element>
+  <element name="C270p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="270p" /></element>
+  <element name="C330p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="330p" /></element>
+  <element name="C390p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="390p" /></element>
+  <element name="C470p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="470p" /></element>
+  <element name="C560p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="560p" /></element>
+  <element name="C680p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="680p" /></element>
+  <element name="C820p" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="820p" /></element>
+
+  <element name="C1.0n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.0n" /></element>
+  <element name="C1.2n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.2n" /></element>
+  <element name="C1.5n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.5n" /></element>
+  <element name="C1.8n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.8n" /></element>
+  <element name="C2.2n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="2.2n" /></element>
+  <element name="C2.7n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="2.7n" /></element>
+  <element name="C3.3n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="3.3n" /></element>
+  <element name="C3.9n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="3.9n" /></element>
+  <element name="C4.7n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="4.7n" /></element>
+  <element name="C5.6n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="5.6n" /></element>
+  <element name="C6.8n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="6.8n" /></element>
+  <element name="C8.2n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="8.2n" /></element>
+
+  <element name="C10n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="10n" /></element>
+  <element name="C12n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="12n" /></element>
+  <element name="C15n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="15n" /></element>
+  <element name="C18n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="18n" /></element>
+  <element name="C22n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="22n" /></element>
+  <element name="C27n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="27n" /></element>
+  <element name="C33n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="33n" /></element>
+  <element name="C39n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="39n" /></element>
+  <element name="C47n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="47n" /></element>
+  <element name="C56n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="56n" /></element>
+  <element name="C68n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="68n" /></element>
+  <element name="C82n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="82n" /></element>
+
+  <element name="C100n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="100n" /></element>
+  <element name="C120n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="120n" /></element>
+  <element name="C150n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="150n" /></element>
+  <element name="C180n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="180n" /></element>
+  <element name="C220n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="220n" /></element>
+  <element name="C270n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="270n" /></element>
+  <element name="C330n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="330n" /></element>
+  <element name="C390n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="390n" /></element>
+  <element name="C470n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="470n" /></element>
+  <element name="C560n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="560n" /></element>
+  <element name="C680n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="680n" /></element>
+  <element name="C820n" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="820n" /></element>
+
+  <element name="C1.0u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.0u" /></element>
+  <element name="C1.2u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.2u" /></element>
+  <element name="C1.5u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.5u" /></element>
+  <element name="C1.8u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.8u" /></element>
+  <element name="C2.2u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="2.2u" /></element>
+  <element name="C2.7u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="2.7u" /></element>
+  <element name="C3.3u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="3.3u" /></element>
+  <element name="C3.9u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="3.9u" /></element>
+  <element name="C4.7u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="4.7u" /></element>
+  <element name="C5.6u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="5.6u" /></element>
+  <element name="C6.8u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="6.8u" /></element>
+  <element name="C8.2u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="8.2u" /></element>
+
+  <element name="C10u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="10u" /></element>
+  <element name="C15u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="15u" /></element>
+  <element name="C22u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="22u" /></element>
+  <element name="C33u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="33u" /></element>
+  <element name="C47u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="47u" /></element>
+  <element name="C68u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="68u" /></element>
+
+  <element name="C100u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="100u" /></element>
+  <element name="C150u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="150u" /></element>
+  <element name="C220u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="220u" /></element>
+  <element name="C330u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="330u" /></element>
+  <element name="C470u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="470u" /></element>
+  <element name="C680u" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="680u" /></element>
+
+  <element name="C1.0m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.0m" /></element>
+  <element name="C1.5m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="1.5m" /></element>
+  <element name="C2.2m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="2.2m" /></element>
+  <element name="C3.3m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="3.3m" /></element>
+  <element name="C4.7m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="4.7m" /></element>
+  <element name="C6.8m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="6.8m" /></element>
+
+  <element name="C10m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="10m" /></element>
+  <element name="C15m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="15m" /></element>
+  <element name="C22m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="22m" /></element>
+  <element name="C33m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="33m" /></element>
+  <element name="C47m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="47m" /></element>
+  <element name="C68m" type="C" modelName="Capacitor" labelPosition="top"><p n="capacitance" v="68m" /></element>
+
+</library>
+</volta>

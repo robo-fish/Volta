@@ -1,0 +1,13 @@
+"SubcircuitEditorVendorFieldPlaceholder" = "制造商标识码";
+"SubcircuitEditorNameFieldPlaceholder" = "名称";
+"SubcircuitEditorEnablerCheckboxTitle" = "启用";
+"SubcircuitEditorNodeAssignmentTablePinsColumnTitle" = "接头";
+"SubcircuitEditorNodeAssignmentTableNodesColumnTitle" = "被内部链接";
+
+/* Undo actions */
+"Action_node_assignment" = "编辑节点配置";
+"Action_change_shape" = "改变图标形状";
+"Action_enable_subcircuit" = "启用子电路";
+"Action_disable_subcircuit" = "停用子电路";
+"Action_edit_title" = "编辑名称";
+"Action_edit_vendor" = "编辑制造商标识码";

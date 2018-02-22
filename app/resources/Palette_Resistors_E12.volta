@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<library title="Standard Resistors (E12)">
+
+  <element name="" type="NODE" modelName="Node" />
+  <element name="Gnd" type="GRND" modelName="Ground" labelPosition="none" />
+
+  <element name="R1.0" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1.0"/></element>
+  <element name="R1.2" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1.2"/></element>
+  <element name="R1.5" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1.5"/></element>
+  <element name="R1.8" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1.8"/></element>
+  <element name="R2.2" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="2.2"/></element>
+  <element name="R2.7" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="2.7"/></element>
+  <element name="R3.3" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="3.3"/></element>
+  <element name="R3.9" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="3.9"/></element>
+  <element name="R4.7" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="4.7"/></element>
+  <element name="R5.6" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="5.6"/></element>
+  <element name="R6.8" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="6.8"/></element>
+  <element name="R8.2" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="8.2"/></element>
+
+  <element name="R10" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="10"/></element>
+  <element name="R12" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="12"/></element>
+  <element name="R15" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="15"/></element>
+  <element name="R18" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="18"/></element>
+  <element name="R22" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="22"/></element>
+  <element name="R27" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="27"/></element>
+  <element name="R33" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="33"/></element>
+  <element name="R39" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="39"/></element>
+  <element name="R47" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="47"/></element>
+  <element name="R56" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="56"/></element>
+  <element name="R68" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="68"/></element>
+  <element name="R82" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="82"/></element>
+
+  <element name="R100" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="100"/></element>
+  <element name="R120" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="120"/></element>
+  <element name="R150" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="150"/></element>
+  <element name="R180" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="180"/></element>
+  <element name="R220" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="220"/></element>
+  <element name="R270" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="270"/></element>
+  <element name="R330" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="330"/></element>
+  <element name="R390" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="390"/></element>
+  <element name="R470" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="470"/></element>
+  <element name="R560" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="560"/></element>
+  <element name="R680" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="680"/></element>
+  <element name="R820" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="820"/></element>
+
+  <element name="R1k0" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1.0k"/></element>
+  <element name="R1k2" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1.2k"/></element>
+  <element name="R1k5" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1.5k"/></element>
+  <element name="R1k8" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1.8k"/></element>
+  <element name="R2k2" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="2.2k"/></element>
+  <element name="R2k7" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="2.7k"/></element>
+  <element name="R3k3" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="3.3k"/></element>
+  <element name="R3k9" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="3.9k"/></element>
+  <element name="R4k7" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="4.7k"/></element>
+  <element name="R5k6" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="5.6k"/></element>
+  <element name="R6k8" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="6.8k"/></element>
+  <element name="R8k2" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="8.2k"/></element>
+
+  <element name="R10k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="10k"/></element>
+  <element name="R12k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="12k"/></element>
+  <element name="R15k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="15k"/></element>
+  <element name="R18k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="18k"/></element>
+  <element name="R22k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="22k"/></element>
+  <element name="R27k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="27k"/></element>
+  <element name="R33k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="33k"/></element>
+  <element name="R39k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="39k"/></element>
+  <element name="R47k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="47k"/></element>
+  <element name="R56k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="56k"/></element>
+  <element name="R68k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="68k"/></element>
+  <element name="R82k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="82k"/></element>
+
+  <element name="R100k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="100k"/></element>
+  <element name="R120k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="120k"/></element>
+  <element name="R150k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="150k"/></element>
+  <element name="R180k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="180k"/></element>
+  <element name="R220k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="220k"/></element>
+  <element name="R270k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="270k"/></element>
+  <element name="R330k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="330k"/></element>
+  <element name="R390k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="390k"/></element>
+  <element name="R470k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="470k"/></element>
+  <element name="R560k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="560k"/></element>
+  <element name="R680k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="680k"/></element>
+  <element name="R820k" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="820k"/></element>
+
+  <element name="R1Meg" type="R" modelName="ResistorUS" labelPosition="top"><p n="resistance" v="1meg"/></element>
+
+</library>
+</volta>

@@ -1,0 +1,73 @@
+@media screen and (min-width: 40em) {
+  #volta_help_schematic_overview {
+    display: block;
+    text-align: left;
+  }
+  #volta_help_schematic_overview_screenshot {
+  }
+  #volta_help_schematic_overview_screenshot_image {
+    display: block;
+    height: 12em;
+  }
+  #volta_help_schematic_palette_strip {
+    display: block;
+    text-align: left;
+  }
+  #volta_help_schematic_palette_strip_screenshot {
+    text-align: left;
+  }
+  #volta_help_schematic_palette_strip_screenshot_image {
+  }
+  #volta_help_schematic_inspector {
+    display: inline-block;
+    width: 66%;
+  }
+  #volta_help_schematic_inspector_screenshot {
+    display: inline-block;
+    width: 30%;
+    padding-left: 2%;
+    margin-top: 4em;
+    vertical-align: top;
+  }
+  #volta_help_schematic_inspector_screenshot_image {
+    width:100%;
+  }
+  #volta_help_schematic_inspector_features {
+    display: block;
+    text-align: left;
+  }
+  #volta_help_schematic_connecting {
+    display: inline-block;
+    width:64%;
+  }
+  #volta_help_schematic_connecting_screenshot {
+    display: inline-block;
+    width:30%;
+    padding-left: 5%;
+    padding-top: 2em;
+    text-align: center;
+  }
+  #volta_help_schematic_connecting_screenshot_inline {
+    display: none;
+  }
+  #volta_help_schematic_connector_joints_screenshot {
+    display: block;
+    margin-top: 1em;
+    text-align: left;
+  }
+  #volta_help_schematic_zooming {
+    display: block;
+    padding-bottom: 2em;
+  }
+  #volta_help_schematic_zooming_text {
+    display: inline-block;
+    width: 66%;
+  }
+  #volta_help_schematic_zooming_screenshot {
+    display: inline-block;
+    width:29%;
+    padding-left: 3%;
+    padding-top:2em;
+    text-align: center;
+  }
+}

@@ -1,0 +1,76 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Displayed names of built-in device models */
+"Ground" = "Erde";
+"Capacitor" = "Kondensator";
+"Resistor" = "Widerstand";
+"Inductor" = "Spule";
+"DetailedInductor" = "Detailierte Spule";
+"MutualInductor" = "Transformator";
+"ResistorUS" = "Widerstand (USA)";
+"InductorUS" = "Spule (USA)";
+"DetailedInductorUS" = "Detailierte Spule (USA)";
+"MutualInductorUS" = "Transformator (USA)";
+"SemiconductorResistor" = "Halbleiterwiderstand";
+"SemiconductorCapacitor" = "Halbleiterkondensator";
+"VoltageControlledSwitch" = "Schalter (spannungsgesteuert)";
+"CurrentControlledSwitch" = "Schalter (stromgesteuert)";
+"DefaultDiode" = "Diode";
+"Diode" = "Diode";
+"LED" = "Leuchtdiode";
+"ZenerDiode" = "Zenerdiode";
+"VoltmeterAC" = "Wechselspannungsmesser";
+"VoltmeterDC" = "Gleichspannungsmesser";
+"VoltmeterTRAN" = "Transientenspannungsmesser";
+"AmmeterAC" = "Wechselstrommesser";
+"AmmeterDC" = "Gleichstrommesser";
+"Node" = "Knoten";
+"DCVoltage" = "Gleichspannungsquelle";
+"ACVoltage" = "Wechselspannungsquelle";
+"PulsedVoltage" = "Pulsspannungsquelle";
+"SinusoidalVoltage" = "Sinusspannungsquelle";
+"VoltageControlledVoltage" = "Spannungsquelle (spannungsgesteuert)";
+"CurrentControlledVoltage" = "Spannungsquelle (stromgesteuert)";
+"DCCurrent" = "Gleichstromquelle";
+"ACCurrent" = "Wechselstromquelle";
+"SinusoidalCurrent" = "Stromquelle (sinusförmig)";
+"PulsedCurrent" = "Stromquelle (pulsförmig)";
+"VoltageControlledCurrent" = "Stromquelle (spannungsgesteuert)";
+"CurrentControlledCurrent" = "Stromquelle (stromgesteuert)";
+"NonlinearDependentVoltage" = "Nichtlineare, abhängige Spannungsquelle";
+"NonlinearDependentCurrent" = "Nichtlineare, abhängige Stromquelle";
+"DefaultNPN" = "N-Kanal Bipolartransistor";
+"DefaultPNP" = "P-Kanal Bipolartransistor";
+"DefaultNJFET" = "N-Kanal JFET";
+"DefaultPJFET" = "P-Kanal JFET";
+"DefaultNMESFET" = "N-Kanal MESFET";
+"DefaultPMESFET" = "P-Kanal MESFET";
+"DepletionNMOSFET" = "N-Kanal selbstleitend MOSFET";
+"DepletionPMOSFET" = "P-Kanal selbstleitend MOSFET";
+"EnhancementNMOSFET" = "N-Kanal selbstsperrend MOSFET";
+"EnhancementPMOSFET" = "P-Kanal selbstsperrend MOSFET";
+"DepletionNMOSFETWithBulk" = "N-Kanal selbstleitend m. Substratanschl MOSFET";
+"DepletionPMOSFETWithBulk" = "P-Kanal selbstleitend m. Substratanschl MOSFET";
+"EnhancementNMOSFETWithBulk" = "N-Kanal selbstsperrend m. Substratanschl. MOSFET";
+"EnhancementPMOSFETWithBulk" = "P-Kanal selbstsperrend m. Substratanschl. MOSFET";
+"ExampleRLCLine" = "Beispielleitung";
+"ExampleSingleRLCLine" = "Beispiel-Einzelleitung";
+"SingleLineText" = "Einzeiliger Text";

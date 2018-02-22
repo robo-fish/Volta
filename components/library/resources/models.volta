@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Volta Standard Built-in Models Library
+Copyright Kai Berk Ozer, http://kulfx.com
+Licensed under the Creative Commons Attribution-NoDerivs 3.0 Unported License available at http://creativecommons.org/licenses/by-nd/3.0/
+-->
+<volta version="2" xmlns="http://kulfx.com/volta">
+
+  <library title="Built-in Models">
+
+    <model type="NODE" name="Node" labelPosition="none">
+      <shape width="16" height="16">
+        <circle cx="0" cy="0" r="3" fill="true" />
+      </shape>
+      <pin name="North" x="0" y="8"/>
+      <pin name="South" x="0" y="-8"/>
+      <pin name="East" x="8" y="0"/>
+      <pin name="West" x="-8" y="0"/>
+    </model>
+
+    <model type="GRND" name="Ground" labelPosition="none">
+      <shape width="16" height="18">
+        <path d="M 0 9 v -10 m -8 0 h 16 m -12 -4 h 8 m -6 -4 h 4"/>
+      </shape>
+      <pin name="Ground" x="0" y="9"/>
+    </model>
+
+    <model type="R" name="Resistor" labelPosition="top">
+      <shape width="42" height="12">
+        <path d="M -21 0 h 8 m 26 0 h 8"/>
+        <path d="M -13 -6 h 26 v 12 h -26 v -12 z"/>
+      </shape>
+      <pin name="A" x="-21" y="0"/>
+      <pin name="B" x="21" y="0"/>
+    </model>
+
+    <model type="R" name="ResistorUS" labelPosition="top">
+      <shape width="42" height="12">
+        <path d="M -21 0 h 8 l 2.17 6.0 l 4.33 -12.0 l 4.33 12.0 l 4.33 -12.0 l 4.33 12.0 l 4.33 -12.0 l 2.17 6.0 h 8" />
+      </shape>
+      <pin name="A" x="-21" y="0"/>
+      <pin name="B" x="21" y="0"/>
+    </model>
+
+    <model type="R" subtype="SEMI" name="SemiconductorResistor" labelPosition="top">
+      <shape width="42" height="12">
+        <path d="M -21 0 h 8 m 26 0 h 8"/>
+        <path d="M -13 -6 h 26 v 12 h -26 v -12 z"/>
+      </shape>
+      <pin name="A" x="-21" y="0"/>
+      <pin name="B" x="21" y="0"/>
+      <p n="TC1"    v="0.0" />
+      <p n="TC2"    v="0.0" />
+      <p n="RSH"    v="50" />
+      <p n="DEFW"   v="1e-6" />
+      <p n="NARROW" v="0.0" />
+      <p n="SHORT"  v="0.0" />
+      <p n="TNOM"   v="27" />
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="0.0" />
+    </model>
+
+    <model type="L" name="Inductor" labelPosition="top">
+      <shape width="42" height="12">
+        <path d="M -21 0 h 8 m 26 0 h 8"/>
+        <path d="M -13 -6 h 26 v 12 h -26 v -12 z" fill="true"/>
+      </shape>
+      <pin name="A" x="-21" y="0"/>
+      <pin name="B" x="21" y="0"/>
+    </model>
+
+    <model type="L" name="DetailedInductor" labelPosition="top">
+      <shape width="42" height="12">
+        <path d="M -21 0 h 8 m 26 0 h 8"/>
+        <path d="M -13 -6 h 26 v 12 h -26 v -12 z" fill="true"/>
+      </shape>
+      <pin name="A" x="-21" y="0"/>
+      <pin name="B" x="21" y="0"/>
+      <p n="IND"    v="1m" />
+      <p n="CSECT"  v="1e-6" />
+      <p n="LENGTH" v="1e-2" />
+      <p n="TC1"    v="1e-3" />
+      <p n="TC2"    v="1e-4" />
+      <p n="TNOM"   v="27" />
+      <p n="NT"     v="50" />
+      <p n="MU"     v="3.98" />
+    </model>
+
+    <model type="L" name="InductorUS" labelPosition="top">
+      <shape width="42" height="12">
+        <path d="M -21 -6 h 8 v 6 m 6.5 0 v -6 m 6.5 0 v 6 m 6.5 0 v -6 m 6.5 6 v -6 h 8 m -8 6 a 3.25 3.25 0 0 1 -6.5 0 a 3.25 3.25 0 0 1 -6.5 0 a 3.25 3.25 0 0 1 -6.5 0 a 3.25 3.25 0 0 1 -6.5 0" />
+      </shape>
+      <pin name="A" x="-21" y="-6"/>
+      <pin name="B" x="21" y="-6"/>
+    </model>
+
+    <model type="L" name="DetailedInductorUS" labelPosition="top">
+      <shape width="42" height="12">
+        <path d="M -21 -6 h 8 v 6 m 6.5 0 v -6 m 6.5 0 v 6 m 6.5 0 v -6 m 6.5 6 v -6 h 8 m -8 6 a 3.25 3.25 0 0 1 -6.5 0 a 3.25 3.25 0 0 1 -6.5 0 a 3.25 3.25 0 0 1 -6.5 0 a 3.25 3.25 0 0 1 -6.5 0" />
+      </shape>
+      <pin name="A" x="-21" y="-6"/>
+      <pin name="B" x="21" y="-6"/>
+      <p n="IND"    v="1m" />
+      <p n="CSECT"  v="1e-6" />
+      <p n="LENGTH" v="1e-2" />
+      <p n="TC1"    v="1e-3" />
+      <p n="TC2"    v="1e-4" />
+      <p n="TNOM"   v="27" />
+      <p n="NT"     v="50" />
+      <p n="MU"     v="3.98" />
+    </model>
+
+    <model type="LM" name="MutualInductor" labelPosition="top">
+      <shape width="36" height="42">
+        <path d="M -18 -13 h 12 v 26 h -12 z"/>
+        <path d="M 6 -13 h 12 v 26 h -12 z"/>
+        <path d="M -12 21 v -8 m 0 -26 v -8 m 24 0 v 8 m 0 26 v 8 m -10 -8 v -26 m -4 0 v 26"/>
+        <circle cx="-7" cy="19" r="2" fill="true"/>
+      </shape>
+      <pin name="L1+" x="-12" y="21"/>
+      <pin name="L1-" x="-12" y="-21"/>
+      <pin name="L2+" x="12" y="21"/>
+      <pin name="L2-" x="12" y="-21"/>
+    </model>
+    
+    <model type="LM" name="MutualInductorUS" labelPosition="top">
+      <shape width="36" height="42">
+        <path d="M -18 21 v -8 h 6 m 0 -6.5 h -6 m 0 -6.5 h 6 m 0 -6.5 h -6 m 6 -6.5 h -6 v -8 m 6 8 a 3.25 3.25 0 0 1 0 6.5 a 3.25 3.25 0 0 1 0 6.5 a 3.25 3.25 0 0 1 0 6.5 a 3.25 3.25 0 0 1 0 6.5"/>
+        <path d="M 18 21 v -8 h -6 m 0 -6.5 h 6 m 0 -6.5 h -6 m 0 -6.5 h 6 m -6 -6.5 h 6 v -8 m -6 8 a 3.25 3.25 0 0 0 0 6.5 a 3.25 3.25 0 0 0 0 6.5 a 3.25 3.25 0 0 0 0 6.5 a 3.25 3.25 0 0 0 0 6.5"/>
+        <path d="M 2 13 v -26 m -4 0 v 26"/>
+        <circle cx="-14" cy="19" r="2" fill="true"/>
+      </shape>
+      <pin name="L1+" x="-18" y="21"/>
+      <pin name="L1-" x="-18" y="-21"/>
+      <pin name="L2+" x="18" y="21"/>
+      <pin name="L2-" x="18" y="-21"/>
+    </model>
+    
+    <model type="C" name="Capacitor" labelPosition="top">
+      <shape width="32" height="24">
+        <path d="M -16 0 h 13 m 6 0 h 13 m -19 -12 v 24 m 6 0 v -24"/>
+      </shape>
+      <pin name="A" x="-16" y="0"/>
+      <pin name="B" x="16" y="0"/>
+    </model>
+
+    <model type="C" subtype="SEMI" name="SemiconductorCapacitor" labelPosition="top">
+      <shape width="32" height="24">
+        <path d="M -16 0 h 13 m 6 0 h 13 m -19 -12 v 24 m 6 0 v -24"/>
+      </shape>
+      <pin name="A" x="-16" y="0"/>
+      <pin name="B" x="16" y="0"/>
+      <p n="CAP"    v="1e-6" />
+      <p n="CJ"     v="5e-5" />
+      <p n="CJSW"   v="2e-11" />
+      <p n="DEFW"   v="1e-6" />
+      <p n="DEFL"   v="0.0" />
+      <p n="NARROW" v="0.0" />
+      <p n="SHORT"  v="0.0" />
+      <p n="TC1"    v="0.0" />
+      <p n="TC2"    v="0.0" />
+      <p n="TNOM"   v="27" />
+      <p n="DI"     v="1" />
+      <p n="THICK"  v="0.0" />
+    </model>
+
+    <!--
+     Uses modified Gummel-Poon device model for BJTs level 1, 2, and 4.
+     -->
+    <model type="BJT" subtype="NPN" name="DefaultNPN" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 0 h 16 m 0 -12 v 24 m 0 -6 l 16 6 v 4 m -16 -22 l 16 -6 v -4"/>
+        <path d="M 10 -6 l 6 -6 h -8 z" fill="true"/>
+      </shape>
+      <pin name="Base" x="-16" y="0"/>
+      <pin name="Collector" x="16" y="16"/>
+      <pin name="Emitter" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="SUBS"   v="" />          <!-- for level 2 only -->
+      <p n="IS"     v="1.0e-16" />
+      <p n="ISS"    v="" />          <!-- for level 2 only -->
+      <p n="BF"     v="100" />
+      <p n="NF"     v="1.0" />
+      <p n="VAF"    v="" />
+      <p n="IKF"    v="" />
+      <p n="ISE"    v="0.0" />
+      <p n="NE"     v="1.5" />
+      <p n="BR"     v="1" />
+      <p n="NR"     v="1" />
+      <p n="VAR"    v="" />
+      <p n="IKR"    v="" />
+      <p n="ISC"    v="0.0" />
+      <p n="NC"     v="2" />
+      <p n="RB"     v="0" />
+      <p n="IRB"    v="" />
+      <p n="RBM"    v="0" />
+      <p n="RE"     v="0" />
+      <p n="RC"     v="0" />
+      <p n="CJE"    v="0" />
+      <p n="VJE"    v="0.75" />
+      <p n="MJE"    v="0.33" />
+      <p n="TF"     v="0" />
+      <p n="XTF"    v="0" />
+      <p n="VTF"    v="" />
+      <p n="ITF"    v="0" />
+      <p n="PTF"    v="0" />
+      <p n="CJC"    v="0" />
+      <p n="VJC"    v="0.75" />
+      <p n="MJC"    v="0.33" />
+      <p n="XCJC"   v="1" />
+      <p n="TR"     v="0" />
+      <p n="CJS"    v="0" />
+      <p n="VJS"    v="0.75" />
+      <p n="MJS"    v="0" />
+      <p n="XTB"    v="0" />
+      <p n="EG"     v="1.11" />
+      <p n="XTI"    v="3" />
+      <p n="KF"     v="0" />
+      <p n="AF"     v="1" />
+      <p n="FC"     v="0.5" />
+      <p n="TNOM"   v="0.0" />
+      <p n="TRE1"   v="" />         <!-- for level 2 only -->
+      <p n="TRE2"   v="" />         <!-- for level 2 only -->
+      <p n="TRC1"   v="" />         <!-- for level 2 only -->
+      <p n="TRC2"   v="" />         <!-- for level 2 only -->
+      <p n="TRB1"   v="" />         <!-- for level 2 only -->
+      <p n="TRB2"   v="" />         <!-- for level 2 only -->
+      <p n="TRBM1"  v="" />         <!-- for level 2 only -->
+      <p n="TRBM2"  v="" />         <!-- for level 2 only -->
+    </model>
+    
+    <!--
+     Uses modified Gummel-Poon device model for BJTs level 1, 2, and 4.
+     -->
+    <model type="BJT" subtype="PNP" name="DefaultPNP" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 0 h 16 m 0 -12 v 24 m 0 -6 l 16 6 v 4 m -16 -22 l 16 -6 v -4"/>
+        <path d="M 0 -6 h 8 l -2 -6 z" fill="true"/>
+      </shape>
+      <pin name="Base" x="-16" y="0"/>
+      <pin name="Collector" x="16" y="16"/>
+      <pin name="Emitter" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="SUBS"   v="" />          <!-- for level 2 only -->
+      <p n="IS"     v="1.0e-16" />
+      <p n="ISS"    v="" />          <!-- for level 2 only -->
+      <p n="BF"     v="100" />
+      <p n="NF"     v="1.0" />
+      <p n="VAF"    v="" />
+      <p n="IKF"    v="" />
+      <p n="ISE"    v="0.0" />
+      <p n="NE"     v="1.5" />
+      <p n="BR"     v="1" />
+      <p n="NR"     v="1" />
+      <p n="VAR"    v="" />
+      <p n="IKR"    v="" />
+      <p n="ISC"    v="0.0" />
+      <p n="NC"     v="2" />
+      <p n="RB"     v="0" />
+      <p n="IRB"    v="" />
+      <p n="RBM"    v="0" />
+      <p n="RE"     v="0" />
+      <p n="RC"     v="0" />
+      <p n="CJE"    v="0" />
+      <p n="VJE"    v="0.75" />
+      <p n="MJE"    v="0.33" />
+      <p n="TF"     v="0" />
+      <p n="XTF"    v="0" />
+      <p n="VTF"    v="" />
+      <p n="ITF"    v="0" />
+      <p n="PTF"    v="0" />
+      <p n="CJC"    v="0" />
+      <p n="VJC"    v="0.75" />
+      <p n="MJC"    v="0.33" />
+      <p n="XCJC"   v="1" />
+      <p n="TR"     v="0" />
+      <p n="CJS"    v="0" />
+      <p n="VJS"    v="0.75" />
+      <p n="MJS"    v="0" />
+      <p n="XTB"    v="0" />
+      <p n="EG"     v="1.11" />
+      <p n="XTI"    v="3" />
+      <p n="KF"     v="0" />
+      <p n="AF"     v="1" />
+      <p n="FC"     v="0.5" />
+      <p n="TNOM"   v="0.0" />
+      <p n="TRE1"   v="" />         <!-- for level 2 only -->
+      <p n="TRE2"   v="" />         <!-- for level 2 only -->
+      <p n="TRC1"   v="" />         <!-- for level 2 only -->
+      <p n="TRC2"   v="" />         <!-- for level 2 only -->
+      <p n="TRB1"   v="" />         <!-- for level 2 only -->
+      <p n="TRB2"   v="" />         <!-- for level 2 only -->
+      <p n="TRBM1"  v="" />         <!-- for level 2 only -->
+      <p n="TRBM2"  v="" />         <!-- for level 2 only -->
+    </model>
+    
+    <!-- Parker and Skellern model for JFET. Level 1 -->
+    <model type="JFET" subtype="NJF" name="DefaultNJFET" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 0 h 16 m 0 -12 v 24 m 0 -4 h 16 v 8 m -16 -24 h 16 v -8"/>
+        <path d="M -4 0 l -6.5 3.5 v -7 z" fill="true"/>
+      </shape>
+      <pin name="Gate" x="-16" y="0"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="-2.0" />
+      <p n="BETA"   v="1.0e-4" />
+      <p n="LAMBDA" v="0" />
+      <p n="RD"     v="0" />
+      <p n="RS"     v="0" />
+      <p n="CGS"    v="0" />
+      <p n="CGD"    v="0" />
+      <p n="PB"     v="1" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="B"      v="1" />
+      <p n="KF"     v="0" />
+      <p n="AF"     v="1" />
+      <p n="FC"     v="0.5" />
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!-- Parker and Skellern model for JFET. Level 1 -->
+    <model type="JFET" subtype="PJF" name="DefaultPJFET" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 0 h 16 m 0 -12 v 24 m 0 -4 h 16 v 8 m -16 -24 h 16 v -8"/>
+        <path d="M -11 0 l 6.5 3.5 v -7 z" fill="true"/>
+      </shape>
+      <pin name="Gate" x="-16" y="0"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <p n="LEVEL" v="1" />
+      <p n="VTO"    v="-2.0" />
+      <p n="BETA"   v="1.0e-4" />
+      <p n="LAMBDA" v="0" />
+      <p n="RD"     v="0" />
+      <p n="RS"     v="0" />
+      <p n="CGS"    v="0" />
+      <p n="CGD"    v="0" />
+      <p n="PB"     v="1" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="B"      v="1" />
+      <p n="KF"     v="0" />
+      <p n="AF"     v="1" />
+      <p n="FC"     v="0.5" />
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!-- MESFET model by Statz. Level 1. -->
+    <model type="MESFET" subtype="NMF" name="DefaultNMESFET" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 0 h 16 m 2 8 h 14 v 8 m -14 -24 h 14 v -8"/>
+        <path d="M 0 -12 h 3 v 24 h -3 v -24 z" fill="true" />
+        <path d="M -4 0 l -6.5 3.5 v -7 z" fill="true"/>
+      </shape>
+      <pin name="Gate" x="-16" y="0"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="-2.0" />
+      <p n="BETA"   v="1.0e-4" />
+      <p n="B"      v="0.3" />
+      <p n="ALPHA"  v="2" />
+      <p n="LAMBDA" v="0" />
+      <p n="RD"     v="0" />
+      <p n="RS"     v="0" />
+      <p n="CGS"    v="0" />
+      <p n="CGD"    v="0" />
+      <p n="PB"     v="1" />
+      <p n="KF"     v="0" />      
+      <p n="AF"     v="1" />
+      <p n="FC"     v="0.5" />
+    </model>
+    
+    <!-- MESFET model by Statz. Level 1. -->
+    <model type="MESFET" subtype="PMF" name="DefaultPMESFET" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 0 h 16 m 2 8 h 14 v 8 m -14 -24 h 14 v -8"/>
+        <path d="M 0 -12 h 3 v 24 h -3 v -24 z" fill="true" />
+        <path d="M -11 0 l 6.5 3.5 v -7 z" fill="true"/>
+      </shape>
+      <pin name="Gate" x="-16" y="0"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="-2.0" />
+      <p n="BETA"   v="1.0e-4" />
+      <p n="B"      v="0.3" />
+      <p n="ALPHA"  v="2" />
+      <p n="LAMBDA" v="0" />
+      <p n="RD"     v="0" />
+      <p n="RS"     v="0" />
+      <p n="CGS"    v="0" />
+      <p n="CGD"    v="0" />
+      <p n="PB"     v="1" />
+      <p n="KF"     v="0" />      
+      <p n="AF"     v="1" />
+      <p n="FC"     v="0.5" />
+    </model>
+    
+    <!--
+     Depletion type N-channel MOSFET
+     MOSFET models. Levels 1, 2, 3, and 6.
+     -->    
+    <model type="MOSFET" subtype="NMOS" name="DepletionNMOSFET" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 -11 h 16 v 22 m 4 -3 h 12 v 8 m -12 -16 h 12 v -16 m -12 8 h 12"/>
+        <path d="M 3 -12 h 2 v 24 h -2 v -24 z" fill="true" />
+        <path d="M 5 0 l 6 3 v -6 z" fill="true" />
+      </shape>
+      <pin name="Gate" x="-16" y="-11"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="0.0" />
+      <p n="KP"     v="2.0e-5" />
+      <p n="GAMMA"  v="0.0" />
+      <p n="PHI"    v="0.6" />
+      <p n="LAMBDA" v="0.0" />
+      <p n="RD"     v="0.0" />
+      <p n="RS"     v="0.0" />
+      <p n="CBD"    v="0.0" />
+      <p n="CBS"    v="0.0" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="PB"     v="0.8" />
+      <p n="CGSO"   v="0.0" />
+      <p n="CGDO"   v="0.0" />
+      <p n="CGBO"   v="0.0" />
+      <p n="RSH"    v="0.0" />
+      <p n="CJ"     v="0.0" />
+      <p n="MJ"     v="0.5" />
+      <p n="CJSW"   v="0.0" />
+      <p n="MJSW"   v="0.50" />
+      <p n="JS"     v="" />
+      <p n="TOX"    v="1.0e-7" />
+      <p n="NSUB"   v="1.0e15" />
+      <p n="NSS"    v="1.0e10" />
+      <p n="NFS"    v="" /> <!-- not in level 1 -->
+      <p n="TPG"    v="1.0" />
+      <p n="XJ"     v="" /> <!-- not in level 1 -->
+      <p n="LD"     v="0.0" />
+      <p n="UO"     v="600" />
+      <p n="UCRIT"  v="" /> <!-- not in level 1 -->
+      <p n="UEXP"   v="" /> <!-- not in level 1 -->
+      <p n="UTRA"   v="" /> <!-- not in level 1 -->
+      <p n="VMAX"   v="" /> <!-- not in level 1 -->
+      <p n="NEFF"   v="" /> <!-- not in level 1 -->
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="1.0" />
+      <p n="FC"     v="0.5" />
+      <p n="DELTA"  v="" /> <!-- not in level 1 -->
+      <p n="THETA"  v="" /> <!-- not in level 1 -->
+      <p n="ETA"    v="" /> <!-- not in level 1 -->
+      <p n="KAPPA"  v="" /> <!-- not in level 1 -->
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!--
+     Depletion type P-channel MOSFET
+     MOSFET models. Levels 1, 2, 3, and 6.
+     -->    
+    <model type="MOSFET" subtype="PMOS" name="DepletionPMOSFET" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 -11 h 16 v 22 m 4 -3 h 12 v 8 m -12 -16 h 12 v -16 m -12 8 h 12"/>
+        <path d="M 3 -12 h 2 v 24 h -2 v -24 z" fill="true" />
+        <path d="M 15 0 l -6 3 v -6 z" fill="true" />
+      </shape>
+      <pin name="Gate" x="-16" y="-11"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="0.0" />
+      <p n="KP"     v="2.0e-5" />
+      <p n="GAMMA"  v="0.0" />
+      <p n="PHI"    v="0.6" />
+      <p n="LAMBDA" v="0.0" />
+      <p n="RD"     v="0.0" />
+      <p n="RS"     v="0.0" />
+      <p n="CBD"    v="0.0" />
+      <p n="CBS"    v="0.0" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="PB"     v="0.8" />
+      <p n="CGSO"   v="0.0" />
+      <p n="CGDO"   v="0.0" />
+      <p n="CGBO"   v="0.0" />
+      <p n="RSH"    v="0.0" />
+      <p n="CJ"     v="0.0" />
+      <p n="MJ"     v="0.5" />
+      <p n="CJSW"   v="0.0" />
+      <p n="MJSW"   v="0.50" />
+      <p n="JS"     v="" />
+      <p n="TOX"    v="1.0e-7" />
+      <p n="NSUB"   v="1.0e15" />
+      <p n="NSS"    v="1.0e10" />
+      <p n="NFS"    v="" /> <!-- not in level 1 -->
+      <p n="TPG"    v="1.0" />
+      <p n="XJ"     v="" /> <!-- not in level 1 -->
+      <p n="LD"     v="0.0" />
+      <p n="UO"     v="600" />
+      <p n="UCRIT"  v="" /> <!-- not in level 1 -->
+      <p n="UEXP"   v="" /> <!-- not in level 1 -->
+      <p n="UTRA"   v="" /> <!-- not in level 1 -->
+      <p n="VMAX"   v="" /> <!-- not in level 1 -->
+      <p n="NEFF"   v="" /> <!-- not in level 1 -->
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="1.0" />
+      <p n="FC"     v="0.5" />
+      <p n="DELTA"  v="" /> <!-- not in level 1 -->
+      <p n="THETA"  v="" /> <!-- not in level 1 -->
+      <p n="ETA"    v="" /> <!-- not in level 1 -->
+      <p n="KAPPA"  v="" /> <!-- not in level 1 -->
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!-- Enhancement type N-channel MOSFET -->
+    <model type="MOSFET" subtype="NMOS" name="EnhancementNMOSFET" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 -11 h 16 v 22 m 4 -3 h 12 v 8 m -12 -16 h 12 v -16 m -12 8 h 12" />
+        <path d="M 3 -12 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 3 -3 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 3 6 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 5 0 l 6 3 v -6 z" fill="true" />
+      </shape>
+      <pin name="Gate" x="-16" y="-11"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="0.0" />
+      <p n="KP"     v="2.0e-5" />
+      <p n="GAMMA"  v="0.0" />
+      <p n="PHI"    v="0.6" />
+      <p n="LAMBDA" v="0.0" />
+      <p n="RD"     v="0.0" />
+      <p n="RS"     v="0.0" />
+      <p n="CBD"    v="0.0" />
+      <p n="CBS"    v="0.0" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="PB"     v="0.8" />
+      <p n="CGSO"   v="0.0" />
+      <p n="CGDO"   v="0.0" />
+      <p n="CGBO"   v="0.0" />
+      <p n="RSH"    v="0.0" />
+      <p n="CJ"     v="0.0" />
+      <p n="MJ"     v="0.5" />
+      <p n="CJSW"   v="0.0" />
+      <p n="MJSW"   v="0.50" />
+      <p n="JS"     v="" />
+      <p n="TOX"    v="1.0e-7" />
+      <p n="NSUB"   v="1.0e15" />
+      <p n="NSS"    v="1.0e10" />
+      <p n="NFS"    v="" /> <!-- not in level 1 -->
+      <p n="TPG"    v="1.0" />
+      <p n="XJ"     v="" /> <!-- not in level 1 -->
+      <p n="LD"     v="0.0" />
+      <p n="UO"     v="600" />
+      <p n="UCRIT"  v="" /> <!-- not in level 1 -->
+      <p n="UEXP"   v="" /> <!-- not in level 1 -->
+      <p n="UTRA"   v="" /> <!-- not in level 1 -->
+      <p n="VMAX"   v="" /> <!-- not in level 1 -->
+      <p n="NEFF"   v="" /> <!-- not in level 1 -->
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="1.0" />
+      <p n="FC"     v="0.5" />
+      <p n="DELTA"  v="" /> <!-- not in level 1 -->
+      <p n="THETA"  v="" /> <!-- not in level 1 -->
+      <p n="ETA"    v="" /> <!-- not in level 1 -->
+      <p n="KAPPA"  v="" /> <!-- not in level 1 -->
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!-- Enhancement type P-channel MOSFET -->
+    <model type="MOSFET" subtype="PMOS" name="EnhancementPMOSFET" labelPosition="right">
+      <shape width="32" height="32">
+        <path d="M -16 -11 h 16 v 22 m 4 -3 h 12 v 8 m -12 -16 h 12 v -16 m -12 8 h 12" />
+        <path d="M 3 -12 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 3 -3 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 3 6 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 15 0 l -6 3 v -6 z" fill="true" />
+      </shape>
+      <pin name="Gate" x="-16" y="-11"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="0.0" />
+      <p n="KP"     v="2.0e-5" />
+      <p n="GAMMA"  v="0.0" />
+      <p n="PHI"    v="0.6" />
+      <p n="LAMBDA" v="0.0" />
+      <p n="RD"     v="0.0" />
+      <p n="RS"     v="0.0" />
+      <p n="CBD"    v="0.0" />
+      <p n="CBS"    v="0.0" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="PB"     v="0.8" />
+      <p n="CGSO"   v="0.0" />
+      <p n="CGDO"   v="0.0" />
+      <p n="CGBO"   v="0.0" />
+      <p n="RSH"    v="0.0" />
+      <p n="CJ"     v="0.0" />
+      <p n="MJ"     v="0.5" />
+      <p n="CJSW"   v="0.0" />
+      <p n="MJSW"   v="0.50" />
+      <p n="JS"     v="" />
+      <p n="TOX"    v="1.0e-7" />
+      <p n="NSUB"   v="1.0e15" />
+      <p n="NSS"    v="1.0e10" />
+      <p n="NFS"    v="" /> <!-- not in level 1 -->
+      <p n="TPG"    v="1.0" />
+      <p n="XJ"     v="" /> <!-- not in level 1 -->
+      <p n="LD"     v="0.0" />
+      <p n="UO"     v="600" />
+      <p n="UCRIT"  v="" /> <!-- not in level 1 -->
+      <p n="UEXP"   v="" /> <!-- not in level 1 -->
+      <p n="UTRA"   v="" /> <!-- not in level 1 -->
+      <p n="VMAX"   v="" /> <!-- not in level 1 -->
+      <p n="NEFF"   v="" /> <!-- not in level 1 -->
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="1.0" />
+      <p n="FC"     v="0.5" />
+      <p n="DELTA"  v="" /> <!-- not in level 1 -->
+      <p n="THETA"  v="" /> <!-- not in level 1 -->
+      <p n="ETA"    v="" /> <!-- not in level 1 -->
+      <p n="KAPPA"  v="" /> <!-- not in level 1 -->
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!-- Depletion type N-channel MOSFET with bulk connector -->
+    <model type="MOSFET" subtype="NMOS" name="DepletionNMOSFETWithBulk" labelPosition="left">
+      <shape width="32" height="32">
+        <path d="M -16 -11 h 16 v 22 m 4 -3 h 12 v 8 m -12 -16 h 12 m 0 -8 v -8 m -12 8 h 12" />
+        <path d="M 3 -12 h 2 v 24 h -2 v -24 z" fill="true" />
+        <path d="M 5 0 l 6 3 v -6 z" fill="true" />
+      </shape>
+      <pin name="Gate" x="-16" y="-11"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <pin name="Bulk" x="16" y="0"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="0.0" />
+      <p n="KP"     v="2.0e-5" />
+      <p n="GAMMA"  v="0.0" />
+      <p n="PHI"    v="0.6" />
+      <p n="LAMBDA" v="0.0" />
+      <p n="RD"     v="0.0" />
+      <p n="RS"     v="0.0" />
+      <p n="CBD"    v="0.0" />
+      <p n="CBS"    v="0.0" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="PB"     v="0.8" />
+      <p n="CGSO"   v="0.0" />
+      <p n="CGDO"   v="0.0" />
+      <p n="CGBO"   v="0.0" />
+      <p n="RSH"    v="0.0" />
+      <p n="CJ"     v="0.0" />
+      <p n="MJ"     v="0.5" />
+      <p n="CJSW"   v="0.0" />
+      <p n="MJSW"   v="0.50" />
+      <p n="JS"     v="" />
+      <p n="TOX"    v="1.0e-7" />
+      <p n="NSUB"   v="1.0e15" />
+      <p n="NSS"    v="1.0e10" />
+      <p n="NFS"    v="" /> <!-- not in level 1 -->
+      <p n="TPG"    v="1.0" />
+      <p n="XJ"     v="" /> <!-- not in level 1 -->
+      <p n="LD"     v="0.0" />
+      <p n="UO"     v="600" />
+      <p n="UCRIT"  v="" /> <!-- not in level 1 -->
+      <p n="UEXP"   v="" /> <!-- not in level 1 -->
+      <p n="UTRA"   v="" /> <!-- not in level 1 -->
+      <p n="VMAX"   v="" /> <!-- not in level 1 -->
+      <p n="NEFF"   v="" /> <!-- not in level 1 -->
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="1.0" />
+      <p n="FC"     v="0.5" />
+      <p n="DELTA"  v="" /> <!-- not in level 1 -->
+      <p n="THETA"  v="" /> <!-- not in level 1 -->
+      <p n="ETA"    v="" /> <!-- not in level 1 -->
+      <p n="KAPPA"  v="" /> <!-- not in level 1 -->
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!-- Depletion type P-channel MOSFET with bulk connector -->
+    <model type="MOSFET" subtype="PMOS" name="DepletionPMOSFETWithBulk" labelPosition="left">
+      <shape width="32" height="32">
+        <path d="M -16 -11 h 16 v 22 m 4 -3 h 12 v 8 m -12 -16 h 12 m 0 -8 v -8 m -12 8 h 12" />
+        <path d="M 3 -12 h 2 v 24 h -2 v -24 z" fill="true" />
+        <path d="M 15 0 l -6 3 v -6 z" fill="true" />
+      </shape>
+      <pin name="Gate" x="-16" y="-11"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <pin name="Bulk" x="16" y="0"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="0.0" />
+      <p n="KP"     v="2.0e-5" />
+      <p n="GAMMA"  v="0.0" />
+      <p n="PHI"    v="0.6" />
+      <p n="LAMBDA" v="0.0" />
+      <p n="RD"     v="0.0" />
+      <p n="RS"     v="0.0" />
+      <p n="CBD"    v="0.0" />
+      <p n="CBS"    v="0.0" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="PB"     v="0.8" />
+      <p n="CGSO"   v="0.0" />
+      <p n="CGDO"   v="0.0" />
+      <p n="CGBO"   v="0.0" />
+      <p n="RSH"    v="0.0" />
+      <p n="CJ"     v="0.0" />
+      <p n="MJ"     v="0.5" />
+      <p n="CJSW"   v="0.0" />
+      <p n="MJSW"   v="0.50" />
+      <p n="JS"     v="" />
+      <p n="TOX"    v="1.0e-7" />
+      <p n="NSUB"   v="1.0e15" />
+      <p n="NSS"    v="1.0e10" />
+      <p n="NFS"    v="" /> <!-- not in level 1 -->
+      <p n="TPG"    v="1.0" />
+      <p n="XJ"     v="" /> <!-- not in level 1 -->
+      <p n="LD"     v="0.0" />
+      <p n="UO"     v="600" />
+      <p n="UCRIT"  v="" /> <!-- not in level 1 -->
+      <p n="UEXP"   v="" /> <!-- not in level 1 -->
+      <p n="UTRA"   v="" /> <!-- not in level 1 -->
+      <p n="VMAX"   v="" /> <!-- not in level 1 -->
+      <p n="NEFF"   v="" /> <!-- not in level 1 -->
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="1.0" />
+      <p n="FC"     v="0.5" />
+      <p n="DELTA"  v="" /> <!-- not in level 1 -->
+      <p n="THETA"  v="" /> <!-- not in level 1 -->
+      <p n="ETA"    v="" /> <!-- not in level 1 -->
+      <p n="KAPPA"  v="" /> <!-- not in level 1 -->
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!-- Enhancement type N-channel MOSFET with bulk connector -->
+    <model type="MOSFET" subtype="NMOS" name="EnhancementNMOSFETWithBulk" labelPosition="left">
+      <shape width="32" height="32">
+        <path d="M -16 -11 h 16 v 22 m 4 -3 h 12 v 8 m -12 -16 h 12 m 0 -8 v -8 m -12 8 h 12" />
+        <path d="M 3 -12 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 3 -3 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 3 6 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 5 0 l 6 3 v -6 z" fill="true" />
+      </shape>
+      <pin name="Gate" x="-16" y="-11"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <pin name="Bulk" x="16" y="0"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="0.0" />
+      <p n="KP"     v="2.0e-5" />
+      <p n="GAMMA"  v="0.0" />
+      <p n="PHI"    v="0.6" />
+      <p n="LAMBDA" v="0.0" />
+      <p n="RD"     v="0.0" />
+      <p n="RS"     v="0.0" />
+      <p n="CBD"    v="0.0" />
+      <p n="CBS"    v="0.0" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="PB"     v="0.8" />
+      <p n="CGSO"   v="0.0" />
+      <p n="CGDO"   v="0.0" />
+      <p n="CGBO"   v="0.0" />
+      <p n="RSH"    v="0.0" />
+      <p n="CJ"     v="0.0" />
+      <p n="MJ"     v="0.5" />
+      <p n="CJSW"   v="0.0" />
+      <p n="MJSW"   v="0.50" />
+      <p n="JS"     v="" />
+      <p n="TOX"    v="1.0e-7" />
+      <p n="NSUB"   v="1.0e15" />
+      <p n="NSS"    v="1.0e10" />
+      <p n="NFS"    v="" /> <!-- not in level 1 -->
+      <p n="TPG"    v="1.0" />
+      <p n="XJ"     v="" /> <!-- not in level 1 -->
+      <p n="LD"     v="0.0" />
+      <p n="UO"     v="600" />
+      <p n="UCRIT"  v="" /> <!-- not in level 1 -->
+      <p n="UEXP"   v="" /> <!-- not in level 1 -->
+      <p n="UTRA"   v="" /> <!-- not in level 1 -->
+      <p n="VMAX"   v="" /> <!-- not in level 1 -->
+      <p n="NEFF"   v="" /> <!-- not in level 1 -->
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="1.0" />
+      <p n="FC"     v="0.5" />
+      <p n="DELTA"  v="" /> <!-- not in level 1 -->
+      <p n="THETA"  v="" /> <!-- not in level 1 -->
+      <p n="ETA"    v="" /> <!-- not in level 1 -->
+      <p n="KAPPA"  v="" /> <!-- not in level 1 -->
+      <p n="TNOM"   v="27" />
+    </model>
+    
+    <!-- Enhancement type P-channel MOSFET with bulk connector -->
+    <model type="MOSFET" subtype="PMOS" name="EnhancementPMOSFETWithBulk" labelPosition="left">
+      <shape width="32" height="32">
+        <path d="M -16 -11 h 16 v 22 m 4 -3 h 12 v 8 m -12 -16 h 12 m 0 -8 v -8 m -12 8 h 12" />
+        <path d="M 3 -12 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 3 -3 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 3 6 h 2 v 6 h -2 v -6 z" fill="true" />
+        <path d="M 15 0 l -6 3 v -6 z" fill="true" />
+      </shape>
+      <pin name="Gate" x="-16" y="-11"/>
+      <pin name="Drain" x="16" y="16"/>
+      <pin name="Source" x="16" y="-16"/>
+      <pin name="Bulk" x="16" y="0"/>
+      <p n="LEVEL"  v="1" />
+      <p n="VTO"    v="0.0" />
+      <p n="KP"     v="2.0e-5" />
+      <p n="GAMMA"  v="0.0" />
+      <p n="PHI"    v="0.6" />
+      <p n="LAMBDA" v="0.0" />
+      <p n="RD"     v="0.0" />
+      <p n="RS"     v="0.0" />
+      <p n="CBD"    v="0.0" />
+      <p n="CBS"    v="0.0" />
+      <p n="IS"     v="1.0e-14" />
+      <p n="PB"     v="0.8" />
+      <p n="CGSO"   v="0.0" />
+      <p n="CGDO"   v="0.0" />
+      <p n="CGBO"   v="0.0" />
+      <p n="RSH"    v="0.0" />
+      <p n="CJ"     v="0.0" />
+      <p n="MJ"     v="0.5" />
+      <p n="CJSW"   v="0.0" />
+      <p n="MJSW"   v="0.50" />
+      <p n="JS"     v="" />
+      <p n="TOX"    v="1.0e-7" />
+      <p n="NSUB"   v="1.0e15" />
+      <p n="NSS"    v="1.0e10" />
+      <p n="NFS"    v="" /> <!-- not in level 1 -->
+      <p n="TPG"    v="1.0" />
+      <p n="XJ"     v="" /> <!-- not in level 1 -->
+      <p n="LD"     v="0.0" />
+      <p n="UO"     v="600" />
+      <p n="UCRIT"  v="" /> <!-- not in level 1 -->
+      <p n="UEXP"   v="" /> <!-- not in level 1 -->
+      <p n="UTRA"   v="" /> <!-- not in level 1 -->
+      <p n="VMAX"   v="" /> <!-- not in level 1 -->
+      <p n="NEFF"   v="" /> <!-- not in level 1 -->
+      <p n="KF"     v="0.0" />
+      <p n="AF"     v="1.0" />
+      <p n="FC"     v="0.5" />
+      <p n="DELTA"  v="" /> <!-- not in level 1 -->
+      <p n="THETA"  v="" /> <!-- not in level 1 -->
+      <p n="ETA"    v="" /> <!-- not in level 1 -->
+      <p n="KAPPA"  v="" /> <!-- not in level 1 -->
+      <p n="TNOM"   v="27" />
+    </model>
+
+    <model type="SW" subtype="SW" name="VoltageControlledSwitch" labelPosition="top">
+      <shape width="36" height="20">
+        <path d="M -18 6 h 12 m 12 0 h 12 m -6 -6 h -24 m 6 0 v -10 m 12 0 v 10 m -17 -3 v -5 m -2.5 2.5 h 5 m 17.5 0 h 4" />
+        <circle cx="-6" cy="6" r="2" fill="true" />
+        <circle cx="6" cy="6" r="2" fill="true" />
+      </shape>
+      <pin name="Terminal1" x="-18" y="6"/>
+      <pin name="Terminal2" x="18" y="6"/>
+      <pin name="ControlPlus" x="-6" y="-10"/>
+      <pin name="ControlMinus" x="6" y="-10"/>
+      <p n="VT" v="0.0" />
+      <p n="IT" v="0.0" />
+      <p n="VH" v="0.0" />
+      <p n="IH" v="0.0" />
+      <p n="RON" v="1.0" />
+      <p n="ROFF" v="" />
+    </model>
+
+    <model type="SW" subtype="CSW" name="CurrentControlledSwitch" labelPosition="top">
+      <shape width="36" height="20">
+        <path d="M -18 6 h 12 m 12 0 h 12 m -6 -6 h -24 m 6 -6 h 12" />
+        <path d="M 6 -6 l -4 4 v -8 l 4 4 z" fill="true" />
+        <circle cx="-6" cy="6" r="2" fill="true" />
+        <circle cx="6" cy="6" r="2" fill="true" />
+      </shape>
+      <pin name="Terminal1" x="-18" y="6"/>
+      <pin name="Terminal2" x="18" y="6"/>
+      <p n="VT" v="0.0" />
+      <p n="IT" v="0.0" />
+      <p n="VH" v="0.0" />
+      <p n="IH" v="0.0" />
+      <p n="RON" v="1.0" />
+      <p n="ROFF" v="" />
+    </model>
+
+    <model type="D" name="DefaultDiode" labelPosition="bottom">
+      <shape width="32" height="14">
+        <path d="M -16 0 h 10 m 12 0 h 10 m -10 -7 v 14"/>
+        <path d="M -6 -6 v 12 l 12 -6 z"/>
+      </shape>
+      <pin name="Anode" x="-16" y="0"/>
+      <pin name="Cathode" x="16" y="0"/>
+      <p n="BV"   v="" />
+      <p n="IBV"  v="1.0e-3" />
+      <p n="IK"   v="1.0e-3" />
+      <p n="IKR"  v="1.0e-3" />
+      <p n="IS"   v="1.0e-14" />
+      <p n="JSW"  v="1.0e-14" />
+      <p n="N"    v="1" />
+      <p n="RS"   v="0.0" />
+      <p n="CJO"  v="0.0" />
+      <p n="CJP"  v="0.0" />
+      <p n="FC"   v="0.5" />
+      <p n="FCS"  v="0.5" />
+      <p n="M"    v="0.5" />
+      <p n="MJSW" v="0.33" />
+      <p n="VJ"   v="1" />
+      <p n="PHP"  v="1" />
+      <p n="TT"   v="0" />
+      <p n="EG"   v="1.11" />
+      <p n="TM1"  v="0.0" />
+      <p n="TM2"  v="0.0" />
+      <p n="TNOM" v="27" />
+      <p n="TRS"  v="0.0" />
+      <p n="TRS2" v="0.0" />
+      <p n="TTT1" v="0.0" />
+      <p n="TTT2" v="0.0" />
+      <p n="XTI"  v="3.0" />
+      <p n="KF"   v="0" />
+      <p n="AF"   v="1" />
+    </model>
+
+    <model type="D" name="ZenerDiode" labelPosition="bottom">
+      <shape width="32" height="16">
+        <path d="M -16 0 h 10 m 12 0 h 10 m -13 -8 h 4 v 16 h 4"/>
+        <path d="M -6 -6 v 12 l 12 -6 z"/>
+      </shape>
+      <pin name="Anode" x="-16" y="0"/>
+      <pin name="Cathode" x="16" y="0"/>
+      <p n="BV"   v="" />
+      <p n="IBV"  v="1.0e-3" />
+      <p n="IK"   v="1.0e-3" />
+      <p n="IKR"  v="1.0e-3" />
+      <p n="IS"   v="1.0e-14" />
+      <p n="JSW"  v="1.0e-14" />
+      <p n="N"    v="1" />
+      <p n="RS"   v="0.0" />
+      <p n="CJO"  v="0.0" />
+      <p n="CJP"  v="0.0" />
+      <p n="FC"   v="0.5" />
+      <p n="FCS"  v="0.5" />
+      <p n="M"    v="0.5" />
+      <p n="MJSW" v="0.33" />
+      <p n="VJ"   v="1" />
+      <p n="PHP"  v="1" />
+      <p n="TT"   v="0" />
+      <p n="EG"   v="1.11" />
+      <p n="TM1"  v="0.0" />
+      <p n="TM2"  v="0.0" />
+      <p n="TNOM" v="27" />
+      <p n="TRS"  v="0.0" />
+      <p n="TRS2" v="0.0" />
+      <p n="TTT1" v="0.0" />
+      <p n="TTT2" v="0.0" />
+      <p n="XTI"  v="3.0" />
+      <p n="KF"   v="0" />
+      <p n="AF"   v="1" />
+    </model>
+    
+    <model type="D" name="LED" labelPosition="bottom">
+      <shape width="32" height="24">
+        <path d="M -16 -6 h 10 m 12 0 h 10 m -10 -6.5 v 13 m -6 1 l 3 6.75 m 4 -6.75 l 3 6.75"/>
+        <path d="M -6 -12 v 12 l 12 -6 z"/>
+        <path d="M 5 12 v -6 l -5 2 z" fill="true"/>
+        <path d="M 12 12 v -6 l -5 2 z" fill="true"/>
+      </shape>
+      <pin name="Anode" x="-16" y="-6"/>
+      <pin name="Cathode" x="16" y="-6"/>
+      <p n="BV"   v="" />
+      <p n="IBV"  v="1.0e-3" />
+      <p n="IK"   v="1.0e-3" />
+      <p n="IKR"  v="1.0e-3" />
+      <p n="IS"   v="1.0e-14" />
+      <p n="JSW"  v="1.0e-14" />
+      <p n="N"    v="1" />
+      <p n="RS"   v="0.0" />
+      <p n="CJO"  v="0.0" />
+      <p n="CJP"  v="0.0" />
+      <p n="FC"   v="0.5" />
+      <p n="FCS"  v="0.5" />
+      <p n="M"    v="0.5" />
+      <p n="MJSW" v="0.33" />
+      <p n="VJ"   v="1" />
+      <p n="PHP"  v="1" />
+      <p n="TT"   v="0" />
+      <p n="EG"   v="1.11" />
+      <p n="TM1"  v="0.0" />
+      <p n="TM2"  v="0.0" />
+      <p n="TNOM" v="27" />
+      <p n="TRS"  v="0.0" />
+      <p n="TRS2" v="0.0" />
+      <p n="TTT1" v="0.0" />
+      <p n="TTT2" v="0.0" />
+      <p n="XTI"  v="3.0" />
+      <p n="KF"   v="0" />
+      <p n="AF"   v="1" />
+    </model>
+    
+    <model type="METER" subtype="VAC" name="VoltmeterAC" labelPosition="none">
+      <shape width="36" height="18">
+        <path d="M -18 0 l 15 9 h 21 v -18 h -21 l -15 9 z" />
+        <path d="M 0 0 c 0 5 7 5 7 0 c 0 -5 7 -5 7 0" />
+      </shape>
+      <pin name="Anode" x="-18" y="0"/>
+    </model>
+    
+    <model type="METER" subtype="VDC" name="VoltmeterDC" labelPosition="none">
+      <shape width="36" height="18">
+        <path d="M -18 0 l 15 9 h 21 v -18 h -21 l -15 9 z" />
+        <path d="M 0  3 h 14 v -2 h -14 v 2 z" fill="true" />
+        <path d="M 0 -3 h 4 m 1 0 h 4 m 1 0 h 4" />
+      </shape>
+      <pin name="Anode" x="-18" y="0"/>
+    </model>
+    
+    <model type="METER" subtype="VTRAN" name="VoltmeterTRAN" labelPosition="none">
+      <shape width="36" height="18">
+        <path d="M -18 0 l 15 9 h 21 v -18 h -21 l -15 9 z" />
+        <path d="M 0 4 h 5 c 2 0 2 -8 4 -8 h 5" />
+      </shape>
+      <pin name="Anode" x="-18" y="0"/>
+    </model>
+    
+    <model type="METER" subtype="AAC" name="AmmeterAC" labelPosition="none">
+      <shape width="40" height="36">
+        <path d="M -8 -18 v 6 m -6 7 l 6 12 l 6 -12 m -2 4 h -8 m 4 13 v 6" />
+        <path d="M 0.5 8.5 h 19.5 v -17 h -19.5" />
+        <path d="M 7 0 c 0 5 5 5 5 0 c 0 -5 5 -5 5 0" />
+        <circle cx="-8" cy="0" r="12" />
+      </shape>
+      <pin name="Anode" x="-8" y="18"/>
+      <pin name="Cathode" x="-8" y="-18"/>
+    </model>
+    
+    <model type="METER" subtype="ADC" name="AmmeterDC" labelPosition="none">
+      <shape width="40" height="36">
+        <path d="M -8 -18 v 6 m -6 7 l 6 12 l 6 -12 m -2 4 h -8 m 4 13 v 6" />
+        <path d="M 0.5 8.5 h 19.5 v -17 h -19.5" />
+        <path d="M 6  3 h 11 v -2 h -11 v 2 z" fill="true" />
+        <path d="M 6 -3 h 3 m 1 0 h 3 m 1 0 h 3" />
+        <circle cx="-8" cy="0" r="12" />
+      </shape>
+      <pin name="Anode" x="-8" y="18"/>
+      <pin name="Cathode" x="-8" y="-18"/>
+    </model>
+    
+    <model type="V" subtype="DC" name="DCVoltage" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -6 v -8 m 0 -18 v -8 m -4 30 h 8 m 0 -14 h -8" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="Anode" x="0" y="24"/>
+      <pin name="Cathode" x="0" y="-24"/>
+    </model>
+    
+    <model type="V" subtype="AC" name="ACVoltage" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m -10 -16 c 3 5 7 5 10 0 c 3 -5 7 -5 10 0 m -10 -16 v -8" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="Anode" x="0" y="24"/>
+      <pin name="Cathode" x="0" y="-24"/>
+    </model>
+    
+    <model type="V" subtype="PULSE" name="PulsedVoltage" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m -9 -22 h 5 v 12 h 8 v -12 h 5 m -9 -10 v -8" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="Anode" x="0" y="24"/>
+      <pin name="Cathode" x="0" y="-24"/>
+    </model>
+    
+    <model type="V" subtype="SIN" name="SinusoidalVoltage" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -32 v -8 " />
+        <path d="M -10 3 c 3 5 7 5 10 0 c 3 -5 7 -5 10 0" />
+        <path d="M -10 -4 h 4 m 4 0 h 4 m 4 0 h 4" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="Anode" x="0" y="24"/>
+      <pin name="Cathode" x="0" y="-24"/>
+    </model>
+    
+    <!-- Linear voltage-controlled voltage source -->
+    <model type="V" subtype="VC" name="VoltageControlledVoltage" labelPosition="right">
+      <shape width="36" height="48">
+        <path d="M 2 24 v -8 m 0 -6 v -8 m 0 -18 v -8 m -4 30 h 8 m 0 -14 h -8 m -9.86 0 h -6.14 m 0 16 h 6.14 m -5.14 4.5 h 5 m -2.5 2.5 v -5" />
+        <circle cx="2" cy="0" r="16" />
+      </shape>
+      <pin name="N+" x="2" y="24"/>
+      <pin name="N-" x="2" y="-24"/>
+      <pin name="NC+" x="-18" y="8"/>
+      <pin name="NC-" x="-18" y="-8"/>
+    </model>
+    
+    <!-- Linear current-controlled voltage source -->
+    <model type="V" subtype="CC" name="CurrentControlledVoltage" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -6 v -8 m 0 -18 v -8 m -4 30 h 8 m 0 -14 h -8 m -10 -15 l 28 46" />
+        <path d="M 7 18 l 8 6 l -1.8 -9.5 z" fill="true" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="N+" x="0" y="24"/>
+      <pin name="N-" x="0" y="-24"/>
+    </model>
+
+    <!-- Nonlinear dependent voltage source -->
+    <model type="V" subtype="NONLIN" name="NonlinearDependentVoltage" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -8 v -8 m 0 -16 v -8 m -4 28 h 8 m 0 -10 h -8" />
+        <path d="M -16 0 l 16 16 l 16 -16 l -16 -16 z" />
+      </shape>
+      <pin name="N+" x="0" y="24"/>
+      <pin name="N-" x="0" y="-24"/>
+    </model>
+
+    <model type="I" subtype="DC" name="DCCurrent" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -6 v -20 m 0 -6 v -8"/>
+        <path d="M 0 11 l 3 -6 h -6 z" fill="true" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="Anode" x="0" y="-24"/>
+      <pin name="Cathode" x="0" y="24"/>
+    </model>
+
+    <model type="I" subtype="AC" name="ACCurrent" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -6 v -14 m 0 -12 v -8"/>
+        <path d="M 0 11 l 3 -6 h -6 z" fill="true" />
+        <path d="M -8 -7 c 3 4 7 4 8 0 c 3 -4 7 -4 8 0 " />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="Anode" x="0" y="-24"/>
+      <pin name="Cathode" x="0" y="24"/>
+    </model>
+
+    <model type="I" subtype="SIN" name="SinusoidalCurrent" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -6 v -12 m 0 -14 v -8"/>
+        <path d="M 0 11 l 3 -7 h -6 z" fill="true" />
+        <path d="M -8 -4 c 2 3 6 3 8 0 c 2 -3 6 -3 8 0 " />
+        <path d="M -8 -9 h 3 m 4 0 h 3 m 4 0 h 3" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="Anode" x="0" y="-24"/>
+      <pin name="Cathode" x="0" y="24"/>
+    </model>
+    
+    <model type="I" subtype="PULSE" name="PulsedCurrent" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -5 v -9 h -8 v -6 h 8 v -8 m 0 -4 v -8" />
+        <path d="M 0 13 l 3 -6 h -6 z" fill="true" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="Anode" x="0" y="-24"/>
+      <pin name="Cathode" x="0" y="24"/>
+    </model>
+    
+    <!-- Linear voltage-controlled current source -->
+    <model type="I" subtype="VC" name="VoltageControlledCurrent" labelPosition="right">
+      <shape width="36" height="48">
+        <path d="M 2 24 v -8 m 0 -6 v -20 m 0 -6 v -8 m -13.86 16 h -6.14 m 0 16 h 6.14 m -5.14 4.5 h 5 m -2.5 2.5 v -5" />
+        <path d="M 2 11 l 3 -6 h -6 z" fill="true" />
+        <circle cx="2" cy="0" r="16" />
+      </shape>
+      <pin name="N+" x="2" y="24"/>
+      <pin name="N-" x="2" y="-24"/>
+      <pin name="NC+" x="-18" y="8"/>
+      <pin name="NC-" x="-18" y="-8"/>
+    </model>
+    
+    <!-- Linear current-controlled current source -->
+    <model type="I" subtype="CC" name="CurrentControlledCurrent" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -6 v -20 m 0 -6 v -8 m -14 1 l 28 46" />
+        <path d="M 0 11 l 3 -6 h -6 z" fill="true" />
+        <path d="M 7 18 l 8 6 l -1.8 -9.5 z" fill="true" />
+        <circle cx="0" cy="0" r="16" />
+      </shape>
+      <pin name="N+" x="0" y="-24"/>
+      <pin name="N-" x="0" y="24"/>
+    </model>
+    
+    <!-- Nonlinear dependent current source -->
+    <model type="I" subtype="NONLIN" name="NonlinearDependentCurrent" labelPosition="right">
+      <shape width="32" height="48">
+        <path d="M 0 24 v -8 m 0 -32 v -8" />
+        <path d="M -16 0 l 16 16 l 16 -16 l -16 -16 z" />
+        <path d="M 0 -10 v 20 "/>
+        <path d="M 0 11 l 3 -6 h -6 z" fill="true" />
+      </shape>
+      <pin name="N+" x="0" y="24"/>
+      <pin name="N-" x="0" y="-24"/>
+    </model>
+
+    <!-- Generic Transmission Line -->
+    <model type="XL" subtype="LTRA" name="ExampleRLCLine" labelPosition="top">
+      <shape width="48" height="32">
+        <path d="M -24 0 h 8 m 35 0 h 5" />
+        <path d="M -19 0 c 0 6 6 6 6 0 c 0 -6 -6 -6 -6 0" />
+        <path d="M 16 5 c 3 0 3 -10 0 -10" />
+        <path d="M -16 5 h 32 m 0 -10 h -32" />
+        <path d="M -24 -10 h 8 v 5 m 32 0 v -5 h 8" />
+      </shape>
+      <pin name="Port1+" x="-24" y="0"/>
+      <pin name="Port1-" x="-24" y="-10"/>
+      <pin name="Port2+" x="24" y="0"/>
+      <pin name="Port2-" x="24" y="-10"/>
+      <p n="R"            v="100" />
+      <p n="L"            v="5n" />
+      <p n="G"            v="0" />
+      <p n="C"            v="1p" />
+      <p n="LEN"          v="0.5" />
+      <p n="REL"          v="1" />
+      <p n="ABS"          v="1" />
+      <p n="NOSTEPLIMIT"  v="" />
+      <p n="NOCONTROL"    v="" />
+      <p n="LININTERP"    v="" />
+      <p n="MIXEDINTERP"  v="" />
+      <p n="COMPACTREL"   v="" />
+      <p n="COMPACTABS"   v="" />
+      <p n="TRUNCNR"      v="" />
+      <p n="TRUNCDONTCUT" v="" />
+    </model>
+
+    <!-- Single Lossy Transmission Line -->
+    <model type="XL" subtype="TXL" name="ExampleSingleRLCLine" labelPosition="top">
+      <shape width="48" height="32">
+        <path d="M -24 0 h 8 m 35 0 h 5" />
+        <path d="M -19 0 c 0 6 6 6 6 0 c 0 -6 -6 -6 -6 0" />
+        <path d="M 16 5 c 3 0 3 -10 0 -10" />
+        <path d="M -16 5 h 32 m 0 -10 h -32" />
+        <path d="M -16 -5 v -7 m -6 0 h 12 m -10 -3 h 8 m -6 -3 h 4"/>
+        <path d="M 16 -5 v -7 m -6 0 h 12 m -10 -3 h 8 m -6 -3 h 4"/>
+      </shape>
+      <pin name="A" x="-24" y="0"/>
+      <pin name="B" x="24" y="0"/>
+      <p n="R"         v="100" />
+      <p n="L"         v="5n" />
+      <p n="G"         v="0" />
+      <p n="C"         v="1p" />
+      <p n="LENGTH"    v="0.5" />
+    </model>
+
+    <model type="DECO" subtype="TEXT" name="SingleLineText" labelPosition="none">
+    </model>
+
+  </library>
+
+</volta>

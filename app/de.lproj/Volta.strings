@@ -1,0 +1,109 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Common Stuff */
+"Yes" = "Ja";
+"No" = "Nein";
+"OK" = "Bestätigen";
+"Cancel" = "Abbrechen";
+"Built-in" = "Intern";
+"Copy" = "Kopieren";
+
+/* Application */
+"Exception" = "Fehler";
+"ExceptionOccurred" = "Ein Programmfehler ist aufgetreten.";
+"ExceptionLetCrash" = "Abstürzen lassen";
+"ExceptionIgnore" = "Ignorieren";
+"VoltaHelpURL" = "https://robo.fish/volta/help/v124/de/index.html";
+
+/* About panel */
+"AboutWindowTitle" = "Über Volta";
+"AboutText" = "© Kai Berk Özer\n\nMehr über Volta finden Sie auf https://robo.fish/wiki/index.php?title=Volta .";
+
+/* Preferences panel */
+"Volta Preferences" = "Volta Einstellungen";
+
+/* Circuit menu */
+"Circuit" = "Schaltung";
+
+/* Plugin preferences panel - plugin categories */
+"VoltaPluginGroup_Simulators" = "Simulatoren";
+"VoltaPluginGroup_Schematic_Editors" = "Schaltdiagramm-Editoren";
+"VoltaPluginGroup_Netlist_Editors" = "Netlist-Editoren";
+"VoltaPluginGroup_Library_Editors" = "Sammlung-Editoren";
+"VoltaPluginGroup_Subcircuit_Editors" = "Teilschaltungs-Editoren";
+"VoltaPluginGroup_Plotters" = "Diagramzeichner";
+
+/* Plugin preferences panel - table column headers */
+"Plugins" = "Plugins";
+"Services" = "Dienste";
+
+/* Workflow actions */
+"WorkflowAction_Plot" = "Zeichnen";
+"WorkflowAction_Capture" = "Erfassen";
+"WorkflowAction_Analyze" = "Analysieren";
+
+/* Toolbar item tooltips */
+"ToolbarItemToolTip_Plot" = "Erfassen, simulieren und Ergebnisse zeichnen";
+"ToolbarItemToolTip_Capture" = "Schaltdiagramm als Netlist erfassen";
+"ToolbarItemToolTip_Analyze" = "Starten oder stoppen einer Schaltungssimulation";
+"ToolbarItemToolTip_ToggleNetlist" = "Netlistbereich ein-/ausblenden";
+"ToolbarItemToolTip_TogglePlotter" = "Plotter ein-/ausblenden";
+"ToolbarItemToolTip_SubcircuitEditor" = "Markierung für Teilschaltungen. Öffnet den Teilschaltungs-Editor.";
+
+/* Circuit simulation */
+"NoSimulatorOutput" = "Keine Simulatorausgabe";
+
+/* Undo action names */
+"Action_capture" = "Erfassen";
+
+/* Document window */
+"Subcircuit" = "Teilschaltung";
+"Simulator" = "Simulator";
+"CapturingEmptySchematicMessage" = "Das Schaltdiagramm ist leer. Es gibt nichts zu erfassen.";
+
+/* File format upgrade dialog, that is shown when a file with an old format is opened. */
+"ArchiveUpgradePrompt_Title" = "\"%@\" aktualisieren?";
+"ArchiveUpgradePrompt_Title_Without_Source" = "Datei aktualisieren?";
+"ArchiveUpgradePrompt_Message" = "Das Datenformat von \"%@\" ist alt und wird aktualisiert. Danach kann es u.U. nicht mit älteren Versionen von Volta benutzt werden. Sie haben jetzt die Gelegenheit eine Sicherungskopie zu erstellen bevor Sie fortfahren.";
+"ArchiveUpgradePrompt_Message_Without_Source" = "Das Datenformat dieser Volta-Datei ist alt und wird aktualisiert. Danach kann es u.U. nicht mit älteren Versionen von Volta benutzt werden. Sie haben jetzt die Gelegenheit eine Sicherungskopie zu erstellen bevor Sie fortfahren.";
+"ArchiveUpgradePrompt_Upgrade" = "Aktualisieren";
+"ArchiveUpgradePrompt_AlwaysUpgrade" = "Immer aktualisieren";
+"ArchiveUpgradePrompt_Abort" = "Abbrechen";
+"ArchiveUpgradePrompt_Reveal" = "Datei in Finder anzeigen";
+
+/* iCloud library */
+"Cloud_UseLibraryPrompt" = "iCloud wurde erkannt. Möchten Sie die Komponentensammlung in iCloud benutzen?";
+"Cloud_CopyLibraryOption" = "Lokale Komponentensammlung auf iCloud kopieren.";
+"Cloud_UseLibraryPromptInformative" = "Sie können jederzeit zwischen lokaler Komponentensammlung und iCloud-Komponentensammlung umschalten.";
+"Cloud_CopyLibrary_Title" = "Komponentensammlung kopieren";
+"Cloud_CopyCloudLibrary_Message" = "Der Inhalt Ihrer iCloud-Komponentensammlung wird in die lokale Komponentensammlung kopiert. Gleichnamige Dateien werden überschrieben.";
+"Cloud_CopyLocalLibrary_Message" = "Der Inhalt Ihrer lokalen Komponentensammlung wird in die iCloud-Komponentensammlung kopiert. Gleichnamige Dateien werden überschrieben.";
+
+
+/* Initial Library Content */
+/* ATTENTION: These correspond to the names of resource files and do not occur in code. */
+"Palette_Most_Used" = "Häufig Benutzt";
+"Palette_Capacitors_E12" = "Kondensatoren";
+"Palette_Inductors_E12" = "Spulen";
+"Palette_Meters" = "Quellen u. Meßgeräte";
+"Palette_Resistors_E12" = "Widerstände";
+"Palette_Semis" = "Halbleiterbauteile";
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit title="">
+	<schematic>
+		<element name="1" type="NODE" modelName="Node" modelVendor="" x="95.2343" y="266.047" labelPosition="left" />
+		<element name="2" type="NODE" modelName="Node" modelVendor="" x="95.2343" y="351.454" labelPosition="left" />
+		<element name="3" type="NODE" modelName="Node" modelVendor="" x="167.391" y="254.25" labelPosition="top" />
+		<element name="4" type="NODE" modelName="Node" modelVendor="" x="263.251" y="254.25" labelPosition="top" />
+		<element name="5" type="NODE" modelName="Node" modelVendor="" x="359.661" y="254.25" labelPosition="top" />
+		<element name="6" type="NODE" modelName="Node" modelVendor="" x="466.04" y="254.25" labelPosition="top" />
+		<element name="7" type="NODE" modelName="Node" modelVendor="" x="359.661" y="351.454" />
+		<element name="CP1" type="C" modelName="Capacitor" modelVendor="" x="263.251" y="311.84" rotation="-270" labelPosition="right" >
+			<p n="capacitance" v="1.5915u" />
+		</element>
+		<element name="EBUFFER" type="V" modelName="VoltageControlledVoltage" modelVendor="" x="357.661" y="309.84" labelPosition="right" >
+			<p n="gain" v="1" />
+		</element>
+		<element name="EGAIN" type="V" modelName="VoltageControlledVoltage" modelVendor="" x="165.391" y="309.84" labelPosition="right" >
+			<p n="gain" v="100k" />
+		</element>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="167.391" y="370.879" />
+		<element name="GND2" type="GRND" modelName="Ground" modelVendor="" x="263.251" y="370.879" />
+		<element name="GND3" type="GRND" modelName="Ground" modelVendor="" x="359.661" y="370.879" />
+		<element name="RIN" type="R" modelName="Resistor" modelVendor="" x="95.2343" y="306.84" rotation="-90" labelPosition="left" >
+			<p n="resistance" v="10meg" />
+		</element>
+		<element name="ROUT" type="R" modelName="Resistor" modelVendor="" x="414.669" y="254.285" labelPosition="top" >
+			<p n="resistance" v="10" />
+		</element>
+		<element name="RP1" type="R" modelName="Resistor" modelVendor="" x="218.227" y="254.25" labelPosition="top" >
+			<p n="resistance" v="1k" />
+		</element>
+		<connector start="1" startPin="East" end="EGAIN" endPin="NC+">
+			<joint x="126.086" y="266.047"/>
+			<joint x="126.086" y="301.84"/>
+		</connector>
+		<connector start="1" startPin="South" end="RIN" endPin="A">
+		</connector>
+		<connector start="2" startPin="East" end="EGAIN" endPin="NC-">
+			<joint x="126.086" y="351.454"/>
+			<joint x="126.086" y="317.84"/>
+		</connector>
+		<connector start="2" startPin="West" end="RIN" endPin="B">
+		</connector>
+		<connector start="3" startPin="East" end="RP1" endPin="A">
+		</connector>
+		<connector start="4" startPin="East" end="EBUFFER" endPin="NC+">
+			<joint x="317.043" y="254.25"/>
+			<joint x="317.043" y="301.84"/>
+		</connector>
+		<connector start="5" startPin="South" end="EBUFFER" endPin="N+">
+		</connector>
+		<connector start="7" startPin="North" end="EBUFFER" endPin="N-">
+		</connector>
+		<connector start="CP1" startPin="B" end="4" endPin="South">
+		</connector>
+		<connector start="EBUFFER" startPin="NC-" end="7" endPin="West">
+			<joint x="339.661" y="351.454"/>
+		</connector>
+		<connector start="EGAIN" startPin="N+" end="3" endPin="South">
+		</connector>
+		<connector start="EGAIN" startPin="N-" end="GND1" endPin="Ground">
+		</connector>
+		<connector start="GND2" startPin="Ground" end="CP1" endPin="A">
+		</connector>
+		<connector start="GND3" startPin="Ground" end="7" endPin="South">
+		</connector>
+		<connector start="ROUT" startPin="A" end="5" endPin="East">
+		</connector>
+		<connector start="ROUT" startPin="B" end="6" endPin="West">
+		</connector>
+		<connector start="RP1" startPin="B" end="4" endPin="West">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="true" name="BPOP" vendor="com.ecircuitcenter" revision="1" labelPosition="none">
+		<pin name="1" x="-28.000000" y="-7.000000" />
+		<pin name="2" x="-28.000000" y="7.000000" />
+		<pin name="3" x="28.000000" y="7.000000" />
+		<pin name="4" x="28.000000" y="-7.000000" />
+		<external pin="1" node="1" />
+		<external pin="2" node="2" />
+		<external pin="3" node="" />
+		<external pin="4" node="6" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP4"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v="BPOP"/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.66"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="1"/>
+	<m k="FXVoltaMac_WindowHeight" v="722"/>
+	<m k="FXVoltaMac_WindowWidth" v="825"/>
+	<m k="FXVolta_Netlist" v="*{FX_newline}.SUBCKT com.ecircuitcenter.BPOP 1 2 6{FX_newline}CP1 0 4 1.5915u{FX_newline}EBUFFER 5 0 4 0 1{FX_newline}EGAIN 3 0 1 2 100k{FX_newline}RIN 1 2 10meg{FX_newline}ROUT 5 6 10{FX_newline}RP1 3 4 1k{FX_newline}.ENDS com.ecircuitcenter.BPOP{FX_newline}"/>
+</circuit>
+</volta>

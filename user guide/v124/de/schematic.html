@@ -1,0 +1,155 @@
+<!--
+title Volta 1.2 - Schaltungsdiagramme
+-->
+
+<style>
+  @import "../style/schematic_large.css";
+  @import "../style/schematic_small.css";
+</style>
+
+<div id="volta_help_schematic_overview">
+  <div>
+    <p>
+      Der Schaltungsdiagramm-Editor (Abb. 1) besteht aus einer Komponentenleiste
+      (oder Palettenleiste), einem Infopanel und einem Diagrammfeld zum
+      Zusammensetzen von Komponenten.
+    </p>
+  </div>  
+  <div id="volta_help_schematic_overview_screenshot" class="screenshot">
+    <span class="figure">Abb. 1: Schaltungsdiagramm-Editor</span>
+    <a href="../images/de/schematic_overview.png" class="FXOverlayImage">
+      <img id="volta_help_schematic_overview_screenshot_image" class="framed_screenshot" src="../images/de/schematic_overview.png"/>
+    </a>
+  </div>
+</div>
+
+<div id="volta_help_schematic_palette_strip">
+  <h4>Komponentenleiste</h4>
+  <p>
+    Die Komponententleiste des Diagramm-Editors befindet sich über dem Diagrammfeld
+    und zeigt eine Reihe von Komponenten an. Man kann damit bequem auf häufig
+    benutzte Komponenten zugreifen ohne das Fenster für die Komponentensammlung
+    öffnen zu müssen. Änderungen am Inhalt der Komponentenleiste können allerdings
+    nur im Komponentenfenster gemacht werden.
+  </p>
+  <p>
+    Ziehen Sie Komponenten einfach aus der Leiste runter um sie in das Diagramm
+    einzufügen (Abb. 2).
+  </p>
+</div>
+<div id="volta_help_schematic_palette_strip_screenshot">
+  <span class="figure">Abb. 2: Komponente aus der Leiste ziehen</span>
+  <img id="volta_help_schematic_palette_strip_screenshot_image" class="framed_screenshot" src="../images/common/schematic_drag_from_palette.png"/>
+</div>
+<div id="volta_help_schematic_palette_groups">
+  <p>
+    The Komponentenpalette in der Komponentensammlung kann aus mehreren Komponentengruppen
+    bestehen. Die Komponentenleiste zeigt jedoch nur Komponenten einer einzigen
+    Gruppe an. Über das Menü links oben können Sie die Gruppe auswählen (Abb. 3).
+  </p>
+</div>
+<div id="volta_help_schematic_palette_groups_screenshot">
+  <span class="figure">Abb. 3: Komponentengruppe auswählen</span>
+  <img id="volta_help_schematic_palette_groups_screenshot_image" class="framed_screenshot" src="../images/de/schematic_palette_groups.png"/>
+</div>
+<div id="volta_help_schematic_palette_strip_hints">
+  <p>
+    Mit "Bearbeiten..." gelangen Sie zur Komponentensammlung.
+  </p>
+  <p>
+    Die Komponentenleiste kann mit dem Symbolleistenknopf "Palette" aus- und
+    wieder eingeblendet werden.
+  </p>
+</div>
+
+<div id="volta_help_schematic_inspector">
+  <h4>Das Infopanel</h4>
+  <p>
+    Im Infopanel kann man selektierte Komponenten bearbeiten.
+    Man kann Komponenten rotieren und spiegeln, Komponentenmodelle auswählen
+    und Werte für die Attribute eingeben. Bei Einzelselektion kann man den
+    Namen einer Komponente ändern falls dieser Name nicht schon vergeben ist.
+    Bei Mehrfachselektion kann man nur Attribute bearbeiten die alle
+    selektierten Komponenten gemeinsam haben.
+  </p>
+  <p>
+    Der Name der selektierten Komponente wird ganz oben angezeigt. Mit einem
+    Klick kann man ihn sofort bearbeiten. Unterhalb des Namensfeldes
+    befinden sich die Knöpfe zum Platzieren des Namens, zum Rotieren und zum
+    Spiegeln der Komponente, weiter drunter das Menü zur Auswahl
+    alternativer Komponentenmodelle und als Letztes die Tabelle der
+    Komponentenattribute mit ihren Werten. Ein Attributenwert kann mit einem
+    Doppelklick auf das Feld neben dem Attributennamen bearbeitet werden.
+  </p>
+</div>
+<div id="volta_help_schematic_inspector_screenshot">
+  <span class="figure">Abb. 4: Das Infopanel</span>
+  <img class="framed_screenshot" src="../images/de/schematic_inspector_overview.png"/>
+</div>
+
+<div id="volta_help_schematic_inspector_features">
+  <p>
+    Bei Schaltungskomponenten sind die angezeigten Attribute SPICE-Attribute.
+    Deren Beschreibungen finden Sie im
+    <a href="http://ngspice.sourceforge.net/docs/ngspice24-manual.pdf">Ngspice Benutzerhandbuch</a>.
+  </p>
+  <p>
+    Das Infopanel kann durch drücken des Symbolleistenknopfes "Info" aus- und
+    wieder eingeblendet werden.
+  </p>
+  <p>
+    Das Infopanel lässt sich an die Ecken des Diagrammfeldes haften.
+  </p>
+</div>
+
+<div id="volta_help_schematic_connecting">
+  <h4>Komponenten verdrahten</h4>
+  <div>
+    <p>
+      Zwei Schaltungskomponenten können miteinander verbunden werden indem
+      man eine Verbindungslinie von einem Anschlußpunkt (Stift) zum Anderen
+      zieht. Jede elektrische Schaltungskomponente hat mindestens einen
+      Anschlußpunkt. Ein Anschlußpunkt wird in Rot angezeigt wenn sich der
+      Mauszeiger darüber befindet. Einen Anschlußpunkt kann man nur ein Mal
+      verbinden. Verwenden Sie Knotenelemente mit jeweils 4 Anschlußpunkten um
+      Verbindungen zusammenzuführen. Um eine Verbindung zu entfernen ziehen
+      Sie die Verbindungslinie einfach von einem der beiden Enden ab.
+    </p>
+  </div>
+  <div id="volta_help_schematic_connecting_screenshot_inline">
+    <span class="figure">Abb. 5: Komponenten verbinden</span>
+    <img class="framed_screenshot" src="../images/common/schematic_creating_a_connection.png"/>
+  </div>
+  <div>
+    <p>
+      Eine Verbindung wird als gerade Linie erzeugt. Durch ziehen an geraden
+      Linienabschnitten ist es möglich Gelenke einzufügen (siehe Abb. 6).
+      Zum Entfernen eines Gelenks schiebt man das Gelenk auf die (imaginäre)
+      gerade Linie zwischen den beiden Nachbarpunkten des Gelenks.
+      Gelenke werden in Grün angezeigt wenn sich der Mauszeiger darüber befindet.
+    </p>
+  </div>
+</div>
+<div id="volta_help_schematic_connecting_screenshot">
+    <span class="figure">Abb. 5: Komponenten verbinden</span>
+    <img class="framed_screenshot" src="../images/common/schematic_creating_a_connection.png"/>
+</div>
+<div id="volta_help_schematic_connector_joints_screenshot">
+  <span class="figure">Abb. 6: Verbindungsgelenk</span>
+  <img id="volta_help_schematic_connector_joints_screenshot_image" class="framed_screenshot" src="../images/common/schematic_connector_joints.png"/>
+</div>
+
+<div id="volta_help_schematic_zooming">
+  <div id="volta_help_schematic_zooming_text">
+    <h4>Diagramm vergrößern</h4>
+    <p>
+      Das Schaltungsdiagramm kann bis zur doppelten Standardhöhe und Breite vergrößert werden.
+      Die Vergrößerung ist für ein angenehmeres Arbeiten auf kleinen, hochauflösenden Bildschirmen gedacht.
+      Der Vergrößerungsfaktor kann mittels dem Regler in der Toolbar (Abb. 7) oder durch eine Kneifgeste im Trackpad verändert werden.
+    </p>
+  </div>
+  <div id="volta_help_schematic_zooming_screenshot">
+    <span class="figure">Abb. 7: Vergrößerungsregler</span>
+    <img class="framed_screenshot" style="height:6em" src="images/volta/help/v122/common/schematic_zoom_slider.png"/>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+@media screen and (min-width: 40em) {
+  #volta_help_header {
+    display:block;
+    text-align: center;
+    margin-top: 1em;
+  }
+  #volta_help_icon {
+    display:inline-block;
+    width:48%;
+    height:160px;
+    background-image: url("../images/common/splash.png");
+    background-size: 160px 160px;
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-
+  }
+  #volta_version_text {
+    display: none;
+  }
+  #FXHelpBrowser_topic_links {
+    display:inline-block;
+    text-align: left;
+    width:48%;
+    margin-left: 2%;
+  }
+  #FXHelpBrowser_display_area {
+    display:block;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  div.volta_help_link {
+    display:block;
+  }
+}

@@ -1,0 +1,76 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Displayed names of built-in device models */
+"Ground" = "Ground";
+"Capacitor" = "Capacitor";
+"Resistor" = "Resistor (IEC)";
+"Inductor" = "Inductor (DIN)";
+"DetailedInductor" = "Detailed Inductor (DIN)";
+"MutualInductor" = "Transformer (DIN)";
+"ResistorUS" = "Resistor";
+"InductorUS" = "Inductor";
+"DetailedInductorUS" = "Detailed Inductor";
+"MutualInductorUS" = "Transformer";
+"SemiconductorResistor" = "Semiconductor Resistor";
+"SemiconductorCapacitor" = "Semiconductor Capacitor";
+"VoltageControlledSwitch" = "Voltage Controlled Switch";
+"CurrentControlledSwitch" = "Current Controlled Switch";
+"DefaultDiode" = "Diode";
+"Diode" = "Diode";
+"LED" = "LED";
+"ZenerDiode" = "Zener Diode";
+"VoltmeterAC" = "Voltmeter (AC)";
+"VoltmeterDC" = "Voltmeter (DC)";
+"VoltmeterTRAN" = "Voltmeter (Transient)";
+"AmmeterAC" = "Ammeter (AC)";
+"AmmeterDC" = "Ammeter (DC)";
+"Node" = "Node";
+"DCVoltage" = "DC Voltage Source";
+"ACVoltage" = "AC Voltage Source";
+"PulsedVoltage" = "Pulse Voltage source";
+"SinusoidalVoltage" = "Sinusoidal Voltage Source";
+"VoltageControlledVoltage" = "Voltage-controlled Voltage Source";
+"CurrentControlledVoltage" = "Current-controlled Voltage Source";
+"DCCurrent" = "DC Current Source";
+"ACCurrent" = "AC Current Source";
+"SinusoidalCurrent" = "Sinusoidal Current Source";
+"PulsedCurrent" = "Pulse Current Source";
+"VoltageControlledCurrent" = "Voltage-controlled Current Source";
+"CurrentControlledCurrent" = "Current-controlled Current Source";
+"NonlinearDependentVoltage" = "Nonlinear Dependent Voltage Source";
+"NonlinearDependentCurrent" = "Nonlinear Dependent Current Source";
+"DefaultNPN" = "N-Channel BJT";
+"DefaultPNP" = "P-Channel BJT";
+"DefaultNJFET" = "N-Channel JFET";
+"DefaultPJFET" = "P-Channel JFET";
+"DefaultNMESFET" = "N-Channel MESFET";
+"DefaultPMESFET" = "P-Channel MESFET";
+"DepletionNMOSFET" = "N-Channel Depletion MOSFET";
+"DepletionPMOSFET" = "P-Channel Depletion MOSFET";
+"EnhancementNMOSFET" = "N-Channel Enhancement MOSFET";
+"EnhancementPMOSFET" = "P-Channel Enhancement MOSFET";
+"DepletionNMOSFETWithBulk" = "N-Channel Depletion w/ bulk MOSFET";
+"DepletionPMOSFETWithBulk" = "P-Channel Depletion w/ bulk MOSFET";
+"EnhancementNMOSFETWithBulk" = "N-Channel Enhancement w/ bulk MOSFET";
+"EnhancementPMOSFETWithBulk" = "P-Channel Enhancement w/ bulk MOSFET";
+"ExampleRLCLine" = "Example Lossy Line";
+"ExampleSingleRLCLine" = "Example Single Lossy Line";
+"SingleLineText" = "Single-Line Text";

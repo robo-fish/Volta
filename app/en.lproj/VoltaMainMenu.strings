@@ -1,0 +1,97 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+"29.title" = "AMainMenu";
+
+"57.title" = "Volta";
+  "56.title" = "Volta";
+  "58.title" = "About Volta";
+  "129.title" = "Preferences…";
+  "532.title" = "iCloud library";
+    "531.title" = "iCloud library";
+    "530.title" = "Use iCloud library";
+    "533.title" = "Copy iCloud library to local library...";
+    "534.title" = "Copy local library to iCloud library...";
+  "130.title" = "Services";
+    "131.title" = "Services";
+  "134.title" = "Hide Volta";
+  "145.title" = "Hide Others";
+  "150.title" = "Show All";
+  "136.title" = "Quit Volta";
+
+"81.title" = "File";
+  "83.title" = "File";
+  "82.title" = "New";
+  "72.title" = "Open…";
+  "125.title" = "Open Recent";
+    "124.title" = "Open Recent";
+    "126.title" = "Clear Menu";
+  "73.title" = "Close";
+  "75.title" = "Save";
+  "80.title" = "Save As…";
+  "112.title" = "Revert to Saved";
+  "561.title" = "Page Setup...";
+  "562.title" = "Print...";
+
+"491.title" = "Circuit";
+  "490.title" = "Circuit";
+
+"205.title" = "Edit";
+  "217.title" = "Edit";
+  "207.title" = "Undo";
+  "215.title" = "Redo";
+  "199.title" = "Cut";
+  "197.title" = "Copy";
+  "203.title" = "Paste";
+  "202.title" = "Delete";
+  "198.title" = "Select All";
+  "220.title" = "Find";
+    "218.title" = "Find";
+    "209.title" = "Find…";
+    "208.title" = "Find Next";
+    "213.title" = "Find Previous";
+    "221.title" = "Use Selection for Find";
+    "210.title" = "Jump to Selection";
+  "200.title" = "Spelling and Grammar";
+    "216.title" = "Spelling and Grammar";
+    "204.title" = "Show Spelling…";
+    "201.title" = "Check Spelling";
+    "219.title" = "Check Spelling While Typing";
+    "346.title" = "Check Grammar With Spelling";
+  "349.title" = "Substitutions";
+    "348.title" = "Substitutions";
+    "350.title" = "Smart Copy/Paste";
+    "351.title" = "Smart Quotes";
+    "354.title" = "Smart Links";
+  "212.title" = "Speech";
+    "211.title" = "Speech";
+    "196.title" = "Start Speaking";
+    "195.title" = "Stop Speaking";
+
+"24.title" = "Window";
+  "19.title" = "Window";
+  "23.title" = "Minimize";
+  "239.title" = "Zoom";
+  "502.title" = "Library";
+  "5.title" = "Bring All to Front";
+
+"106.title" = "Help";
+  "103.title" = "Help";
+  "111.title" = "User Guide";

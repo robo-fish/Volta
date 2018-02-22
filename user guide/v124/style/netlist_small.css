@@ -1,0 +1,25 @@
+@media screen and (max-width: 40em) {
+  #volta_help_netlist_editor {
+    display: block;
+  }
+  #volta_help_netlist_editor_text {
+    display: block;
+  }
+  #volta_help_netlist_editor_screenshot {
+    display: none;
+  }
+  #volta_help_netlist_editor_screenshot_inline {
+    display:block;
+    text-align: center;
+  }
+  #volta_help_netlist_editor_screenshot_image {
+    width:90%;
+    max-width: 360px;
+  }
+  #volta_help_netlist_highlighted_styles {
+    margin-left: 0;
+  }
+  li {
+    list-style: none;
+  }
+}

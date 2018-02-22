@@ -1,0 +1,97 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+"29.title" = "AMainMenu";
+
+"57.title" = "Volta";
+  "56.title" = "Volta";
+  "58.title" = "Über Volta";
+  "129.title" = "Einstellungen …";
+  "532.title" = "iCloud Komponentensammlung";
+    "531.title" = "iCloud Komponentensammlung";
+    "530.title" = "iCloud Komponentensammlung benutzen";
+    "533.title" = "iCloud Komponentensammlung kopieren...";
+    "534.title" = "Lokale Komponentensammlung kopieren...";
+  "130.title" = "Dienste";
+    "131.title" = "Dienste";
+  "134.title" = "Volta ausblenden";
+  "145.title" = "Andere ausblenden";
+  "150.title" = "Alle einblenden";
+  "136.title" = "Volta beenden";
+
+"81.title" = "Ablage";
+  "83.title" = "Ablage";
+  "82.title" = "Neu";
+  "72.title" = "Öffnen …";
+  "125.title" = "Benutzte Dokumente";
+    "124.title" = "Benutzte Dokumente";
+    "126.title" = "Clear Menu";
+  "73.title" = "Schließen";
+  "75.title" = "Sichern";
+  "80.title" = "Sichern unter ...";
+  "112.title" = "Zurück zur letzten Version";
+  "561.title" = "Papierformat ...";
+  "562.title" = "Drucken ...";
+
+"491.title" = "Schaltung";
+  "490.title" = "Schaltung";
+
+"205.title" = "Bearbeiten";
+  "217.title" = "Bearbeiten";
+  "207.title" = "Widerrufen";
+  "215.title" = "Wiederholen";
+  "199.title" = "Ausschneiden";
+  "197.title" = "Kopieren";
+  "203.title" = "Einsetzen";
+  "202.title" = "Löschen";
+  "198.title" = "Alles auswählen";
+  "220.title" = "Suchen";
+    "218.title" = "Suchen";
+    "209.title" = "Suchen …";
+    "208.title" = "Weitersuchen (vorwärts)";
+    "213.title" = "Weitersuchen (rückwärts)";
+    "221.title" = "Auswahl suchen";
+    "210.title" = "Auswahl anzeigen";
+  "200.title" = "Rechtschreibung und Grammatik";
+    "216.title" = "Rechtschreibung und Grammatik";
+    "204.title" = "Rechtschreibung und Grammatik einblenden";
+    "201.title" = "Dokument jetzt prüfen";
+    "219.title" = "Während der Texteingabe prüfen";
+    "346.title" = "Rechtschreib- und Grammatikprüfung";
+  "349.title" = "Ersetzungen";
+    "348.title" = "Ersetzungen";
+    "350.title" = "Intelligentes Kopieren/Einsetzen";
+    "351.title" = "Intelligente Anführungszeichen";
+    "354.title" = "Intelligente Links";
+  "212.title" = "Sprachausgabe";
+    "211.title" = "Sprachausgabe";
+    "196.title" = "Sprachausgabe starten";
+    "195.title" = "Sprachausgabe stoppen";
+
+"24.title" = "Fenster";
+  "19.title" = "Fenster";
+  "23.title" = "Im Dock ablegen";
+  "239.title" = "Zoomen";
+  "502.title" = "Komponentensammlung";
+  "5.title" = "Alle nach vorne bringen";
+
+"106.title" = "Hilfe";
+  "103.title" = "Hilfe";
+  "111.title" = "Benutzerhandbuch";

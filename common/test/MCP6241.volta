@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="1">
+<circuit name="">
+	<schematic>
+		<element name="1" type="NODE" modelName="Node" modelVendor="" x="35.7191" y="443.274" labelPosition="north" >
+		</element>
+		<element name="10" type="NODE" modelName="Node" modelVendor="" x="250.476" y="149.637" rotation="360" labelPosition="south" >
+		</element>
+		<element name="11" type="NODE" modelName="Node" modelVendor="" x="305.227" y="212.723" rotation="90" labelPosition="east" >
+		</element>
+		<element name="12" type="NODE" modelName="Node" modelVendor="" x="200.461" y="212.723" rotation="90" labelPosition="west" >
+		</element>
+		<element name="13" type="NODE" modelName="Node" modelVendor="" x="114.367" y="162.407" labelPosition="west" >
+		</element>
+		<element name="14" type="NODE" modelName="Node" modelVendor="" x="357.227" y="135.317" labelPosition="east" >
+		</element>
+		<element name="15" type="NODE" modelName="Node" modelVendor="" x="250.476" y="276.864" rotation="90" labelPosition="north" >
+		</element>
+		<element name="16" type="NODE" modelName="Node" modelVendor="" x="494.754" y="427.215" rotation="180" labelPosition="east" >
+		</element>
+		<element name="17" type="NODE" modelName="Node" modelVendor="" x="114.367" y="502.942" >
+		</element>
+		<element name="18" type="NODE" modelName="Node" modelVendor="" x="428.449" y="502.942" >
+		</element>
+		<element name="19" type="NODE" modelName="Node" modelVendor="" x="315.289" y="502.942" >
+		</element>
+		<element name="2" type="NODE" modelName="Node" modelVendor="" x="35.7191" y="502.942" labelPosition="west" >
+		</element>
+		<element name="20" type="NODE" modelName="Node" modelVendor="" x="76.9403" y="502.942" >
+		</element>
+		<element name="21" type="NODE" modelName="Node" modelVendor="" x="361.699" y="502.942" >
+		</element>
+		<element name="3" type="NODE" modelName="Node" modelVendor="" x="114.367" y="57.1953" labelPosition="west" >
+		</element>
+		<element name="4" type="NODE" modelName="Node" modelVendor="" x="250.476" y="361.664" labelPosition="west" >
+		</element>
+		<element name="5" type="NODE" modelName="Node" modelVendor="" x="114.367" y="271.864" >
+		</element>
+		<element name="6" type="NODE" modelName="Node" modelVendor="" x="465.875" y="502.942" >
+		</element>
+		<element name="62" type="NODE" modelName="Node" modelVendor="" x="263.758" y="565.766" labelPosition="south" >
+		</element>
+		<element name="7" type="NODE" modelName="Node" modelVendor="" x="217.434" y="502.942" >
+		</element>
+		<element name="71" type="NODE" modelName="Node" modelVendor="" x="357.227" y="44.9104" labelPosition="west" >
+		</element>
+		<element name="8" type="NODE" modelName="Node" modelVendor="" x="494.754" y="502.942" >
+		</element>
+		<element name="9" type="NODE" modelName="Node" modelVendor="" x="173.113" y="502.942" >
+		</element>
+		<element name="C11" type="C" modelName="Capacitor" modelVendor="" x="247.758" y="212.723" rotation="180" labelPosition="north" >
+			<p n="capacitance" v="7.2p" />
+		</element>
+		<element name="C12" type="C" modelName="Capacitor" modelVendor="" x="428.449" y="549.766" rotation="90" labelPosition="west" >
+			<p n="capacitance" v="6.0p" />
+		</element>
+		<element name="C14" type="C" modelName="Capacitor" modelVendor="" x="76.9403" y="602.215" rotation="90" labelPosition="west" >
+			<p n="capacitance" v="1u" />
+		</element>
+		<element name="E12" type="VSVC" modelName="VoltageControlledVoltage" modelVendor="" x="355.227" y="92.4379" rotation="360" labelPosition="east" >
+		</element>
+		<element name="G12" type="CSVC" modelName="VoltageControlledCurrent" modelVendor="" x="359.699" y="573.766" labelPosition="east" >
+			<p n="transconductance" v="1m" />
+		</element>
+		<element name="G14" type="CSVC" modelName="VoltageControlledCurrent" modelVendor="" x="175.113" y="573.766" flipped="true" labelPosition="west" >
+			<p n="transconductance" v="1m" />
+		</element>
+		<element name="GD13" type="CSVC" modelName="VoltageControlledCurrent" modelVendor="" x="112.367" y="202.407" rotation="180" flipped="true" labelPosition="east" >
+		</element>
+		<element name="GD16" type="CSVC" modelName="VoltageControlledCurrent" modelVendor="" x="496.754" y="463.074" rotation="5.00896e-06" flipped="true" labelPosition="west" >
+		</element>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="361.699" y="616.563" >
+		</element>
+		<element name="GND2" type="GRND" modelName="Ground" modelVendor="" x="428.449" y="616.563" >
+		</element>
+		<element name="GND3" type="GRND" modelName="Ground" modelVendor="" x="330.227" y="616.563" >
+		</element>
+		<element name="GND4" type="GRND" modelName="Ground" modelVendor="" x="173.257" y="619.379" >
+		</element>
+		<element name="GND5" type="GRND" modelName="Ground" modelVendor="" x="207.124" y="619.379" >
+		</element>
+		<element name="GND6" type="GRND" modelName="Ground" modelVendor="" x="76.9403" y="637.215" >
+		</element>
+		<element name="GND7" type="GRND" modelName="Ground" modelVendor="" x="465.875" y="616.563" >
+		</element>
+		<element name="GND8" type="GRND" modelName="Ground" modelVendor="" x="114.367" y="637.215" >
+		</element>
+		<element name="I15" type="CSDC" modelName="DCCurrent" modelVendor="" x="250.476" y="320.551" rotation="360" labelPosition="west" >
+			<p n="current" v="50u" />
+		</element>
+		<element name="I80" type="CSDC" modelName="DCCurrent" modelVendor="" x="268.578" y="481.965" rotation="90" flipped="true" labelPosition="north" >
+			<p n="current" v="500e-15" />
+		</element>
+		<element name="M12" type="NMOS" modelName="NMI" modelVendor="com.microchip" x="321.227" y="260.864" rotation="2.50448e-06" flipped="true" labelPosition="west" >
+			<p n="l" v="2u" />
+			<p n="w" v="42u" />
+		</element>
+		<element name="M14" type="NMOS" modelName="NMI" modelVendor="com.microchip" x="184.461" y="260.864" rotation="6.83245e-07" labelPosition="east" >
+			<p n="l" v="2u" />
+			<p n="w" v="42u" />
+		</element>
+		<element name="R10" type="R" modelName="ResistorUS" modelVendor="" x="305.227" y="170.637" rotation="90" labelPosition="east" >
+			<p n="resistance" v="6.9k" />
+		</element>
+		<element name="R11" type="R" modelName="ResistorUS" modelVendor="" x="200.461" y="170.637" rotation="90" labelPosition="west" >
+			<p n="resistance" v="6.9k" />
+		</element>
+		<element name="R71" type="R" modelName="ResistorUS" modelVendor="" x="465.875" y="554.766" rotation="90" labelPosition="east" >
+			<p n="resistance" v="20e12" />
+		</element>
+		<element name="R72" type="R" modelName="ResistorUS" modelVendor="" x="114.367" y="607.215" rotation="90" labelPosition="east" >
+			<p n="resistance" v="20e12" />
+		</element>
+		<element name="R73" type="R" modelName="ResistorUS" modelVendor="" x="265.578" y="523.453" labelPosition="south" >
+			<p n="resistance" v="20e12" />
+		</element>
+		<element name="V10" type="VSDC" modelName="DCVoltage" modelVendor="" x="250.476" y="108.438" rotation="-6.83245e-07" flipped="true" labelPosition="east" >
+			<p n="voltage" v="-500m" />
+		</element>
+		<element name="V13" type="VSDC" modelName="DCVoltage" modelVendor="" x="114.367" y="124.438" rotation="360" labelPosition="east" >
+			<p n="voltage" v="-300m" />
+		</element>
+		<element name="V16" type="VSDC" modelName="DCVoltage" modelVendor="" x="494.754" y="385.664" rotation="180" labelPosition="west" >
+			<p n="voltage" v="-300m" />
+		</element>
+		<connector start="1" startPin="East" end="21" endPin="West">
+			<joint x="361.699" y="443.274"/>
+		</connector>
+		<connector start="11" startPin="East" end="C11" endPin="A">
+		</connector>
+		<connector start="11" startPin="West" end="R10" endPin="B">
+		</connector>
+		<connector start="13" startPin="South" end="GD13" endPin="N-">
+		</connector>
+		<connector start="15" startPin="East" end="I15" endPin="Cathode">
+		</connector>
+		<connector start="16" startPin="East" end="GD16" endPin="N+">
+		</connector>
+		<connector start="16" startPin="South" end="V16" endPin="Anode">
+		</connector>
+		<connector start="17" startPin="North" end="5" endPin="South">
+		</connector>
+		<connector start="17" startPin="East" end="9" endPin="West">
+		</connector>
+		<connector start="18" startPin="East" end="6" endPin="West">
+		</connector>
+		<connector start="18" startPin="South" end="C12" endPin="A">
+		</connector>
+		<connector start="19" startPin="South" end="21" endPin="North">
+		</connector>
+		<connector start="2" startPin="East" end="20" endPin="West">
+		</connector>
+		<connector start="20" startPin="East" end="17" endPin="West">
+		</connector>
+		<connector start="20" startPin="South" end="C14" endPin="A">
+		</connector>
+		<connector start="21" startPin="East" end="18" endPin="West">
+		</connector>
+		<connector start="21" startPin="South" end="G12" endPin="N+">
+		</connector>
+		<connector start="3" startPin="East" end="V10" endPin="Anode">
+			<joint x="250.476" y="57.1953"/>
+		</connector>
+		<connector start="5" startPin="East" end="M14" endPin="Gate">
+		</connector>
+		<connector start="6" startPin="East" end="8" endPin="West">
+		</connector>
+		<connector start="62" startPin="East" end="G12" endPin="NC+">
+		</connector>
+		<connector start="7" startPin="West" end="9" endPin="East">
+		</connector>
+		<connector start="71" startPin="South" end="E12" endPin="N+">
+		</connector>
+		<connector start="9" startPin="South" end="G14" endPin="N+">
+		</connector>
+		<connector start="C11" startPin="B" end="12" endPin="North">
+		</connector>
+		<connector start="E12" startPin="N-" end="14" endPin="North">
+		</connector>
+		<connector start="G12" startPin="N-" end="GND1" endPin="Ground">
+		</connector>
+		<connector start="G14" startPin="NC+" end="62" endPin="North">
+		</connector>
+		<connector start="G14" startPin="N-" end="GND4" endPin="Ground">
+		</connector>
+		<connector start="G14" startPin="NC-" end="GND5" endPin="Ground">
+			<joint x="207.124" y="581.766"/>
+		</connector>
+		<connector start="GD13" startPin="N+" end="5" endPin="North">
+		</connector>
+		<connector start="GD16" startPin="N-" end="8" endPin="East">
+		</connector>
+		<connector start="GND2" startPin="Ground" end="C12" endPin="B">
+		</connector>
+		<connector start="GND3" startPin="Ground" end="G12" endPin="NC-">
+		</connector>
+		<connector start="GND6" startPin="Ground" end="C14" endPin="B">
+		</connector>
+		<connector start="GND8" startPin="Ground" end="R72" endPin="B">
+		</connector>
+		<connector start="I15" startPin="Anode" end="4" endPin="North">
+		</connector>
+		<connector start="I80" startPin="Cathode" end="19" endPin="East">
+		</connector>
+		<connector start="I80" startPin="Anode" end="7" endPin="North">
+		</connector>
+		<connector start="M12" startPin="Drain" end="11" endPin="South">
+		</connector>
+		<connector start="M12" startPin="Gate" end="14" endPin="South">
+			<joint x="357.227" y="271.864"/>
+		</connector>
+		<connector start="M12" startPin="Source" end="15" endPin="North">
+		</connector>
+		<connector start="M14" startPin="Drain" end="12" endPin="East">
+		</connector>
+		<connector start="M14" startPin="Source" end="15" endPin="South">
+		</connector>
+		<connector start="R10" startPin="A" end="10" endPin="North">
+		</connector>
+		<connector start="R11" startPin="A" end="10" endPin="East">
+		</connector>
+		<connector start="R11" startPin="B" end="12" endPin="West">
+		</connector>
+		<connector start="R71" startPin="A" end="6" endPin="South">
+		</connector>
+		<connector start="R71" startPin="B" end="GND7" endPin="Ground">
+		</connector>
+		<connector start="R72" startPin="A" end="17" endPin="South">
+		</connector>
+		<connector start="R73" startPin="B" end="19" endPin="West">
+		</connector>
+		<connector start="R73" startPin="A" end="7" endPin="South">
+		</connector>
+		<connector start="V10" startPin="Cathode" end="10" endPin="West">
+		</connector>
+		<connector start="V13" startPin="Cathode" end="13" endPin="West">
+		</connector>
+		<connector start="V13" startPin="Anode" end="3" endPin="North">
+		</connector>
+		<connector start="V16" startPin="Cathode" end="4" endPin="East">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="true" name="MCP6241" vendor="com.microchip" revision="1" labelPosition="north">
+		<pin name="1" x="-28.000000" y="-21.000000" />
+		<pin name="2" x="-28.000000" y="-7.000000" />
+		<pin name="3" x="-28.000000" y="7.000000" />
+		<pin name="4" x="-28.000000" y="21.000000" />
+		<pin name="5" x="28.000000" y="21.000000" />
+		<pin name="6" x="28.000000" y="7.000000" />
+		<pin name="7" x="28.000000" y="-7.000000" />
+		<pin name="8" x="28.000000" y="-21.000000" />
+		<external pin="1" node="1" />
+		<external pin="2" node="2" />
+		<external pin="3" node="Vs" />
+		<external pin="4" node="-Vs" />
+		<external pin="5" node="5" />
+		<external pin="6" node="" />
+		<external pin="7" node="" />
+		<external pin="8" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP8"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v="MCP6241"/>
+	</subcircuit_data>
+	<m k="FXVolta_Netlist" v=".SUBCKT MCP6241 1 2 Vs -Vs 5{FX_newline}C11 11 12 7.2p{FX_newline}C12 1 0 6.0p{FX_newline}C14 2 0 1u{FX_newline}E12 71 14 1{FX_newline}G12 1 0 62 0 1m{FX_newline}G14 2 0 62 0 1m{FX_newline}GD13 2 13 {FX_newline}GD16 16 1 {FX_newline}I15 4 15 50u{FX_newline}I80 2 1 500e-15{FX_newline}M12 11 14 15 15 NMI l=2u w=42u{FX_newline}M14 12 2 15 15 NMI l=2u w=42u{FX_newline}R10 10 11 6.9k{FX_newline}R11 10 12 6.9k{FX_newline}R71 1 0 20e12{FX_newline}R72 2 0 20e12{FX_newline}R73 2 1 20e12{FX_newline}V10 3 10 -500m{FX_newline}V13 3 13 -300m{FX_newline}V16 16 4 -300m{FX_newline}.MODEL NMI NMOS ( LEVEL=1 VTO=0.0 KP=20u GAMMA=0.0 PHI=0.6 LAMBDA=0.0 RD=0.0 RS=0.0 CBD=0.0 CBS=0.0 IS=1.0e-14 PB=0.8 CGSO=0.0 CGDO=0.0 CGBO=0.0 RSH=0.0 CJ=0.0 MJ=0.5 CJSW=0.0 MJSW=0.50 TOX=1.0e-7 NSUB=1.0e15 NSS=1.0e10 TPG=1.0 LD=0.0 UO=600 KF=0.0 AF=1.0 FC=0.5 TNOM=27 ){FX_newline}.ENDS MCP6241{FX_newline}{FX_newline}Error: Pin {FX_quote}NC+{FX_quote} of component E12 is not wired.{FX_newline}Error: Pin {FX_quote}NC-{FX_quote} of component E12 is not wired.{FX_newline}Error: Pin {FX_quote}NC+{FX_quote} of component GD13 is not wired.{FX_newline}Error: Pin {FX_quote}NC-{FX_quote} of component GD13 is not wired.{FX_newline}Error: GD13 missing transconductance value{FX_newline}Error: Pin {FX_quote}NC+{FX_quote} of component GD16 is not wired.{FX_newline}Error: Pin {FX_quote}NC-{FX_quote} of component GD16 is not wired.{FX_newline}Error: GD16 missing transconductance value{FX_newline}"/>
+	<m k="FXVoltaMac_WindowVPosition" v="151"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.6649331352154532"/>
+	<m k="FXVoltaMac_WindowHeight" v="1006"/>
+	<m k="FXVoltaMac_WindowWidth" v="1346"/>
+	<m k="FXVoltaMac_WindowHPosition" v="390"/>
+</circuit>
+</volta>

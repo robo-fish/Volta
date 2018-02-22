@@ -1,0 +1,28 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+"FileBrowserColumnTitle_Name" = "名称";
+"FileBrowserColumnTitle_Size" = "大小";
+"FileBrowserColumnTitle_LastModified" = "修改日期";
+"FileBrowserAlert_Cancel" = "取消";
+"FileBrowserAlert_OverwriteFile_Message" = "该文件已存在于文件夹中：\n%@";
+"FileBrowserAlert_OverwriteFile_Accept" = "覆盖";
+"FileBrowserAlert_DeleteSelected_Message" = "是否刪除所选文件?";
+"FileBrowserAlert_DeleteSelected_Accept" = "删除";

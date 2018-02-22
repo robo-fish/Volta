@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit title="">
+	<schematic>
+		<element name="3" type="NODE" modelName="Node" modelVendor="" x="300.496" y="268.004" />
+		<element name="4" type="NODE" modelName="Node" modelVendor="" x="300.496" y="347.793" />
+		<element name="5" type="NODE" modelName="Node" modelVendor="" x="411.223" y="89.6641" />
+		<element name="6" type="NODE" modelName="Node" modelVendor="" x="411.223" y="347.793" />
+		<element name="CD" type="C" modelName="Capacitor" modelVendor="" x="411.223" y="202.711" rotation="270" labelPosition="left" >
+			<p n="capacitance" v="1.0mF" />
+		</element>
+		<element name="D1" type="D" modelName="DefaultDiode" modelVendor="" x="242.227" y="128.769" rotation="90" labelPosition="left" />
+		<element name="D2" type="D" modelName="DefaultDiode" modelVendor="" x="300.496" y="128.769" rotation="90" labelPosition="left" />
+		<element name="D3" type="D" modelName="DefaultDiode" modelVendor="" x="242.227" y="305.699" rotation="90" labelPosition="left" />
+		<element name="D4" type="D" modelName="DefaultDiode" modelVendor="" x="300.496" y="305.699" rotation="90" labelPosition="left" />
+		<element name="GND2" type="GRND" modelName="Ground" modelVendor="" x="350.011" y="277.004" />
+		<element name="LD" type="L" modelName="InductorUS" modelVendor="" x="356.328" y="83.6641" labelPosition="top" >
+			<p n="inductance" v="1uH" />
+		</element>
+		<element name="LS" type="L" modelName="InductorUS" modelVendor="" x="120.41" y="164.824" labelPosition="top" >
+			<p n="inductance" v="1.0mH" />
+		</element>
+		<element name="MT1" type="METER" modelName="VoltmeterTRAN" modelVendor="" x="429.223" y="51.7344" >
+			<p n="tstep" v="1m" />
+			<p n="tmax" v="100m" />
+			<p n="use ic" v="yes" />
+			<p n="ref. node" v="6" />
+			<p n="tstop" v="1000m" />
+		</element>
+		<element name="RLOAD" type="R" modelName="ResistorUS" modelVendor="" x="461.477" y="207.711" rotation="270" labelPosition="right" >
+			<p n="resistance" v="50" />
+		</element>
+		<element name="RS" type="R" modelName="ResistorUS" modelVendor="" x="172.656" y="170.824" labelPosition="top" >
+			<p n="resistance" v="1m" />
+		</element>
+		<element name="V1" type="V" modelName="SinusoidalVoltage" modelVendor="" x="69.6602" y="219.703" labelPosition="right" >
+			<p n="offset" v="0" />
+			<p n="frequency" v="60" />
+			<p n="amplitude" v="170" />
+		</element>
+		<element name="four" type="NODE" modelName="Node" modelVendor="" x="300.496" y="89.6641" labelPosition="top" />
+		<element name="three" type="NODE" modelName="Node" modelVendor="" x="242.227" y="170.824" labelPosition="right" />
+		<connector start="3" startPin="North" end="D2" endPin="Anode">
+		</connector>
+		<connector start="4" startPin="West" end="D3" endPin="Anode">
+			<joint x="242.227" y="347.793"/>
+		</connector>
+		<connector start="4" startPin="North" end="D4" endPin="Anode">
+		</connector>
+		<connector start="5" startPin="East" end="RLOAD" endPin="A">
+			<joint x="461.477" y="89.6641"/>
+		</connector>
+		<connector start="6" startPin="West" end="4" endPin="East">
+		</connector>
+		<connector start="6" startPin="North" end="CD" endPin="B">
+		</connector>
+		<connector start="CD" startPin="A" end="5" endPin="South">
+		</connector>
+		<connector start="D1" startPin="Anode" end="three" endPin="North">
+		</connector>
+		<connector start="D3" startPin="Cathode" end="three" endPin="South">
+		</connector>
+		<connector start="D4" startPin="Cathode" end="3" endPin="South">
+		</connector>
+		<connector start="GND2" startPin="Ground" end="3" endPin="East">
+		</connector>
+		<connector start="LD" startPin="B" end="5" endPin="West">
+		</connector>
+		<connector start="LD" startPin="A" end="four" endPin="East">
+		</connector>
+		<connector start="MT1" startPin="Anode" end="5" endPin="North">
+		</connector>
+		<connector start="RLOAD" startPin="B" end="6" endPin="East">
+			<joint x="461.477" y="347.793"/>
+		</connector>
+		<connector start="RS" startPin="A" end="LS" endPin="B">
+		</connector>
+		<connector start="V1" startPin="Cathode" end="3" endPin="West">
+			<joint x="69.6602" y="268.004"/>
+		</connector>
+		<connector start="V1" startPin="Anode" end="LS" endPin="A">
+			<joint x="69.6602" y="170.824"/>
+		</connector>
+		<connector start="four" startPin="West" end="D1" endPin="Cathode">
+			<joint x="242.227" y="89.6641"/>
+		</connector>
+		<connector start="four" startPin="South" end="D2" endPin="Cathode">
+		</connector>
+		<connector start="three" startPin="West" end="RS" endPin="B">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="" revision="1" labelPosition="top">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v=""/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.63"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="0.8"/>
+	<m k="FXVoltaMac_WindowHeight" v="751"/>
+	<m k="FXVoltaMac_WindowWidth" v="1007"/>
+	<m k="FXVolta_Netlist" v="2012-09-06 13:52:41 +0000{FX_newline}CD 5 6 1.0mF{FX_newline}D1 three four DefaultDiode{FX_newline}D2 0 four DefaultDiode{FX_newline}D3 6 three DefaultDiode{FX_newline}D4 6 0 DefaultDiode{FX_newline}LD four 5 1uH{FX_newline}LS 2 1 1.0mH{FX_newline}RLOAD 5 6 50{FX_newline}RS 1 three 1m{FX_newline}V1 2 0 0 SIN(0 170 60  ){FX_newline}.MODEL DefaultDiode D IBV=1.0e-3 IK=1.0e-3 IKR=1.0e-3 IS=1.0e-14 JSW=1.0e-14 N=1 RS=0.0 CJO=0.0 CJP=0.0 FC=0.5 FCS=0.5 M=0.5 MJSW=0.33 VJ=1 PHP=1 TT=0 EG=1.11 TM1=0.0 TM2=0.0 TNOM=27 TRS=0.0 TRS2=0.0 TTT1=0.0 TTT2=0.0 XTI=3.0 KF=0 AF=1{FX_newline}.TRAN 1m 1000m UIC{FX_newline}.PRINT TRAN v(5,6){FX_newline}.OPTIONS nopage noacct keepopinfo{FX_newline}.END{FX_newline}"/>
+</circuit>
+</volta>

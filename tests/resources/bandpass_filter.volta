@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit name="">
+	<schematic>
+		<element name="1" type="NODE" modelName="Node" modelVendor="" x="59.4766" y="156.668" labelPosition="north" >
+		</element>
+		<element name="2" type="NODE" modelName="Node" modelVendor="" x="188.75" y="156.668" >
+		</element>
+		<element name="3" type="NODE" modelName="Node" modelVendor="" x="280.273" y="156.668" labelPosition="south" >
+		</element>
+		<element name="4" type="NODE" modelName="Node" modelVendor="" x="425.719" y="156.668" labelPosition="south" >
+		</element>
+		<element name="5" type="NODE" modelName="Node" modelVendor="" x="188.75" y="305.562" >
+		</element>
+		<element name="6" type="NODE" modelName="Node" modelVendor="" x="425.719" y="92.6758" >
+		</element>
+		<element name="C1" type="C" modelName="Capacitor" modelVendor="" x="233.742" y="156.668" labelPosition="north" >
+			<p n="capacitance" v="10n" />
+		</element>
+		<element name="C2" type="C" modelName="Capacitor" modelVendor="" x="296.273" y="43.5469" labelPosition="north" >
+			<p n="capacitance" v="10n" />
+		</element>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="188.75" y="337.051" >
+		</element>
+		<element name="GND2" type="GRND" modelName="Ground" modelVendor="" x="325.012" y="207.285" >
+		</element>
+		<element name="R1A" type="R" modelName="ResistorUS" modelVendor="" x="130.891" y="156.668" labelPosition="north" >
+			<p n="resistance" v="7.96k" />
+		</element>
+		<element name="R1B" type="R" modelName="ResistorUS" modelVendor="" x="188.75" y="224.86" rotation="90" labelPosition="east" >
+			<p n="resistance" v="162" />
+		</element>
+		<element name="R2" type="R" modelName="ResistorUS" modelVendor="" x="358.383" y="92.6758" rotation="-2.50448e-06" labelPosition="north" >
+			<p n="resistance" v="15.9k" />
+		</element>
+		<element name="V1" type="VSSIN" modelName="SinusoidalVoltage" modelVendor="" x="59.4766" y="206.066" labelPosition="east" >
+			<p n="amplitude" v="1" />
+			<p n="offset" v="0" />
+			<p n="frequency" v="10k" />
+		</element>
+		<element name="V2" type="VSAC" modelName="ACVoltage" modelVendor="" x="59.4766" y="262.938" labelPosition="east" >
+			<p n="magnitude" v="1" />
+			<p n="phase" v="0" />
+		</element>
+		<element name="VMT1" type="MTVAC" modelName="VoltmeterAC" modelVendor="" x="499.617" y="156.668" >
+			<p n="start frequency" v="3k" />
+			<p n="scale type" v="dec" />
+			<p n="stop frequency" v="300k" />
+			<p n="# points" v="200" />
+		</element>
+		<element name="X1" type="SUBCKT" modelName="BPOP" modelVendor="com.ecircuitcenter" x="365.383" y="163.668" labelPosition="north" >
+		</element>
+		<connector start="1" startPin="East" end="R1A" endPin="A">
+		</connector>
+		<connector start="5" startPin="West" end="V2" endPin="Cathode">
+			<joint x="59.4766" y="305.562"/>
+		</connector>
+		<connector start="6" startPin="South" end="4" endPin="North">
+		</connector>
+		<connector start="6" startPin="North" end="C2" endPin="B">
+			<joint x="425.719" y="43.5469"/>
+		</connector>
+		<connector start="C1" startPin="A" end="2" endPin="East">
+		</connector>
+		<connector start="C1" startPin="B" end="3" endPin="West">
+		</connector>
+		<connector start="C2" startPin="A" end="2" endPin="North">
+			<joint x="188.75" y="43.5469"/>
+		</connector>
+		<connector start="GND1" startPin="Ground" end="5" endPin="South">
+		</connector>
+		<connector start="GND2" startPin="Ground" end="X1" endPin="2">
+			<joint x="325.012" y="170.668"/>
+		</connector>
+		<connector start="R1A" startPin="B" end="2" endPin="West">
+		</connector>
+		<connector start="R1B" startPin="B" end="2" endPin="South">
+		</connector>
+		<connector start="R1B" startPin="A" end="5" endPin="North">
+		</connector>
+		<connector start="R2" startPin="A" end="3" endPin="North">
+			<joint x="280.273" y="92.6758"/>
+		</connector>
+		<connector start="R2" startPin="B" end="6" endPin="West">
+		</connector>
+		<connector start="V1" startPin="Anode" end="1" endPin="South">
+		</connector>
+		<connector start="V2" startPin="Anode" end="V1" endPin="Cathode">
+		</connector>
+		<connector start="VMT1" startPin="Anode" end="4" endPin="East">
+		</connector>
+		<connector start="X1" startPin="1" end="3" endPin="East">
+		</connector>
+		<connector start="X1" startPin="4" end="4" endPin="West">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="" revision="1" labelPosition="north">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v=""/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_WindowVPosition" v="118"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="0.54"/>
+	<m k="FXVolta_Netlist" v="2012-05-06 12:04:53 +0000{FX_newline}C1 2 3 10n{FX_newline}C2 2 6 10n{FX_newline}R1A 1 2 7.96k{FX_newline}R1B 0 2 162{FX_newline}R2 3 6 15.9k{FX_newline}V1 1 7 SIN(0 1 10k 0.0 0.0){FX_newline}V2 7 0 AC 1 0{FX_newline}X1 3 0 6 com.ecircuitcenter.BPOP{FX_newline}.SUBCKT com.ecircuitcenter.BPOP 1 2 6{FX_newline}CP1 0 4 1.5915u{FX_newline}EBUFFER 5 0 4 0 1{FX_newline}EGAIN 3 0 1 2 100k{FX_newline}RIN 1 2 10meg{FX_newline}ROUT 5 6 10{FX_newline}RP1 3 4 1k{FX_newline}.ENDS com.ecircuitcenter.BPOP{FX_newline}.AC dec 200 3k 300k{FX_newline}.PRINT AC v(6){FX_newline}.OPTIONS nopage noacct keepopinfo{FX_newline}.END{FX_newline}"/>
+	<m k="FXVoltaMac_WindowHPosition" v="527"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="1"/>
+	<m k="FXVoltaMac_WindowWidth" v="783"/>
+	<m k="FXVoltaMac_WindowHeight" v="843"/>
+</circuit>
+</volta>

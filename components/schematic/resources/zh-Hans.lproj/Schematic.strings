@@ -1,0 +1,71 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Toolbar items and their tooltips */
+"ToolbarItemText_Palette" = "零件盒";
+"ToolbarItemText_Inspector" = "属性面板";
+"ToolbarItemText_ToggleInspector" = "显示或隐藏属性面板";
+"ToolbarItemText_TogglePalette" = "显示或隐藏零件盒";
+"ToolbarItemText_Zoom" = "缩放图表";
+
+/* Operations with undo */
+"Action_rotation" = "旋转";
+"Action_add_component" = "插入零件";
+"Action_flipping" = "翻转";
+"Action_attribute_value_change" = "属性改变";
+"Action_name_change" = "名称改变";
+"Action_model_change" = "模型改变";
+"Action_connect" = "连接";
+"Action_disconnect" = "断开";
+"Action_move" = "移动";
+"Action_copy" = "复制";
+"Action_delete" = "删除";
+"Action_reposition_label" = "标签位置改变";
+"Action_create_joint" = "创建连接转折";
+"Action_move_joint" = "移动连接转折";
+
+"Attribute" = "属性";
+"Value" = "数据";
+"No name" = "未命名";
+"Multiple values" = "...";
+"component" = "个零件";
+"components" = "个零件";
+"No components" = "没有零件";
+"connection" = "个连接";
+"connections" = "个连接";
+"No connections" = "没有连接";
+"Untitled" = "未命名";
+
+"Edit…" = "编辑…";
+
+/* Main menu items */
+"Toggle Inspector" = "切换属性面板";
+"Rotate +90˚" = "顺时针旋转90度";
+"Rotate -90˚" = "逆时针旋转90度";
+"Flip horizontally" = "水平翻转";
+"Flip vertically" = "垂直翻转";
+
+/* Inspector */
+"SchematicInspector_CircuitParameters" = "电路属性";
+"SchematicElementInspector_MultipleModels" = "不同的模型";
+"SchematicElementInspector_UnknownModelType" = "未知的模型类型";
+
+/* Schematic text */
+"SchematicBeginnerInstructions" = "此处拖入元器件";

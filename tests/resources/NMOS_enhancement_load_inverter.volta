@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="1">
+<circuit name="">
+	<schematic>
+		<element name="1" type="NODE" modelName="Node" modelVendor="" x="247.074" y="116.046" >
+		</element>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="277.309" y="169.801" >
+		</element>
+		<element name="GND3" type="GRND" modelName="Ground" modelVendor="" x="247.074" y="341" >
+		</element>
+		<element name="GND4" type="GRND" modelName="Ground" modelVendor="" x="298.164" y="117.613" >
+		</element>
+		<element name="GND5" type="GRND" modelName="Ground" modelVendor="" x="134.52" y="341" >
+		</element>
+		<element name="M1" type="NMOS" modelName="DepletionNMOSFETWithBulk" modelVendor="" x="231.074" y="160.801" labelPosition="west" >
+			<p n="l" v="1" />
+			<p n="w" v="1" />
+		</element>
+		<element name="M2" type="NMOS" modelName="DepletionNMOSFET" modelVendor="" x="231.074" y="262.363" labelPosition="east" >
+			<p n="l" v="1" />
+			<p n="w" v="1" />
+		</element>
+		<element name="V1" type="VSDC" modelName="DCVoltage" modelVendor="" x="298.164" y="84.6133" labelPosition="east" >
+			<p n="voltage" v="5" />
+		</element>
+		<element name="VMT1" type="MTVDC" modelName="VoltmeterDC" modelVendor="" x="304.653" y="213.328" >
+			<p n="stop" v="5.0" />
+			<p n="source" v="Vin" />
+			<p n="step" v="0.01" />
+			<p n="start" v="0.0" />
+		</element>
+		<element name="Vin" type="VSDC" modelName="DCVoltage" modelVendor="" x="134.52" y="297.363" labelPosition="east" >
+			<p n="voltage" v="5" />
+		</element>
+		<element name="out" type="NODE" modelName="Node" modelVendor="" x="247.074" y="213.328" labelPosition="west" >
+		</element>
+		<connector start="1" startPin="North" end="V1" endPin="Anode">
+			<joint x="247.074" y="60.6133"/>
+		</connector>
+		<connector start="GND4" startPin="Ground" end="V1" endPin="Cathode">
+		</connector>
+		<connector start="GND5" startPin="Ground" end="Vin" endPin="Cathode">
+		</connector>
+		<connector start="M1" startPin="Drain" end="1" endPin="South">
+		</connector>
+		<connector start="M1" startPin="Gate" end="1" endPin="West">
+			<joint x="215.074" y="116.046"/>
+		</connector>
+		<connector start="M1" startPin="Bulk" end="GND1" endPin="Ground">
+		</connector>
+		<connector start="M1" startPin="Source" end="out" endPin="North">
+		</connector>
+		<connector start="M2" startPin="Source" end="GND3" endPin="Ground">
+		</connector>
+		<connector start="M2" startPin="Gate" end="Vin" endPin="Anode">
+		</connector>
+		<connector start="M2" startPin="Drain" end="out" endPin="South">
+		</connector>
+		<connector start="VMT1" startPin="Anode" end="out" endPin="East">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="" revision="1" labelPosition="north">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v=""/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_WindowVPosition" v="121"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="0.61"/>
+	<m k="FXVolta_Netlist" v="2012-05-06 17:03:13 +0000{FX_newline}M1 1 1 out 0 DepletionNMOSFETWithBulk l=1 w=1{FX_newline}M2 out 2 0 0 DepletionNMOSFET l=1 w=1{FX_newline}V1 1 0 5{FX_newline}Vin 2 0 5{FX_newline}.MODEL DepletionNMOSFET NMOS ( LEVEL=1 VTO=0.0 KP=2.0e-5 GAMMA=0.0 PHI=0.6 LAMBDA=0.0 RD=0.0 RS=0.0 CBD=0.0 CBS=0.0 IS=1.0e-14 PB=0.8 CGSO=0.0 CGDO=0.0 CGBO=0.0 RSH=0.0 CJ=0.0 MJ=0.5 CJSW=0.0 MJSW=0.50 TOX=1.0e-7 NSUB=1.0e15 NSS=1.0e10 TPG=1.0 LD=0.0 UO=600 KF=0.0 AF=1.0 FC=0.5 TNOM=27 ){FX_newline}.MODEL DepletionNMOSFETWithBulk NMOS ( LEVEL=1 VTO=0.0 KP=2.0e-5 GAMMA=0.0 PHI=0.6 LAMBDA=0.0 RD=0.0 RS=0.0 CBD=0.0 CBS=0.0 IS=1.0e-14 PB=0.8 CGSO=0.0 CGDO=0.0 CGBO=0.0 RSH=0.0 CJ=0.0 MJ=0.5 CJSW=0.0 MJSW=0.50 TOX=1.0e-7 NSUB=1.0e15 NSS=1.0e10 TPG=1.0 LD=0.0 UO=600 KF=0.0 AF=1.0 FC=0.5 TNOM=27 ){FX_newline}.DC Vin 0.0 5.0 0.01{FX_newline}.PRINT DC v(out){FX_newline}.OPTIONS nopage noacct keepopinfo{FX_newline}.END{FX_newline}"/>
+	<m k="FXVoltaMac_WindowHPosition" v="609"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.63"/>
+	<m k="FXVoltaMac_WindowWidth" v="959"/>
+	<m k="FXVoltaMac_WindowHeight" v="806"/>
+</circuit>
+</volta>

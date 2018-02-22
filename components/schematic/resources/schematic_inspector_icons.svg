@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="schematic_inspector_icons.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="212.77075"
+     inkscape:cy="766.82532"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1347"
+     inkscape:window-height="841"
+     inkscape:window-x="83"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3912"
+       transform="matrix(0.45873832,0,0,0.45873832,30.966098,-42.65206)"
+       inkscape:export-filename="/Volumes/Volta/work/components/schematic/resources/schematic_inspector_rotate_left.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72">
+      <path
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         inkscape:export-filename="/Volumes/Volta/trunk/desktop/graphics/element_inspector_icons.png"
+         sodipodi:open="true"
+         transform="matrix(1.0992058,0,0,0.99914697,-142.06518,-1.2397773)"
+         sodipodi:end="7.8539816"
+         sodipodi:start="3.403392"
+         d="m 204.16112,256.55361 c 6.96841,-30.00747 33.69983,-47.81523 59.70631,-39.77476 26.00647,8.04048 41.43987,38.88443 34.47145,68.8919 -5.71071,24.59157 -25.02435,41.69143 -47.08888,41.69143"
+         sodipodi:ry="56.25"
+         sodipodi:rx="48.75"
+         sodipodi:cy="271.11218"
+         sodipodi:cx="251.25"
+         id="path3755"
+         style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:7.63371229;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         inkscape:export-filename="/Volumes/Volta/trunk/desktop/graphics/element_inspector_icons.png"
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path3759"
+         d="m 77.28551,286.58005 -9.15165,-33.89178 28.08181,4.33112 z"
+         style="fill:#000000;stroke:#000000;stroke-width:4.11628723;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       id="g3908"
+       transform="matrix(0.45873832,0,0,0.45873832,68.836608,-40.62822)"
+       inkscape:export-filename="/Volumes/Volta/work/components/schematic/resources/schematic_inspector_rotate_right.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72">
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:7.63371229;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="path3904"
+         sodipodi:cx="251.25"
+         sodipodi:cy="271.11218"
+         sodipodi:rx="48.75"
+         sodipodi:ry="56.25"
+         d="m 204.16112,256.55361 c 6.96841,-30.00747 33.69983,-47.81523 59.70631,-39.77476 26.00647,8.04048 41.43987,38.88443 34.47145,68.8919 -5.71071,24.59157 -25.02435,41.69143 -47.08888,41.69143"
+         sodipodi:start="3.403392"
+         sodipodi:end="7.8539816"
+         transform="matrix(-1.0992058,0,0,0.99914697,554.26252,-5.651542)"
+         sodipodi:open="true"
+         inkscape:export-filename="/Volumes/Volta/trunk/desktop/graphics/element_inspector_icons.png"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72" />
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:4.11628723;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 334.91183,282.16829 9.15165,-33.89178 -28.08181,4.33112 z"
+         id="path3906"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="/Volumes/Volta/trunk/desktop/graphics/element_inspector_icons.png"
+         inkscape:export-xdpi="72"
+         inkscape:export-ydpi="72" />
+    </g>
+    <g
+       id="g3781"
+       inkscape:export-filename="/Volumes/Volta/work/components/schematic/resources/schematic_inspector_flip_horizontally.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72"
+       transform="translate(-8,-162)">
+      <g
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         inkscape:export-filename="/Volumes/Volta/trunk/desktop/graphics/element_inspector_icons.png"
+         transform="matrix(0.43150523,0,0,0.54872356,92.245148,97.356999)"
+         id="g3873">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:11.1873436;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 476.25198,265.49336 62.28366,0"
+           id="path3816"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.78277731px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 478.71773,247.11115 0,36.76442 -38.6238,-18.38221 z"
+           id="path3869"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cccc" />
+        <path
+           sodipodi:nodetypes="cccc"
+           inkscape:connector-curvature="0"
+           id="path3871"
+           d="m 533.0989,247.11115 0,36.76442 38.6238,-18.38221 z"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.78277731px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path2996"
+         d="m 310.54723,269.18941 c 0,-52.68166 0,-52.2999 0,-52.2999"
+         style="fill:none;stroke:#000000;stroke-width:1.45469487;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:11.63755857, 11.63755857;stroke-dashoffset:3.20032861" />
+    </g>
+    <g
+       id="g3793"
+       inkscape:export-filename="/Volumes/Volta/work/components/schematic/resources/schematic_inspector_flip_vertically.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72"
+       transform="translate(-8,-162)">
+      <g
+         inkscape:export-ydpi="72"
+         inkscape:export-xdpi="72"
+         inkscape:export-filename="/Volumes/Volta/trunk/desktop/graphics/element_inspector_icons.png"
+         id="g3878"
+         transform="matrix(0,-0.4245085,0.54872356,0,256.65116,457.80184)">
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3880"
+           d="m 476.25198,265.49336 62.28366,0"
+           style="fill:none;stroke:#000000;stroke-width:11.1873436;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <path
+           sodipodi:nodetypes="cccc"
+           inkscape:connector-curvature="0"
+           id="path3882"
+           d="m 478.71773,247.11115 0,36.76442 -38.6238,-18.38221 z"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.78277731px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.78277731px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 533.0989,247.11115 0,36.76442 38.6238,-18.38221 z"
+           id="path3884"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cccc" />
+      </g>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1.53539658;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:12.28317283, 12.28317283;stroke-dashoffset:1.5353966"
+         d="m 431.46549,242.72883 c -58.68901,0 -58.26373,0 -58.26373,0"
+         id="path3766"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

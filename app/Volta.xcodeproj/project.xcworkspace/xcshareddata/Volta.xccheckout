@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0CF69159-64CD-421E-8FDD-BEEF6AB4EBB9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Volta</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>871E5777-1304-4EE3-A0F2-A4481D8B9408</key>
+		<string>../_repository.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>apps/osx/Volta.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>871E5777-1304-4EE3-A0F2-A4481D8B9408</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>../_repository.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>871E5777-1304-4EE3-A0F2-A4481D8B9408</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>871E5777-1304-4EE3-A0F2-A4481D8B9408</string>
+			<key>IDESourceControlWCCName</key>
+			<string>work</string>
+		</dict>
+	</array>
+</dict>
+</plist>

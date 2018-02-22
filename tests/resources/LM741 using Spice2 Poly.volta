@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit title="">
+	<schematic>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="true" name="LM741" revision="1" labelPosition="top">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="1" />
+		<external pin="2" node="2" />
+		<external pin="3" node="99" />
+		<external pin="4" node="50" />
+		<external pin="5" node="28" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v="LM741"/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="1"/>
+	<m k="FXVoltaMac_WindowHeight" v="600"/>
+	<m k="FXVoltaMac_WindowWidth" v="800"/>
+	<m k="FXVolta_Netlist" v="*//////////////////////////////////////////////////////////////////////{FX_newline}* (C) National Semiconductor, Inc.{FX_newline}* Models developed and under copyright by:{FX_newline}* National Semiconductor, Inc.  {FX_newline}{FX_newline}*/////////////////////////////////////////////////////////////////////{FX_newline}* Legal Notice: This material is intended for free software support.{FX_newline}* The file may be copied, and distributed; however, reselling the {FX_newline}*  material is illegal{FX_newline}{FX_newline}*////////////////////////////////////////////////////////////////////{FX_newline}* For ordering or technical information on these models, contact:{FX_newline}* National Semiconductor's Customer Response Center{FX_newline}*                 7:00 A.M.--7:00 P.M.  U.S. Central Time{FX_newline}*                                (800) 272-9959{FX_newline}* For Applications support, contact the Internet address:{FX_newline}*  amps-apps@galaxy.nsc.com{FX_newline}{FX_newline}*//////////////////////////////////////////////////////////{FX_newline}*LM741 OPERATIONAL AMPLIFIER MACRO-MODEL{FX_newline}*//////////////////////////////////////////////////////////{FX_newline}*{FX_newline}* connections:      non-inverting input{FX_newline}*                   |   inverting input{FX_newline}*                   |   |   positive power supply{FX_newline}*                   |   |   |   negative power supply{FX_newline}*                   |   |   |   |   output{FX_newline}*                   |   |   |   |   |{FX_newline}*                   |   |   |   |   |{FX_newline}.SUBCKT LM741       1   2  99  50  28{FX_newline}*{FX_newline}*Features:{FX_newline}*Improved performance over industry standards{FX_newline}*Plug-in replacement for LM709,LM201,MC1439,748{FX_newline}*Input and output overload protection{FX_newline}*{FX_newline}****************INPUT STAGE**************{FX_newline}*{FX_newline}IOS 2 1 20N{FX_newline}*^Input offset current{FX_newline}R1 1 3 250K{FX_newline}R2 3 2 250K{FX_newline}I1 4 50 100U{FX_newline}R3 5 99 517{FX_newline}R4 6 99 517{FX_newline}Q1 5 2 4 QX{FX_newline}Q2 6 7 4 QX{FX_newline}*Fp2=2.55 MHz{FX_newline}C4 5 6 60.3614P{FX_newline}*{FX_newline}***********COMMON MODE EFFECT***********{FX_newline}*{FX_newline}I2 99 50 1.6MA{FX_newline}*^Quiescent supply current{FX_newline}EOS 7 1 POLY(1) 16 49 1E-3 1{FX_newline}*Input offset voltage.^{FX_newline}R8 99 49 40K{FX_newline}R9 49 50 40K{FX_newline}*{FX_newline}*********OUTPUT VOLTAGE LIMITING********{FX_newline}V2 99 8 1.63{FX_newline}D1 9 8 DX{FX_newline}D2 10 9 DX{FX_newline}V3 10 50 1.63{FX_newline}*{FX_newline}**************SECOND STAGE**************{FX_newline}*{FX_newline}EH 99 98 99 49 1{FX_newline}G1 98 9 5 6 2.1E-3{FX_newline}*Fp1=5 Hz{FX_newline}R5 98 9 95.493MEG{FX_newline}C3 98 9 333.33P{FX_newline}*{FX_newline}***************POLE STAGE***************{FX_newline}*{FX_newline}*Fp=30 MHz{FX_newline}G3 98 15 9 49 1E-6{FX_newline}R12 98 15 1MEG{FX_newline}C5 98 15 5.3052E-15{FX_newline}*{FX_newline}*********COMMON-MODE ZERO STAGE*********{FX_newline}*{FX_newline}*Fpcm=300 Hz{FX_newline}G4 98 16 3 49 3.1623E-8{FX_newline}L2 98 17 530.5M{FX_newline}R13 17 16 1K{FX_newline}*{FX_newline}**************OUTPUT STAGE**************{FX_newline}*{FX_newline}F6 50 99 POLY(1) V6 450U 1{FX_newline}E1 99 23 99 15 1{FX_newline}R16 24 23 25{FX_newline}D5 26 24 DX{FX_newline}V6 26 22 0.65V{FX_newline}R17 23 25 25{FX_newline}D6 25 27 DX{FX_newline}V7 22 27 0.65V{FX_newline}V5 22 21 0.18V{FX_newline}D4 21 15 DX{FX_newline}V4 20 22 0.18V{FX_newline}D3 15 20 DX{FX_newline}L3 22 28 100P{FX_newline}RL3 22 28 100K{FX_newline}*{FX_newline}***************MODELS USED**************{FX_newline}*{FX_newline}.MODEL DX D(IS=1E-15){FX_newline}.MODEL QX NPN(BF=625){FX_newline}*{FX_newline}.ENDS{FX_newline}"/>
+</circuit>
+</volta>

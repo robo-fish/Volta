@@ -1,0 +1,35 @@
+@media screen and (min-width: 40em) {
+  div.version_indent {
+    margin-left: 1em;
+  }
+  p.series_title {
+    margin-top: 2em;
+    font-weight: bold;
+  }
+  p.version {
+  }
+  li.version-note {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+}
+@media screen and (max-width: 40em) {
+  div.version_indent {
+    margin-left: 0;
+  }
+  p.series_title {
+    margin-top: 1em;
+    font-weight: bold;
+    color: blue;
+  }
+  p.version {
+    color: blue;
+  }
+  ul.version-notes {
+    padding-left: 0;
+  }
+  li.version-note {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+}

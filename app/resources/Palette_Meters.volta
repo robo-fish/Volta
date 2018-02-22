@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<library title="Power sources and meters">
+
+  <element name="" type="NODE" modelName="Node" />
+  <element name="Gnd" type="GRND" modelName="Ground" labelPosition="none" />
+
+  <element name="Vcc+5"  type="V" modelName="DCVoltage" labelPosition="right"> <p n="voltage" v="5"/> </element>
+  <element name="Vcc-5"  type="V" modelName="DCVoltage" labelPosition="right"> <p n="voltage" v="-5"/> </element>
+  <element name="Vcc+12" type="V" modelName="DCVoltage" labelPosition="right"> <p n="voltage" v="12"/> </element>
+  <element name="Vcc-12" type="V" modelName="DCVoltage" labelPosition="right"> <p n="voltage" v="-12"/> </element>
+  <element name="Vcc+15" type="V" modelName="DCVoltage" labelPosition="right"> <p n="voltage" v="15"/> </element>
+  <element name="Vcc-15" type="V" modelName="DCVoltage" labelPosition="right"> <p n="voltage" v="-15"/> </element>
+  <element name="VAC" type="V" modelName="ACVoltage" labelPosition="right" />
+  <element name="VSin" type="V" modelName="SinusoidalVoltage" labelPosition="right" />
+  <element name="VPulse" type="V" modelName="PulsedVoltage" labelPosition="right" />
+
+  <element name="IDC" type="I" modelName="DCCurrent" labelPosition="right"> <p n="current" v="1m"/> </element>
+  <element name="IAC" type="I" modelName="ACCurrent" labelPosition="right" />
+
+  <element name="Vmt-DC" type="METER" modelName="VoltmeterDC" />
+  <element name="Vmt-AC" type="METER" modelName="VoltmeterAC" />
+  <element name="Vmt-Tran" type="METER" modelName="VoltmeterTRAN" />
+  <element name="Amm-DC" type="METER" modelName="AmmeterDC" />
+  <element name="Amm-AC" type="METER" modelName="AmmeterAC" />
+
+</library>
+</volta>

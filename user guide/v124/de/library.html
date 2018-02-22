@@ -1,0 +1,175 @@
+<!--
+title Volta 1.2 - Die Komponentensammlung
+-->
+
+<style>
+  @import "../style/library_large.css";
+  @import "../style/library_small.css";
+</style>
+
+<div id="volta_help_library_open_window">
+  <p>
+    Die Komponentensammlung ist in einem getrennten Fenster untergebracht und
+    in Bereiche für Komponentenmodelle, Komponentengruppen und
+    Teilschaltungen unterteilt. Das Fenster kann durch das Hauptmenü,
+    "Fenster" &rarr; "Komponentensammlung", oder aus dem Menü in der
+    Palettenleiste ("Bearbeiten...") geöffnet werden.
+  </p>
+</div>
+
+<div id="volta_help_library_window">
+  <div id="volta_help_library_window_screenshot">
+    <span class="figure">Abb. 1: Komponentensammlung</span>
+    <a href="../images/de/library_window.png" class="FXOverlayImage">
+      <img id="volta_help_library_window_screenshot_image" class="framed_screenshot" src="../images/de/library_window.png"/>
+    </a>
+  </div>
+  <div id="volta_help_library_window_text">
+    <h4>Modelle</h4>
+    <p>
+      Volta Komponentenmodelle definieren Klassen von Komponenten, ähnlich wie
+      SPICE-Modelle. In Volta werden allerdings auch nichtelektrische Diagrammelemente
+      durch Komponentenmodelle abgedeckt. Ein Volta Komponentenmodell enthält
+      die gemeinsamen Eigenschaften der von Ihr definierten Klasse: Das Aussehen,
+      die Anschlußpunkte und die Modellparameter.
+    </p>
+    <p>
+      Alle Komponentenmodelle sind im Bereich "Modelle" aufgelistet. Modelle
+      sind nach Typ (Widerstand, Diode, MOSFET usw.) gruppiert. Jedes Modell
+      besitzt einen Namen. Einige besitzen zusätzlich eine Herstellerkennung die
+      zur Unterscheidung von Modellen mit gleichem Namen dient. Besonders
+      nützlich ist die Herstellerkennung wenn man selbsterstellte Modelle an
+      andere Benutzer weitergibt. Als Herstellerkennung können Sie, z.B.,
+      Ihren Namen oder Ihre Email-Adresse verwenden.
+    </p>
+    <p>
+      Komponentenmodelle können in die Komponentenpalette oder direkt in ein
+      Diagrammfeld gezogen werden. Dabei werden Komponenten mit
+      Standardwerten erzeugt und eingefügt.
+    </p>
+    <h4>Teilschaltungen</h4>
+    <p>
+      In der Komponentensammlung sind Teilschaltungen spezielle
+      Komponentenmodelle die Volta Teilschaltungsdokumente repräsentieren.
+      Volta Teilschaltungen enthalten jeweils eine SPICE Teilschaltung,
+      die entweder aus einem Diagramm erfasst oder manuell eingetragen wurde.
+      Beim Erfassen eines Diagramms, worin Volta Teilschaltungen verwendet werden,
+      werden die enthaltenen SPICE Teilschaltungen in die erzeugte Netlist eingefügt.
+    </p>
+  </div>
+</div>
+
+<div id="volta_help_library_subcircuits_text_2">
+  <p>
+    Während Komponentenmodelle und Komponenten direkt in der
+    Komponentensammlung bearbeitet werden können muss man bei einer
+    Teilschaltung das entsprechende Volta-Dokument öffnen.
+    Das kann man entweder mit einem Doppelklick oder mit dem Knopf
+    <img height="11px" src="../images/common/library_subcircuit_open.png">.
+    Volta aktualisiert die Komponentensammlung sobald eine bearbeitete
+    Teilschaltung gespeichert wird.
+  </p>
+  <p>
+    Teilschaltungen können in die Komponentenpalette oder direkt in ein
+    Diagrammfeld gezogen werden.
+  </p>
+  <h4>Palette</h4>
+  <p>
+    Die Komponentenpalette enthält benutzerdefinierte Gruppen von
+    Schaltungskomponenten (oder anderen Diagrammelementen).
+    Palettengruppen können erstellt <img style="vertical-align:-2px" height="16px" src="../images/common/library_palette_add.png">,
+    umbenannt und entfernt <img style="vertical-align:-2px" height="16px" src="../images/common/library_palette_remove.png">
+    werden. Komponenten können einer Palettengruppe hinzugefügt, umbenannt und
+    entfernt werden.
+    Palettengruppen müssen unterschiedliche Namen haben. Komponenten müssen
+    innerhalb Ihrer Gruppe unterschiedliche Namen haben.
+  </p>
+  <p>
+    Palettengruppen können befüllt werden indem man Komponentenmodelle,
+    Teilschaltungen oder Komponenten aus anderen Palettengruppen reinzieht.
+    Im letzteren Fall werden Kopien der Ursprungskomponenten angelegt.
+  </p>
+</div>
+<div id="volta_help_library_subcircuits_screenshot">
+  <span class="figure">Abb. 2: Teilschaltungen</span>
+  <a href="../images/de/library_window_subcircuits.png" class="FXOverlayImage">
+    <img id="volta_help_library_subcircuits_screenshot_image" class="framed_screenshot" src="../images/de/library_window_subcircuits.png"/>
+  </a>
+</div>
+
+<div id="storage">
+  <h4>Dateien</h4>
+  <p>
+    Ausgenommen der eingebauten Modelle wird der Inhalt der Komponentensammlung
+    in leicht zugänglichen Volta-Dateien aufbewahrt.
+    Komponentenmodelle, Palettengruppen und Teilschaltungen werden aus
+    Unterverzeichnissen ("Models", "Palette" und "Subcircuits") des
+    Hauptverzeichnisses der Komponentensammlung geladen und dort wieder gespeichert.
+    Durch weitergeben der Volta-Dateien kann man die eigene Komponentensammlung
+    mit anderen Benutzern teilen. Bitte beachten Sie dabei eventuelle Urheberrechte.
+    Volta aktualisiert die Komponentensammlung automatisch sobald neue Dateien
+    in den oben genannten Verzeichnissen abgelegt werden.
+  </p>
+  <h5>Lokal oder auf iCloud</h5>
+  <p>
+    Das Hauptverzeichnis der Komponentensammlung kann sich entweder lokal auf
+    Ihrem Mac oder auf iCloud befinden. Sie können Ihre lokale Komponentensammlung
+    jederzeit nach iCloud kopieren und auf die iCloud-Komponentensammlung umschalten.
+    Die Vorteile der iCloud-Komponentensammlung sind: Eine Online-Sicherheitskopie
+    und automatische Synchronisierung zwischen mehreren Installationen von
+    Volta. Der Nachteil ist das Risiko von Datenverlust im Falle einer Synchronisierung
+    von zwei Komponentensammlungen die seit der letzten Synchronisierung
+    unabhängig voneinander modifiziert wurden.
+  </p>
+  <p>
+    Während Sie die iCloud-Komponentensammlung benutzen werden keine Änderungen
+    an Ihrer lokalen Komponentensammlung gemacht. Sie können jederzeit auf die
+    lokale Komponentensammlung zurückschalten. Es ist auch möglich den Inhalt der
+    lokalen Komponentensammlung in die iCloud-Komponentensammlung (oder umgekehrt)
+    zu kopieren ohne umzuschalten.
+  </p>
+  <p>
+    Das Umschalten zwischen den beiden Komponentensammlungen und das Kopieren der
+    Inhalte wird über das Hauptmenü, unter "Volta" &rarr; "iCloud Komponentensammlung",
+    getätigt.
+  </p>
+  <p style="text-align: left">
+    Das Hauptverzeichnis der lokalen Komponentensammlung befindet sich in
+    <code style="font-size:10pt;word-break:break-all">"~/Library/Containers/com.kulfx.Volta/Data/Library/Application Support/Volta"</code>,
+    worin &quot;<code>~</code>&quot; für das Home-Verzeichnis des Benutzers steht.
+  </p>
+  <h5>Zugriff vom Fenster der Komponentensammlung</h5>
+  <p>
+    Für jeden Inhaltstyp (Modell, Palette, Teilschaltung) gibt es einen Knopf
+    im Fenster der Komponentensammlung der die Dateien des entsprechenden
+    Verzeichnisses sichtbar macht. Wenn Sie die lokale Komponentensammlung
+    benutzen sehen die Knöpfe wie ein Ordner
+    <img style="vertical-align:-2px" height="18px" src="../images/common/library_storage_folder.png">
+    aus und die Dateien werden im Finder präsentiert. Wenn Sie die
+    iCloud-Komponentensammlung benutzen sehen die Knöpfe wie eine Wolke
+    <img style="vertical-align:-2px" height="18px" src="images/volta/help/v122/common/library_storage_cloud.png">
+    aus und die Dateien werden in Voltas eigener Dateiansicht präsentiert.
+  </p>
+  <h5>Benutzerdefinierte Komponentenmodelle</h5>
+  <p>
+    Benutzerdefinierte Komponentenmodelle (die man durch kopieren existierender
+    Modelle erstellen kann) werden ausschließlich in der Datei "CustomModels.volta"
+    abgelegt. Andere Dateien, aus denen Komponentenmodelle geladen wurden,
+    werden von Volta nicht modifiziert. Dementsprechend gibt es in der
+    Komponentensammlung mit einem Schloßsymbol versehene Modelle die nicht
+    bearbeitet werden können.
+  </p>
+  <h5>SPICE Modell-Dateien</h5>
+  <p>
+    Volta kann Komponentenmodelle auch aus SPICE <code>lib</code>-Dateien laden.
+    Dazu müssen die <code>lib</code>-Dateien im Unterverzeichnis "Models"
+    abgelegt werden und die enthaltenen SPICE-Modelle müssen im folgenden Format
+    lesbar sein:
+    <pre style="font-size:10pt">.MODEL &lt;Modellname&gt; &lt;Modelltyp&gt;
++param1=value1 param2=value2
++param3=value3 param4=value4
+...</pre>
+    Es dürfen keine Leerzeichen links oder rechts vom Gleichheitszeichen (=) stehen.
+    Kommentarzeilen, die mit Stern (*) anfangen, können überall eingefügt werden.
+  </p>
+</div>

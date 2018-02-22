@@ -1,0 +1,76 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Displayed names of built-in device models */
+"Ground" = "接地";
+"Capacitor" = "电容";
+"Resistor" = "电阻";
+"Inductor" = "电感器";
+"DetailedInductor" = "电感器-详细";
+"MutualInductor" = "变压器";
+"ResistorUS" = "电阻（美标）";
+"InductorUS" = "电感器（美标）";
+"DetailedInductorUS" = "电感器-详细（美标）";
+"MutualInductorUS" = "变压器";
+"SemiconductorResistor" = "半导体电阻器";
+"SemiconductorCapacitor" = "半导体电容器";
+"VoltageControlledSwitch" = "电压控制开关";
+"CurrentControlledSwitch" = "电流控制开关";
+"DefaultDiode" = "两极管";
+"Diode" = "两极管";
+"LED" = "发光二级管";
+"ZenerDiode" = "齐纳二极管";
+"VoltmeterAC" = "交流电压表";
+"VoltmeterDC" = "直流电压表";
+"VoltmeterTRAN" = "电压表（瞬态）";
+"AmmeterAC" = "交流电流表";
+"AmmeterDC" = "直流电流表";
+"Node" = "节点";
+"DCVoltage" = "直流电压源";
+"ACVoltage" = "交流电压源";
+"PulsedVoltage" = "脉冲电压源";
+"SinusoidalVoltage" = "正弦电压源";
+"VoltageControlledVoltage" = "压控电压源";
+"CurrentControlledVoltage" = "流控电压源";
+"DCCurrent" = "直流电流源";
+"ACCurrent" = "交流电流源";
+"SinusoidalCurrent" = "正弦电流源";
+"PulsedCurrent" = "脉冲电流源";
+"VoltageControlledCurrent" = "压控电流源";
+"CurrentControlledCurrent" = "流控电流源";
+"NonlinearDependentVoltage" = "非线性受控电压源";
+"NonlinearDependentCurrent" = "非线性受控电流源";
+"DefaultNPN" = "N沟道BJT";
+"DefaultPNP" = "P沟道BJT";
+"DefaultNJFET" = "N沟道JFET";
+"DefaultPJFET" = "P沟道JFET";
+"DefaultNMESFET" = "N沟道MESFET";
+"DefaultPMESFET" = "P沟道MESFET";
+"DepletionNMOSFET" = "耗尽型N沟道MOSFET";
+"DepletionPMOSFET" = "耗尽型P沟道MOSFET";
+"EnhancementNMOSFET" = "增强型N沟道MOSFET";
+"EnhancementPMOSFET" = "增强型P沟道MOSFET";
+"DepletionNMOSFETWithBulk" = "耗尽型N沟道MOSFET（带基极）";
+"DepletionPMOSFETWithBulk" = "耗尽型P沟道MOSFET（带基极）";
+"EnhancementNMOSFETWithBulk" = "增强型N沟道MOSFET（带基极）";
+"EnhancementPMOSFETWithBulk" = "增强型P沟道MOSFET（带基极）";
+"ExampleRLCLine" = "有耗传输线样本";
+"ExampleSingleRLCLine" = "单有耗传输线样本";
+"SingleLineText" = "单行文本";

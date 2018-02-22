@@ -1,0 +1,152 @@
+<!--
+title Volta 1.2 - The Schematic Editor
+-->
+
+<style>
+  @import "../style/schematic_large.css";
+  @import "../style/schematic_small.css";
+</style>
+
+<div id="volta_help_schematic_overview">
+  <div>
+    <p>
+      The schematic editor consists of an overhead component strip (the palette strip),
+      an inspector panel, and a canvas for assembling components.
+    </p>
+  </div>
+  <div id="volta_help_schematic_overview_screenshot" class="screenshot">
+    <span class="figure">Figure 1: The schematic editor</span>
+    <a href="../images/en/schematic_overview.png" class="FXOverlayImage">
+      <img id="volta_help_schematic_overview_screenshot_image" class="framed_screenshot" src="../images/en/schematic_overview.png"/>
+    </a>
+  </div>
+</div>
+
+<div id="volta_help_schematic_palette_strip">
+  <h4>The Palette Strip</h4>
+  <p>
+    The schematic palette strip is located at the top of the schematic editor and displays
+    a row of schematic elements. It is a convenient component source so that you don't need
+    to deal with the library window for frequently used components.
+    Changes to the contents of the palette strip, however, can only be made in the
+    library window.
+  </p>
+  <p>
+    To add a copy of an element to the schematic you simply drag it from the palette to the canvas.
+  </p>
+</div>
+<div id="volta_help_schematic_palette_strip_screenshot">
+  <span class="figure">Figure 2: Adding a component to the circuit</span>
+  <img id="volta_help_schematic_palette_strip_screenshot_image" class="framed_screenshot" src="../images/common/schematic_drag_from_palette.png"/>
+</div>
+<div id="volta_help_schematic_palette_groups">
+  <p>
+    The palette in your library may contain many element groups but the schematic
+    palette strip shows only one group at a time. Select the displayed group
+    with the menu button at the top left.
+  </p>
+</div>
+<div id="volta_help_schematic_palette_groups_screenshot">
+  <span class="figure">Figure 3: Selecting a palette group</span>
+  <img id="volta_help_schematic_palette_groups_screenshot_image" class="framed_screenshot" src="../images/en/schematic_palette_groups.png"/>
+</div>
+<div id="volta_help_schematic_palette_strip_hints">
+  <p>
+    Select "Edit..." to open the library window, where you can make changes.
+  </p>
+  <p>
+    The palette strip can be hidden (and shown again) with the 'Palette' toolbar button.
+  </p>
+</div>
+
+<div id="volta_help_schematic_inspector">
+  <h4>The Inspector</h4>
+  <p>
+    The inspector is a panel in the canvas for editing components.
+    With the inspector you can rotate and flip components, change their model
+    and their property values. If a single component is selected,
+    you can also change the component name - as long as the name is not
+    used by another component within the schematic.
+    If multiple components are selected, you can only
+    change the properties that are shared by all components.
+  </p>
+  <p>
+    The name of the selected component is displayed at the top of the inspector.
+    You can edit the name by clicking and typing. Below are the controls for positioning
+    the label, for rotating, and for flipping (mirroring). Further below is the model
+    chooser where you can select alternative, type-compatible models. Lastly, there
+    is a table of properties and their values.
+    You can start editing a property's value by double-clicking on the field next to the property name.
+  </p>
+</div>
+<div id="volta_help_schematic_inspector_screenshot">
+  <span class="figure">Figure 4: The inspector panel</span>
+  <img id="volta_help_schematic_inspector_screenshot_image" class="framed_screenshot" src="../images/en/schematic_inspector_overview.png"/>
+</div>
+
+<div id="volta_help_schematic_inspector_features">
+  <p>
+    For circuit components, the properties are SPICE properties. Refer to the
+    <a href="http://ngspice.sourceforge.net/docs/ngspice24-manual.pdf">Ngspice manual</a>
+    for their description.
+  </p>
+  <p>
+    The inspector can be hidden and shown again by pressing the "Inspector"
+    toolbar button.
+  </p>
+  <p>
+    The inspector can be attached to any corner of the canvas.
+  </p>
+</div>
+
+<div id="volta_help_schematic_connecting">
+  <h4>Connecting Components</h4>
+  <div>
+    <p>
+      You connect two circuit components by dragging a connection line from
+      the connection point (pin) of the first component to the pin of the
+      second component. Each circuit component has at least one pin. Pins
+      are highlighted in red when the mouse pointer is on top. A pin can
+      accommodate only one connection. Use nodes, which have 4 pins,
+      to join connectors.
+      Disconnecting components is also easy: Simply drag the connector away
+      from one of its connection points and let go.
+    </p>
+  </div>
+  <div id="volta_help_schematic_connecting_screenshot_inline">
+    <span class="figure">Figure 5: Connecting components</span>
+    <img class="framed_screenshot" src="../images/common/schematic_creating_a_connection.png"/>
+  </div>
+  <div>
+    <p>
+      Initially, a connection is a straight line. By dragging points on the
+      linear segments of the connector you can insert joints. To remove a
+      joint you simply drag it back to the (imaginary) line between its
+      neighboring joints (or connection points).
+      Joints are highlighted in green when the mouse pointer is on top.
+    </p>
+  </div>
+</div>
+<div id="volta_help_schematic_connecting_screenshot">
+  <span class="figure">Figure 5: Connecting components</span>
+  <img class="framed_screenshot" src="../images/common/schematic_creating_a_connection.png"/>
+</div>
+<div id="volta_help_schematic_connector_joints_screenshot">
+  <span class="figure">Figure 6: Connector joints</span>
+  <img id="volta_help_schematic_connector_joints_screenshot_image" class="framed_screenshot" src="../images/common/schematic_connector_joints.png"/>
+</div>
+
+<div id="volta_help_schematic_zooming">
+  <div id="volta_help_schematic_zooming_text">
+    <h4>Zooming</h4>
+    <p>
+      The schematic can be scaled up to twice the standard size.
+      This feature is intended to make working on small, high-resolution displays easier.
+      You can change the zoom factor with the slider in the toolbar (figure 7) or with a pinching gesture on your trackpad.
+    </p>
+  </div>
+  <div id="volta_help_schematic_zooming_screenshot">
+    <span class="figure">Figure 7: The zoom slider</span>
+    <img class="framed_screenshot" style="height:5em" src="../images/common/schematic_zoom_slider.png"/>
+  </div>
+</div>

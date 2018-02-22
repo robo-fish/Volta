@@ -1,0 +1,34 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+"Library" = "库";
+"Component Palette" = "元器件零件盒";
+"Component Sources" = "元器件源";
+"Subcircuits" = "子电路";
+"Models" = "模型";
+"SubcircuitFolderRevealButtonTooltip" = "在Finder中显示子电路所在文件夹";
+"ModelsFolderRevealButtonTooltip" = "在Finder中显示模型所在文件夹";
+"PaletteFolderRevealButtonTooltip" = "在Finder中显示零件盒所在文件夹";
+"PaletteCellPropertiesApplyMessage" = "关闭以使改动生效";
+"ShowCloudFilesButtonTooltip" = "显示iCloud文件";
+"OpenSubcircuit" = "打开";
+"Tooltip_ShowSourceFileInFinder" = "在Finder中显示源文件";
+"Tooltip_ShowSourceFileInCloud" = "在iCloud中显示源文件";
+"SingleLineTextModelText" = "文本";

@@ -1,0 +1,46 @@
+@media screen and (min-width: 40em) {
+  #volta_help_introdcution_what {
+    display: block;
+  }
+  #volta_help_introduction_workflow {
+    display:inline-block;
+    width:50%;
+    padding-top: 0em;
+  }
+  #volta_help_introduction_screenshot {
+    display:inline-block;
+    width:45%;
+    margin-left:3%;
+    margin-top: 2em;
+    vertical-align:top;
+  }
+  #volta_help_introduction_screenshot_image {
+    width:100%;
+  }
+  #volta_help_introduction_toolbar_buttons {
+    display: block;
+  }
+  #volta_help_introduction_toolbar_buttons_text {
+    display: inline-block;
+    width: 60%;
+    padding-top:1em;
+  }
+  #volta_help_introduction_toolbar_buttons_screenshots {
+    display: inline-block;
+    width:35%;
+    padding: 1em 0 0 4%;
+    text-align: center;
+  }
+  #volta_help_introduction_toolbar_buttons_screenshot2 {
+    margin-top: 1em;
+  }
+  #volta_help_introduction_toolbar_buttons_screenshot_inline1 {
+    display: none;
+  }
+  #volta_help_introduction_toolbar_buttons_screenshot_inline2 {
+    display: none;
+  }
+  #volta_help_introduction_ngspice {
+    display: block;
+  }
+}

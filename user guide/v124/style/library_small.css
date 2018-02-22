@@ -1,0 +1,36 @@
+@media screen and (max-width: 40em) {
+  #volta_help_library_open_window {
+    display:block;
+    text-align: justify;
+  }
+  #volta_help_library_window {
+    display:block;
+  }
+  #volta_help_library_window_screenshot {
+    display: block;
+    margin-top:1em;
+    text-align: center;
+  }
+  #volta_help_library_window_screenshot_image {
+    max-height:18em;
+  }
+  #volta_help_library_window_text,
+  #volta_help_library_subcircuits_text_1,
+  #volta_help_library_subcircuits_text_2 {
+    display:block;
+    text-align:justify;
+  }
+  #volta_help_library_subcircuits_screenshot {
+    display: block;
+    width:90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #volta_help_library_subcircuits_screenshot_image {
+    max-height:18em;
+  }
+  #storage {
+    display: block;
+    margin-top: 1em;
+  }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<library title="Custom Models">
+	<model type="D" name="MyDiode" vendor="fish.robo.test" revision="1" labelPosition="none">
+    <shape width="32" height="16">
+      <path d="M -16 0 h 10 m 12 0 h 10 m -13 -8 h 4 v 16 h 4"/>
+      <path d="M -6 -6 v 12 l 12 -6 z"/>
+    </shape>
+    <pin name="Anode" x="-16" y="0"/>
+    <pin name="Cathode" x="16" y="0"/>
+    <p n="BV"   v="" />
+    <p n="IBV"  v="1.0e-3" />
+    <p n="IK"   v="1.0e-3" />
+    <p n="IKR"  v="1.0e-3" />
+	</model>
+	<model type="D" name="MyLED" vendor="fish.robo.test" revision="2" labelPosition="none">
+    <shape width="32" height="24">
+      <path d="M -16 -6 h 10 m 12 0 h 10 m -10 -6.5 v 13 m -6 1 l 3 6.75 m 4 -6.75 l 3 6.75"/>
+      <path d="M -6 -12 v 12 l 12 -6 z"/>
+      <path d="M 5 12 v -6 l -5 2 z" fill="true"/>
+      <path d="M 12 12 v -6 l -5 2 z" fill="true"/>
+    </shape>
+    <pin name="Anode" x="-16" y="-6"/>
+    <pin name="Cathode" x="16" y="-6"/>
+    <p n="BV"   v="" />
+    <p n="IBV"  v="1.0e-3" />
+    <p n="IK"   v="1.0e-3" />
+    <p n="IKR"  v="1.0e-3" />
+	</model>
+	<model type="R" name="R666" vendor="fish.robo.test" revision="1" labelPosition="none">
+	</model>
+	<model type="MOSFET" name="MyMOS" vendor="fish.robo.test" revision="3" labelPosition="none">
+	</model>
+</library>
+</volta>

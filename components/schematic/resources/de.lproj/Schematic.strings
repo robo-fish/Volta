@@ -1,0 +1,71 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Toolbar items and their tooltips */
+"ToolbarItemText_Palette" = "Palette";
+"ToolbarItemText_Inspector" = "Info";
+"ToolbarItemText_ToggleInspector" = "Info ein- oder ausblenden";
+"ToolbarItemText_TogglePalette" = "Palette ein- oder ausblenden";
+"ToolbarItemText_Zoom" = "Diagramm skalieren";
+
+/* Undoable actions */
+"Action_rotation" = "Drehung";
+"Action_add_component" = "Bauteile hinzufügen";
+"Action_flipping" = "Spiegelung";
+"Action_attribute_value_change" = "Wertänderung";
+"Action_name_change" = "Namensänderung";
+"Action_model_change" = "Modelländerung";
+"Action_connect" = "Verbinden";
+"Action_disconnect" = "Trennen";
+"Action_move" = "Verschieben";
+"Action_copy" = "Kopieren";
+"Action_delete" = "Entfernen";
+"Action_reposition_label" = "Label verschieben";
+"Action_create_joint" = "Verbindungsgelenk einfügen";
+"Action_move_joint" = "Verbindungsgelenk verschieben";
+
+"Attribute" = "Attribut";
+"Value" = "Wert";
+"No name" = "Kein Name";
+"Multiple values" = "...";
+"component" = "Bauteil";
+"components" = "Bauteile";
+"No components" = "Keine Bauteile";
+"connection" = "Verbindung";
+"connections" = "Verbindungen";
+"No connections" = "Keine Verbindungen";
+"Untitled" = "Unbenannt";
+
+"Edit…" = "Bearbeiten…";
+
+/* Main menu items */
+"Toggle Inspector" = "Info ein-/ausblenden";
+"Rotate +90˚" = "+90˚ drehen";
+"Rotate -90˚" = "-90˚ drehen";
+"Flip horizontally" = "Horizontal spiegeln";
+"Flip vertically" = "Vertikal spiegeln";
+
+/* Inspector */
+"SchematicInspector_CircuitParameters" = "Schaltungsparameter";
+"SchematicElementInspector_MultipleModels" = "Verschiedene Modelle";
+"SchematicElementInspector_UnknownModelType" = "Unbekannter Modelltyp";
+
+/* Schematic text */
+"SchematicBeginnerInstructions" = "Bauteile hier reinziehen";

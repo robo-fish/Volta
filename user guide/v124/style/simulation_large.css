@@ -1,0 +1,38 @@
+@media screen and (min-width: 40em) {
+  #volta_help_simulation_simulator {
+    display: block;
+  }
+  #volta_help_simulation_simulating {
+    display: block;
+  }
+  #volta_help_simulation_simulator_output_screenshot {
+    display: block;
+    text-align: left;
+  }
+  #volta_help_simulation_simulator_output_screenshot_image {
+    width: 90%;
+    max-width: 449px;
+  }
+  #volta_help_simulation_results {
+    display: block;
+  }
+  #volta_help_simulation_plotter_screenshot {
+    display: block;
+    text-align: left;
+  }
+  #volta_help_simulation_plotter_screenshot_image {
+    width: 90%;
+    max-width: 585px;
+  }
+  #volta_help_simulation_plotter_functions {
+    display: block;
+  }
+  #volta_help_simulation_selecting_graph_screenshot {
+    display: block;
+    text-align: left;
+  }
+  #volta_help_simulation_selecting_graph_screenshot_image {
+    width: 90%;
+    max-width: 650px;
+  }
+}

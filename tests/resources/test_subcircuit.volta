@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit title="">
+	<schematic>
+		<element name="3" type="NODE" modelName="Node" modelVendor="" x="228" y="187" >
+		</element>
+		<element name="D1" type="D" modelName="DefaultDiode" modelVendor="" x="266" y="187" labelPosition="bottom" >
+		</element>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="228" y="228" >
+		</element>
+		<element name="Z1" type="MESFET" modelName="DefaultNMESFET" modelVendor="" x="212" y="139" labelPosition="right" >
+		</element>
+		<element name="in" type="NODE" modelName="Node" modelVendor="" x="173" y="139" labelPosition="left" >
+		</element>
+		<element name="out" type="NODE" modelName="Node" modelVendor="" x="228" y="95" labelPosition="top" >
+		</element>
+		<connector start="3" startPin="East" end="D1" endPin="Anode">
+		</connector>
+		<connector start="3" startPin="South" end="GND1" endPin="Ground">
+		</connector>
+		<connector start="3" startPin="North" end="Z1" endPin="Source">
+		</connector>
+		<connector start="Z1" startPin="Drain" end="out" endPin="South">
+		</connector>
+		<connector start="in" startPin="East" end="Z1" endPin="Gate">
+		</connector>
+		<connector start="out" startPin="East" end="D1" endPin="Cathode">
+			<joint x="282" y="95"/>
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="true" name="Test" vendor="fish.robo" revision="1" labelPosition="top">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="in" />
+		<external pin="2" node="out" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v="Test"/>
+	</subcircuit_data>
+	<m k="FXVolta_Netlist" v=".SUBCKT {FX_newline}D1 0 out DefaultDiode{FX_newline}Z1 out in 0 DefaultNMESFET{FX_newline}.MODEL DefaultDiode D ( IBV=1.0e-3 IK=1.0e-3 IKR=1.0e-3 IS=1.0e-14 JSW=1.0e-14 N=1 RS=0.0 CJO=0.0 CJP=0.0 FC=0.5 FCS=0.5 M=0.5 MJSW=0.33 VJ=1 PHP=1 TT=0 EG=1.11 TM1=0.0 TM2=0.0 TNOM=27 TRS=0.0 TRS2=0.0 TTT1=0.0 TTT2=0.0 XTI=3.0 KF=0 AF=1 ){FX_newline}.MODEL DefaultNMESFET NMF ( LEVEL=1 VTO=-2.0 BETA=1.0e-4 B=0.3 ALPHA=2 LAMBDA=0 RD=0 RS=0 CGS=0 CGD=0 PB=1 KF=0 AF=1 FC=0.5 ){FX_newline}.ENDS {FX_newline}"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.6"/>
+	<m k="FXVoltaMac_WindowHeight" v="600"/>
+	<m k="FXVoltaMac_WindowWidth" v="800"/>
+</circuit>
+</volta>

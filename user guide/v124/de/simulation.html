@@ -1,0 +1,79 @@
+<!--
+title Volta 1.2 - Schaltungsanalysen
+-->
+
+<style>
+  @import "../style/simulation_large.css";
+  @import "../style/simulation_small.css";
+</style>
+
+
+<div id="volta_help_simulation_simulator">
+<h4>
+  Schaltungssimulator
+</h4>
+<p>
+  Volta wird mit dem freien Schaltungssimulator Ngspice ausgeliefert.
+  Ngspice ist der Open-Source Nachfolger der bekannten SPICE 3 Software,
+  die von der kalifornischen Universität Berkeley entwickelt wurde.
+  Die <a href="http://ngspice.sourceforge.net">Ngspice Website</a> enthält
+  alle Informationen über das Projekt. Einen Artikel über SPICE selbst gibt es
+  auf <a href="http://de.wikipedia.org/wiki/SPICE_(Software)">Wikipedia</a>.
+</p>
+</div>
+
+<div id="volta_help_simulation_simulating">
+  <h4>
+    Schaltungen analysieren
+  </h4>
+  <p>
+    Schaltungsanalysen werden durch drücken der Symbolleistenknöpfe
+    "Analysieren" oder "Zeichnen" gestartet. "Zeichnen" erfasst das
+    Schaltungsdiagramm und überschreibt somit die vorhandene Netlist bevor die
+    Simulation gestartet wird. "Analysieren" startet die Simulation mit der im
+    Netlist-Editor vorhandenen Netlist.
+  </p>
+  <p>
+    Während der Simulation wird das Getriebesymbol im Symbolleistenknopf
+    "Analysieren" animiert. Die Analyse kann durch Drücken des animierten Knopfes
+    abgebrochen werden.
+  </p>
+  <p>
+    Die Textausgabe des Simulators wird im "Simulator"-Bereich angezeigt.
+  </p>
+</div>
+<div id="volta_help_simulation_simulator_output_screenshot">
+  <span class="figure">Abb. 1: Simulatorausgabe</span>
+  <img id="volta_help_simulation_simulator_output_screenshot_image" class="framed_screenshot" src="../images/common/simulator_output.png"/>
+</div>
+
+<div id="volta_help_simulation_results">
+  <h4>
+    Grafische Simulationsergebnisse
+  </h4>
+  <p>
+    Sobald eine Schaltungsanalyse abgeschlossen ist werden aus der Textausgabe
+    Analysedaten extrahiert. Falls genug Datenpunkte vorhanden sind zeichnet der
+    Plotter automatisch die Grafiken.
+  </p>
+</div>
+<div id="volta_help_simulation_plotter_screenshot">
+  <span class="figure">Abb. 2: Plotter</span>
+  <img id="volta_help_simulation_plotter_screenshot_image" class="framed_screenshot" src="images/volta/help/v120/en/plotter_graph.png"/>
+</div>
+<div id="volta_help_simulation_plotter_functions">
+  <p>
+    Der Plotter bietet momentan wenig Funktionalität. Die Ordinatenachse (y-Achse)
+    zeigt die Realteile der Achsenwerte in linearer Skalierung an. Die
+    Abszissenachse (x-Achse) zeigt Realteile in linearer oder logarithmischer
+    (bei Wechselspannung oder Wechselstrom) Skalierung an.
+  </p>
+  <p>
+    Mit dem Menü rechts oben (siehe Abb. 3) kann man zwischen Graphen umschalten.
+    Das Menü wird nur angezeigt wenn Daten für mehrere Graphen zur Verfügung stehen.
+  </p>
+</div>
+<div id="volta_help_simulation_selecting_graph_screenshot">
+  <span class="figure">Abb. 3: Graphen auswählen</span>
+  <img id="volta_help_simulation_selecting_graph_screenshot_image" class="framed_screenshot" src="images/volta/help/v120/en/plotter_graph_selection.png"/>
+</div>

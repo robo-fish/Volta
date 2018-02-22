@@ -1,0 +1,13 @@
+"SubcircuitEditorVendorFieldPlaceholder" = "Vendor";
+"SubcircuitEditorNameFieldPlaceholder" = "Name";
+"SubcircuitEditorEnablerCheckboxTitle" = "Enabled";
+"SubcircuitEditorNodeAssignmentTablePinsColumnTitle" = "Pin";
+"SubcircuitEditorNodeAssignmentTableNodesColumnTitle" = "Internal Node";
+
+/* Undo actions */
+"Action_node_assignment" = "edit node assignment";
+"Action_change_shape" = "change shape";
+"Action_enable_subcircuit" = "enable subcircuit";
+"Action_disable_subcircuit" = "disable subcircuit";
+"Action_edit_title" = "edit title";
+"Action_edit_vendor" = "edit vendor";

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<library title="Standard Inductors (E12)">
+
+  <element name="" type="NODE" modelName="Node" />
+  <element name="Gnd" type="GRND" modelName="Ground" labelPosition="none" />
+
+  <element name="L1.0n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.0n" /></element>
+  <element name="L1.2n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.2n" /></element>
+  <element name="L1.5n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.5n" /></element>
+  <element name="L1.8n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.8n" /></element>
+  <element name="L2.2n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="2.2n" /></element>
+  <element name="L2.7n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="2.7n" /></element>
+  <element name="L3.3n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="3.3n" /></element>
+  <element name="L3.9n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="3.9n" /></element>
+  <element name="L4.7n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="4.7n" /></element>
+  <element name="L5.6n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="5.6n" /></element>
+  <element name="L6.8n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="6.8n" /></element>
+  <element name="L8.2n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="8.2n" /></element>
+
+  <element name="L10n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="10n" /></element>
+  <element name="L12n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="12n" /></element>
+  <element name="L15n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="15n" /></element>
+  <element name="L18n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="18n" /></element>
+  <element name="L22n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="22n" /></element>
+  <element name="L27n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="27n" /></element>
+  <element name="L33n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="33n" /></element>
+  <element name="L39n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="39n" /></element>
+  <element name="L47n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="47n" /></element>
+  <element name="L56n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="56n" /></element>
+  <element name="L68n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="68n" /></element>
+  <element name="L82n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="82n" /></element>
+
+  <element name="L100n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="100n" /></element>
+  <element name="L120n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="120n" /></element>
+  <element name="L150n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="150n" /></element>
+  <element name="L180n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="180n" /></element>
+  <element name="L220n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="220n" /></element>
+  <element name="L270n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="270n" /></element>
+  <element name="L330n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="330n" /></element>
+  <element name="L390n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="390n" /></element>
+  <element name="L470n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="470n" /></element>
+  <element name="L560n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="560n" /></element>
+  <element name="L680n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="680n" /></element>
+  <element name="L820n" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="820n" /></element>
+
+  <element name="L1.0u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.0u" /></element>
+  <element name="L1.2u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.2u" /></element>
+  <element name="L1.5u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.5u" /></element>
+  <element name="L1.8u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.8u" /></element>
+  <element name="L2.2u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="2.2u" /></element>
+  <element name="L2.7u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="2.7u" /></element>
+  <element name="L3.3u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="3.3u" /></element>
+  <element name="L3.9u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="3.9u" /></element>
+  <element name="L4.7u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="4.7u" /></element>
+  <element name="L5.6u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="5.6u" /></element>
+  <element name="L6.8u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="6.8u" /></element>
+  <element name="L8.2u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="8.2u" /></element>
+
+  <element name="L10u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="10u" /></element>
+  <element name="L15u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="15u" /></element>
+  <element name="L22u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="22u" /></element>
+  <element name="L33u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="33u" /></element>
+  <element name="L47u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="47u" /></element>
+  <element name="L68u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="68u" /></element>
+
+  <element name="L100u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="100u" /></element>
+  <element name="L150u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="150u" /></element>
+  <element name="L220u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="220u" /></element>
+  <element name="L330u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="330u" /></element>
+  <element name="L470u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="470u" /></element>
+  <element name="L680u" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="680u" /></element>
+
+  <element name="L1.0m" type="L" modelName="InductorUS" labelPosition="top"><p n="inductance" v="1.0m" /></element>
+
+</library>
+</volta>

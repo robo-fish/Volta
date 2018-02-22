@@ -1,0 +1,73 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Common */
+"Error: " = "错误： ";
+"wrong name prefix" = "%@ 名称字首错误。预期值：“%@”.";
+"pin not wired" = "零件 %2$@ 的接头 “%1$s“ 未被连接。";
+"Unknown scale type." = "%@ 有未知的缩放类型。预期值“dec”或“oct”或“lin”。";
+"missing start frequency" = "%@ 缺少起始频率";
+"missing stop frequency" = "%@ 缺少终止频率";
+"Expected ON or OFF" = "%@ 的参数错误。预期值ON或OFF。";
+"missing number of analysis points" = "%@ 缺少分析点的数量";
+
+/* Circuit */
+"The circuit is not grounded." = "部分电路没有接地。";
+
+/* METER */
+"missing voltage source" = "%@ 缺少电压源";
+"missing start voltage" = "%@ 缺少起始电压";
+"missing stop voltage" = "%@ 缺少终止电压";
+"missing voltage step size" = "%@ 缺少电压步长值";
+"missing scale type" = "%@ 缺少缩放类型";
+"missing step time interval" = "%@ 缺少时间步长";
+"missing stop time" = "%@ 缺少终止时间";
+"missing current source" = "%@ 缺少电流源";
+"missing start current" = "%@ 缺少起始电流";
+"missing stop current" = "%@ 缺少终止电流";
+"missing current step size" = "%@ 缺少电流步长值";
+
+/* V, I */
+"missing voltage value" = "%@ 缺少电压值";
+"missing offset" = "%@ 缺少偏移量";
+"missing amplitude" = "%@ 缺少振幅值";
+"missing initial value" = "%@ 缺少初始值";
+"missing pulsed value" = "%@ 缺少脉冲值";
+"missing gain value" = "%@ 缺少增益值";
+"missing voltage source name" = "%@ 缺少电压源名称";
+"missing transresistance value" = "%@ 缺少互阻值";
+"missing current value" = "%@ 缺少电流值";
+"missing transconductance value" = "%@ 缺少跨导值";
+"missing current gain" = "缺少电流增益";
+"missing nonlinear voltage expression" = "%@ 缺少电压表达式";
+"missing nonlinear current expression" = "%@ 缺少电流表达式";
+
+/* LM */
+"missing inductance value for first inductor" = "%@ 缺少第一个线圈的电感值";
+"missing inductance value for second inductor" = "%@ 缺少第二个线圈的电感值";
+"missing coupling factor between the two inductors" = "%@ 缺少线圈之间的耦合系数";
+
+/* SW */
+"missing control voltage source name" = "%@ 缺少控制电压源名称";
+
+/* SUBCKT */
+"subcircuit pin not wired" = "%2$@ 的接头 “%1$@“ 没有被连接。";
+"subcircuit pin no internal wiring" = "%2$@ 的接头 “%1$@“ 没有被内部链接。";
+"Subcircuit name is missing." = "缺少子电路的名称";

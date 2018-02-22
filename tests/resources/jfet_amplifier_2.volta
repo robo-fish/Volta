@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="1">
+<circuit name="">
+	<schematic>
+		<element name="1" type="NODE" modelName="Node" modelVendor="" x="266.387" y="204.234" >
+		</element>
+		<element name="Ground7" type="GRND" modelName="Ground" modelVendor="" x="330.875" y="383.234" >
+		</element>
+		<element name="M1" type="PMOS" modelName="DepletionPMOSFET" modelVendor="" x="314.875" y="255.988" labelPosition="east" >
+		</element>
+		<element name="Node8" type="NODE" modelName="Node" modelVendor="" x="330.875" y="347.234" >
+		</element>
+		<element name="Q1" type="NPN" modelName="DefaultNPN" modelVendor="" x="314.875" y="204.234" labelPosition="east" >
+		</element>
+		<element name="Rdrain" type="R" modelName="Resistor" modelVendor="" x="330.875" y="80.2064" rotation="90" flipped="true" labelPosition="west" >
+			<p n="resistance" v="1k" />
+		</element>
+		<element name="Rsource" type="R" modelName="Resistor" modelVendor="" x="330.875" y="313.148" rotation="90" flipped="true" labelPosition="west" >
+			<p n="resistance" v="1k" />
+		</element>
+		<element name="V1" type="VSAC" modelName="ACVoltage" modelVendor="" x="213.824" y="228.234" labelPosition="east" >
+			<p n="magnitude" v="0.4" />
+			<p n="phase" v="0" />
+		</element>
+		<element name="V2" type="VSDC" modelName="DCVoltage" modelVendor="" x="213.824" y="301.059" labelPosition="east" >
+			<p n="voltage" v="0.75" />
+		</element>
+		<element name="VMT1" type="MTVAC" modelName="VoltmeterAC" modelVendor="" x="372.41" y="128.469" >
+			<p n="start frequency" v="10" />
+			<p n="stop frequency" v="1000000" />
+			<p n="# points" v="50" />
+		</element>
+		<element name="VMT2" type="MTVDC" modelName="VoltmeterDC" modelVendor="" x="372.41" y="166.742" >
+			<p n="stop" v="5" />
+			<p n="source" v="v1" />
+			<p n="step" v="1" />
+			<p n="start" v="0" />
+		</element>
+		<element name="Vdd" type="VSDC" modelName="DCVoltage" modelVendor="" x="441.875" y="180.234" labelPosition="east" >
+			<p n="voltage" v="5" />
+		</element>
+		<element name="out" type="NODE" modelName="Node" modelVendor="" x="330.875" y="128.469" labelPosition="west" >
+		</element>
+		<connector start="1" startPin="South" end="M1" endPin="Gate">
+			<joint x="266.387" y="266.988"/>
+		</connector>
+		<connector start="1" startPin="East" end="Q1" endPin="Base">
+		</connector>
+		<connector start="Ground7" startPin="Ground" end="Node8" endPin="South">
+		</connector>
+		<connector start="M1" startPin="Source" end="Rsource" endPin="B">
+		</connector>
+		<connector start="Node8" startPin="North" end="Rsource" endPin="A">
+		</connector>
+		<connector start="Q1" startPin="Emitter" end="M1" endPin="Drain">
+		</connector>
+		<connector start="Q1" startPin="Collector" end="out" endPin="South">
+		</connector>
+		<connector start="Rdrain" startPin="B" end="Vdd" endPin="Anode">
+			<joint x="330.875" y="33.2344"/>
+			<joint x="441.875" y="33.2344"/>
+		</connector>
+		<connector start="Rdrain" startPin="A" end="out" endPin="North">
+		</connector>
+		<connector start="V1" startPin="Anode" end="1" endPin="West">
+		</connector>
+		<connector start="V1" startPin="Cathode" end="V2" endPin="Anode">
+		</connector>
+		<connector start="V2" startPin="Cathode" end="Node8" endPin="West">
+			<joint x="213.824" y="347.234"/>
+		</connector>
+		<connector start="VMT1" startPin="Anode" end="out" endPin="East">
+		</connector>
+		<connector start="VMT2" startPin="Anode" end="out" endPin="West">
+		</connector>
+		<connector start="Vdd" startPin="Cathode" end="Node8" endPin="East">
+			<joint x="441.875" y="347.234"/>
+		</connector>
+		<p n="temp" v="32" />
+		<p n="tnom" v="14" />
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="Amp1" vendor="com.kulfx" revision="1" labelPosition="none">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_WindowVPosition" v="108"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="0.64"/>
+	<m k="FXVolta_Netlist" v="2012-04-16 08:40:33 +0000{FX_newline}M1 3 1 2 2 DepletionPMOSFET{FX_newline}Q1 out 1 3 DefaultNPN{FX_newline}Rdrain out 4 1k{FX_newline}Rsource 0 2 1k{FX_newline}V1 1 5 AC 0.4 0{FX_newline}V2 5 0 0.75{FX_newline}Vdd 4 0 5{FX_newline}.MODEL DefaultNPN NPN ( LEVEL=1 IS=1.0e-16 BF=100 NF=1.0 ISE=0.0 NE=1.5 BR=1 NR=1 ISC=0.0 NC=2 RB=0 RBM=0 RE=0 RC=0 CJE=0 VJE=0.75 MJE=0.33 TF=0 XTF=0 ITF=0 PTF=0 CJC=0 VJC=0.75 MJC=0.33 XCJC=1 TR=0 CJS=0 VJS=0.75 MJS=0 XTB=0 EG=1.11 XTI=3 KF=0 AF=1 FC=0.5 TNOM=0.0 ){FX_newline}.MODEL DepletionPMOSFET PMOS ( LEVEL=1 VTO=0.0 KP=2.0e-5 GAMMA=0.0 PHI=0.6 LAMBDA=0.0 RD=0.0 RS=0.0 CBD=0.0 CBS=0.0 IS=1.0e-14 PB=0.8 CGSO=0.0 CGDO=0.0 CGBO=0.0 RSH=0.0 CJ=0.0 MJ=0.5 CJSW=0.0 MJSW=0.50 TOX=1.0e-7 NSUB=1.0e15 NSS=1.0e10 TPG=1.0 LD=0.0 UO=600 KF=0.0 AF=1.0 FC=0.5 TNOM=27 ){FX_newline}.AC dec 50 10 1000000{FX_newline}.PRINT AC v(out){FX_newline}.DC v1 0 5 1{FX_newline}.PRINT DC v(out){FX_newline}.OPTIONS nopage noacct keepopinfo temp=32 tnom=14{FX_newline}.END{FX_newline}"/>
+	<m k="FXVoltaMac_WindowHPosition" v="463"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.7"/>
+	<m k="FXVoltaMac_WindowWidth" v="1043"/>
+	<m k="FXVoltaMac_WindowHeight" v="872"/>
+</circuit>
+</volta>

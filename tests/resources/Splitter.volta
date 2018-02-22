@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit title="">
+	<schematic>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="181.481" y="328.764" />
+		<element name="R1" type="R" modelName="ResistorUS" modelVendor="" x="120.011" y="207.621" labelPosition="top" >
+			<p n="resistance" v="1k" />
+		</element>
+		<element name="R2" type="R" modelName="ResistorUS" modelVendor="" x="181.481" y="269.203" rotation="270" labelPosition="right" >
+			<p n="resistance" v="2k" />
+		</element>
+		<element name="in" type="NODE" modelName="Node" modelVendor="" x="58.9958" y="207.621" labelPosition="left" />
+		<element name="out" type="NODE" modelName="Node" modelVendor="" x="181.481" y="207.621" labelPosition="right" />
+		<connector start="R1" startPin="B" end="out" endPin="West">
+		</connector>
+		<connector start="R2" startPin="B" end="GND1" endPin="Ground">
+		</connector>
+		<connector start="R2" startPin="A" end="out" endPin="South">
+		</connector>
+		<connector start="in" startPin="East" end="R1" endPin="A">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="true" name="SPLT" vendor="KulFX" revision="1" labelPosition="top">
+		<pin name="1" x="-28.000000" y="7.000000" />
+		<pin name="2" x="-28.000000" y="-7.000000" />
+		<pin name="3" x="28.000000" y="-7.000000" />
+		<pin name="4" x="28.000000" y="7.000000" />
+		<external pin="1" node="in" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="out" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP4"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v="SPLT"/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.46"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="1"/>
+	<m k="FXVoltaMac_WindowHeight" v="681"/>
+	<m k="FXVoltaMac_WindowWidth" v="607"/>
+	<m k="FXVolta_Netlist" v="*{FX_newline}.SUBCKT KulFX.SPLT in out{FX_newline}R1 in out 1k{FX_newline}R2 out 0 2k{FX_newline}.ENDS KulFX.SPLT{FX_newline}"/>
+</circuit>
+</volta>

@@ -1,0 +1,96 @@
+<!--
+title Volta 1.2 - Einleitung
+-->
+
+<style>
+  @import "../style/introduction_large.css";
+  @import "../style/introduction_small.css";
+</style>
+
+<div id="volta_help_introdcution_what">
+  <h4>Was ist Volta?</h4>
+  <p>
+    Volta ist eine Software-Anwendung zum Entwerfen von analogen elektrischen
+    Schaltungen unter Mac OS X. Volta bietet eine grafische Oberfläche für
+    SPICE-kompatible Kommandozeilen-Schaltungssimulatoren.
+  </p>
+</div>
+<div id="volta_help_introduction_workflow">
+  <h4>Schaltungen</h4>
+  <p>
+    Es wird ein Fenster pro Schaltungsdesign angezeigt.
+    Ein Schaltungsfenster enthält die in Abbildung 1 hervorgehobenen vier
+    Bereiche. Es ist möglich an mehreren Schaltungen gleichzeitig zu arbeiten.
+  </p>
+  <h4>Designablauf</h4>
+  <p>
+    Gewöhnlicherweise fängt man mit dem Design im Diagramm-Editor an, wo man
+    die Komponenten ablegt und miteinander verknüpft.
+    Mithilfe von Schaltungsanalysen verbessert man Schritt für Schritt
+    das Design. Für die Analysen erfasst man Schaltungen in einem
+    Format welches vom Simulator verarbeitet werden kann.
+    Abhängig von der Ausgabe des Simulators werden nach Abschluss der
+    Schaltungsanalyse im unteren Bereich des Fensters Grafiken der
+    Ausgabegrößen gezeichnet.
+  </p>
+</div>
+<div id="volta_help_introduction_screenshot" class="screenshot">
+  <span class="figure">Abb. 1: Bereiche eines Schaltungsfensters</span>
+  <a href="../images/de/document_areas.png" class="FXOverlayImage">
+    <img id="volta_help_introduction_screenshot_image" class="framed_screenshot" src="../images/de/document_areas.png"/>
+  </a>
+</div>
+<div id="volta_help_introduction_toolbar_buttons">
+  <div id="volta_help_introduction_toolbar_buttons_text">
+    <div id="volta_help_introduction_toolbar_buttons_text1">
+      <p>
+        Die ersten drei Knöpfe in der Symbolleiste ('Zeichnen', 'Erfassen' und
+        'Analysieren' in Abb. 2)
+        bilden den Arbeitsablauf ab. 'Zeichnen' und 'Analysieren' tun mehr
+        als der Name sagt: 'Zeichnen' führt alle drei Arbeitsschritte
+        aus; d.h., erfasst die Netlist, startet den Simulator und leitet die
+        Ergebnisse an den Plotter. Diesen Knopf werden Sie am häufigsten benutzen.
+        'Analysieren' startet nicht nur die Simulation sondern gibt anschließend
+        auch die Ergebnisse an den Plotter weiter. Benutzen Sie diesen Knopf
+        wenn Sie Änderungen an der Netlist gemacht haben die nicht überschrieben
+        werden sollen.
+      </p>
+    </div>
+    <div id="volta_help_introduction_toolbar_buttons_screenshot_inline1">
+      <span class="figure">Abb. 2</span>
+      <img class="framed_screenshot" style="height:100px" src="../images/de/toolbar_plot_capture_analyze.png" />
+    </div>
+    <div id="volta_help_introduction_toolbar_buttons_text2">
+      <p>
+        Die letzten beiden Knöpfe in der Symbolleiste (Abb. 3) öffnen oder
+        schließen den unteren bzw. rechten Arbeitsbereich.
+      </p>
+    </div>
+    <div id="volta_help_introduction_toolbar_buttons_screenshot_inline2">
+      <span class="figure">Abb. 3</span>
+      <img class="framed_screenshot" style="height:100px" src="../images/common/toolbar_toggle_window_areas.png" />
+    </div>
+  </div>
+  <div id="volta_help_introduction_toolbar_buttons_screenshots" class="screenshot">
+    <div id="volta_help_introduction_toolbar_buttons_screenshot1">
+      <span class="figure">Abb. 2</span>
+      <img class="framed_screenshot" style="height:100px" src="../images/de/toolbar_plot_capture_analyze.png" />
+    </div>
+    <div id="volta_help_introduction_toolbar_buttons_screenshot2">
+      <span class="figure">Abb. 3</span>
+      <img class="framed_screenshot" style="height:100px" src="../images/common/toolbar_toggle_window_areas.png" />
+    </div>
+  </div>
+</div>
+<div id="volta_help_introduction_ngspice">
+  <h4>Ngspice</h4>
+  <p>
+    Volta wird mit dem freien Schaltungssimulator <a href="http://ngspice.sf.net">Ngspice</a>
+    ausgeliefert. Ein langfristiges Ziel von Volta ist es alle Fähigkeiten von
+    Ngspice auf eine grafische, und hoffentlich einfache Art, benutzbar zu machen.
+    Idealerweise sollte es selbst für komplexe Anwendungsfälle keinen Grund geben
+    die Netlist manuell zu bearbeiten. Bis dieses Ziel erreicht ist müssen Sie
+    sich mit Ngspice auskennen. Das umfassende Handbuch zu Ngspice finden Sie
+    <a href="http://ngspice.sourceforge.net/docs.html">hier</a>.
+  </p>
+</div>

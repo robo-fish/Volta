@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="1">
+<circuit name="">
+	<schematic>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="107.91" y="166.594" >
+		</element>
+		<element name="V1" type="VSDC" modelName="DCVoltage" modelVendor="" x="107.91" y="110.719" labelPosition="east" >
+			<p n="voltage" v="5" />
+		</element>
+		<element name="VMT1" type="MTVDC" modelName="VoltmeterDC" modelVendor="" x="304.043" y="86.7188" labelPosition="east" >
+			<p n="stop" v="10" />
+			<p n="source" v="V1" />
+			<p n="step" v="0.5" />
+			<p n="start" v="0" />
+		</element>
+		<element name="X1" type="SUBCKT" modelName="SP" modelVendor="com.kulfx" x="212.059" y="93.7188" labelPosition="north" >
+		</element>
+		<connector start="GND1" startPin="Ground" end="V1" endPin="Cathode">
+		</connector>
+		<connector start="X1" startPin="1" end="V1" endPin="Anode">
+		</connector>
+		<connector start="X1" startPin="4" end="VMT1" endPin="Anode">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="" revision="1" labelPosition="north">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v=""/>
+	</subcircuit_data>
+	<m k="FXVolta_Netlist" v="2011-02-27 14:00:35 +0100{FX_newline}V1 1 0 5{FX_newline}X1 1 2 SP{FX_newline}.SUBCKT SP in out{FX_newline}R1 in out 1k{FX_newline}R2 0 out 1k{FX_newline}.ENDS SP{FX_newline}.DC V1 0 10 0.5{FX_newline}.PRINT DC v(2){FX_newline}.OPTIONS nopage noacct keepopinfo{FX_newline}.END{FX_newline}"/>
+	<m k="FXVoltaMac_WindowVPosition" v="128"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.5949367088607594"/>
+	<m k="FXVoltaMac_WindowHeight" v="431"/>
+	<m k="FXVoltaMac_WindowWidth" v="790"/>
+	<m k="FXVoltaMac_WindowHPosition" v="528"/>
+</circuit>
+</volta>

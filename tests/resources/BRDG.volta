@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit title="">
+	<schematic>
+		<element name="1" type="NODE" modelName="Node" modelVendor="" x="198.969" y="167.543" />
+		<element name="3" type="NODE" modelName="Node" modelVendor="" x="257.238" y="254.723" />
+		<element name="D1" type="D" modelName="DefaultDiode" modelVendor="" x="198.969" y="125.488" rotation="90" labelPosition="left" />
+		<element name="D2" type="D" modelName="DefaultDiode" modelVendor="" x="257.238" y="125.488" rotation="90" labelPosition="left" />
+		<element name="D3" type="D" modelName="DefaultDiode" modelVendor="" x="198.969" y="302.418" rotation="90" labelPosition="left" />
+		<element name="D4" type="D" modelName="DefaultDiode" modelVendor="" x="257.238" y="302.418" rotation="90" labelPosition="left" />
+		<element name="in1" type="NODE" modelName="Node" modelVendor="" x="122.562" y="167.543" labelPosition="left" />
+		<element name="in2" type="NODE" modelName="Node" modelVendor="" x="122.562" y="254.723" labelPosition="left" />
+		<element name="out1" type="NODE" modelName="Node" modelVendor="" x="257.238" y="86.3829" labelPosition="right" />
+		<element name="out2" type="NODE" modelName="Node" modelVendor="" x="257.238" y="344.512" labelPosition="right" />
+		<connector start="3" startPin="North" end="D2" endPin="Anode">
+		</connector>
+		<connector start="D1" startPin="Anode" end="1" endPin="North">
+		</connector>
+		<connector start="D3" startPin="Cathode" end="1" endPin="South">
+		</connector>
+		<connector start="D4" startPin="Cathode" end="3" endPin="South">
+		</connector>
+		<connector start="in1" startPin="East" end="1" endPin="West">
+		</connector>
+		<connector start="in2" startPin="East" end="3" endPin="West">
+		</connector>
+		<connector start="out1" startPin="West" end="D1" endPin="Cathode">
+			<joint x="198.969" y="86.3829"/>
+		</connector>
+		<connector start="out1" startPin="South" end="D2" endPin="Cathode">
+		</connector>
+		<connector start="out2" startPin="West" end="D3" endPin="Anode">
+			<joint x="198.969" y="344.512"/>
+		</connector>
+		<connector start="out2" startPin="North" end="D4" endPin="Anode">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="true" name="BRDG" revision="1" labelPosition="top">
+		<pin name="1" x="-28.000000" y="7.000000" />
+		<pin name="2" x="-28.000000" y="-7.000000" />
+		<pin name="3" x="28.000000" y="-7.000000" />
+		<pin name="4" x="28.000000" y="7.000000" />
+		<external pin="1" node="in1" />
+		<external pin="2" node="in2" />
+		<external pin="3" node="out2" />
+		<external pin="4" node="out1" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP4"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v="BRDG"/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.65"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="1"/>
+	<m k="FXVoltaMac_WindowHeight" v="673"/>
+	<m k="FXVoltaMac_WindowWidth" v="855"/>
+	<m k="FXVolta_Netlist" v="*{FX_newline}.SUBCKT BRDG in1 in2 out2 out1{FX_newline}D1 in1 out1 DefaultDiode{FX_newline}D2 in2 out1 DefaultDiode{FX_newline}D3 out2 in1 DefaultDiode{FX_newline}D4 out2 in2 DefaultDiode{FX_newline}.MODEL DefaultDiode D IBV=1.0e-3 IK=1.0e-3 IKR=1.0e-3 IS=1.0e-14 JSW=1.0e-14 N=1 RS=0.0 CJO=0.0 CJP=0.0 FC=0.5 FCS=0.5 M=0.5 MJSW=0.33 VJ=1 PHP=1 TT=0 EG=1.11 TM1=0.0 TM2=0.0 TNOM=27 TRS=0.0 TRS2=0.0 TTT1=0.0 TTT2=0.0 XTI=3.0 KF=0 AF=1{FX_newline}.ENDS BRDG{FX_newline}"/>
+</circuit>
+</volta>

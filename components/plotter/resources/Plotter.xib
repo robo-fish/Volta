@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FXPlotterController">
+            <connections>
+                <outlet property="plotSelector" destination="193" id="207"/>
+                <outlet property="plotterView" destination="3" id="8"/>
+                <outlet property="view" destination="1" id="2"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customView id="1">
+            <rect key="frame" x="0.0" y="0.0" width="610" height="424"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="3" customClass="FXPlotterView">
+                    <rect key="frame" x="20" y="20" width="570" height="360"/>
+                </customView>
+                <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="193">
+                    <rect key="frame" x="290" y="400" width="300" height="4"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="208"/>
+                    </constraints>
+                    <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="right" lineBreakMode="truncatingTail" enabled="NO" userInterfaceLayoutDirection="rightToLeft" imageScaling="proportionallyDown" inset="2" id="194">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" id="195"/>
+                    </popUpButtonCell>
+                </popUpButton>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="3" secondAttribute="trailing" constant="20" id="26"/>
+                <constraint firstItem="3" firstAttribute="leading" relation="lessThanOrEqual" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="37"/>
+                <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" priority="600" constant="20" symbolic="YES" id="189"/>
+                <constraint firstAttribute="trailing" secondItem="193" secondAttribute="trailing" constant="20" symbolic="YES" id="202"/>
+                <constraint firstItem="193" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="204"/>
+                <constraint firstItem="3" firstAttribute="top" secondItem="193" secondAttribute="bottom" constant="20" id="205"/>
+                <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" constant="20" symbolic="YES" id="454"/>
+                <constraint firstItem="3" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="462"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

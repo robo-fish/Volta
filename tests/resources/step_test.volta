@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="1">
+<circuit name="">
+	<schematic>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="91.7461" y="244.723" >
+		</element>
+		<element name="V1" type="VSAC" modelName="ACVoltage" modelVendor="" x="91.7461" y="183.746" labelPosition="east" >
+			<p n="magnitude" v="1" />
+			<p n="phase" v="0" />
+		</element>
+		<element name="VMT1" type="MTVAC" modelName="VoltmeterAC" modelVendor="" x="303.969" y="159.746" >
+			<p n="start frequency" v="1" />
+			<p n="stop frequency" v="10000" />
+			<p n="# points" v="20" />
+		</element>
+		<element name="X1" type="SUBCKT" modelName="STEP" modelVendor="com.kulfx" x="208.121" y="166.746" labelPosition="north" >
+		</element>
+		<connector start="GND1" startPin="Ground" end="V1" endPin="Cathode">
+		</connector>
+		<connector start="V1" startPin="Anode" end="X1" endPin="1">
+		</connector>
+		<connector start="X1" startPin="4" end="VMT1" endPin="Anode">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="" revision="1" labelPosition="north">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v=""/>
+	</subcircuit_data>
+	<m k="FXVolta_Netlist" v="2012-02-01 21:49:34 +0000{FX_newline}V1 1 0 AC 1 0{FX_newline}X1 1 2 com.kulfx.STEP{FX_newline}.SUBCKT com.kulfx.STEP in out{FX_newline}C1 2 out 1u{FX_newline}L1 in 2 1m{FX_newline}R1 in 0 1k{FX_newline}R2 0 out 1k{FX_newline}.ENDS com.kulfx.STEP{FX_newline}.AC dec 20 1 10000{FX_newline}.PRINT AC v(2){FX_newline}.OPTIONS nopage noacct keepopinfo{FX_newline}.END{FX_newline}"/>
+	<m k="FXVoltaMac_WindowVPosition" v="112"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.6929274843330349"/>
+	<m k="FXVoltaMac_WindowHeight" v="770"/>
+	<m k="FXVoltaMac_WindowWidth" v="1117"/>
+	<m k="FXVoltaMac_WindowHPosition" v="480"/>
+</circuit>
+</volta>

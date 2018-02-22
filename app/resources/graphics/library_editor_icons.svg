@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="padlock.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.055"
+     inkscape:cx="183.60895"
+     inkscape:cy="584.57579"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1354"
+     inkscape:window-height="965"
+     inkscape:window-x="232"
+     inkscape:window-y="29"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path3012"
+       style="fill:#000000;stroke:#000000;stroke-width:0.61901015;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 165.58425,385.88347 c 0,0 -0.86729,-12.27476 -4.22141,-37.04248 10.00766,-10.13779 5.14995,-35.74795 -14.41017,-36.11159 -19.56012,0.36364 -24.41783,25.9738 -14.41017,36.11159 -3.36111,27.88322 -4.22116,37.04248 -4.22116,37.04248 z M 79.113644,288.66506 c -0.196342,-7.16537 33.919516,-6.91064 33.919516,-6.91064 22.61301,0 45.22602,0 67.83903,0 0,0 34.11585,0.11801 33.91951,6.91064 0,136.13526 0,119.07613 0,119.07613 l -135.678056,0 c 0,0 0,14.46434 0,-119.07613 z"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccc"
+       inkscape:export-filename="/Volumes/Volta/trunk/desktop/graphics/padlock.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
+    <path
+       id="path3804"
+       style="fill:#000000;stroke:#000000;stroke-width:0.17967653px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 204.26143,285.15732 c 0,-4.01144 -0.24604,-13.53482 0.17579,-12.95241 0,-31.95972 -25.90847,-57.21966 -57.68802,-57.21966 -31.77954,0 -57.688013,25.25994 -57.688013,57.21966 0.421833,-0.58241 0.175791,8.94097 0.175791,12.95241 l 20.195512,0 c 0,-2.60744 0.15993,-13.33098 -0.11427,-12.95241 0,-20.77382 16.84051,-37.95564 37.43098,-37.95564 20.59048,0 37.43098,17.18182 37.43098,37.95564 -0.27419,-0.37857 -0.11426,10.34497 -0.11426,12.95241 z"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72"
+       inkscape:export-filename="/Volumes/Volta/trunk/desktop/graphics/padlock.png" />
+  </g>
+</svg>

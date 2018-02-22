@@ -1,0 +1,101 @@
+<!--
+title Volta 1.2 - Working With Subcircuits
+-->
+
+<style>
+  @import "../style/subcircuits_large.css";
+  @import "../style/subcircuits_small.css";
+</style>
+
+
+<div id="volta_help_subcircuits_intro">
+  <p>
+    Volta supports the concept of subcircuits, which are re-usable partial circuits.
+    In Volta, subcircuits are special circuit documents that can be loaded into the
+    library where they act as device models.
+  </p>
+</div>
+
+<div id="volta_help_subcircuits_text">
+  <div id="volta_help_subcircuits_creating">
+    <h4>Creating Subcircuits</h4>
+    <p>
+      You can create a Volta subcircuit, either based on a schematic design
+      or from an existing SPICE subcircuit netlist, by following these steps:
+    </p>
+    <ol style="list-style: decimal">
+      <li>Open the subcircuit editor.</li>
+      <li>Enable the subcircuit.</li>
+      <li>Give the subcircuit a name.</li>
+      <li>Optionally, give it a vendor ID.</li>
+      <li>Select the number of external pins.</li>
+      <li>Enter the nodes corresponding to the external pins.</li>
+      <li>Capture the schematic.</li>
+    </ol>
+    <div id="volta_help_subcircuits_creating_screenshot_inline">
+      <span class="figure">Figure 1: Steps to create a subcircuit</span>
+      <a href="../images/en/subcircuit_creation.png" class="FXOverlayImage">
+        <img id="volta_help_subcircuits_creating_screenshot_image" class="framed_screenshot" src="../images/en/subcircuit_creation.png"/>
+      </a>
+    </div>
+    <p>
+      Do not perform the last step (capturing the schematic) if the subcircuit
+      is based on an existing SPICE subcircuit netlist.
+    </p>
+    <p>
+      In step 5 you choose the pin count for the DIP (dual in-line package) shape
+      of the subcircuit. Only DIP shapes are currently available. There will be
+      more choices in a future version of Volta.
+    </p>
+    <p>
+      The node assignment in step 6 defines an interface to the node network
+      of the subcircuit. Without this interface the subcircuit will not be
+      accessible for the simulator. Please double-check, that, the node names you
+      are providing actually exist in the netlist. If a pin is not used leave the
+      corresponding node name empty.
+    </p>
+    <p>
+      Hint: When designing a subcircuit, also create test circuits to verify
+      that the subcircuit works as expected.
+    </p>
+  </div>
+  <div id="volta_help_subcircuits_using">
+    <h4>Using Subcircuits</h4>
+    <p>
+      Before you can use the subcircuit that you created, you need to place
+      the subcircuit file in the subcircuits storage folder. The library will
+      automatically pick it up from there and add the subcircuit item to the
+      list in "Subcircuits".
+    </p>
+    <p>
+      You can open the subcircuits storage folder in Finder
+      by pressing the button with the folder icon at the bottom of the
+      "Subcircuits" section of the library window (see figure 2).
+    </p>
+    <p>
+      Drag the subcircuit item from the list in the library window
+      to your circuit to insert it. You can also add subcircuits to
+      a palette group and access it from the schematic palette strip.
+    </p>
+  </div>
+</div>
+<div id="volta_help_subcircuits_screenshots">
+  <div id="volta_help_subcircuits_creating_screenshot">
+    <span class="figure">Figure 1: Steps to create a subcircuit</span>
+    <a href="../images/en/subcircuit_creation.png" class="FXOverlayImage">
+      <img id="volta_help_subcircuits_creating_screenshot_image" class="framed_screenshot" src="../images/en/subcircuit_creation.png"/>
+    </a>
+  </div>
+  <div id="volta_help_subcircuits_storage_screenshot">
+    <span class="figure">Figure 2: Subcircuits storage folder</span>
+    <a href="../images/en/subcircuit_storage_folder.png" class="FXOverlayImage">
+      <img id="volta_help_subcircuits_storage_screenshot_image" class="framed_screenshot" src="../images/en/subcircuit_storage_folder.png"/>
+    </a>
+  </div>
+  <div id="volta_help_subcircuits_using_screenshot">
+    <span class="figure">Figure 3: Using the subcircuit in a circuit</span>
+    <a href="../images/en/subcircuit_usage.png" class="FXOverlayImage">
+      <img id="volta_help_subcircuits_using_screenshot_image" class="framed_screenshot" src="../images/en/subcircuit_usage.png"/>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Common Stuff */
+"Yes" = "是";
+"No" = "否";
+"OK" = "知道了";
+"Cancel" = "取消";
+"Built-in" = "系统自带的";
+"Copy" = "复制";
+
+/* Application */
+"Exception" = "错误";
+"ExceptionOccurred" = "发生了一个错误";
+"ExceptionLetCrash" = "结束";
+"ExceptionIgnore" = "忽略";
+"VoltaHelpURL" = "https://robo.fish/volta/help/v124/cn/index.html";
+
+/* About panel */
+"AboutWindowTitle" = "关于Volta";
+"AboutText" = "© Kai Berk Özer\n\n访问 https://robo.fish/wiki/index.php?title=Volta 获得更多信息。";
+
+/* Preferences panel */
+"Volta Preferences" = "Volta偏好设置";
+
+/* Circuit menu */
+"Circuit" = "电路";
+
+/* Plugin preferences panel - plugin categories */
+"VoltaPluginGroup_Simulators" = "仿真器";
+"VoltaPluginGroup_Schematic_Editors" = "原理图编辑器";
+"VoltaPluginGroup_Netlist_Editors" = "网表编辑器";
+"VoltaPluginGroup_Library_Editors" = "零件库编辑器";
+"VoltaPluginGroup_Subcircuit_Editors" = "子电路编辑器";
+"VoltaPluginGroup_Plotters" = "Plotters";
+
+/* Plugin preferences panel - table column headers */
+"Plugins" = "Plug-Ins";
+"Services" = "Services";
+
+/* Workflow actions */
+"WorkflowAction_Plot" = "绘图";
+"WorkflowAction_Capture" = "捕捉";
+"WorkflowAction_Analyze" = "模拟";
+
+/* Toolbar item tooltips */
+"ToolbarItemToolTip_Plot" = "捕捉、模拟和绘制结果";
+"ToolbarItemToolTip_Capture" = "把电路原理图转换成网表";
+"ToolbarItemToolTip_Analyze" = "开始／结束模拟";
+"ToolbarItemToolTip_ToggleNetlist" = "打开／关闭网表编辑器和模拟输出窗格";
+"ToolbarItemToolTip_TogglePlotter" = "显示／隐藏绘图窗格";
+"ToolbarItemToolTip_SubcircuitEditor" = "打开子电路编辑器";
+
+/* Circuit simulation */
+"NoSimulatorOutput" = "无仿真输出";
+
+/* Undo action names */
+"Action_capture" = "捕捉";
+
+/* Document window */
+"Subcircuit" = "子电路";
+"Simulator" = "仿真器";
+"CapturingEmptySchematicMessage" = "电路原理图为空。";
+
+/* File format upgrade dialog, that is shown when a file with an old format is opened. */
+"ArchiveUpgradePrompt_Title" = "是否升级 \"%@\"?";
+"ArchiveUpgradePrompt_Title_Without_Source" = "转换这个文件？";
+"ArchiveUpgradePrompt_Message" = "\"%@\" 使用了一个旧的文件格式，该文件将会被升级且不再被旧的版本支持。推荐在继续之前备份该文件。";
+"ArchiveUpgradePrompt_Message_Without_Source" = "此Volta文件使用了一个旧的文件格式，该文件将会被升级且不再被旧的版本支持。推荐在继续之前备份该文件。";
+"ArchiveUpgradePrompt_Upgrade" = "升级";
+"ArchiveUpgradePrompt_AlwaysUpgrade" = "始终升级";
+"ArchiveUpgradePrompt_Abort" = "终止";
+"ArchiveUpgradePrompt_Reveal" = "在Finder中显示该文件";
+
+/* iCloud prompt */
+"Cloud_UseLibraryPrompt" = "Volta检测到了一个iCloud帐号. 是否使用iCloud上的元器件库？";
+"Cloud_UseLibraryPromptInformative" = "可以在任何时间切换本地库与iCloud库。";
+"Cloud_CopyLibraryOption" = "复制本地库至iCloud库";
+"Cloud_CopyLibrary_Title" = "复制库";
+"Cloud_CopyCloudLibrary_Message" = "该操作会复制iCloud元器件库的内容至本地库。已存在的文件将会被覆盖。";
+"Cloud_CopyLocalLibrary_Message" = "该操作会复制本地元器件库的内容至iCloud库。已存在的文件将会被覆盖。";
+
+/* Initial Library Content */
+/* ATTENTION: These correspond to the names of resource files and do not occur in code. */
+"Palette_Most_Used" = "最常用的";
+"Palette_Capacitors_E12" = "电容";
+"Palette_Inductors_E12" = "电感器";
+"Palette_Meters" = "电源以及测量器";
+"Palette_Resistors_E12" = "电阻";
+"Palette_Semis" = "半导体";

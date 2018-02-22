@@ -1,0 +1,18 @@
+div.credits-section {
+  display: block;
+  margin-top: 1em;
+}
+div.credits-section-title {
+  display: block;
+  font-weight: bold;
+}
+div.license {
+  margin-top: 1em;
+}
+header.license-title {
+  font-family: "Courier", monospace, sans-serif;    
+}
+div.license-text {
+  font-family: "Courier", monospace, sans-serif;
+  font-size: 0.8em;
+}

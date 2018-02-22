@@ -1,0 +1,13 @@
+"SubcircuitEditorVendorFieldPlaceholder" = "Herstellerkennung";
+"SubcircuitEditorNameFieldPlaceholder" = "Kennung";
+"SubcircuitEditorEnablerCheckboxTitle" = "Aktiv";
+"SubcircuitEditorNodeAssignmentTablePinsColumnTitle" = "Anschluss";
+"SubcircuitEditorNodeAssignmentTableNodesColumnTitle" = "Interner Knoten";
+
+/* Undo actions */
+"Action_node_assignment" = "Knotenzuweisung bearbeiten";
+"Action_change_shape" = "Symbol ändern";
+"Action_enable_subcircuit" = "Teilschaltung aktivieren";
+"Action_disable_subcircuit" = "Teilschaltung deaktivieren";
+"Action_edit_title" = "Kennzeichnung bearbeiten";
+"Action_edit_vendor" = "Herstellerkennung bearbeiten";

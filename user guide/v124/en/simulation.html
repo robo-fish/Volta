@@ -1,0 +1,78 @@
+<!--
+title Volta 1.2 - Circuit Simulations
+-->
+
+<style>
+  @import "../style/simulation_large.css";
+  @import "../style/simulation_small.css";
+</style>
+
+
+<div id="volta_help_simulation_simulator">
+<h4>
+  Circuit simulator
+</h4>
+<p>
+  Volta comes with the free circuit simulator Ngspice out of the box.
+  Ngspice is an open-source successor of UC Berkeley's widely-known
+  SPICE 3 simulator. For more information on Ngspice please visit
+  <a href="http://ngspice.sourceforge.net">the Ngspice web site</a>.
+  For information on SPICE itself please visit
+  <a href="http://en.wikipedia.org/wiki/SPICE">the Wikipedia page</a>.
+</p>
+</div>
+
+<div id="volta_help_simulation_simulating">
+  <h4>
+    Running Simulations
+  </h4>
+  <p>
+    You run simulations by pressing either the "Analyze" or the "Plot" button
+    in the toolbar. "Plot" will capture the schematic (and replace the
+    existing netlist) before starting the simulation.
+    "Analyze" uses the existing netlist and does not capture.
+  </p>
+  <p>
+    The gear wheel icon of the Analyze button animates while the
+    simulation is running. Pressing the button while it animates
+    aborts the simulation.
+  </p>
+  <p>
+    Volta displays the raw text output of the simulator in the
+    "Simulator" panel.
+  </p>
+</div>
+<div id="volta_help_simulation_simulator_output_screenshot">
+  <span class="figure">Figure 1: Simulator output</span>
+  <img id="volta_help_simulation_simulator_output_screenshot_image" class="framed_screenshot" src="../images/common/simulator_output.png"/>
+</div>
+
+<div id="volta_help_simulation_results">
+  <h4>
+    Plotting Simulation Results
+  </h4>
+  <p>
+    When a simulation finishes, Volta automatically parses the output in order
+    to extract analysis data.
+    If tabular analysis data is present, Volta draws graphs in the plotter area.
+  </p>
+</div>
+<div id="volta_help_simulation_plotter_screenshot">
+  <span class="figure">Figure 2: Plotter</span>
+  <img id="volta_help_simulation_plotter_screenshot_image" class="framed_screenshot" src="../images/en/plotter_graph.png"/>
+</div>
+<div id="volta_help_simulation_plotter_functions">
+  <p>
+    The plotter is still very basic. The ordinate (y axis) always shows real values
+    in linear scale. The abscissa (x axis) shows real values in linear or
+    logarithmic (for AC analyses) scale.
+  </p>
+  <p>
+    The plotter allows switching between multiple graphs through the menu seen in
+    figure 3. The menu is only available if graph data for mulitple entities exist.
+  </p>
+</div>
+<div id="volta_help_simulation_selecting_graph_screenshot">
+  <span class="figure">Figure 3: Selecting a graph</span>
+  <img id="volta_help_simulation_selecting_graph_screenshot_image" class="framed_screenshot" src="../images/en/plotter_graph_selection.png"/>
+</p>

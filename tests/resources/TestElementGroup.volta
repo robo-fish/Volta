@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<library title="Test Element Group">
+	<element name="" type="NODE" modelName="Node" />
+	<element name="Gnd" type="GRND" modelName="Ground" />
+	<element name="R1" type="R" modelName="ResistorUS" />
+	<element name="C1" type="C" modelName="Capacitor" />
+	<element name="L1" type="L" modelName="InductorUS" />
+	<element name="R33" type="R" modelName="ResistorUS" />
+</library>
+</volta>

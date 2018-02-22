@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="1">
+<circuit name="">
+	<schematic>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="257" y="193" >
+		</element>
+		<element name="R1" type="R" modelName="Resistor" modelVendor="" x="193" y="90" labelPosition="north" >
+			<p n="resistance" v="1k" />
+		</element>
+		<element name="R2" type="R" modelName="Resistor" modelVendor="" x="257" y="134" rotation="270" labelPosition="east" >
+			<p n="resistance" v="1k" />
+		</element>
+		<element name="in" type="NODE" modelName="Node" modelVendor="" x="143" y="90" labelPosition="west" >
+		</element>
+		<element name="out" type="NODE" modelName="Node" modelVendor="" x="257" y="90" labelPosition="east" >
+		</element>
+		<connector start="GND1" startPin="Ground" end="R2" endPin="A">
+		</connector>
+		<connector start="R1" startPin="B" end="out" endPin="West">
+		</connector>
+		<connector start="in" startPin="East" end="R1" endPin="A">
+		</connector>
+		<connector start="out" startPin="South" end="R2" endPin="B">
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="true" name="SP" vendor="com.kulfx" revision="1" labelPosition="north">
+		<pin name="1" x="-28.000000" y="-7.000000" />
+		<pin name="2" x="-28.000000" y="7.000000" />
+		<pin name="3" x="28.000000" y="7.000000" />
+		<pin name="4" x="28.000000" y="-7.000000" />
+		<external pin="1" node="in" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="out" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP4"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v="SP"/>
+	</subcircuit_data>
+	<m k="FXVolta_Netlist" v=".SUBCKT SP in out{FX_newline}R1 in out 1k{FX_newline}R2 0 out 1k{FX_newline}.ENDS SP{FX_newline}"/>
+	<m k="FXVoltaMac_WindowVPosition" v="286"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.59375"/>
+	<m k="FXVoltaMac_WindowHeight" v="350"/>
+	<m k="FXVoltaMac_WindowWidth" v="640"/>
+	<m k="FXVoltaMac_WindowHPosition" v="261"/>
+</circuit>
+</volta>

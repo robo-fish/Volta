@@ -1,0 +1,166 @@
+<!--
+title Volta 1.2 - The Library
+-->
+
+<style>
+  @import "../style/library_large.css";
+  @import "../style/library_small.css";
+</style>
+
+<div id="volta_help_library_open_window">
+  <p>
+    The library window is the primary interface to your collection of
+    device models, customized component groups, and subcircuits.
+    You open the library window either through the main menu,
+    Window &rarr; Library, or by selecting "Edit..." in the group
+    selection menu of the schematic palette.
+  </p>
+</div>
+
+<div id="volta_help_library_window">
+  <div id="volta_help_library_window_screenshot">
+    <span class="figure">Figure 1: Library window</span>
+    <a href="../images/en/library_window.png" class="FXOverlayImage">
+      <img id="volta_help_library_window_screenshot_image" class="framed_screenshot" src="../images/en/library_window.png"/>
+    </a>
+  </div>
+  <div id="volta_help_library_window_text">
+    <h4>Models</h4>
+    <p>
+      Similar to SPICE models, Volta models define classes of schematic elements.
+      Unlike SPICE, Volta models also define classes of non-electrical schematic elements.
+      A Volta model contains the common attributes of the class it defines:
+      A shape, a set of connection points (i.e., pins), and a set of named properties.
+    </p>
+    <p>
+      All available device models are listed in the "Models" section of
+      the library. Models are grouped by type
+      (resistor, diode, MOSFET, voltmeter, etc.). All models have a name, some
+      also have a vendor ID. The vendor ID serves to further differentiate
+      a model and is especially useful when distributing your customized models
+      to other users. For example, you can use your name or your e-mail address
+      as vendor ID.
+    </p>
+    <p>
+      Models can be dragged to a palette group or to a schematic, where
+      components with default property values will be inserted.
+    </p>
+    <div id="volta_help_library_subcircuits_text_1">
+      <h4>Subcircuits</h4>
+      <p>
+        The "Subcircuits" section of the library window lists all your subcircuits.
+        A subcircuit item in the library window is a special kind of model that
+        represents a Volta subcircuit document.
+        A Volta subcircuit contains a SPICE subcircuit netlist, either captured
+        from schematic or edited manually, that gets inserted
+        when the schematic, in which the subcircuit is used, is captured.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="volta_help_library_subcircuits_text_2">
+  <p>
+    Unlike models and palette components, subcircuits are not editable within the
+    library window. Double-click a subcircuit item or single-click its link button
+    <img height="11px" src="../images/common/library_subcircuit_open.png">
+      to open the corresponding subcircuit document. Make your
+    changes and save the document. The library will detect the change and
+    reload automatically without having to restart Volta.
+  </p>
+  <p>
+    Subcircuits can be dragged to a palette group or to a schematic,
+    where a component will be created.
+  </p>
+  <h4>Palette</h4>
+  <p>
+    The palette contains user-defined groups of circuit components
+    (or other kind of schematic elements).
+    Groups can be added <img style="vertical-align:-2px" height="16px" src="../images/common/library_palette_add.png">,
+    renamed or removed <img style="vertical-align:-2px" height="16px" src="../images/common/library_palette_remove.png">.
+    Likewise, components can be added to a group, renamed or removed.
+    Group names must be unique and component names must be unique
+    within their groups.
+  </p>
+  <p>
+    Palette groups can be populated by dragging models or subcircuits
+    into the group. Dragging components from group to group is also
+    possible and creates copies of the dragged components in the target folder.
+  </p>
+</div>
+<div id="volta_help_library_subcircuits_screenshot">
+  <span class="figure">Figure 2: Subcircuits</span>
+  <a href="../images/en/library_window_subcircuits.png" class="FXOverlayImage">
+    <img id="volta_help_library_subcircuits_screenshot_image" class="framed_screenshot" src="../images/en/library_window_subcircuits.png"/>
+  </a>
+</div>
+
+<div id="storage">
+  <h4>Library Storage</h4>
+  <p>
+    Except for the built-in models, the items in your library are loaded
+    from and stored to user-accessible files. These files are located
+    under Volta's library root folder, which is organized into sub-folders
+    ("Models", "Palette", "Subcircuits") for the three types of library content.
+    You can share your library content by distributing the files (please observe copyrights).
+    Volta updates the library automatically when files are added to or removed
+    from the above sub-folders.
+  </p>
+  <h5>Local vs. iCloud</h5>
+  <p>
+    The library root folder can be located either on your Mac or on iCloud.
+    You can copy your locally stored library content to iCloud at any time and
+    switch to using the iCloud library. The advantages of using the iCloud library
+    are: having an online backup and automatic synchronization between multiple
+    installations of Volta. The disadvantage is the risk of data loss when
+    synchronizing two libraries which have been modified independently since the
+    last synchronization.
+  </p>
+  <p>
+    The local library will not be modified while you use the iCloud library.
+    You can switch back to using the local library at any time. It is also
+    possible to copy the library contents from iCloud to local (or from local
+    to iCloud) without switching.
+  </p>
+  <p>
+    Switching between the two libraries and copying the contents is done via
+    the main menu, under "Volta" &rarr; "iCloud library".
+  </p>
+  <p style="text-align: left">
+    The library root folder for local storage is located at
+    <code style="font-size:10pt;word-break:break-all">"~/Library/Containers/com.kulfx.Volta/Data/Library/Application Support/Volta"</code>,
+    where <code>~</code> denotes your home folder.
+  </p>
+  <h5>Access from the Library Window</h5>
+  <p>
+    For each type of library content (model, palette, subcircuit) there is a button
+    in the library window, which will reveal the contents of the corresponding
+    library root sub-folder. When using your local library, the buttons look like a folder
+    <img style="vertical-align:-2px" height="18px" src="../images/common/library_storage_folder.png">
+    and the folder contents are presented in Finder. When using the iCloud library,
+    the buttons look like a cloud
+    <img style="vertical-align:-2px" height="18px" src="../images/common/library_storage_cloud.png">
+    and the folder contents are presented in Volta's own file view window.
+  </p>
+  <h5>Storage of Custom Models</h5>
+  <p>
+    Custom models, that you create by copying (and modifying) existing models,
+    will be stored in the model library file "CustomModels.volta".
+    This is the only model library file whose
+    contents can be modified from within Volta. Models read from
+    other model library files can not be modified. That's why some models in
+    the library can not be modified and show a lock symbol.
+  </p>
+  <h5>SPICE Model Library Files</h5>
+  <p>
+    In addition to library files in Volta's own file format, Volta can load
+    models from SPICE library (<code>lib</code>) files. The following format is required
+    for <code>lib</code> files:
+    <pre style="font-size:10pt">.MODEL &lt;model name&gt; &lt;model type&gt;
++param1=value1 param2=value2
++param3=value3 param4=value4
+...</pre>
+    No space is allowed around the '=' sign.
+    Comment lines starting with an asterisk (*) can be inserted everywhere.
+  </p>
+</div>

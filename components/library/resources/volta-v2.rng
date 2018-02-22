@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This is the Volta file format version 2.
+Released in September 2012.
+Volta file format copyright 2007-2012 Kai Berk Özer. http://kulfx.com
+Licensed under Creative Commons Attribution-NoDerivs 3.0 Unported License. http://creativecommons.org/licenses/by-nd/3.0/
+-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <start>
+    <!-- the top element must be 'volta' -->
+    <ref name="volta_def"/>
+  </start>
+
+  <define name="volta_def">
+
+    <element name="volta" ns="http://kulfx.com/volta">
+
+      <!--
+      The version number of the used file format.
+      This attribute is guaranteed to exist in all revisions of the Volta file format.
+      -->
+      <attribute name="version">
+        <data type="positiveInteger"/>
+      </attribute>
+
+      <!--
+      A Volta document may contain a circuit and/or a model library.
+      -->
+      <interleave>
+
+        <optional>
+          <ref name="library_def"/>
+        </optional>
+
+        <optional>
+          <ref name="circuit_def"/>
+        </optional>
+
+        <zeroOrMore>
+          <ref name="meta_def"/>
+        </zeroOrMore>
+
+      </interleave>
+
+    </element>
+
+  </define>
+
+
+
+  <define name="circuit_def">
+    <element name="circuit" ns="http://kulfx.com/volta">
+
+      <attribute name="title">
+        <data type="string"/>
+      </attribute>
+
+      <interleave>
+
+        <!-- The schematic of the circuit defines the layout of the components as well as the pin connections. -->
+        <optional>
+          <ref name="schematic_def"/>
+        </optional>
+
+        <!-- A circuit can be interpreted as a subcircuit, for which the necessary data is stored here. -->
+        <optional>
+          <ref name="subcircuit_data_def"/>
+        </optional>
+
+        <zeroOrMore>
+          <ref name="meta_def"/>
+        </zeroOrMore>
+
+      </interleave>
+
+    </element>
+  </define>
+
+
+  <define name="schematic_def">
+    <element name="schematic" ns="http://kulfx.com/volta">
+
+      <interleave>
+
+        <!-- schematic elements without model data -->
+        <zeroOrMore>
+          <ref name="element_def"/>
+        </zeroOrMore>
+
+        <!-- schematic connectors -->
+        <zeroOrMore>
+          <ref name="connector_def"/>
+        </zeroOrMore>
+
+        <!-- Schematic properties can be used to specify circuit-wide simulation parameters like the operating temperature. -->
+        <zeroOrMore>
+          <ref name="property_def"/>
+        </zeroOrMore>        
+
+        <!-- Meta information -->
+        <zeroOrMore>
+          <ref name="meta_def"/>
+        </zeroOrMore>
+
+      </interleave>
+
+    </element>
+  </define>
+
+
+  <!--
+  A library consists of model items that contain data about the shape and the properties of a component.
+  A library may also contain elements with predefined properties.
+  -->
+  <define name="library_def">
+    <element name="library" ns="http://kulfx.com/volta">
+
+      <attribute name="title">
+        <data type="string"/>
+      </attribute>
+
+      <interleave>
+
+        <zeroOrMore>
+          <ref name="model_def"/>
+        </zeroOrMore>
+
+        <zeroOrMore>
+          <ref name="element_def"/>
+        </zeroOrMore>
+
+        <zeroOrMore>
+          <ref name="meta_def"/>
+        </zeroOrMore>
+
+      </interleave>
+
+    </element>
+  </define>
+
+
+  <!--
+  Subcircuit data consists of a shape, a set of pins to the connect the subcircuit,
+  and a list of external nodes together with their associated pin.
+  -->
+  <define name="subcircuit_data_def">
+    <element name="subcircuit_data" ns="http://kulfx.com/volta">
+
+      <attribute name="enabled">
+        <data type="boolean"/>
+      </attribute>
+
+      <attribute name="name">
+        <data type="string"/>
+      </attribute>
+
+      <!-- The default value is an empty string, which represents the global namespace. -->
+      <optional>
+        <attribute name="vendor">
+          <data type="string"/>
+        </attribute>
+      </optional>
+
+      <!-- The default value is 1. -->
+      <optional>
+        <attribute name="revision">
+          <data type="positiveInteger"/>
+        </attribute>
+      </optional>
+
+      <optional>
+        <ref name="label_position_def"/>
+      </optional>
+
+      <interleave>
+
+        <optional>
+          <ref name="shape_def"/>
+        </optional>
+
+        <zeroOrMore>
+          <ref name="pin_def"/>
+        </zeroOrMore>
+
+        <zeroOrMore>
+          <element name="external">
+            <interleave>
+              <attribute name="pin">
+                <data type="string"/>
+              </attribute>
+              <attribute name="node">
+                <data type="string"/>
+              </attribute>
+            </interleave>
+          </element>
+        </zeroOrMore>
+
+        <zeroOrMore>
+          <ref name="meta_def"/>
+        </zeroOrMore>
+
+      </interleave>
+
+    </element>
+  </define>
+
+
+  <!--
+  Definition of a schematic element that represents a circuit component.
+  The schematic element contains model data as well as schematic data.
+  -->
+  <define name="element_def">
+    <element name="element" ns="http://kulfx.com/volta">
+
+      <attribute name="name">
+        <data type="string"/>
+      </attribute>
+
+      <ref name="model_type_def"/>
+
+      <!-- If no model name is given then the default model for the given type is assumed. -->
+      <optional>
+        <attribute name="modelName">
+          <data type="string"/>
+        </attribute>
+      </optional>
+
+      <!-- Must be ignored if the model name is missing. -->
+      <optional>
+        <attribute name="modelVendor">
+          <data type="string"/>
+        </attribute>
+      </optional>
+
+      <!--
+      The horizontal and vertical positions of the center point of the geometric shape of the element.
+      The default value for x and y is 0.
+      -->
+      <optional>
+        <attribute name="x">
+          <data type="float"/>
+        </attribute>
+        <attribute name="y">
+          <data type="float"/>
+        </attribute>
+      </optional>
+
+      <!--
+      The amount of counterclockwise rotation (measured in degrees) to be applied to the shape of the element.
+      The default rotation is 0 degrees.
+      -->
+      <optional>
+        <attribute name="rotation">
+          <data type="float"/>
+        </attribute>
+      </optional>
+
+      <!--
+      Whether the element is flipped horizontally.
+      The default value is 'false'.
+      -->
+      <optional>
+        <attribute name="flipped">
+          <data type="boolean"/>
+        </attribute>
+      </optional>
+
+      <!--
+      The position of the label that is displayed next to the shape.
+      The default value is 'none', which means no label is displayed.
+      -->
+      <optional>
+        <ref name="label_position_def"/>
+      </optional>
+
+      <interleave>
+
+        <!--
+        Element properties may contain, for example, simulation parameters for SPICE.
+        -->
+        <zeroOrMore>
+          <ref name="property_def"/>
+        </zeroOrMore>
+
+        <zeroOrMore>
+          <ref name="meta_def"/>
+        </zeroOrMore>
+
+      </interleave>
+
+    </element>
+  </define>
+
+
+  <!--
+  Models in Volta define classes of elements.
+  The elements in a circuit are instantiations of the various models that exist
+  in the library of the circuit editing application.
+  Volta models contain sufficient data to derive SPICE device models from it.
+  If the model does not contain shape data and is of a type that uses a device model
+  then the model is device model and its properties represent device model parameters.
+  -->
+  <define name="model_def">
+    <element name="model" ns="http://kulfx.com/volta">
+
+      <ref name="model_type_def"/>
+
+      <!-- The subtype is needed if the type alone is not sufficient. -->
+      <optional>
+        <attribute name="subtype">
+          <data type="string"/>
+        </attribute>
+      </optional>
+
+      <!-- The name of the model, as referred to by circuit elements using the model. -->
+      <attribute name="name">
+        <data type="string"/>
+      </attribute>
+
+      <!-- The default value is an empty string, which represents the global namespace. -->
+      <optional>
+        <attribute name="vendor">
+          <data type="string"/>
+        </attribute>
+      </optional>
+
+      <!-- The default value is 1. -->
+      <optional>
+        <attribute name="revision">
+          <data type="positiveInteger"/>
+        </attribute>
+      </optional>
+
+      <optional>
+        <ref name="label_position_def"/>
+      </optional>
+
+      <interleave>
+
+        <!--
+        Shape data is required if this model acts as a template for a schematic element.
+        Models containing only device model data do not have shape data.
+        -->
+        <optional>
+          <ref name="shape_def"/>
+        </optional>
+
+        <!--
+        A pin is a point of the component to which an end of a connector can be attached.
+        The pins must be listed in the same order their assigned nodes will be printed to a netlist.
+        -->
+        <zeroOrMore>
+          <ref name="pin_def"/>
+        </zeroOrMore>
+
+        <!--
+        List of element properties, like the resistance value of a resistor.
+        If the model is a device model these properties are the device model parameters.
+        -->
+        <zeroOrMore>
+          <ref name="property_def"/>
+        </zeroOrMore>
+
+        <!-- Meta information -->
+        <zeroOrMore>
+          <ref name="meta_def"/>
+        </zeroOrMore>
+
+      </interleave>
+
+    </element>
+  </define>
+
+
+  <!--
+  A shape consist of drawable path information and connector attachment points (= pins).
+  -->
+  <define name="shape_def">
+    <element name="shape" ns="http://kulfx.com/volta">
+
+      <attribute name="width">
+        <data type="float"/>
+      </attribute>
+
+      <attribute name="height">
+        <data type="float"/>
+      </attribute>
+
+      <interleave>
+
+        <zeroOrMore>
+
+          <!-- Paths, like in SVG. -->
+          <element name="path">
+
+            <interleave>
+
+              <attribute name="d">
+                <!--
+                Data. Similar to SVG paths but more limited.
+                Supports absolute and relative versions of following commands:
+                  move (m, M)
+                  line (l, L)
+                  horizontal line (h, H)
+                  vertical line (v, V)
+                  arc (a, A)
+                Supports trailing 'z', which closes the path.
+                X axis values increase from left to right, y axis values increase from bottom to top.
+                -->
+                <data type="string"/>
+              </attribute>
+
+              <!--
+              Whether the path should be filled.
+              Only valid if the path is closed.
+              The default is 'false'.
+              -->
+              <optional>
+                <attribute name="fill">
+                  <data type="boolean"/> <!-- 'true' or 'false' -->
+                </attribute>
+              </optional>
+
+              <!--
+              The default stroke width is 1.
+              -->
+              <optional>
+                <attribute name="stroke-width">
+                  <data type="positiveInteger"/>
+                </attribute>
+              </optional>
+
+            </interleave>
+
+          </element>
+
+        </zeroOrMore>
+
+        <zeroOrMore>
+
+          <!-- Circles, like in SVG but without color or stroke width attributes. -->
+          <element name="circle">
+
+            <attribute name="cx">
+              <data type="float"/>
+            </attribute>
+
+            <attribute name="cy">
+              <data type="float"/>
+            </attribute>
+
+            <attribute name="r">
+              <data type="float"/>
+            </attribute>
+
+            <optional>
+              <attribute name="fill">
+                <data type="boolean"/> <!-- 'true' or 'false' -->
+              </attribute>
+            </optional>
+
+          </element>
+
+        </zeroOrMore>
+
+      </interleave>
+
+      <zeroOrMore>
+        <ref name="meta_def"/>
+      </zeroOrMore>
+
+    </element>
+  </define>
+
+
+  <define name="property_def">
+    <element name="p" ns="http://kulfx.com/volta">
+
+      <!-- name (or key) -->
+      <attribute name="n">
+        <data type="string"/>
+      </attribute>
+
+      <!-- value -->
+      <attribute name="v">
+        <data type="string"/>
+      </attribute>
+
+      <optional>
+        <attribute name="type">
+          <data type="string"/>
+        </attribute>
+      </optional>
+
+    </element>
+  </define>
+
+
+  <define name="pin_def">
+    <element name="pin" ns="http://kulfx.com/volta">
+
+      <!-- The name of a pin is relevant for connector associations -->
+      <attribute name="name">
+        <data type="string"/>
+      </attribute>
+
+      <!-- The horizontal location of the pin relative to the shape center -->
+      <attribute name="x">
+        <data type="float"/>
+      </attribute>
+
+      <!-- The vertical location of the pin relative to the shape center -->
+      <attribute name="y">
+        <data type="float"/>
+      </attribute>
+
+      <zeroOrMore>
+        <ref name="meta_def"/>
+      </zeroOrMore>
+
+    </element>
+  </define>
+
+
+  <!--
+  A connector must have a start point, an end point and may have
+  multiple joint points in between. Each point is connected to the
+  next one with a straight line.
+  -->
+  <define name="connector_def">
+    <element name="connector" ns="http://kulfx.com/volta">
+
+      <!-- The name of the start element -->
+      <attribute name="start">
+        <data type="string"/>
+      </attribute>
+
+      <!-- The name of the pin on the start element -->
+      <attribute name="startPin">
+        <data type="string"/>
+      </attribute>
+
+      <!-- The name of the end element -->
+      <attribute name="end">
+        <data type="string"/>
+      </attribute>
+
+      <!-- The name of the pin on the end element -->
+      <attribute name="endPin">
+        <data type="string"/>
+      </attribute>
+
+      <zeroOrMore>
+
+        <!-- Joint points between the start and the end point. -->
+        <element name="joint">
+          <attribute name="x">
+            <data type="float"/>
+          </attribute>
+          <attribute name="y">
+            <data type="float"/>
+          </attribute>
+        </element>
+
+      </zeroOrMore>
+
+      <zeroOrMore>
+        <ref name="meta_def"/>
+      </zeroOrMore>
+
+    </element>
+  </define>
+
+
+  <!--
+  Meta elements for embedding higher-level, application-specific data.
+  -->
+  <define name="meta_def">
+    <element name="m" ns="http://kulfx.com/volta">
+
+      <!-- key -->
+      <attribute name="k">
+        <data type="string"/>
+      </attribute>
+
+      <!-- value -->
+      <attribute name="v">
+        <data type="string"/>
+      </attribute>
+
+    </element>
+  </define>
+
+
+  <!--
+  The Volta model type must be specified by library models and circuit elements.
+  The type associates the library model with an electrical circuit device type
+  and associates the element (together with the model name) with a library model.
+  Do not confuse Volta models with SPICE device models. In SPICE, models are
+  used to customize circuit simulation characteristics and not every device
+  type has a customizable model. In Volta, models are the templates for all
+  circuit elements. A Volta model provides a schematic shape, a set of SPICE
+  model properties and a set of default per-element properties.
+  -->
+  <define name="model_type_def">
+    <attribute name="type">
+      <choice>
+        <value>NODE</value>    <!-- Node -->
+        <value>GRND</value>    <!-- Ground -->
+        <value>METER</value>   <!-- Voltmeter or Ammeter. Also known as probe. -->
+        <value>SUBCKT</value>  <!-- Subcircuit -->
+        <value>R</value>       <!-- Resistor -->
+        <value>C</value>       <!-- Capacitor -->
+        <value>L</value>       <!-- Inductor -->
+        <value>LM</value>      <!-- Mutual (coupled) inductors -->
+        <value>D</value>       <!-- Diode -->
+        <value>BJT</value>     <!-- Bipolar Junction Transistor -->
+        <value>JFET</value>    <!-- Field-Effect Transistor -->
+        <value>MOSFET</value>  <!-- MOSFET -->
+        <value>MESFET</value>  <!-- MESFET -->
+        <value>V</value>       <!-- Independent and dependent voltage sources -->
+        <value>I</value>       <!-- Independent and dependent current sources -->
+        <value>SW</value>      <!-- Voltage-controlled and current-controlled switches -->
+        <value>XL</value>      <!-- Transmission lines -->
+        <value>DECO</value>    <!-- Non-electric, decorative elements -->
+        <value>OUT</value>     <!-- Output from the simulator application. For example, audio or USB. -->
+        <value>FUTURE</value>  <!-- Reserved for future models -->
+      </choice>
+    </attribute>
+  </define>
+
+
+
+  <!--
+   The position of the label that is displayed next to the shape.
+   The default value is 'none', which means no label is displayed.
+   This attribute is only meaningful if the model contains shape data.
+   -->
+  <define name="label_position_def">
+    <attribute name="labelPosition">
+      <choice>
+        <value>right</value>
+        <value>left</value>
+        <value>top</value>
+        <value>bottom</value>
+        <value>center</value>
+        <value>none</value>
+      </choice>
+    </attribute>
+  </define>
+
+
+</grammar>

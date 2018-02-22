@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="2">
+<circuit title="">
+	<schematic>
+		<element name="1" type="NODE" modelName="Node" modelVendor="" x="294.93" y="93.7018" />
+		<element name="C27n" type="C" modelName="Capacitor" modelVendor="" x="179.996" y="93.7018" labelPosition="top" >
+			<p n="capacitance" v="27n" />
+		</element>
+		<element name="GND1" type="GRND" modelName="Ground" modelVendor="" x="112.23" y="233.145" />
+		<element name="GND2" type="GRND" modelName="Ground" modelVendor="" x="294.93" y="233.145" />
+		<element name="MT1" type="METER" modelName="VoltmeterAC" modelVendor="" x="413.277" y="93.7018" >
+			<p n="start frequency" v="10" />
+			<p n="# points" v="100" />
+			<p n="stop frequency" v="10000" />
+		</element>
+		<element name="R1" type="R" modelName="Resistor" modelVendor="" x="241.105" y="93.7018" labelPosition="top" >
+			<p n="resistance" v="10k" />
+		</element>
+		<element name="R10k" type="R" modelName="ResistorUS" modelVendor="" x="294.93" y="155.493" rotation="270" labelPosition="right" >
+			<p n="resistance" v="10k" />
+		</element>
+		<element name="VAC" type="V" modelName="ACVoltage" modelVendor="" x="112.23" y="146.487" labelPosition="right" >
+			<p n="magnitude" v="1" />
+			<p n="phase" v="0" />
+		</element>
+		<connector start="C27n" startPin="B" end="R1" endPin="A">
+		</connector>
+		<connector start="GND1" startPin="Ground" end="VAC" endPin="Cathode">
+		</connector>
+		<connector start="GND2" startPin="Ground" end="R10k" endPin="B">
+		</connector>
+		<connector start="MT1" startPin="Anode" end="1" endPin="East">
+		</connector>
+		<connector start="R1" startPin="B" end="1" endPin="West">
+		</connector>
+		<connector start="R10k" startPin="A" end="1" endPin="South">
+		</connector>
+		<connector start="VAC" startPin="Anode" end="C27n" endPin="A">
+			<joint x="112.23" y="93.7018"/>
+		</connector>
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="" revision="1" labelPosition="top">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+		<m k="FXVolta_SubcircuitShapeLabel" v=""/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.65"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="0.6"/>
+	<m k="FXVoltaMac_WindowHeight" v="600"/>
+	<m k="FXVoltaMac_WindowWidth" v="800"/>
+	<m k="FXVolta_Netlist" v="2012-09-06 12:09:50 +0000{FX_newline}C27n 3 2 27n{FX_newline}R1 2 1 10k{FX_newline}R10k 1 0 10k{FX_newline}VAC 3 0 0 AC 1 0{FX_newline}.AC dec 100 10 10000{FX_newline}.PRINT AC v(1){FX_newline}.OPTIONS nopage noacct keepopinfo{FX_newline}.END{FX_newline}"/>
+</circuit>
+</volta>

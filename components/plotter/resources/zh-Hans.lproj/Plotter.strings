@@ -1,0 +1,7 @@
+/* Analysis type names */
+"AnalysisTypeDescription_AC" = "交流仿真";
+"AnalysisTypeDescription_DC" = "直流仿真";
+"AnalysisTypeDescription_DC_TRANS" = "直流传输特性";
+"AnalysisTypeDescription_Transient" = "瞬态仿真";
+"AnalysisTypeDescription_Unknown" = "未知的仿真类型";
+"NoData" = "没有数据可供绘图";

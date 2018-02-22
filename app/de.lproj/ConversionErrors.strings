@@ -1,0 +1,73 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Common */
+"Error: " = "Fehler: ";
+"wrong name prefix" = "%@ hat einen falschen Anfangsbuchstaben. Erwartet: '%@'.";
+"pin not wired" = "Pin \"%s\" in Bauteil %@ ist nicht verdrahtet.";
+"Unknown scale type." = "%@ hat unbekannte Skalierungsangabe. Zulässige Werte sind 'dec', 'oct' und 'lin'.";
+"missing start frequency" = "%@ braucht eine Startfrequenz.";
+"missing stop frequency" = "%@ braucht eine Endfrequenz.";
+"Expected ON or OFF" = "%@ hat einen falschen Parameter. ON oder OFF erwartet.";
+"missing number of analysis points" = "%@ braucht die Anzahl der Analysepunkte.";
+
+/* Circuit */
+"The circuit is not grounded." = "Einige Schaltungsteile sind nicht geerdet!";
+
+/* METER */
+"missing voltage source" = "%@ braucht eine Spannungsquellenangabe.";
+"missing start voltage" = "%@ braucht einen Startspannungswert.";
+"missing stop voltage" = "%@ braucht einen Endspannungswert.";
+"missing voltage step size" = "%@ braucht einen Spannungsschrittwert.";
+"missing scale type" = "%@ braucht eine Skalierungsangabe.";
+"missing step time interval" = "%@ braucht eine Zeitintervalangabe.";
+"missing stop time" = "%@ braucht eine Stopzeit";
+"missing current source" = "%@ braucht Stromquellenangabe.";
+"missing start current" = "%@ braucht einen Startstromwert.";
+"missing stop current" = "%@ braucht einen Endstromwert.";
+"missing current step size" = "%@ braucht einen Stromschrittwert.";
+
+/* V, I */
+"missing voltage value" = "%@ braucht einen Spannungswert.";
+"missing offset" = "%@ braucht einen Offset-Wert.";
+"missing amplitude" = "%@ braucht eine Amplitude.";
+"missing initial value" = "%@ braucht einen Initialwert.";
+"missing pulsed value" = "%@ braucht einen Maximalwert.";
+"missing gain value" = "%@ braucht Übertragungsfaktor.";
+"missing voltage source name" = "%@ braucht Angabe der stromführenden Spannungsquelle.";
+"missing transresistance value" = "%@ braucht einen Transresistanzwert.";
+"missing current value" = "%@ braucht einen Stromwert.";
+"missing transconductance value" = "%@ braucht einen Transkonduktanzwert.";
+"missing current gain" = "braucht einen Stromverstärkungsfaktor.";
+"missing nonlinear voltage expression" = "%@ braucht Angabe der Spannungsfunktion.";
+"missing nonlinear current expression" = "%@ braucht Angabe der Stromfunktion.";
+
+/* LM */
+"missing inductance value for first inductor" = "%@ braucht Induktanzwert für erste Spule.";
+"missing inductance value for second inductor" = "%@ braucht Induktanzwert für zweite Spule.";
+"missing coupling factor between the two inductors" = "%@ braucht einen Kopplungswert.";
+
+/* SW */
+"missing control voltage source name" = "%@ braucht Angabe der stromführenden Kontrollspannungsquelle.";
+
+/* SUBCKT */
+"subcircuit pin not wired" = "Pin \"%@\" in Teilschaltung %@ ist nicht verdrahtet.";
+"subcircuit pin no internal wiring" = "Pin \"%@\" in Teilschaltung %@ ist extern aber nicht intern verdrahtet.";
+"Subcircuit name is missing." = "Die Kennung der Teilschaltung fehlt.";

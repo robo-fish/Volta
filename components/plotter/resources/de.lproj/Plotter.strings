@@ -1,0 +1,7 @@
+/* Analysis type names */
+"AnalysisTypeDescription_AC" = "Wechselstromanalyse";
+"AnalysisTypeDescription_DC" = "Gleichstromanalyse";
+"AnalysisTypeDescription_DC_TRANS" = "DC-Transferanalyse";
+"AnalysisTypeDescription_Transient" = "Transientenanalyse";
+"AnalysisTypeDescription_Unknown" = "Unbekannter Analysetyp";
+"NoData" = "Keine Daten für Graphen";

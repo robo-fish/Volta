@@ -1,0 +1,48 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+//
+// Prefix header for all source files of the 'Volta' target in the 'Volta' project
+//
+
+//#include <AvailabilityMacros.h>
+#include "Common.pch"
+
+#if defined FXLocalizedString
+  #undef FXLocalizedString
+#endif
+#define FXLocalizedString(string) [[NSBundle mainBundle] localizedStringForKey:string value:@"!translate!" table:@"Volta"]
+
+
+#define VOLTA_VERSION 124
+
+
+////////////////////////////////////////////////////////////////////////////////
+// FEATURES
+////////////////////////////////////////////////////////////////////////////////
+
+#define VOLTA_SUPPORTS_AUTOSAVE_AND_VERSIONS       (1)
+#define VOLTA_SUPPORTS_ASYNCHRONOUS_SAVING         (0)
+
+#define VOLTA_SUPPORTS_RESUME                      (1)
+
+#define VOLTA_SUPPORTS_ICLOUD                      (0)
+
+#define VOLTA_HAS_PREFERENCES_PANEL                (0)

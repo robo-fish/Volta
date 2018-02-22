@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="1">
+<circuit name="">
+	<schematic>
+		<element name="Ground7" type="GRND" modelName="Ground" modelVendor="" x="231.789" y="367.691" >
+		</element>
+		<element name="M1" type="NMOS" modelName="DepletionNMOSFET" modelVendor="" x="215.789" y="202.957" labelPosition="east" >
+		</element>
+		<element name="Node8" type="NODE" modelName="Node" modelVendor="" x="231.789" y="331.691" >
+		</element>
+		<element name="Rdrain" type="R" modelName="Resistor" modelVendor="" x="231.789" y="94.2918" rotation="90" flipped="true" labelPosition="west" >
+			<p n="resistance" v="100k" />
+		</element>
+		<element name="Rsource" type="R" modelName="Resistor" modelVendor="" x="231.789" y="260.031" rotation="90" flipped="true" labelPosition="west" >
+			<p n="resistance" v="1k" />
+		</element>
+		<element name="V1" type="VSSIN" modelName="SinusoidalVoltage" modelVendor="" x="100.152" y="263.031" labelPosition="east" >
+			<p n="amplitude" v="1" />
+			<p n="offset" v="1" />
+			<p n="frequency" v="1000" />
+			<p n="delay" v="0.0001" />
+			<p n="damping factor" v="0.9" />
+		</element>
+		<element name="VM1" type="MTVTRAN" modelName="VoltmeterTRAN" modelVendor="" x="273.531" y="142.554" labelPosition="east" >
+			<p n="tstep" v="30us" />
+			<p n="tstop" v="5ms" />
+		</element>
+		<element name="Vdd" type="VSDC" modelName="DCVoltage" modelVendor="" x="342.789" y="184.32" labelPosition="east" >
+			<p n="voltage" v="5" />
+		</element>
+		<element name="out" type="NODE" modelName="Node" modelVendor="" x="231.789" y="142.554" labelPosition="west" >
+		</element>
+		<connector start="Ground7" startPin="Ground" end="Node8" endPin="South">
+		</connector>
+		<connector start="M1" startPin="Source" end="Rsource" endPin="B">
+		</connector>
+		<connector start="M1" startPin="Drain" end="out" endPin="South">
+		</connector>
+		<connector start="Node8" startPin="North" end="Rsource" endPin="A">
+		</connector>
+		<connector start="Rdrain" startPin="B" end="Vdd" endPin="Anode">
+			<joint x="231.789" y="47.3198"/>
+			<joint x="342.789" y="47.3198"/>
+		</connector>
+		<connector start="Rdrain" startPin="A" end="out" endPin="North">
+		</connector>
+		<connector start="V1" startPin="Anode" end="M1" endPin="Gate">
+			<joint x="100.152" y="213.957"/>
+		</connector>
+		<connector start="V1" startPin="Cathode" end="Node8" endPin="West">
+			<joint x="100.152" y="331.691"/>
+		</connector>
+		<connector start="VM1" startPin="Anode" end="out" endPin="East">
+		</connector>
+		<connector start="Vdd" startPin="Cathode" end="Node8" endPin="East">
+			<joint x="342.789" y="331.691"/>
+		</connector>
+		<p n="temp" v="32" />
+		<p n="tnom" v="14" />
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="Amp1" vendor="com.kulfx" revision="1" labelPosition="none">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+	</subcircuit_data>
+	<m k="FXVoltaMac_WindowVPosition" v="206"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageHeight" v="0.65"/>
+	<m k="FXVolta_Netlist" v="2012-05-13 18:24:21 +0000{FX_newline}M1 out 3 1 1 DepletionNMOSFET{FX_newline}Rdrain out 2 100k{FX_newline}Rsource 0 1 1k{FX_newline}V1 3 0 SIN(1 1 1000 0.0001 0.9){FX_newline}Vdd 2 0 5{FX_newline}.MODEL DepletionNMOSFET NMOS ( LEVEL=1 VTO=0.0 KP=2.0e-5 GAMMA=0.0 PHI=0.6 LAMBDA=0.0 RD=0.0 RS=0.0 CBD=0.0 CBS=0.0 IS=1.0e-14 PB=0.8 CGSO=0.0 CGDO=0.0 CGBO=0.0 RSH=0.0 CJ=0.0 MJ=0.5 CJSW=0.0 MJSW=0.50 TOX=1.0e-7 NSUB=1.0e15 NSS=1.0e10 TPG=1.0 LD=0.0 UO=600 KF=0.0 AF=1.0 FC=0.5 TNOM=27 ){FX_newline}.TRAN 30us 5ms{FX_newline}.PRINT TRAN v(out){FX_newline}.OPTIONS nopage noacct keepopinfo temp=32 tnom=14{FX_newline}.END{FX_newline}"/>
+	<m k="FXVoltaMac_WindowHPosition" v="525"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="1"/>
+	<m k="FXVoltaMac_WindowWidth" v="627"/>
+	<m k="FXVoltaMac_WindowHeight" v="756"/>
+</circuit>
+</volta>

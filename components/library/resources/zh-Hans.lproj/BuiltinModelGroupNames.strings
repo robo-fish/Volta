@@ -1,0 +1,39 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Model group names */
+"R" = "电阻";
+"C" = "电容";
+"L" = "电感器";
+"LM" = "变压器";
+"D" = "两极管";
+"BJT" = "BJT晶体管";
+"JFET" = "JFET晶体管";
+"MOSFET" = "MOSFET晶体管";
+"MESFET" = "MESFET晶体管";
+"METER" = "测量器";
+"NODE" = "节点";
+"GRND" = "接地";
+"V" = "电压源";
+"I" = "电流源";
+"SW" = "开关";
+"SUBCKT" = "子电路";
+"XL" = "传输线";
+"DECO" = "修饰";

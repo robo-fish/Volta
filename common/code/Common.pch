@@ -1,0 +1,91 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+// Common precompiled header for all Volta projects
+#pragma once
+
+#include <dispatch/dispatch.h>
+
+#define FX_VISIBLE __attribute__ ((visibility ("default")))
+#define FX_HIDDEN __attribute__ ((visibility ("hidden")))
+
+#ifdef __OBJC__
+  #import <Cocoa/Cocoa.h>
+#endif
+
+#if defined(__cplusplus)
+  #define VOLTA_EXPORT extern "C" __attribute__((visibility("default")))
+#else
+  #define VOLTA_EXPORT extern __attribute__((visibility("default")))
+#endif
+#define VOLTA_LOCAL  __attribute__((visibility("hidden")))
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+
+#if VOLTA_DEBUG
+#define DebugLog( format, ... ) NSLog( format , ##__VA_ARGS__ )
+#else
+#define DebugLog( format, ... ) ((void)0)
+#endif
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+
+// A marker for issues tracked at http://kulfx.com/issuetracker/
+#define FXIssue(issue_number)
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+
+#define FXStringize(x) (#x)
+#define FXStringizeValue(x) (FXStringize(x))
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+
+#define FX(classname) classname
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+
+#define VOLTA_USES_ARC (1) // Automatic Reference Counting
+
+#if VOLTA_USES_ARC
+  #define FXRetain(x)
+  #define FXRelease(x)
+  #define FXAutorelease(x)
+  #define FXDeallocSuper
+#else
+  #define FXRetain(x) [x retain];
+  #define FXRelease(x) [x release];
+  #define FXAutorelease(x) [x autorelease];
+  #define FXDeallocSuper [super dealloc];
+#endif
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+
+#include "FXKitDefines.h"
+
+#define VENDOR_STRING @"KulFX.com"
+
+#define FXLocalizedString(string) string
+

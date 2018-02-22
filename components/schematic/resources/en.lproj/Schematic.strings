@@ -1,0 +1,71 @@
+/**
+This file is part of the Volta project.
+Copyright (C) 2007-2013 Kai Berk Oezer
+https://robo.fish/wiki/index.php?title=Volta
+https://github.com/robo-fish/Volta
+
+Volta is free software. You can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/* Toolbar items and their tooltips */
+"ToolbarItemText_Palette" = "Palette";
+"ToolbarItemText_Inspector" = "Inspector";
+"ToolbarItemText_ToggleInspector" = "Shows or hides the inspector";
+"ToolbarItemText_TogglePalette" = "Shows or hides the palette";
+"ToolbarItemText_Zoom" = "Zooms the schematic";
+
+/* Undoable actions */
+"Action_rotation" = "rotation";
+"Action_add_component" = "add component";
+"Action_flipping" = "flipping";
+"Action_attribute_value_change" = "attribute value change";
+"Action_name_change" = "name change";
+"Action_model_change" = "model change";
+"Action_connect" = "connect";
+"Action_disconnect" = "disconnect";
+"Action_move" = "move";
+"Action_copy" = "copy";
+"Action_delete" = "delete";
+"Action_reposition_label" = "reposition label";
+"Action_create_joint" = "create connector joint";
+"Action_move_joint" = "move connector joint";
+
+"Attribute" = "Attribute";
+"Value" = "Value";
+"No name" = "No name";
+"Multiple values" = "...";
+"component" = "component";
+"components" = "components";
+"No components" = "No components";
+"connection" = "connection";
+"connections" = "connections";
+"No connections" = "No connections";
+"Untitled" = "Untitled";
+
+"Edit…" = "Edit…";
+
+/* Main menu items */
+"Toggle Inspector" = "Toggle Inspector";
+"Rotate +90˚" = "Rotate +90˚";
+"Rotate -90˚" = "Rotate -90˚";
+"Flip horizontally" = "Flip horizontally";
+"Flip vertically" = "Flip vertically";
+
+/* Inspector */
+"SchematicInspector_CircuitParameters" = "Circuit parameters";
+"SchematicElementInspector_MultipleModels" = "Various models";
+"SchematicElementInspector_UnknownModelType" = "Unknown model type";
+
+/* Schematic text */
+"SchematicBeginnerInstructions" = "Drag components in here";

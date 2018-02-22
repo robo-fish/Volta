@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+
+<dictionary title="Volta Terminology" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <!-- including the standard suite via XInclude -->
+    <xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>
+
+	<suite name="Text Suite" code="????" description="Common text classes for all applications.">
+	
+		<value-type name="RGB color" code="cRGB">
+			<cocoa class="NSColor"/>
+		</value-type>
+
+		<class name="rich text" plural="rich text" code="ctxt" description="Rich (styled) text.">
+			<cocoa class="NSTextStorage"/>
+			<type type="text"/>
+			<property name="color" code="colr" type="RGB color" description="The color of the text's first character.">
+				<cocoa key="foregroundColor"/>
+			</property>
+			<property name="font" code="font" type="text" description="The name of the font of the text's first character.">
+				<cocoa key="fontName"/>
+			</property>
+			<property name="size" code="ptsz" type="integer" description="The size in points of the text's first character.">
+				<cocoa key="fontSize"/>
+			</property>
+			<element type="character"/>
+			<element type="paragraph"/>
+			<element type="word"/>
+			<element type="attribute run"/>
+			<element type="attachment"/>
+		</class>
+
+		<class name="character" code="cha " description="One of some text's characters.">
+			<cocoa class="NSTextStorage"/>
+			<type type="text"/>
+			<property name="color" code="colr" type="RGB color" description="Its color.">
+				<cocoa key="foregroundColor"/>
+			</property>
+			<property name="font" code="font" type="text" description="The name of its font.">
+				<cocoa key="fontName"/>
+			</property>
+			<property name="size" code="ptsz" type="integer" description="Its size, in points.">
+				<cocoa key="fontSize"/>
+			</property>
+			<element type="character"/>
+			<element type="paragraph"/>
+			<element type="word"/>
+			<element type="attribute run"/>
+			<element type="attachment"/>
+		</class>
+
+		<class name="paragraph" code="cpar" description="One of some text's paragraphs.">
+			<cocoa class="NSTextStorage"/>
+			<type type="text"/>
+			<property name="color" code="colr" type="RGB color" description="The color of the paragraph's first character.">
+				<cocoa key="foregroundColor"/>
+			</property>
+			<property name="font" code="font" type="text" description="The name of the font of the paragraph's first character.">
+				<cocoa key="fontName"/>
+			</property>
+			<property name="size" code="ptsz" type="integer" description="The size in points of the paragraph's first character.">
+				<cocoa key="fontSize"/>
+			</property>
+			<element type="character"/>
+			<element type="paragraph"/>
+			<element type="word"/>
+			<element type="attribute run"/>
+			<element type="attachment"/>
+		</class>
+
+		<class name="word" code="cwor" description="One of some text's words.">
+			<cocoa class="NSTextStorage"/>
+			<type type="text"/>
+			<property name="color" code="colr" type="RGB color" description="The color of the word's first character.">
+				<cocoa key="foregroundColor"/>
+			</property>
+			<property name="font" code="font" type="text" description="The name of the font of the word's first character.">
+				<cocoa key="fontName"/>
+			</property>
+			<property name="size" code="ptsz" type="integer" description="The size in points of the word's first character.">
+				<cocoa key="fontSize"/>
+			</property>
+			<element type="character"/>
+			<element type="paragraph"/>
+			<element type="word"/>
+			<element type="attribute run"/>
+			<element type="attachment"/>
+		</class>
+
+		<class name="attribute run" code="catr" description="A chunk of text that all has the same attributes.">
+			<cocoa class="NSTextStorage"/>
+			<type type="text"/>
+			<property name="color" code="colr" type="RGB color" description="Its color.">
+				<cocoa key="foregroundColor"/>
+			</property>
+			<property name="font" code="font" type="text" description="The name of its font.">
+				<cocoa key="fontName"/>
+			</property>
+			<property name="size" code="ptsz" type="integer" description="Its size, in points.">
+				<cocoa key="fontSize"/>
+			</property>
+			<element type="character"/>
+			<element type="paragraph"/>
+			<element type="word"/>
+			<element type="attribute run"/>
+			<element type="attachment"/>
+		</class>
+
+		<class name="attachment" code="atts" inherits="rich text" description="A file embedded in text. This is just for use when embedding a file using the make command.">
+			<cocoa class="NSAttachmentTextStorage"/>
+			<property name="file name" code="atfn" type="text" description="The path to the embedded file.">
+				<cocoa key="filename"/>
+			</property>
+		</class>
+
+	</suite>
+
+	<suite name="Volta Suite" code="VLTA" description="Classes provided by the Volta application.">
+
+		<class name="document" code="Vdoc" description="A Volta document.">
+			<cocoa class="FXVoltaDocument"/>
+			<property name="name" code="pnam" type="text" access="r" description="Its name.">
+				<cocoa key="displayName"/>
+			</property>
+			<property name="file" code="file" type="file" access="r" description="Its location on disk, if it has one.">
+				<cocoa key="fileURL"/>
+			</property>
+
+			<element type="netlist editor"/>
+			<element type="schematic editor"/>
+			<responds-to name="capture">
+				<cocoa method="convertSchematicToNetlist:"/>
+			</responds-to>
+			<responds-to name="run">
+				<cocoa method="runSimulationOnNetlist:"/>
+			</responds-to>
+			<responds-to name="plot">
+				<cocoa method="plotSimulationResults:"/>
+			</responds-to>
+		</class>
+
+		<class name="netlist editor" code="Vnet" description="The netlist editor component.">
+			<cocoa class="VoltaNetlistEditor"/>
+			<property name="text" code="Vntx" type="text"/>
+		</class>
+
+		<class name="schematic editor" code="ScEd" description="The schematic editing component.">
+			<cocoa class="VoltaSchematicEditor"/>            
+		</class>
+
+	</suite>
+
+</dictionary>

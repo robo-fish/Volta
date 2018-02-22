@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<volta xmlns="http://kulfx.com/volta" version="1">
+<circuit name="">
+	<schematic>
+		<element name="Ground7" type="GRND" modelName="Ground" modelVendor="" x="324" y="525" >
+		</element>
+		<element name="Node8" type="NODE" modelName="Node" modelVendor="" x="324" y="489" >
+		</element>
+		<element name="Q1" type="NPN" modelName="DefaultNPN" modelVendor="" x="308" y="346" labelPosition="east" >
+		</element>
+		<element name="Rdrain" type="R" modelName="Resistor" modelVendor="" x="324" y="221.972" rotation="90" flipped="true" labelPosition="west" >
+			<p n="resistance" v="10k" />
+		</element>
+		<element name="Rsource" type="R" modelName="Resistor" modelVendor="" x="324" y="406" rotation="90" flipped="true" labelPosition="west" >
+			<p n="resistance" v="1k" />
+		</element>
+		<element name="VM1" type="MTVTRAN" modelName="VoltmeterTRAN" modelVendor="" x="365.742" y="270.234" labelPosition="east" >
+			<p n="tstep" v="30us" />
+			<p n="tstop" v="2ms" />
+		</element>
+		<element name="Vdd" type="VSDC" modelName="DCVoltage" modelVendor="" x="435" y="312" labelPosition="east" >
+			<p n="voltage" v="5" />
+		</element>
+		<element name="Vpulse1" type="VSPLS" modelName="PulsedVoltage" modelVendor="" x="176" y="409" labelPosition="east" >
+			<p n="pulsed" v="5" />
+			<p n="initial" v="0" />
+		</element>
+		<element name="out" type="NODE" modelName="Node" modelVendor="" x="324" y="270.234" labelPosition="west" >
+		</element>
+		<connector start="Ground7" startPin="Ground" end="Node8" endPin="South">
+		</connector>
+		<connector start="Node8" startPin="North" end="Rsource" endPin="A">
+		</connector>
+		<connector start="Q1" startPin="Emitter" end="Rsource" endPin="B">
+		</connector>
+		<connector start="Q1" startPin="Collector" end="out" endPin="South">
+		</connector>
+		<connector start="Rdrain" startPin="B" end="Vdd" endPin="Anode">
+			<joint x="324" y="175"/>
+			<joint x="435" y="175"/>
+		</connector>
+		<connector start="Rdrain" startPin="A" end="out" endPin="North">
+		</connector>
+		<connector start="VM1" startPin="Anode" end="out" endPin="East">
+		</connector>
+		<connector start="Vdd" startPin="Cathode" end="Node8" endPin="East">
+			<joint x="435" y="489"/>
+		</connector>
+		<connector start="Vpulse1" startPin="Cathode" end="Node8" endPin="West">
+			<joint x="176" y="489"/>
+		</connector>
+		<connector start="Vpulse1" startPin="Anode" end="Q1" endPin="Base">
+			<joint x="176" y="346"/>
+		</connector>
+		<p n="temp" v="32" />
+		<p n="tnom" v="14" />
+		<m k="FXVolta_SchematicScaleFactor" v="1"/>
+	</schematic>
+	<subcircuit_data enabled="false" name="Amp1" vendor="com.kulfx" revision="1" labelPosition="none">
+		<pin name="1" x="-28.000000" y="14.000000" />
+		<pin name="2" x="-28.000000" y="0.000000" />
+		<pin name="3" x="-28.000000" y="-14.000000" />
+		<pin name="4" x="28.000000" y="14.000000" />
+		<pin name="5" x="28.000000" y="0.000000" />
+		<pin name="6" x="28.000000" y="-14.000000" />
+		<external pin="1" node="" />
+		<external pin="2" node="" />
+		<external pin="3" node="" />
+		<external pin="4" node="" />
+		<external pin="5" node="" />
+		<external pin="6" node="" />
+		<m k="FXVolta_SubcircuitShapeType" v="DIP6"/>
+	</subcircuit_data>
+	<m k="FXVolta_Netlist" v="2011-02-27 22:46:26 +0100{FX_newline}Q1 out 3 1 DefaultNPN{FX_newline}Rdrain out 2 10k{FX_newline}Rsource 0 1 1k{FX_newline}Vdd 2 0 5{FX_newline}Vpulse1 3 0 PULSE(0 5 0    ){FX_newline}.MODEL DefaultNPN NPN ( LEVEL=1 IS=1.0e-16 BF=100 NF=1.0 ISE=0.0 NE=1.5 BR=1 NR=1 ISC=0.0 NC=2 RB=0 RBM=0 RE=0 RC=0 CJE=0 VJE=0.75 MJE=0.33 TF=0 XTF=0 ITF=0 PTF=0 CJC=0 VJC=0.75 MJC=0.33 XCJC=1 TR=0 CJS=0 VJS=0.75 MJS=0 XTB=0 EG=1.11 XTI=3 KF=0 AF=1 FC=0.5 TNOM=0.0 ){FX_newline}.TRAN 30us 2ms{FX_newline}.PRINT TRAN v(out){FX_newline}.OPTIONS nopage noacct keepopinfo temp=32 tnom=14{FX_newline}.END{FX_newline}"/>
+	<m k="FXVoltaMac_WindowVPosition" v="305"/>
+	<m k="FXVoltaMac_SchematicEditorPercentageWidth" v="0.6075675675675676"/>
+	<m k="FXVoltaMac_WindowHeight" v="762"/>
+	<m k="FXVoltaMac_WindowWidth" v="925"/>
+	<m k="FXVoltaMac_WindowHPosition" v="386"/>
+</circuit>
+</volta>
