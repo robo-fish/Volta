@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "FXSchematicPropertiesTableView.h"
 #import "VoltaSchematicElement.h"
 #import "VoltaSchematic.h"
-#import "VoltaLibrary.h"
+#import <VoltaCore/VoltaLibraryProtocol.h>
 #import "FXVoltaLibraryUtilities.h"
 #import "FXSchematicUndoManager.h"
 #import "FXPositionSelectorView.h"

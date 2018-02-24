@@ -23,7 +23,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 @interface FXTestingHarness ()
 
-@property (assign) IBOutlet NSWindow* harnessWindow;
 @property (assign) IBOutlet NSTextView* logOutputView;
 @property (assign) IBOutlet NSBox* containerView;
 
@@ -35,10 +34,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 @implementation FXTestingHarness
 {
 @private
-  NSWindow* mHarnessWindow;
   NSView* mTestableView;
-  NSTextView* mLogOutputView;
-  NSBox* mContainerView;
   id mTestProvider;
 
   NSDictionary* mDefaultMessageAttributes;
@@ -49,10 +45,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   NSMutableArray* mLogMessages;
 }
 
-@synthesize logOutputView = mLogOutputView;
-@synthesize containerView = mContainerView;
-@synthesize harnessWindow = mHarnessWindow;
-
 
 - (id) initWithTestableView:(NSView*)view testProvider:(id)provider;
 {
@@ -61,7 +53,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     mTestableView = view;
     mTestProvider = provider;
     FXRetain(mTestableView)
-    [NSBundle loadNibNamed:@"TestingHarness" owner:self];
+    BOOL const nibLoaded = [[NSBundle bundleForClass:[self class]] loadNibNamed:@"TestingHarness" owner:self topLevelObjects:NULL];
+    assert(nibLoaded);
     NSColor* redColor = [NSColor colorWithDeviceRed:0.7 green:0 blue:0 alpha:1];
     NSColor* greenColor = [NSColor colorWithDeviceRed:0 green:0.7 blue:0 alpha:1];
     mDefaultMessageAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:[NSColor blackColor], NSForegroundColorAttributeName, nil];
@@ -71,18 +64,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     mLogMessages = [[NSMutableArray alloc] initWithCapacity:5];
   }
   return self;
-}
-
-
-- (void) dealloc
-{
-  FXRelease(mLogMessages)
-  FXRelease(mErrorMessages)
-  FXRelease(mTestableView)
-  FXRelease(mDefaultMessageAttributes)
-  FXRelease(mErrorMessageAttributes)
-  FXRelease(mSuccessMessageAttributes)
-  FXDeallocSuper
 }
 
 
@@ -108,9 +89,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 {
   if ( mTestableView != nil )
   {
-    [mContainerView setFrameSize:[mTestableView frame].size];
-    [mContainerView setContentView:mTestableView];
-    [mHarnessWindow makeKeyAndOrderFront:self];
+    [self.containerView setFrameSize:[mTestableView frame].size];
+    [self.containerView setContentView:mTestableView];
+    [self.harnessWindow makeKeyAndOrderFront:self];
   }
 }
 
@@ -131,7 +112,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - (void) appendText:(NSString*)text withAttributes:(NSDictionary*)textAttributes
 {
   NSAttributedString* attributedText = [[NSAttributedString alloc] initWithString:text attributes:textAttributes];
-  [[mLogOutputView textStorage] appendAttributedString:attributedText];
+  [[self.logOutputView textStorage] appendAttributedString:attributedText];
   FXRelease(attributedText)
 }
 

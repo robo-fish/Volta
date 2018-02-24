@@ -33,8 +33,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C005758B0F7F9A0000A0D844"
-               BuildableName = "UnitTests.octest"
+               BlueprintIdentifier = "2A979DED2041987500B31E74"
+               BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
                ReferencedContainer = "container:Volta.xcodeproj">
             </BuildableReference>

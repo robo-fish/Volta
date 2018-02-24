@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#import "VoltaLibrary.h"
+#import <VoltaCore/VoltaLibraryProtocol.h>
 #import "FXOutlineView.h"
 #import "FXClipView.h"
 #import "VoltaCloudLibraryController.h"

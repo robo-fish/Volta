@@ -1,5 +1,5 @@
-
-#import "FXShapeView.h"
+#import <Cocoa/Cocoa.h>
+#import <FXShape/FXShapeView.h>
 
 @interface ShapeTestController : NSObject <NSApplicationDelegate>
 

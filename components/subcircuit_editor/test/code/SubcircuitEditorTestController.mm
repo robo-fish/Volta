@@ -38,6 +38,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   NSView* editorView = [[self editor] view];
   [editorView setAutoresizingMask:(NSViewHeightSizable|NSViewWidthSizable)];
   mHarness = [[FXTestingHarness alloc] initWithTestableView:editorView testProvider:self];
+  [mHarness.harnessWindow makeKeyAndOrderFront:self];
 }
 
 

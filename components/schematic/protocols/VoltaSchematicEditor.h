@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #import "VoltaPersistentTypes.h"
-#import "VoltaLibrary.h"
+#import <VoltaCore/VoltaLibraryProtocol.h>
 #import "VoltaPrintable.h"
 
 /// This protocol must be implemented by the implementer class of a schematic editor plugin.

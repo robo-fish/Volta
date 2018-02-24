@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "FXVoltaDocumentController.h"
 #import "FXVoltaNotifications.h"
-#import "VoltaLibrary.h"
+#import <VoltaCore/VoltaLibraryProtocol.h>
 #import "FXVoltaDocument.h"
 
 @interface FXVoltaDocumentController ()

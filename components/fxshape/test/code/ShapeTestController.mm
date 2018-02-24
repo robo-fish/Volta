@@ -7,7 +7,7 @@
 NSString* ShapeDescriptionKey = @"ShapeDescription";
 
 
-@interface ShapeTestController () <NSTextViewDelegate>
+@interface ShapeTestController () <NSTextViewDelegate, NSWindowDelegate>
 @end
 
 
@@ -21,12 +21,6 @@ NSString* ShapeDescriptionKey = @"ShapeDescription";
 + (void) initialize
 {
   [[NSUserDefaults standardUserDefaults] registerDefaults:@{ ShapeDescriptionKey : @"" }];
-}
-
-
-- (void)dealloc
-{
-  FXDeallocSuper
 }
 
 
@@ -48,7 +42,7 @@ NSString* ShapeDescriptionKey = @"ShapeDescription";
 }
 
 
-#pragma mark NSTextViewDelegate
+//MARK: NSTextViewDelegate
 
 
 - (void) textDidChange:(NSNotification *)notification
@@ -56,12 +50,21 @@ NSString* ShapeDescriptionKey = @"ShapeDescription";
   if ( [notification object] == self.shapeDescriptionView )
   {
     [self processShapeDescription];
-    [NSUserDefaults standardUserDefaults][ShapeDescriptionKey] = self.shapeDescriptionView.string;
+    [[NSUserDefaults standardUserDefaults] setObject:self.shapeDescriptionView.string forKey:ShapeDescriptionKey];
   }
 }
 
+//MARK: NSWindowDelegate
 
-#pragma mark Private
+
+- (BOOL) windowShouldClose:(NSWindow *)sender
+{
+  [[NSApplication sharedApplication] terminate:self];
+  return YES;
+}
+
+
+//MARK: Private
 
 
 - (void) processShapeDescription

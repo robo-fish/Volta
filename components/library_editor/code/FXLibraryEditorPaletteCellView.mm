@@ -21,7 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "FXLibraryEditorPaletteCellView.h"
 #import "FXElement.h"
 #import "FXShapeView.h"
-#import "VoltaLibrary.h"
+#import <VoltaCore/VoltaLibraryProtocol.h>
 #import "FXVoltaLibraryUtilities.h"
 #import "FXVoltaCircuitDomainAgent.h"
 

@@ -20,6 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "LibraryEditorTestController.h"
 #import "FXLibraryEditor.h"
+#import <VoltaCore/FXVoltaLibrary.h>
 #import "VoltaPlugin.h"
 
 
@@ -28,14 +29,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 @private
   id<VoltaLibraryEditor> mEditor;
   id<VoltaLibrary> mLibrary;
-}
-
-
-- (void) dealloc
-{
-  FXRelease(mEditor)
-  FXRelease(mLibrary)
-  FXDeallocSuper
 }
 
 

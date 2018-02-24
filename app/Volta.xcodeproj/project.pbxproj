@@ -7,8 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A60A93B203CD2C70016B393 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A60A939203CD2A90016B393 /* main.m */; };
+		2A0797C520407272004B0A6E /* VoltaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A0797C420406FBE004B0A6E /* VoltaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A0797CC204074D9004B0A6E /* VoltaModelTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A0797C9204074BB004B0A6E /* VoltaModelTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A0797CD204074E1004B0A6E /* VoltaPersistentTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A0797C8204074BB004B0A6E /* VoltaPersistentTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A0797D020407748004B0A6E /* VoltaSimulationData.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A0797CE2040772C004B0A6E /* VoltaSimulationData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A0797D520407AAD004B0A6E /* FXSPICELibParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A0797D220407A99004B0A6E /* FXSPICELibParser.mm */; };
+		2A0797DA2040826C004B0A6E /* FXSchematicToNetlistConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A0797D82040826B004B0A6E /* FXSchematicToNetlistConverter.h */; };
+		2A0797DC20408275004B0A6E /* FXSchematicToNetlistConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A0797D92040826B004B0A6E /* FXSchematicToNetlistConverter.mm */; };
 		2A68B06E203ECB8A00E1CED8 /* VoltaAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A68B06C203ECB8A00E1CED8 /* VoltaAboutWindow.xib */; };
+		2A979E1920419D1100B31E74 /* UnitTests.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2A979E0820419D1100B31E74 /* UnitTests.pch */; };
+		2A979E1A20419D3A00B31E74 /* test_archive_converter_v1_to_v2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DFA20419D1100B31E74 /* test_archive_converter_v1_to_v2.mm */; };
+		2A979E1B20419D3A00B31E74 /* test_archive_validator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DFD20419D1100B31E74 /* test_archive_validator.mm */; };
+		2A979E1C20419D3A00B31E74 /* test_archiving.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E0120419D1100B31E74 /* test_archiving.mm */; };
+		2A979E1D20419D3A00B31E74 /* test_fxpath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DF820419D1000B31E74 /* test_fxpath.mm */; };
+		2A979E1E20419D3A00B31E74 /* test_fxstring.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E0020419D1100B31E74 /* test_fxstring.mm */; };
+		2A979E1F20419D3A00B31E74 /* test_library_data.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E0620419D1100B31E74 /* test_library_data.mm */; };
+		2A979E2020419D3A00B31E74 /* test_library_storage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DFB20419D1100B31E74 /* test_library_storage.mm */; };
+		2A979E2120419D3A00B31E74 /* test_library.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E0320419D1100B31E74 /* test_library.mm */; };
+		2A979E2220419D3A00B31E74 /* test_persistent_types.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E0720419D1100B31E74 /* test_persistent_types.mm */; };
+		2A979E2320419D3A00B31E74 /* test_plotter_data.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DFE20419D1100B31E74 /* test_plotter_data.mm */; };
+		2A979E2420419D3A00B31E74 /* test_plotter_utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DF920419D1100B31E74 /* test_plotter_utils.mm */; };
+		2A979E2520419D3A00B31E74 /* test_schematicToNetlist.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DFF20419D1100B31E74 /* test_schematicToNetlist.mm */; };
+		2A979E2620419D3A00B31E74 /* test_spice_lib_parsing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E0420419D1100B31E74 /* test_spice_lib_parsing.mm */; };
+		2A979E2720419D3A00B31E74 /* test_spice_output_parser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E0220419D1100B31E74 /* test_spice_output_parser.mm */; };
+		2A979E2820419D3A00B31E74 /* test_xml_element.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DFC20419D1100B31E74 /* test_xml_element.mm */; };
+		2A979E2920419D3A00B31E74 /* test_xml_parser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E0520419D1100B31E74 /* test_xml_parser.mm */; };
+		2A979E2A20419E5B00B31E74 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
+		2A979E2B20419E5B00B31E74 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
+		2A979E2C20419E5B00B31E74 /* VoltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; };
+		2A979E2F20419F4000B31E74 /* FXPlotterAxisData.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364315F9B82200A9B866 /* FXPlotterAxisData.mm */; };
+		2A979E3020419F4E00B31E74 /* FXVoltaLibraryData.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0F4EDA5156F180800C51D5A /* FXVoltaLibraryData.mm */; };
+		2A979E3120419F6900B31E74 /* FXPlotterNumber.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364615F9B98900A9B866 /* FXPlotterNumber.mm */; };
+		2A979E3220419F7C00B31E74 /* FXPlotterValueRange.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364015F9B6BD00A9B866 /* FXPlotterValueRange.mm */; };
+		2A979E3320419FA100B31E74 /* FXPlotterGraphData.mm in Sources */ = {isa = PBXBuildFile; fileRef = C05EB7551275503E00FAD899 /* FXPlotterGraphData.mm */; };
+		2A979E3420419FB900B31E74 /* FXPlotterPlot.mm in Sources */ = {isa = PBXBuildFile; fileRef = C07552CE143854E800D4EFEE /* FXPlotterPlot.mm */; };
+		2A979E3520419FC400B31E74 /* FXPlotterUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027363915F9B2E800A9B866 /* FXPlotterUtils.mm */; };
+		2A979E362041A03700B31E74 /* FXSpiceOutputParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AE0CC211FCE3A2000438A8 /* FXSpiceOutputParser.mm */; };
+		2A979E372041A07C00B31E74 /* FXComplexNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0538047127406EC00A6B84D /* FXComplexNumber.cpp */; };
+		2A979E452041A0F300B31E74 /* ngspice_output_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E3C2041A0EB00B31E74 /* ngspice_output_1.txt */; };
+		2A979E462041A0F300B31E74 /* ngspice_output_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E3E2041A0EB00B31E74 /* ngspice_output_2.txt */; };
+		2A979E472041A0F300B31E74 /* test_single_model_no_vendor.lib in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E392041A0EB00B31E74 /* test_single_model_no_vendor.lib */; };
+		2A979E482041A0F300B31E74 /* test_single_model.lib in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E3B2041A0EB00B31E74 /* test_single_model.lib */; };
+		2A979E492041A0F300B31E74 /* TestElementGroup.volta in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E3A2041A0EB00B31E74 /* TestElementGroup.volta */; };
+		2A979E4A2041A0F300B31E74 /* TestModelGroup.volta in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E3D2041A0EB00B31E74 /* TestModelGroup.volta */; };
+		2A979E4B2041A18600B31E74 /* Models_OnSemi.lib in Resources */ = {isa = PBXBuildFile; fileRef = C0EF75EE15F1D33200AC9CEF /* Models_OnSemi.lib */; };
+		2A979E4C2041A1D000B31E74 /* volta-v2.rng in Resources */ = {isa = PBXBuildFile; fileRef = C0EFD87814B742650029FDE4 /* volta-v2.rng */; };
+		2A979E4E2041A20C00B31E74 /* test_subcircuit.volta in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E4D2041A20C00B31E74 /* test_subcircuit.volta */; };
+		2A979E4F2041A21700B31E74 /* test_subcircuit.volta in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E4D2041A20C00B31E74 /* test_subcircuit.volta */; };
+		2A979E512041A8A600B31E74 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
+		2A979E552041B29E00B31E74 /* FXNetlistSyntaxHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B1080F150F7DDD00E9A220 /* FXNetlistSyntaxHighlighter.m */; };
+		2A979E562041B89C00B31E74 /* ngspice_output_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E3E2041A0EB00B31E74 /* ngspice_output_2.txt */; };
+		2A979E5A2041B9C600B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
+		2A979E5B2041B9CA00B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
+		2A979E5C2041B9CB00B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
+		2A979E5D2041B9CD00B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
+		2A979E5E2041B9CE00B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
+		2A979E5F2041B9D000B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
+		2A979E602041B9D000B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		B7956E5A0EDA0E8300F69D25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		B7956E620EDA0EB300F69D25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
@@ -26,8 +81,6 @@
 		C005735E0F7F0B5500A0D844 /* SchematicEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C04A68B70E75C55F005AABA3 /* SchematicEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C005735F0F7F0B5500A0D844 /* NetlistEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C0DD8ACF0E3B7605006B2136 /* NetlistEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C0067367117596CD00FB70C4 /* FXSelectionTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0067365117596CD00FB70C4 /* FXSelectionTool.mm */; };
-		C007D00D1272BC960077DB32 /* FXSpiceOutputParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AE0CC211FCE3A2000438A8 /* FXSpiceOutputParser.mm */; };
-		C008C46E12D9C4040011641F /* FXSchematicToNetlistConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0FD771C1297C93100CB5D94 /* FXSchematicToNetlistConverter.mm */; };
 		C008C6D912DA24810011641F /* FXNetlistEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = C008C6D812DA24810011641F /* FXNetlistEditor.mm */; };
 		C008C6DA12DA24810011641F /* FXNetlistEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = C008C6D812DA24810011641F /* FXNetlistEditor.mm */; };
 		C00953511176449600AC5CF8 /* FXVoltaDocumentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C00953501176449600AC5CF8 /* FXVoltaDocumentWindow.m */; };
@@ -37,7 +90,7 @@
 		C00C79E01107E67C0022CCCA /* FXVoltaPreferencesController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C00C79DF1107E67C0022CCCA /* FXVoltaPreferencesController.mm */; };
 		C00CD4081315C1CF00CCBF48 /* Subcircuit_DIFF.volta in Resources */ = {isa = PBXBuildFile; fileRef = C00CD4071315C1CF00CCBF48 /* Subcircuit_DIFF.volta */; };
 		C00E21A414B70DD1003A219B /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
-		C00E21A614B71424003A219B /* FXShape.h in Headers */ = {isa = PBXBuildFile; fileRef = C00E21A514B71424003A219B /* FXShape.h */; settings = {ATTRIBUTES = (); }; };
+		C00E21A614B71424003A219B /* FXShape.h in Headers */ = {isa = PBXBuildFile; fileRef = C00E21A514B71424003A219B /* FXShape.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C00FD0001130643900C95E7D /* FXAnimatedGearWheelButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = C00FCFFF1130643900C95E7D /* FXAnimatedGearWheelButton.mm */; };
 		C00FD2A61131315E00C95E7D /* FXPlotterController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C00FD2931131315E00C95E7D /* FXPlotterController.mm */; };
 		C00FD2B7113131B100C95E7D /* FXNetlistEditorVoltaPlugin.mm in Sources */ = {isa = PBXBuildFile; fileRef = C00FD2AF113131B100C95E7D /* FXNetlistEditorVoltaPlugin.mm */; };
@@ -75,11 +128,6 @@
 		C027364115F9B6BD00A9B866 /* FXPlotterValueRange.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364015F9B6BD00A9B866 /* FXPlotterValueRange.mm */; };
 		C027364415F9B82200A9B866 /* FXPlotterAxisData.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364315F9B82200A9B866 /* FXPlotterAxisData.mm */; };
 		C027364715F9B98900A9B866 /* FXPlotterNumber.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364615F9B98900A9B866 /* FXPlotterNumber.mm */; };
-		C027364A15F9BF2E00A9B866 /* test_plotter_utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364915F9BF2E00A9B866 /* test_plotter_utils.mm */; };
-		C027364B15F9BFAF00A9B866 /* FXPlotterUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027363915F9B2E800A9B866 /* FXPlotterUtils.mm */; };
-		C027364C15F9BFF200A9B866 /* FXPlotterNumber.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364615F9B98900A9B866 /* FXPlotterNumber.mm */; };
-		C027364D15F9C3DE00A9B866 /* FXPlotterValueRange.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364015F9B6BD00A9B866 /* FXPlotterValueRange.mm */; };
-		C027364E15F9C3F000A9B866 /* FXPlotterAxisData.mm in Sources */ = {isa = PBXBuildFile; fileRef = C027364315F9B82200A9B866 /* FXPlotterAxisData.mm */; };
 		C02748E7116A0B1A00E4E8E1 /* FXSchematicCapture.mm in Sources */ = {isa = PBXBuildFile; fileRef = C02748E5116A0B1A00E4E8E1 /* FXSchematicCapture.mm */; };
 		C0274CC1154D223C0061CE7C /* FXShapeRenderDataPool.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0274CBF154D223C0061CE7C /* FXShapeRenderDataPool.mm */; };
 		C0274CC2154D223C0061CE7C /* FXShapeRenderDataPool.h in Headers */ = {isa = PBXBuildFile; fileRef = C0274CC0154D223C0061CE7C /* FXShapeRenderDataPool.h */; };
@@ -99,13 +147,12 @@
 		C03D081E1590611900BFDA93 /* FXSchematicPaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = C03D081D1590611900BFDA93 /* FXSchematicPaletteView.m */; };
 		C03DF6CF15C40C840062041A /* FXViewUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C03DF6CD15C40C840062041A /* FXViewUtils.h */; };
 		C03DF6D015C40C840062041A /* FXViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C03DF6CE15C40C840062041A /* FXViewUtils.m */; };
-		C03FB06614BAD4730048EA45 /* VoltaLibrary.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C03FB06614BAD4730048EA45 /* VoltaCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C04002E014B6CF3A00ECD7D2 /* FXDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04002DF14B6CF3A00ECD7D2 /* FXDebug.cpp */; };
 		C04002E314B6CF6500ECD7D2 /* FXDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = C04002E214B6CF6500ECD7D2 /* FXDebug.h */; settings = {ATTRIBUTES = (); }; };
 		C0404DEC15E1494C00F2F59A /* FXLibraryEditorCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0404DEB15E1494C00F2F59A /* FXLibraryEditorCellView.m */; };
 		C04167AC12A113E100FA3951 /* FXSchematicPaletteController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C04167AB12A113E100FA3951 /* FXSchematicPaletteController.mm */; };
 		C0422AC614E6459500C91381 /* FXVoltaDocumentWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0422AC514E6459500C91381 /* FXVoltaDocumentWindowController.mm */; };
-		C045B25215807314007CF85B /* test_library_storage.mm in Sources */ = {isa = PBXBuildFile; fileRef = C045B25115807314007CF85B /* test_library_storage.mm */; };
 		C0475183176E61C900CB0FBB /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = C0475181176E61C900CB0FBB /* Credits.html */; };
 		C0475188176E621C00CB0FBB /* ConversionErrors.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0475186176E621C00CB0FBB /* ConversionErrors.strings */; };
 		C047518D176E625400CB0FBB /* Volta.strings in Resources */ = {isa = PBXBuildFile; fileRef = C047518B176E625400CB0FBB /* Volta.strings */; };
@@ -123,7 +170,7 @@
 		C051DAB6150E8D150053457F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		C051DAD9150E96070053457F /* FXLibraryEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = C051DAD2150E96070053457F /* FXLibraryEditor.mm */; };
 		C051DAE2150E977F0053457F /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
-		C051DAE5150E97A00053457F /* VoltaLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */; };
+		C051DAE5150E97A00053457F /* VoltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; };
 		C051DAE8150E97C90053457F /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
 		C051DAED150E98810053457F /* FXClipView.h in Headers */ = {isa = PBXBuildFile; fileRef = C051DAE9150E98810053457F /* FXClipView.h */; };
 		C051DAEE150E98810053457F /* FXClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = C051DAEA150E98810053457F /* FXClipView.m */; };
@@ -131,7 +178,6 @@
 		C051DAF0150E98810053457F /* FXMultiFoldingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C051DAEC150E98810053457F /* FXMultiFoldingView.m */; };
 		C051DAF4150E9A800053457F /* LibraryEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C051DAB5150E8D150053457F /* LibraryEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C051DAF7150E9D390053457F /* FXLibraryEditorPlugin.mm in Sources */ = {isa = PBXBuildFile; fileRef = C051DAF6150E9D390053457F /* FXLibraryEditorPlugin.mm */; };
-		C053804B127406EC00A6B84D /* FXComplexNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0538047127406EC00A6B84D /* FXComplexNumber.cpp */; };
 		C053804C127406EC00A6B84D /* FXComplexNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0538047127406EC00A6B84D /* FXComplexNumber.cpp */; };
 		C05452DD1274962E00CE599F /* FXPlotterView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C05452DB1274962E00CE599F /* FXPlotterView.mm */; };
 		C054AE421166940300F27466 /* FXSchematicUndoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C054AE411166940300F27466 /* FXSchematicUndoManager.mm */; };
@@ -147,8 +193,6 @@
 		C05F26FA140BC74500CEA3A2 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C05F26FC140BC76800CEA3A2 /* Plotter.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = DB90AB6B0FE5059A00891ED1 /* Plotter.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C05F26FD140BC7CF00CEA3A2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
-		C0604E26140B94EA00BEA241 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
-		C0648AD015F2094400B1282B /* test_single_model_no_vendor.lib in Resources */ = {isa = PBXBuildFile; fileRef = C0648ACF15F2094400B1282B /* test_single_model_no_vendor.lib */; };
 		C065DD6C162F3DBE007BC5C6 /* FXVoltaCloudController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C065DD6B162F3DBE007BC5C6 /* FXVoltaCloudController.mm */; };
 		C066B37215150CEE00E7B331 /* FXLibraryEditorModelsCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C066B37115150CEE00E7B331 /* FXLibraryEditorModelsCellView.mm */; };
 		C06A414C12C00CB8006EBDF4 /* ngspice in Resources */ = {isa = PBXBuildFile; fileRef = C06A414A12C00CB8006EBDF4 /* ngspice */; };
@@ -158,17 +202,11 @@
 		C072473212A2A36E0087E869 /* FXSchematicElementView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C072473112A2A36E0087E869 /* FXSchematicElementView.mm */; };
 		C072473512A2A3B30087E869 /* FXSchematicPaletteElementsView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C072473412A2A3B30087E869 /* FXSchematicPaletteElementsView.mm */; };
 		C07552CF143854E800D4EFEE /* FXPlotterPlot.mm in Sources */ = {isa = PBXBuildFile; fileRef = C07552CE143854E800D4EFEE /* FXPlotterPlot.mm */; };
-		C07552D0143854E800D4EFEE /* FXPlotterPlot.mm in Sources */ = {isa = PBXBuildFile; fileRef = C07552CE143854E800D4EFEE /* FXPlotterPlot.mm */; };
 		C076B9EF16A2E32000884083 /* FXFileBrowserFileData.h in Headers */ = {isa = PBXBuildFile; fileRef = C076B9ED16A2E32000884083 /* FXFileBrowserFileData.h */; };
 		C076B9F016A2E32000884083 /* FXFileBrowserFileData.m in Sources */ = {isa = PBXBuildFile; fileRef = C076B9EE16A2E32000884083 /* FXFileBrowserFileData.m */; };
 		C079756615D597BA0010392C /* Volta.iconset in Resources */ = {isa = PBXBuildFile; fileRef = C079756515D597BA0010392C /* Volta.iconset */; };
 		C08094DE15505D60005ED761 /* volta-v1.rng in Resources */ = {isa = PBXBuildFile; fileRef = C08094DD15505D60005ED761 /* volta-v1.rng */; };
 		C08094E115506163005ED761 /* FXVoltaArchiveValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = C08094DF15506163005ED761 /* FXVoltaArchiveValidator.h */; };
-		C083399315F13D3F00CFB957 /* test_spice_lib_parsing.mm in Sources */ = {isa = PBXBuildFile; fileRef = C083399215F13D3F00CFB957 /* test_spice_lib_parsing.mm */; };
-		C083399515F1418100CFB957 /* test_single_model.lib in Resources */ = {isa = PBXBuildFile; fileRef = C083399415F1418100CFB957 /* test_single_model.lib */; };
-		C083399A15F142D800CFB957 /* FXSPICELibParser.h in Headers */ = {isa = PBXBuildFile; fileRef = C083399815F142D800CFB957 /* FXSPICELibParser.h */; };
-		C083399B15F142D800CFB957 /* FXSPICELibParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = C083399915F142D800CFB957 /* FXSPICELibParser.mm */; };
-		C083399C15F142D800CFB957 /* FXSPICELibParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = C083399915F142D800CFB957 /* FXSPICELibParser.mm */; };
 		C088534114B9FA5E0019175B /* FXSimulationObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0A2C1DD14B9DDC700795699 /* FXSimulationObserver.mm */; };
 		C088F3D2158DEADC008D2BD5 /* FXLibraryEditorTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C088F3D1158DEADC008D2BD5 /* FXLibraryEditorTableRowView.m */; };
 		C0892CF314B72E04006A5A7A /* FXOutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0892CEF14B72E04006A5A7A /* FXOutlineView.h */; settings = {ATTRIBUTES = (); }; };
@@ -197,18 +235,6 @@
 		C091A596150F642A00EE30BB /* NetlistEditorTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = C091A593150F642A00EE30BB /* NetlistEditorTest.xib */; };
 		C091A599150F64CF00EE30BB /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C091A59A150F64EE00EE30BB /* FXKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C091A5B4150F6DEB00EE30BB /* test_archiving.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5A9150F6DEB00EE30BB /* test_archiving.mm */; };
-		C091A5B5150F6DEB00EE30BB /* test_fxpath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5AA150F6DEB00EE30BB /* test_fxpath.mm */; };
-		C091A5B6150F6DEB00EE30BB /* test_fxstring.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5AB150F6DEB00EE30BB /* test_fxstring.mm */; };
-		C091A5B7150F6DEB00EE30BB /* test_library.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5AC150F6DEB00EE30BB /* test_library.mm */; };
-		C091A5B8150F6DEB00EE30BB /* test_persistent_types.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5AD150F6DEB00EE30BB /* test_persistent_types.mm */; };
-		C091A5B9150F6DEB00EE30BB /* test_plotter_data.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5AE150F6DEB00EE30BB /* test_plotter_data.mm */; };
-		C091A5BA150F6DEB00EE30BB /* test_schematicToNetlist.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5AF150F6DEB00EE30BB /* test_schematicToNetlist.mm */; };
-		C091A5BB150F6DEB00EE30BB /* test_spice_output_parser.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5B0150F6DEB00EE30BB /* test_spice_output_parser.mm */; };
-		C091A5BC150F6DEB00EE30BB /* test_archive_converter_v1_to_v2.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5B1150F6DEB00EE30BB /* test_archive_converter_v1_to_v2.mm */; };
-		C091A5BD150F6DEB00EE30BB /* test_xml_parser.mm in Sources */ = {isa = PBXBuildFile; fileRef = C091A5B2150F6DEB00EE30BB /* test_xml_parser.mm */; };
-		C091A5C3150F737A00EE30BB /* ngspice_output_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = C091A5C0150F737A00EE30BB /* ngspice_output_1.txt */; };
-		C091A5C4150F737A00EE30BB /* ngspice_output_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C091A5C1150F737A00EE30BB /* ngspice_output_2.txt */; };
 		C097637015DED132006E2014 /* schematic_inspector_flip_horizontally@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C097636815DED132006E2014 /* schematic_inspector_flip_horizontally@2x.tiff */; };
 		C097637215DED132006E2014 /* schematic_inspector_flip_vertically@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C097636A15DED132006E2014 /* schematic_inspector_flip_vertically@2x.tiff */; };
 		C097637415DED132006E2014 /* schematic_inspector_rotate_left@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C097636C15DED132006E2014 /* schematic_inspector_rotate_left@2x.tiff */; };
@@ -224,7 +250,7 @@
 		C0A873D014B6FAA2009A30B7 /* FXBasicShape.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0A873CA14B6FAA2009A30B7 /* FXBasicShape.mm */; };
 		C0A873D114B6FAA2009A30B7 /* FXShapeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A873CB14B6FAA2009A30B7 /* FXShapeRenderer.h */; settings = {ATTRIBUTES = (); }; };
 		C0A873D214B6FAA2009A30B7 /* FXShapeRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0A873CC14B6FAA2009A30B7 /* FXShapeRenderer.mm */; };
-		C0A873D314B6FAA2009A30B7 /* FXShapeView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A873CD14B6FAA2009A30B7 /* FXShapeView.h */; settings = {ATTRIBUTES = (); }; };
+		C0A873D314B6FAA2009A30B7 /* FXShapeView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A873CD14B6FAA2009A30B7 /* FXShapeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0A873D414B6FAA2009A30B7 /* FXShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A873CE14B6FAA2009A30B7 /* FXShapeView.m */; };
 		C0A873DB14B6FB61009A30B7 /* FXCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A873D514B6FB61009A30B7 /* FXCircle.h */; settings = {ATTRIBUTES = (); }; };
 		C0A873DC14B6FB61009A30B7 /* FXCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A873D614B6FB61009A30B7 /* FXCircle.m */; };
@@ -244,15 +270,11 @@
 		C0A8740614B70006009A30B7 /* FXShapeFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0A8740414B70006009A30B7 /* FXShapeFactory.mm */; };
 		C0A8740D14B70388009A30B7 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
 		C0A8740E14B7041E009A30B7 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
-		C0A96AB71584DB8400B1E8F4 /* models.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0EFD8A614B7439A0029FDE4 /* models.volta */; };
 		C0A96ABC1584DBDE00B1E8F4 /* Palette_Most_Used.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0A96AB81584DBDE00B1E8F4 /* Palette_Most_Used.volta */; };
 		C0A96ABE1584DBDE00B1E8F4 /* Palette_Meters.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0A96AB91584DBDE00B1E8F4 /* Palette_Meters.volta */; };
 		C0A96AC01584DBDE00B1E8F4 /* Palette_Semis.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0A96ABA1584DBDE00B1E8F4 /* Palette_Semis.volta */; };
-		C0A96AC21585177300B1E8F4 /* TestElementGroup.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0A96AC11585177200B1E8F4 /* TestElementGroup.volta */; };
-		C0A96AC41585B19E00B1E8F4 /* TestModelGroup.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0A96AC31585B19E00B1E8F4 /* TestModelGroup.volta */; };
 		C0AB6D5D1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.h in Headers */ = {isa = PBXBuildFile; fileRef = C0AB6D5B1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.h */; };
 		C0AB6D5E1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AB6D5C1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.mm */; };
-		C0AB6D611556971300B26CB5 /* test_xml_element.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AB6D601556971300B26CB5 /* test_xml_element.mm */; };
 		C0AD1105140B775000C3BB68 /* FXString.h in Headers */ = {isa = PBXBuildFile; fileRef = C01734DA140911B20035F6E1 /* FXString.h */; settings = {ATTRIBUTES = (); }; };
 		C0AD1106140B780A00C3BB68 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C0AD1107140B793A00C3BB68 /* FXKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -262,7 +284,6 @@
 		C0AD354712B6125200F37465 /* FXSchematicPropertiesTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AD354612B6125200F37465 /* FXSchematicPropertiesTableView.mm */; };
 		C0AE0CC311FCE3A2000438A8 /* FXSpiceOutputParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AE0CC211FCE3A2000438A8 /* FXSpiceOutputParser.mm */; };
 		C0B10810150F7DDD00E9A220 /* FXNetlistSyntaxHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B1080F150F7DDD00E9A220 /* FXNetlistSyntaxHighlighter.m */; };
-		C0B22FF81564E43500D9CD1F /* test_subcircuit.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0B22FF71564E43500D9CD1F /* test_subcircuit.volta */; };
 		C0B6A8F91126B791006FBB1C /* FXVoltaDocumentController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0B6A8F81126B791006FBB1C /* FXVoltaDocumentController.mm */; };
 		C0B6A8FC1126B8FC006FBB1C /* FXVoltaNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B6A8FB1126B8FC006FBB1C /* FXVoltaNotifications.m */; };
 		C0B7E8CA1103656C00097392 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
@@ -271,25 +292,19 @@
 		C0BA8C2B150F981F006B02F5 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
 		C0BA8C2E150FA639006B02F5 /* SubcircuitEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C0C628B7150F8DF70021C222 /* SubcircuitEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C0BF7AC00F856C90000E4648 /* Volta.sdef in Resources */ = {isa = PBXBuildFile; fileRef = C0BF7ABF0F856C90000E4648 /* Volta.sdef */; };
-		C0BFBD9E1556F35900602BAA /* test_archive_validator.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0BFBD9D1556F35900602BAA /* test_archive_validator.mm */; };
-		C0BFBDA01556F83200602BAA /* volta-v1.rng in Resources */ = {isa = PBXBuildFile; fileRef = C08094DD15505D60005ED761 /* volta-v1.rng */; };
 		C0BFBDA1155724BE00602BAA /* FXVoltaArchiveValidator.mm in Sources */ = {isa = PBXBuildFile; fileRef = C08094E015506163005ED761 /* FXVoltaArchiveValidator.mm */; };
-		C0C0C9A615D7C50D00740140 /* test_mac_app_store_receipt_validation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C0C9A515D7C50D00740140 /* test_mac_app_store_receipt_validation.m */; };
-		C0C0C9AD15D7D24100740140 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04A663512F23E83005E6A80 /* Security.framework */; };
-		C0C0C9AE15D7D28B00740140 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C06A8D6F12EF90D700B8F93E /* IOKit.framework */; };
 		C0C5462E150FB4510075A553 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		C0C54648150FB4A10075A553 /* LibraryEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C051DAB5150E8D150053457F /* LibraryEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C0C54649150FB6B50075A553 /* FXKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C0C5464A150FB6BE0075A553 /* FXShape.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C0C5464B150FB6C70075A553 /* VoltaLibrary.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C0C5464B150FB6C70075A553 /* VoltaCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C0C54655150FBCD60075A553 /* LibraryEditorTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C54652150FBCD60075A553 /* LibraryEditorTest.xib */; };
 		C0C54658150FBD9A0075A553 /* LibraryEditorTestController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0C54657150FBD9A0075A553 /* LibraryEditorTestController.mm */; };
-		C0C5465B150FCB910075A553 /* VoltaLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */; };
+		C0C5465B150FCB910075A553 /* VoltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; };
 		C0C54665150FD8070075A553 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		C0C54688150FDAC50075A553 /* SubcircuitEditorTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C54683150FDAC50075A553 /* SubcircuitEditorTest.xib */; };
 		C0C5468C150FDC670075A553 /* SubcircuitEditorTestController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0C5468B150FDC670075A553 /* SubcircuitEditorTestController.mm */; };
 		C0C54691150FE1B80075A553 /* SubcircuitEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C0C628B7150F8DF70021C222 /* SubcircuitEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C0C5469A150FE85B0075A553 /* ngspice_output_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C0C54695150FE8280075A553 /* ngspice_output_2.txt */; };
 		C0C571E0161F364400EC26A5 /* FXOverlayTextLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C571DE161F364400EC26A5 /* FXOverlayTextLineView.h */; };
 		C0C571E1161F364400EC26A5 /* FXOverlayTextLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C571DF161F364400EC26A5 /* FXOverlayTextLineView.m */; };
 		C0C571EE1620295E00EC26A5 /* FXSimulatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C571ED1620295E00EC26A5 /* FXSimulatorView.m */; };
@@ -299,7 +314,6 @@
 		C0C628D6150F96FF0021C222 /* SubcircuitEditor.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0C628D4150F96FF0021C222 /* SubcircuitEditor.strings */; };
 		C0C667BD0F88970000BBD027 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C667BC0F88970000BBD027 /* QuartzCore.framework */; };
 		C0C667BE0F88970000BBD027 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C667BC0F88970000BBD027 /* QuartzCore.framework */; };
-		C0CB70B914164053005FDB63 /* FXPlotterGraphData.mm in Sources */ = {isa = PBXBuildFile; fileRef = C05EB7551275503E00FAD899 /* FXPlotterGraphData.mm */; };
 		C0CDDE7F168F291200A81199 /* iCloud_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CDDE7D168F291200A81199 /* iCloud_small@2x.png */; };
 		C0CDDE80168F291200A81199 /* iCloud_small.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CDDE7E168F291200A81199 /* iCloud_small.png */; };
 		C0CDDE87168F91CC00A81199 /* FXFileBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = C0CDDE84168F91CC00A81199 /* FXFileBrowser.h */; };
@@ -313,9 +327,6 @@
 		C0D16FB9154D4E6500BEF274 /* ShapeTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D16FB1154D4E6500BEF274 /* ShapeTest.xib */; };
 		C0D16FBF154D549100BEF274 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
 		C0D16FC0154D549E00BEF274 /* FXShape.framework in Resources */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
-		C0D3D67F14B752CB00765E77 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
-		C0D3D68014B752CE00765E77 /* VoltaLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */; };
-		C0D3D68114B7542E00765E77 /* volta-v2.rng in Resources */ = {isa = PBXBuildFile; fileRef = C0EFD87814B742650029FDE4 /* volta-v2.rng */; };
 		C0D6068F14E2573A00CA605C /* FXTabView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0D6068D14E2573A00CA605C /* FXTabView.h */; };
 		C0D6069014E2573A00CA605C /* FXTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D6068E14E2573A00CA605C /* FXTabView.m */; };
 		C0DA6F9E155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DA6F9D155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m */; };
@@ -333,24 +344,23 @@
 		C0E91988150F57B200465542 /* Netlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0E91986150F57B200465542 /* Netlist.strings */; };
 		C0E9198D150F59CE00465542 /* Schematic.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0E9198B150F59CE00465542 /* Schematic.strings */; };
 		C0EC259E116D3ED700051DB6 /* schematic_toolbar_inspector.png in Resources */ = {isa = PBXBuildFile; fileRef = C0EC259C116D3ED700051DB6 /* schematic_toolbar_inspector.png */; };
-		C0EF75EF15F1D33200AC9CEF /* Models_OnSemi.lib in Resources */ = {isa = PBXBuildFile; fileRef = C0EF75EE15F1D33200AC9CEF /* Models_OnSemi.lib */; };
 		C0EF75F015F1D33200AC9CEF /* Models_OnSemi.lib in Resources */ = {isa = PBXBuildFile; fileRef = C0EF75EE15F1D33200AC9CEF /* Models_OnSemi.lib */; };
-		C0EFD83714B733130029FDE4 /* VoltaLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */; };
+		C0EFD83714B733130029FDE4 /* VoltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; };
 		C0EFD85214B735780029FDE4 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
 		C0EFD86614B738210029FDE4 /* FXVoltaArchiver.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0EFD86414B738210029FDE4 /* FXVoltaArchiver.mm */; };
 		C0EFD86B14B738700029FDE4 /* FXXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD86714B738700029FDE4 /* FXXMLDocument.h */; };
 		C0EFD86C14B738700029FDE4 /* FXXMLDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0EFD86814B738700029FDE4 /* FXXMLDocument.mm */; };
 		C0EFD86D14B738700029FDE4 /* FXXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD86914B738700029FDE4 /* FXXMLElement.h */; };
 		C0EFD86E14B738700029FDE4 /* FXXMLElement.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0EFD86A14B738700029FDE4 /* FXXMLElement.mm */; };
-		C0EFD87314B73A200029FDE4 /* VoltaLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */; };
-		C0EFD87514B73C310029FDE4 /* VoltaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD87414B73C310029FDE4 /* VoltaLibrary.h */; settings = {ATTRIBUTES = (); }; };
+		C0EFD87314B73A200029FDE4 /* VoltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; };
+		C0EFD87514B73C310029FDE4 /* VoltaLibraryProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD87414B73C310029FDE4 /* VoltaLibraryProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0EFD87914B742650029FDE4 /* volta-v2.rng in Resources */ = {isa = PBXBuildFile; fileRef = C0EFD87814B742650029FDE4 /* volta-v2.rng */; };
 		C0EFD89214B7427A0029FDE4 /* FXModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD87C14B7427A0029FDE4 /* FXModel.h */; };
 		C0EFD89314B7427A0029FDE4 /* FXModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0EFD87D14B7427A0029FDE4 /* FXModel.mm */; };
 		C0EFD89414B7427A0029FDE4 /* FXVoltaArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD87E14B7427A0029FDE4 /* FXVoltaArchiver.h */; settings = {ATTRIBUTES = (); }; };
 		C0EFD89514B7427A0029FDE4 /* FXVoltaCircuitDomainAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD87F14B7427A0029FDE4 /* FXVoltaCircuitDomainAgent.h */; settings = {ATTRIBUTES = (); }; };
 		C0EFD89614B7427A0029FDE4 /* FXVoltaCircuitDomainAgent.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0EFD88014B7427A0029FDE4 /* FXVoltaCircuitDomainAgent.mm */; };
-		C0EFD89714B7427A0029FDE4 /* FXVoltaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD88114B7427A0029FDE4 /* FXVoltaLibrary.h */; settings = {ATTRIBUTES = (); }; };
+		C0EFD89714B7427A0029FDE4 /* FXVoltaLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD88114B7427A0029FDE4 /* FXVoltaLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0EFD89814B7427A0029FDE4 /* FXVoltaLibrary.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0EFD88214B7427A0029FDE4 /* FXVoltaLibrary.mm */; };
 		C0EFD89914B7427A0029FDE4 /* FXVoltaLibraryStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFD88314B7427A0029FDE4 /* FXVoltaLibraryStorage.h */; };
 		C0EFD89A14B7427A0029FDE4 /* FXVoltaLibraryStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0EFD88414B7427A0029FDE4 /* FXVoltaLibraryStorage.mm */; };
@@ -366,7 +376,7 @@
 		C0EFD8B214B747CD0029FDE4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EFD8B114B747CD0029FDE4 /* libxml2.dylib */; };
 		C0EFD8BB14B749FA0029FDE4 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C0EFD8BC14B749FD0029FDE4 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
-		C0EFD8BD14B74A010029FDE4 /* VoltaLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */; };
+		C0EFD8BD14B74A010029FDE4 /* VoltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; };
 		C0EFD8BF14B7503E0029FDE4 /* SchematicEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C04A68B70E75C55F005AABA3 /* SchematicEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C0EFF7A014EF972F0022F602 /* FXTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0EFF79E14EF972F0022F602 /* FXTextView.h */; };
 		C0EFF7A114EF972F0022F602 /* FXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EFF79F14EF972F0022F602 /* FXTextView.m */; };
@@ -375,13 +385,11 @@
 		C0F1507714A74494007C33F3 /* FXStdStringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F1507614A74494007C33F3 /* FXStdStringUtils.h */; settings = {ATTRIBUTES = (); }; };
 		C0F4EDA7156F180800C51D5A /* FXVoltaLibraryData.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0F4EDA5156F180800C51D5A /* FXVoltaLibraryData.mm */; };
 		C0F4EDA8156F180800C51D5A /* FXVoltaLibraryData.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F4EDA6156F180800C51D5A /* FXVoltaLibraryData.h */; };
-		C0F4EDAC156F197200C51D5A /* test_library_data.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0F4EDAB156F197200C51D5A /* test_library_data.mm */; };
 		C0F738B41624F96000A9EFE2 /* VoltaFile.iconset in Resources */ = {isa = PBXBuildFile; fileRef = C0F738B31624F96000A9EFE2 /* VoltaFile.iconset */; };
 		C0F7A64F1279507F00AAC820 /* FXAlignmentLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F7A64E1279507F00AAC820 /* FXAlignmentLine.m */; };
 		C0FB2AF215F27E8100F4AD7B /* Subcircuit_BD680.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0FB2AEF15F27E8000F4AD7B /* Subcircuit_BD680.volta */; };
 		C0FB2AF315F27E8100F4AD7B /* Subcircuit_TIP122.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0FB2AF015F27E8000F4AD7B /* Subcircuit_TIP122.volta */; };
 		C0FB2AF415F27E8100F4AD7B /* Subcircuit_TIP127.volta in Resources */ = {isa = PBXBuildFile; fileRef = C0FB2AF115F27E8100F4AD7B /* Subcircuit_TIP127.volta */; };
-		C0FD771E1297C93100CB5D94 /* FXSchematicToNetlistConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0FD771C1297C93100CB5D94 /* FXSchematicToNetlistConverter.mm */; };
 		C0FF29F810DCD16600C32EC9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		C0FF2EB010DD142200C32EC9 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB90ACD50FE54F9F00891ED1 /* OpenCL.framework */; };
 		DB90AC420FE5161100891ED1 /* FXVoltaPluginsController+TableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DB90AC410FE5161100891ED1 /* FXVoltaPluginsController+TableDataSource.m */; };
@@ -390,6 +398,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2A979DF32041987500B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D15AC270486D014006FF6A4;
+			remoteInfo = Volta;
+		};
+		2A979E532041B25E00B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0DD8ACE0E3B7605006B2136;
+			remoteInfo = NetlistEditor;
+		};
 		C005735C0F7F0B3C00A0D844 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
@@ -412,13 +434,6 @@
 			remoteInfo = Core;
 		};
 		C01734EB140927B80035F6E1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C01734C414090CC80035F6E1;
-			remoteInfo = Core;
-		};
-		C01734EE140928520035F6E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
 			proxyType = 1;
@@ -495,13 +510,6 @@
 			remoteGlobalIDString = C01734C414090CC80035F6E1;
 			remoteInfo = FXKit;
 		};
-		C0A8740714B70290009A30B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C04002E814B6F4FC00ECD7D2;
-			remoteInfo = Shape;
-		};
 		C0A8740914B702DE009A30B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
@@ -571,13 +579,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = C04002E814B6F4FC00ECD7D2;
 			remoteInfo = FXShape;
-		};
-		C0D3D67C14B752BC00765E77 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C0892CFC14B72EFE006A5A7A;
-			remoteInfo = VoltaLibrary;
 		};
 		C0EFD83414B732FE0029FDE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -694,7 +695,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C03FB06614BAD4730048EA45 /* VoltaLibrary.framework in Copy Frameworks */,
+				C03FB06614BAD4730048EA45 /* VoltaCore.framework in Copy Frameworks */,
 				C0A873BF14B6F82B009A30B7 /* FXShape.framework in Copy Frameworks */,
 				C0AD1107140B793A00C3BB68 /* FXKit.framework in Copy Frameworks */,
 			);
@@ -729,7 +730,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C0C5464B150FB6C70075A553 /* VoltaLibrary.framework in Copy Frameworks */,
+				C0C5464B150FB6C70075A553 /* VoltaCore.framework in Copy Frameworks */,
 				C0C5464A150FB6BE0075A553 /* FXShape.framework in Copy Frameworks */,
 				C0C54649150FB6B50075A553 /* FXKit.framework in Copy Frameworks */,
 			);
@@ -762,8 +763,42 @@
 
 /* Begin PBXFileReference section */
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		2A60A939203CD2A90016B393 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = code/main.m; sourceTree = "<group>"; };
+		2A0797C420406FBE004B0A6E /* VoltaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VoltaCore.h; path = code/VoltaCore.h; sourceTree = "<group>"; };
+		2A0797C8204074BB004B0A6E /* VoltaPersistentTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaPersistentTypes.h; path = code/VoltaPersistentTypes.h; sourceTree = "<group>"; };
+		2A0797C9204074BB004B0A6E /* VoltaModelTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaModelTypes.h; path = code/VoltaModelTypes.h; sourceTree = "<group>"; };
+		2A0797CE2040772C004B0A6E /* VoltaSimulationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaSimulationData.h; path = code/VoltaSimulationData.h; sourceTree = "<group>"; };
+		2A0797D120407A99004B0A6E /* FXSPICELibParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSPICELibParser.h; path = code/FXSPICELibParser.h; sourceTree = "<group>"; };
+		2A0797D220407A99004B0A6E /* FXSPICELibParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSPICELibParser.mm; path = code/FXSPICELibParser.mm; sourceTree = "<group>"; };
+		2A0797D82040826B004B0A6E /* FXSchematicToNetlistConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSchematicToNetlistConverter.h; path = code/FXSchematicToNetlistConverter.h; sourceTree = "<group>"; };
+		2A0797D92040826B004B0A6E /* FXSchematicToNetlistConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicToNetlistConverter.mm; path = code/FXSchematicToNetlistConverter.mm; sourceTree = "<group>"; };
 		2A68B06D203ECB8A00E1CED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VoltaAboutWindow.xib; sourceTree = "<group>"; };
+		2A979DEE2041987500B31E74 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A979DF22041987500B31E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A979DF820419D1000B31E74 /* test_fxpath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_fxpath.mm; path = code/test_fxpath.mm; sourceTree = "<group>"; };
+		2A979DF920419D1100B31E74 /* test_plotter_utils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_plotter_utils.mm; path = code/test_plotter_utils.mm; sourceTree = "<group>"; };
+		2A979DFA20419D1100B31E74 /* test_archive_converter_v1_to_v2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_archive_converter_v1_to_v2.mm; path = code/test_archive_converter_v1_to_v2.mm; sourceTree = "<group>"; };
+		2A979DFB20419D1100B31E74 /* test_library_storage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_library_storage.mm; path = code/test_library_storage.mm; sourceTree = "<group>"; };
+		2A979DFC20419D1100B31E74 /* test_xml_element.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_xml_element.mm; path = code/test_xml_element.mm; sourceTree = "<group>"; };
+		2A979DFD20419D1100B31E74 /* test_archive_validator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_archive_validator.mm; path = code/test_archive_validator.mm; sourceTree = "<group>"; };
+		2A979DFE20419D1100B31E74 /* test_plotter_data.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_plotter_data.mm; path = code/test_plotter_data.mm; sourceTree = "<group>"; };
+		2A979DFF20419D1100B31E74 /* test_schematicToNetlist.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_schematicToNetlist.mm; path = code/test_schematicToNetlist.mm; sourceTree = "<group>"; };
+		2A979E0020419D1100B31E74 /* test_fxstring.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_fxstring.mm; path = code/test_fxstring.mm; sourceTree = "<group>"; };
+		2A979E0120419D1100B31E74 /* test_archiving.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_archiving.mm; path = code/test_archiving.mm; sourceTree = "<group>"; };
+		2A979E0220419D1100B31E74 /* test_spice_output_parser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_spice_output_parser.mm; path = code/test_spice_output_parser.mm; sourceTree = "<group>"; };
+		2A979E0320419D1100B31E74 /* test_library.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_library.mm; path = code/test_library.mm; sourceTree = "<group>"; };
+		2A979E0420419D1100B31E74 /* test_spice_lib_parsing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_spice_lib_parsing.mm; path = code/test_spice_lib_parsing.mm; sourceTree = "<group>"; };
+		2A979E0520419D1100B31E74 /* test_xml_parser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_xml_parser.mm; path = code/test_xml_parser.mm; sourceTree = "<group>"; };
+		2A979E0620419D1100B31E74 /* test_library_data.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_library_data.mm; path = code/test_library_data.mm; sourceTree = "<group>"; };
+		2A979E0720419D1100B31E74 /* test_persistent_types.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_persistent_types.mm; path = code/test_persistent_types.mm; sourceTree = "<group>"; };
+		2A979E0820419D1100B31E74 /* UnitTests.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitTests.pch; path = code/UnitTests.pch; sourceTree = "<group>"; };
+		2A979E392041A0EB00B31E74 /* test_single_model_no_vendor.lib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_single_model_no_vendor.lib; sourceTree = "<group>"; };
+		2A979E3A2041A0EB00B31E74 /* TestElementGroup.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestElementGroup.volta; sourceTree = "<group>"; };
+		2A979E3B2041A0EB00B31E74 /* test_single_model.lib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_single_model.lib; sourceTree = "<group>"; };
+		2A979E3C2041A0EB00B31E74 /* ngspice_output_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ngspice_output_1.txt; sourceTree = "<group>"; };
+		2A979E3D2041A0EB00B31E74 /* TestModelGroup.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestModelGroup.volta; sourceTree = "<group>"; };
+		2A979E3E2041A0EB00B31E74 /* ngspice_output_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ngspice_output_2.txt; sourceTree = "<group>"; };
+		2A979E4D2041A20C00B31E74 /* test_subcircuit.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_subcircuit.volta; sourceTree = "<group>"; };
+		2A979E582041B9BE00B31E74 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = code/main.m; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Volta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C000C11B1543D9BD00BC014C /* SubcircuitEditor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubcircuitEditor.xib; sourceTree = "<group>"; };
 		C000C12D1543DE4D00BC014C /* FXLibraryEditorModelsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLibraryEditorModelsController.h; path = code/FXLibraryEditorModelsController.h; sourceTree = "<group>"; };
@@ -774,7 +809,6 @@
 		C000C14C15442AF500BC014C /* FXLibraryEditorPaletteController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXLibraryEditorPaletteController.mm; path = code/FXLibraryEditorPaletteController.mm; sourceTree = "<group>"; };
 		C000C15115442B3300BC014C /* Palette.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Palette.xib; path = resources/Palette.xib; sourceTree = "<group>"; };
 		C003324716F4CFE900A9AB9E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Schematic.strings"; sourceTree = "<group>"; };
-		C005758C0F7F9A0000A0D844 /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0067365117596CD00FB70C4 /* FXSelectionTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSelectionTool.mm; path = code/FXSelectionTool.mm; sourceTree = "<group>"; };
 		C008C6D712DA24810011641F /* FXNetlistEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXNetlistEditor.h; path = code/FXNetlistEditor.h; sourceTree = "<group>"; };
 		C008C6D812DA24810011641F /* FXNetlistEditor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXNetlistEditor.mm; path = code/FXNetlistEditor.mm; sourceTree = "<group>"; };
@@ -794,8 +828,6 @@
 		C00FCFFF1130643900C95E7D /* FXAnimatedGearWheelButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXAnimatedGearWheelButton.mm; path = code/FXAnimatedGearWheelButton.mm; sourceTree = "<group>"; };
 		C00FD274113130E400C95E7D /* Common.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.pch; path = code/Common.pch; sourceTree = "<group>"; };
 		C00FD275113130E400C95E7D /* FXKitDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXKitDefines.h; path = code/FXKitDefines.h; sourceTree = "<group>"; };
-		C00FD276113130E400C95E7D /* FXSchematicToNetlistConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSchematicToNetlistConverter.h; path = code/FXSchematicToNetlistConverter.h; sourceTree = "<group>"; };
-		C00FD282113130E400C95E7D /* VoltaPersistentTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaPersistentTypes.h; path = code/VoltaPersistentTypes.h; sourceTree = "<group>"; };
 		C00FD2921131315E00C95E7D /* FXPlotterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXPlotterController.h; path = code/FXPlotterController.h; sourceTree = "<group>"; };
 		C00FD2931131315E00C95E7D /* FXPlotterController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXPlotterController.mm; path = code/FXPlotterController.mm; sourceTree = "<group>"; };
 		C00FD2971131315E00C95E7D /* FXPlotterOpenCLAccelerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXPlotterOpenCLAccelerator.h; path = code/FXPlotterOpenCLAccelerator.h; sourceTree = "<group>"; };
@@ -882,7 +914,6 @@
 		C017FDE815112D8E00E079F6 /* TestingHarness.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TestingHarness.xib; path = resources/TestingHarness.xib; sourceTree = "<group>"; };
 		C0185A4D1293CB92006A0E9F /* FXSchematicInspectorController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicInspectorController.mm; path = code/FXSchematicInspectorController.mm; sourceTree = "<group>"; };
 		C0185A501293CBE0006A0E9F /* FXSchematicElementInspector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicElementInspector.mm; path = code/FXSchematicElementInspector.mm; sourceTree = "<group>"; };
-		C021FD3511FB89690092CA41 /* VoltaSimulationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaSimulationData.h; path = code/VoltaSimulationData.h; sourceTree = "<group>"; };
 		C027363815F9B2E800A9B866 /* FXPlotterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXPlotterUtils.h; path = code/FXPlotterUtils.h; sourceTree = "<group>"; };
 		C027363915F9B2E800A9B866 /* FXPlotterUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXPlotterUtils.mm; path = code/FXPlotterUtils.mm; sourceTree = "<group>"; };
 		C027363C15F9B40700A9B866 /* FXPlotterTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXPlotterTypes.h; path = code/FXPlotterTypes.h; sourceTree = "<group>"; };
@@ -892,7 +923,6 @@
 		C027364315F9B82200A9B866 /* FXPlotterAxisData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXPlotterAxisData.mm; path = code/FXPlotterAxisData.mm; sourceTree = "<group>"; };
 		C027364515F9B98900A9B866 /* FXPlotterNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXPlotterNumber.h; path = code/FXPlotterNumber.h; sourceTree = "<group>"; };
 		C027364615F9B98900A9B866 /* FXPlotterNumber.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXPlotterNumber.mm; path = code/FXPlotterNumber.mm; sourceTree = "<group>"; };
-		C027364915F9BF2E00A9B866 /* test_plotter_utils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_plotter_utils.mm; path = code/test_plotter_utils.mm; sourceTree = "<group>"; };
 		C02748E4116A0B1A00E4E8E1 /* FXSchematicCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSchematicCapture.h; path = code/FXSchematicCapture.h; sourceTree = "<group>"; };
 		C02748E5116A0B1A00E4E8E1 /* FXSchematicCapture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicCapture.mm; path = code/FXSchematicCapture.mm; sourceTree = "<group>"; };
 		C0274CBF154D223C0061CE7C /* FXShapeRenderDataPool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXShapeRenderDataPool.mm; path = code/FXShapeRenderDataPool.mm; sourceTree = "<group>"; };
@@ -924,7 +954,6 @@
 		C04167AB12A113E100FA3951 /* FXSchematicPaletteController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicPaletteController.mm; path = code/FXSchematicPaletteController.mm; sourceTree = "<group>"; };
 		C0422AC414E6459500C91381 /* FXVoltaDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXVoltaDocumentWindowController.h; path = code/FXVoltaDocumentWindowController.h; sourceTree = "<group>"; };
 		C0422AC514E6459500C91381 /* FXVoltaDocumentWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaDocumentWindowController.mm; path = code/FXVoltaDocumentWindowController.mm; sourceTree = "<group>"; };
-		C045B25115807314007CF85B /* test_library_storage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_library_storage.mm; path = code/test_library_storage.mm; sourceTree = "<group>"; };
 		C0475182176E61C900CB0FBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/Credits.html; sourceTree = "<group>"; };
 		C0475184176E61DE00CB0FBB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = de.lproj/Credits.html; sourceTree = "<group>"; };
 		C0475185176E61EC00CB0FBB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.html"; sourceTree = "<group>"; };
@@ -985,7 +1014,6 @@
 		C05E21A2161853850043DEDA /* Subcircuit_BS170.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Subcircuit_BS170.volta; path = resources/Subcircuit_BS170.volta; sourceTree = "<group>"; };
 		C05EB7551275503E00FAD899 /* FXPlotterGraphData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXPlotterGraphData.mm; path = code/FXPlotterGraphData.mm; sourceTree = "<group>"; };
 		C05F26F4140BC4FC00CEA3A2 /* Plotter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Plotter-Info.plist"; sourceTree = "<group>"; };
-		C0648ACF15F2094400B1282B /* test_single_model_no_vendor.lib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_single_model_no_vendor.lib; sourceTree = "<group>"; };
 		C065DD6A162F3DBE007BC5C6 /* FXVoltaCloudController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXVoltaCloudController.h; path = code/FXVoltaCloudController.h; sourceTree = "<group>"; };
 		C065DD6B162F3DBE007BC5C6 /* FXVoltaCloudController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaCloudController.mm; path = code/FXVoltaCloudController.mm; sourceTree = "<group>"; };
 		C066B37015150CEE00E7B331 /* FXLibraryEditorModelsCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLibraryEditorModelsCellView.h; path = code/FXLibraryEditorModelsCellView.h; sourceTree = "<group>"; };
@@ -1010,10 +1038,6 @@
 		C08094DD15505D60005ED761 /* volta-v1.rng */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "volta-v1.rng"; sourceTree = "<group>"; };
 		C08094DF15506163005ED761 /* FXVoltaArchiveValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXVoltaArchiveValidator.h; path = code/FXVoltaArchiveValidator.h; sourceTree = "<group>"; };
 		C08094E015506163005ED761 /* FXVoltaArchiveValidator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaArchiveValidator.mm; path = code/FXVoltaArchiveValidator.mm; sourceTree = "<group>"; };
-		C083399215F13D3F00CFB957 /* test_spice_lib_parsing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_spice_lib_parsing.mm; path = code/test_spice_lib_parsing.mm; sourceTree = "<group>"; };
-		C083399415F1418100CFB957 /* test_single_model.lib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_single_model.lib; sourceTree = "<group>"; };
-		C083399815F142D800CFB957 /* FXSPICELibParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSPICELibParser.h; path = code/FXSPICELibParser.h; sourceTree = "<group>"; };
-		C083399915F142D800CFB957 /* FXSPICELibParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSPICELibParser.mm; path = code/FXSPICELibParser.mm; sourceTree = "<group>"; };
 		C0855B260E764A7000471B28 /* SchematicEditorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchematicEditorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0863BEF178833C50025FE4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VoltaDocumentPrintingAccessoryView.strings; sourceTree = "<group>"; };
 		C0863BF1178833C90025FE4F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/VoltaDocumentPrintingAccessoryView.strings; sourceTree = "<group>"; };
@@ -1024,8 +1048,8 @@
 		C0892CF014B72E04006A5A7A /* FXOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXOutlineView.m; path = code/FXOutlineView.m; sourceTree = "<group>"; };
 		C0892CF114B72E04006A5A7A /* FXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXTableView.h; path = code/FXTableView.h; sourceTree = "<group>"; };
 		C0892CF214B72E04006A5A7A /* FXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXTableView.m; path = code/FXTableView.m; sourceTree = "<group>"; };
-		C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VoltaLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0892D0C14B7304D006A5A7A /* VoltaLibrary-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VoltaLibrary-Info.plist"; sourceTree = "<group>"; };
+		C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VoltaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0892D0C14B7304D006A5A7A /* VoltaCore-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VoltaCore-Info.plist"; sourceTree = "<group>"; };
 		C08C5AFE16367E7A00CC845E /* VoltaCloudLibraryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoltaCloudLibraryController.h; sourceTree = "<group>"; };
 		C08C7B351289828F0041EF57 /* VoltaCircuitSimulator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VoltaCircuitSimulator.h; path = protocols/VoltaCircuitSimulator.h; sourceTree = "<group>"; };
 		C08C7B371289830C0041EF57 /* VoltaNetlistEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VoltaNetlistEditor.h; path = protocols/VoltaNetlistEditor.h; sourceTree = "<group>"; };
@@ -1054,24 +1078,6 @@
 		C091A591150F642A00EE30BB /* FXNetlistEditorTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXNetlistEditorTestController.m; sourceTree = "<group>"; };
 		C091A592150F642A00EE30BB /* NetlistEditorTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NetlistEditorTest-Info.plist"; sourceTree = "<group>"; };
 		C091A593150F642A00EE30BB /* NetlistEditorTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetlistEditorTest.xib; sourceTree = "<group>"; };
-		C091A59D150F66E400EE30BB /* FXGnucapTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXGnucapTestController.h; sourceTree = "<group>"; };
-		C091A59E150F66E400EE30BB /* FXGnucapTestController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FXGnucapTestController.mm; sourceTree = "<group>"; };
-		C091A59F150F66E400EE30BB /* GnucapTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GnucapTest-Info.plist"; sourceTree = "<group>"; };
-		C091A5A0150F66E400EE30BB /* GnucapTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GnucapTest.xib; sourceTree = "<group>"; };
-		C091A5A9150F6DEB00EE30BB /* test_archiving.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_archiving.mm; path = code/test_archiving.mm; sourceTree = "<group>"; };
-		C091A5AA150F6DEB00EE30BB /* test_fxpath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_fxpath.mm; path = code/test_fxpath.mm; sourceTree = "<group>"; };
-		C091A5AB150F6DEB00EE30BB /* test_fxstring.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_fxstring.mm; path = code/test_fxstring.mm; sourceTree = "<group>"; };
-		C091A5AC150F6DEB00EE30BB /* test_library.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_library.mm; path = code/test_library.mm; sourceTree = "<group>"; };
-		C091A5AD150F6DEB00EE30BB /* test_persistent_types.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_persistent_types.mm; path = code/test_persistent_types.mm; sourceTree = "<group>"; };
-		C091A5AE150F6DEB00EE30BB /* test_plotter_data.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_plotter_data.mm; path = code/test_plotter_data.mm; sourceTree = "<group>"; };
-		C091A5AF150F6DEB00EE30BB /* test_schematicToNetlist.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_schematicToNetlist.mm; path = code/test_schematicToNetlist.mm; sourceTree = "<group>"; };
-		C091A5B0150F6DEB00EE30BB /* test_spice_output_parser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_spice_output_parser.mm; path = code/test_spice_output_parser.mm; sourceTree = "<group>"; };
-		C091A5B1150F6DEB00EE30BB /* test_archive_converter_v1_to_v2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_archive_converter_v1_to_v2.mm; path = code/test_archive_converter_v1_to_v2.mm; sourceTree = "<group>"; };
-		C091A5B2150F6DEB00EE30BB /* test_xml_parser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_xml_parser.mm; path = code/test_xml_parser.mm; sourceTree = "<group>"; };
-		C091A5B3150F6DEB00EE30BB /* UnitTests.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitTests.pch; path = code/UnitTests.pch; sourceTree = "<group>"; };
-		C091A5BE150F732600EE30BB /* UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
-		C091A5C0150F737A00EE30BB /* ngspice_output_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ngspice_output_1.txt; sourceTree = "<group>"; };
-		C091A5C1150F737A00EE30BB /* ngspice_output_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ngspice_output_2.txt; sourceTree = "<group>"; };
 		C097636815DED132006E2014 /* schematic_inspector_flip_horizontally@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "schematic_inspector_flip_horizontally@2x.tiff"; sourceTree = "<group>"; };
 		C097636A15DED132006E2014 /* schematic_inspector_flip_vertically@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "schematic_inspector_flip_vertically@2x.tiff"; sourceTree = "<group>"; };
 		C097636C15DED132006E2014 /* schematic_inspector_rotate_left@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "schematic_inspector_rotate_left@2x.tiff"; sourceTree = "<group>"; };
@@ -1111,20 +1117,15 @@
 		C0A96AB81584DBDE00B1E8F4 /* Palette_Most_Used.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Palette_Most_Used.volta; path = resources/Palette_Most_Used.volta; sourceTree = "<group>"; };
 		C0A96AB91584DBDE00B1E8F4 /* Palette_Meters.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Palette_Meters.volta; path = resources/Palette_Meters.volta; sourceTree = "<group>"; };
 		C0A96ABA1584DBDE00B1E8F4 /* Palette_Semis.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Palette_Semis.volta; path = resources/Palette_Semis.volta; sourceTree = "<group>"; };
-		C0A96AC11585177200B1E8F4 /* TestElementGroup.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestElementGroup.volta; sourceTree = "<group>"; };
-		C0A96AC31585B19E00B1E8F4 /* TestModelGroup.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestModelGroup.volta; sourceTree = "<group>"; };
 		C0AB6D5B1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXVoltaArchiveConverterV1To2.h; path = code/FXVoltaArchiveConverterV1To2.h; sourceTree = "<group>"; };
 		C0AB6D5C1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaArchiveConverterV1To2.mm; path = code/FXVoltaArchiveConverterV1To2.mm; sourceTree = "<group>"; };
-		C0AB6D601556971300B26CB5 /* test_xml_element.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_xml_element.mm; path = code/test_xml_element.mm; sourceTree = "<group>"; };
 		C0AD1109140B85B200C3BB68 /* FXSystemUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSystemUtils.h; path = code/FXSystemUtils.h; sourceTree = "<group>"; };
 		C0AD110A140B85B200C3BB68 /* FXSystemUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSystemUtils.mm; path = code/FXSystemUtils.mm; sourceTree = "<group>"; };
 		C0AD354512B6125200F37465 /* FXSchematicPropertiesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSchematicPropertiesTableView.h; path = code/FXSchematicPropertiesTableView.h; sourceTree = "<group>"; };
 		C0AD354612B6125200F37465 /* FXSchematicPropertiesTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicPropertiesTableView.mm; path = code/FXSchematicPropertiesTableView.mm; sourceTree = "<group>"; };
 		C0AE0CC211FCE3A2000438A8 /* FXSpiceOutputParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSpiceOutputParser.mm; path = code/FXSpiceOutputParser.mm; sourceTree = "<group>"; };
 		C0AE0CC411FCE4B6000438A8 /* FXComplexNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXComplexNumber.h; path = code/FXComplexNumber.h; sourceTree = "<group>"; };
-		C0AFC25812984A33007239C6 /* VoltaModelTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaModelTypes.h; path = code/VoltaModelTypes.h; sourceTree = "<group>"; };
 		C0B1080F150F7DDD00E9A220 /* FXNetlistSyntaxHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXNetlistSyntaxHighlighter.m; path = code/FXNetlistSyntaxHighlighter.m; sourceTree = "<group>"; };
-		C0B22FF71564E43500D9CD1F /* test_subcircuit.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_subcircuit.volta; sourceTree = "<group>"; };
 		C0B62FD90E9D4DCB0000BFB0 /* Volta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Volta-Info.plist"; sourceTree = "<group>"; };
 		C0B6A8F71126B791006FBB1C /* FXVoltaDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXVoltaDocumentController.h; path = code/FXVoltaDocumentController.h; sourceTree = "<group>"; };
 		C0B6A8F81126B791006FBB1C /* FXVoltaDocumentController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaDocumentController.mm; path = code/FXVoltaDocumentController.mm; sourceTree = "<group>"; };
@@ -1133,8 +1134,6 @@
 		C0B7E8BD110364D100097392 /* NGSpice.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NGSpice.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BA8C23150F975D006B02F5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SubcircuitEditor.strings; sourceTree = "<group>"; };
 		C0BF7ABF0F856C90000E4648 /* Volta.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Volta.sdef; sourceTree = "<group>"; };
-		C0BFBD9D1556F35900602BAA /* test_archive_validator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_archive_validator.mm; path = code/test_archive_validator.mm; sourceTree = "<group>"; };
-		C0C0C9A515D7C50D00740140 /* test_mac_app_store_receipt_validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = test_mac_app_store_receipt_validation.m; path = code/test_mac_app_store_receipt_validation.m; sourceTree = "<group>"; };
 		C0C5462C150FB4510075A553 /* LibraryEditorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryEditorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C5464F150FBCD60075A553 /* LibraryEditorTest.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryEditorTest.pch; path = code/LibraryEditorTest.pch; sourceTree = "<group>"; };
 		C0C54650150FBCD60075A553 /* LibraryEditorTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LibraryEditorTest-Info.plist"; sourceTree = "<group>"; };
@@ -1216,7 +1215,7 @@
 		C0EFD86814B738700029FDE4 /* FXXMLDocument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXXMLDocument.mm; path = code/FXXMLDocument.mm; sourceTree = "<group>"; };
 		C0EFD86914B738700029FDE4 /* FXXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXXMLElement.h; path = code/FXXMLElement.h; sourceTree = "<group>"; };
 		C0EFD86A14B738700029FDE4 /* FXXMLElement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXXMLElement.mm; path = code/FXXMLElement.mm; sourceTree = "<group>"; };
-		C0EFD87414B73C310029FDE4 /* VoltaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoltaLibrary.h; sourceTree = "<group>"; };
+		C0EFD87414B73C310029FDE4 /* VoltaLibraryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoltaLibraryProtocol.h; sourceTree = "<group>"; };
 		C0EFD87814B742650029FDE4 /* volta-v2.rng */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "volta-v2.rng"; sourceTree = "<group>"; };
 		C0EFD87C14B7427A0029FDE4 /* FXModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXModel.h; path = code/FXModel.h; sourceTree = "<group>"; };
 		C0EFD87D14B7427A0029FDE4 /* FXModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXModel.mm; path = code/FXModel.mm; sourceTree = "<group>"; };
@@ -1235,7 +1234,7 @@
 		C0EFD88C14B7427A0029FDE4 /* FXVoltaLibraryUtilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaLibraryUtilities.mm; path = code/FXVoltaLibraryUtilities.mm; sourceTree = "<group>"; };
 		C0EFD88D14B7427A0029FDE4 /* FXVoltaPersistentMetaKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXVoltaPersistentMetaKeys.h; path = code/FXVoltaPersistentMetaKeys.h; sourceTree = "<group>"; };
 		C0EFD88E14B7427A0029FDE4 /* FXVoltaPersistentMetaKeys.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaPersistentMetaKeys.mm; path = code/FXVoltaPersistentMetaKeys.mm; sourceTree = "<group>"; };
-		C0EFD88F14B7427A0029FDE4 /* VoltaLibrary.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaLibrary.pch; path = code/VoltaLibrary.pch; sourceTree = "<group>"; };
+		C0EFD88F14B7427A0029FDE4 /* VoltaCore.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaCore.pch; path = code/VoltaCore.pch; sourceTree = "<group>"; };
 		C0EFD8A614B7439A0029FDE4 /* models.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = models.volta; sourceTree = "<group>"; };
 		C0EFD8B114B747CD0029FDE4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		C0EFF79E14EF972F0022F602 /* FXTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXTextView.h; path = code/FXTextView.h; sourceTree = "<group>"; };
@@ -1246,7 +1245,6 @@
 		C0F4918C110D816200106E53 /* Volta.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Volta.pch; path = code/Volta.pch; sourceTree = "<group>"; };
 		C0F4EDA5156F180800C51D5A /* FXVoltaLibraryData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaLibraryData.mm; path = code/FXVoltaLibraryData.mm; sourceTree = "<group>"; };
 		C0F4EDA6156F180800C51D5A /* FXVoltaLibraryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXVoltaLibraryData.h; path = code/FXVoltaLibraryData.h; sourceTree = "<group>"; };
-		C0F4EDAB156F197200C51D5A /* test_library_data.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = test_library_data.mm; path = code/test_library_data.mm; sourceTree = "<group>"; };
 		C0F738B31624F96000A9EFE2 /* VoltaFile.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = VoltaFile.iconset; path = resources/graphics/VoltaFile.iconset; sourceTree = "<group>"; };
 		C0F7A64D1279507F00AAC820 /* FXAlignmentLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXAlignmentLine.h; path = code/FXAlignmentLine.h; sourceTree = "<group>"; };
 		C0F7A64E1279507F00AAC820 /* FXAlignmentLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXAlignmentLine.m; path = code/FXAlignmentLine.m; sourceTree = "<group>"; };
@@ -1258,7 +1256,6 @@
 		C0FB2AF015F27E8000F4AD7B /* Subcircuit_TIP122.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Subcircuit_TIP122.volta; path = resources/Subcircuit_TIP122.volta; sourceTree = "<group>"; };
 		C0FB2AF115F27E8100F4AD7B /* Subcircuit_TIP127.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Subcircuit_TIP127.volta; path = resources/Subcircuit_TIP127.volta; sourceTree = "<group>"; };
 		C0FBFA20140B92B100139FB1 /* FXKit.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXKit.pch; path = code/FXKit.pch; sourceTree = "<group>"; };
-		C0FD771C1297C93100CB5D94 /* FXSchematicToNetlistConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicToNetlistConverter.mm; path = code/FXSchematicToNetlistConverter.mm; sourceTree = "<group>"; };
 		C0FF239E12882D4A006EA7FD /* FXConnectionInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXConnectionInformation.h; path = code/FXConnectionInformation.h; sourceTree = "<group>"; };
 		DB90AB6B0FE5059A00891ED1 /* Plotter.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Plotter.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB90AB880FE5074300891ED1 /* PlotterTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlotterTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1269,6 +1266,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2A979DEB2041987500B31E74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A979E2A20419E5B00B31E74 /* FXKit.framework in Frameworks */,
+				2A979E2B20419E5B00B31E74 /* FXShape.framework in Frameworks */,
+				2A979E2C20419E5B00B31E74 /* VoltaCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC330486D014006FF6A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1278,19 +1285,7 @@
 				C04A663612F23E83005E6A80 /* Security.framework in Frameworks */,
 				C01734F11409396A0035F6E1 /* FXKit.framework in Frameworks */,
 				C0A8740E14B7041E009A30B7 /* FXShape.framework in Frameworks */,
-				C0EFD83714B733130029FDE4 /* VoltaLibrary.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C00575890F7F9A0000A0D844 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0604E26140B94EA00BEA241 /* FXKit.framework in Frameworks */,
-				C0D3D67F14B752CB00765E77 /* FXShape.framework in Frameworks */,
-				C0D3D68014B752CE00765E77 /* VoltaLibrary.framework in Frameworks */,
-				C0C0C9AD15D7D24100740140 /* Security.framework in Frameworks */,
-				C0C0C9AE15D7D28B00740140 /* IOKit.framework in Frameworks */,
+				C0EFD83714B733130029FDE4 /* VoltaCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1339,7 +1334,7 @@
 				C0AD1108140B796300C3BB68 /* FXKit.framework in Frameworks */,
 				C0A8740D14B70388009A30B7 /* FXShape.framework in Frameworks */,
 				C0C667BD0F88970000BBD027 /* QuartzCore.framework in Frameworks */,
-				C0EFD87314B73A200029FDE4 /* VoltaLibrary.framework in Frameworks */,
+				C0EFD87314B73A200029FDE4 /* VoltaCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1350,7 +1345,7 @@
 				C051DAB6150E8D150053457F /* Cocoa.framework in Frameworks */,
 				C051DAE2150E977F0053457F /* FXKit.framework in Frameworks */,
 				C051DAE8150E97C90053457F /* FXShape.framework in Frameworks */,
-				C051DAE5150E97A00053457F /* VoltaLibrary.framework in Frameworks */,
+				C051DAE5150E97A00053457F /* VoltaCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,7 +1353,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0EFD8BD14B74A010029FDE4 /* VoltaLibrary.framework in Frameworks */,
+				C0EFD8BD14B74A010029FDE4 /* VoltaCore.framework in Frameworks */,
 				C0EFD8BC14B749FD0029FDE4 /* FXShape.framework in Frameworks */,
 				C0EFD8BB14B749FA0029FDE4 /* FXKit.framework in Frameworks */,
 				B7956E620EDA0EB300F69D25 /* Cocoa.framework in Frameworks */,
@@ -1390,7 +1385,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C5465B150FCB910075A553 /* VoltaLibrary.framework in Frameworks */,
+				C0C5465B150FCB910075A553 /* VoltaCore.framework in Frameworks */,
 				C0C5462E150FB4510075A553 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1419,6 +1414,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A979E512041A8A600B31E74 /* FXKit.framework in Frameworks */,
 				C0D16FBF154D549100BEF274 /* FXShape.framework in Frameworks */,
 				C0D16F93154D4D9000BEF274 /* Cocoa.framework in Frameworks */,
 			);
@@ -1465,18 +1461,18 @@
 				8D15AC370486D014006FF6A4 /* Volta.app */,
 				C0855B260E764A7000471B28 /* SchematicEditorTest.app */,
 				C011F1DA0E4516F100D45C11 /* NetlistEditorTest.app */,
-				C005758C0F7F9A0000A0D844 /* UnitTests.octest */,
 				DB90AB880FE5074300891ED1 /* PlotterTest.app */,
 				C0B7E8BD110364D100097392 /* NGSpice.bundle */,
 				C01734C514090CC80035F6E1 /* FXKit.framework */,
 				C04002E914B6F4FC00ECD7D2 /* FXShape.framework */,
-				C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */,
+				C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */,
 				C051DAB5150E8D150053457F /* LibraryEditor.bundle */,
 				C0C628B7150F8DF70021C222 /* SubcircuitEditor.bundle */,
 				C0C5462C150FB4510075A553 /* LibraryEditorTest.app */,
 				C0C54663150FD8070075A553 /* SubcircuitEditorTest.app */,
 				C017FDC5151100A900E079F6 /* FXTesting.framework */,
 				C0D16F91154D4D9000BEF274 /* ShapeTest.app */,
+				2A979DEE2041987500B31E74 /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1488,10 +1484,10 @@
 				C01734D914090D200035F6E1 /* FXKit */,
 				C04002EB14B6F4FC00ECD7D2 /* FXShape */,
 				C017FDD91511129900E079F6 /* FXTesting */,
-				C0892CFF14B72EFE006A5A7A /* VoltaLibrary */,
+				C0892CFF14B72EFE006A5A7A /* VoltaCore */,
 				C09911E80E46048E00A6480C /* Plugins */,
 				C09911E00E4603D800A6480C /* Volta App */,
-				C011F1DF0E45170200D45C11 /* Tests */,
+				2A979DEF2041987500B31E74 /* UnitTests */,
 				C07CB6D81597B4BE00D3BCC3 /* Supporting Files */,
 				C08026B30E3A8A25009ABF24 /* Libraries */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
@@ -1564,10 +1560,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2A979DEF2041987500B31E74 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A979E382041A0BF00B31E74 /* Resources */,
+				2A979DFA20419D1100B31E74 /* test_archive_converter_v1_to_v2.mm */,
+				2A979DFD20419D1100B31E74 /* test_archive_validator.mm */,
+				2A979E0120419D1100B31E74 /* test_archiving.mm */,
+				2A979DF820419D1000B31E74 /* test_fxpath.mm */,
+				2A979E0020419D1100B31E74 /* test_fxstring.mm */,
+				2A979E0620419D1100B31E74 /* test_library_data.mm */,
+				2A979DFB20419D1100B31E74 /* test_library_storage.mm */,
+				2A979E0320419D1100B31E74 /* test_library.mm */,
+				2A979E0720419D1100B31E74 /* test_persistent_types.mm */,
+				2A979DFE20419D1100B31E74 /* test_plotter_data.mm */,
+				2A979DF920419D1100B31E74 /* test_plotter_utils.mm */,
+				2A979DFF20419D1100B31E74 /* test_schematicToNetlist.mm */,
+				2A979E0420419D1100B31E74 /* test_spice_lib_parsing.mm */,
+				2A979E0220419D1100B31E74 /* test_spice_output_parser.mm */,
+				2A979DFC20419D1100B31E74 /* test_xml_element.mm */,
+				2A979E0520419D1100B31E74 /* test_xml_parser.mm */,
+				2A979E0820419D1100B31E74 /* UnitTests.pch */,
+				2A979DF22041987500B31E74 /* Info.plist */,
+			);
+			name = UnitTests;
+			path = "../unit-tests";
+			sourceTree = "<group>";
+		};
+		2A979E382041A0BF00B31E74 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A979E3C2041A0EB00B31E74 /* ngspice_output_1.txt */,
+				2A979E3E2041A0EB00B31E74 /* ngspice_output_2.txt */,
+				2A979E392041A0EB00B31E74 /* test_single_model_no_vendor.lib */,
+				2A979E3B2041A0EB00B31E74 /* test_single_model.lib */,
+				2A979E3A2041A0EB00B31E74 /* TestElementGroup.volta */,
+				2A979E3D2041A0EB00B31E74 /* TestModelGroup.volta */,
+				2A979E4D2041A20C00B31E74 /* test_subcircuit.volta */,
+			);
+			name = Resources;
+			path = resources;
+			sourceTree = "<group>";
+		};
 		C00572E70F7F009A00A0D844 /* Plotter */ = {
 			isa = PBXGroup;
 			children = (
-				C0E91975150F561A00465542 /* test */,
+				C0E91975150F561A00465542 /* Test App */,
 				C08C7B38128983600041EF57 /* Protocols */,
 				C0DD807C14AC86BD0056CABC /* Resources */,
 				C027364215F9B82200A9B866 /* FXPlotterAxisData.h */,
@@ -1642,48 +1680,14 @@
 			isa = PBXGroup;
 			children = (
 				C0DD8AD80E3BD670006B2136 /* Protocols */,
+				2A979E582041B9BE00B31E74 /* main.m */,
 				C00FD274113130E400C95E7D /* Common.pch */,
 				C0AE0CC411FCE4B6000438A8 /* FXComplexNumber.h */,
 				C0538047127406EC00A6B84D /* FXComplexNumber.cpp */,
 				C00FD275113130E400C95E7D /* FXKitDefines.h */,
-				C00FD276113130E400C95E7D /* FXSchematicToNetlistConverter.h */,
-				C0FD771C1297C93100CB5D94 /* FXSchematicToNetlistConverter.mm */,
-				C083399815F142D800CFB957 /* FXSPICELibParser.h */,
-				C083399915F142D800CFB957 /* FXSPICELibParser.mm */,
-				C0AFC25812984A33007239C6 /* VoltaModelTypes.h */,
-				C00FD282113130E400C95E7D /* VoltaPersistentTypes.h */,
-				C021FD3511FB89690092CA41 /* VoltaSimulationData.h */,
 			);
 			name = Common;
 			path = ../common;
-			sourceTree = SOURCE_ROOT;
-		};
-		C011F1DF0E45170200D45C11 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C091A5BF150F737A00EE30BB /* Resources */,
-				C091A5A9150F6DEB00EE30BB /* test_archiving.mm */,
-				C091A5B1150F6DEB00EE30BB /* test_archive_converter_v1_to_v2.mm */,
-				C0BFBD9D1556F35900602BAA /* test_archive_validator.mm */,
-				C091A5AA150F6DEB00EE30BB /* test_fxpath.mm */,
-				C091A5AB150F6DEB00EE30BB /* test_fxstring.mm */,
-				C091A5AC150F6DEB00EE30BB /* test_library.mm */,
-				C0F4EDAB156F197200C51D5A /* test_library_data.mm */,
-				C045B25115807314007CF85B /* test_library_storage.mm */,
-				C0C0C9A515D7C50D00740140 /* test_mac_app_store_receipt_validation.m */,
-				C091A5AD150F6DEB00EE30BB /* test_persistent_types.mm */,
-				C091A5AE150F6DEB00EE30BB /* test_plotter_data.mm */,
-				C027364915F9BF2E00A9B866 /* test_plotter_utils.mm */,
-				C091A5AF150F6DEB00EE30BB /* test_schematicToNetlist.mm */,
-				C083399215F13D3F00CFB957 /* test_spice_lib_parsing.mm */,
-				C091A5B0150F6DEB00EE30BB /* test_spice_output_parser.mm */,
-				C0AB6D601556971300B26CB5 /* test_xml_element.mm */,
-				C091A5B2150F6DEB00EE30BB /* test_xml_parser.mm */,
-				C091A5B3150F6DEB00EE30BB /* UnitTests.pch */,
-				C091A5BE150F732600EE30BB /* UnitTests-Info.plist */,
-			);
-			name = Tests;
-			path = ../tests;
 			sourceTree = SOURCE_ROOT;
 		};
 		C01734C714090CC80035F6E1 /* Other Frameworks */ = {
@@ -1773,7 +1777,7 @@
 		C04002EB14B6F4FC00ECD7D2 /* FXShape */ = {
 			isa = PBXGroup;
 			children = (
-				C0D16FAA154D4E6500BEF274 /* test */,
+				C0D16FAA154D4E6500BEF274 /* Test app */,
 				C00E219B14B70CCA003A219B /* FXShape-Info.plist */,
 				C00E219914B70C62003A219B /* FXShape.pch */,
 				C00E21A514B71424003A219B /* FXShape.h */,
@@ -1977,7 +1981,7 @@
 			name = "Custom Views";
 			sourceTree = "<group>";
 		};
-		C0892CFF14B72EFE006A5A7A /* VoltaLibrary */ = {
+		C0892CFF14B72EFE006A5A7A /* VoltaCore */ = {
 			isa = PBXGroup;
 			children = (
 				C0EFD87714B742650029FDE4 /* Resources */,
@@ -1993,6 +1997,8 @@
 				C08D4441157D1B7300890DC8 /* FXModelGroup.mm */,
 				C08D4444157D210100890DC8 /* FXProperty.h */,
 				C08D4445157D210100890DC8 /* FXProperty.mm */,
+				2A0797D120407A99004B0A6E /* FXSPICELibParser.h */,
+				2A0797D220407A99004B0A6E /* FXSPICELibParser.mm */,
 				C0EFD87E14B7427A0029FDE4 /* FXVoltaArchiver.h */,
 				C0EFD86414B738210029FDE4 /* FXVoltaArchiver.mm */,
 				C08094DF15506163005ED761 /* FXVoltaArchiveValidator.h */,
@@ -2013,11 +2019,15 @@
 				C0EFD88C14B7427A0029FDE4 /* FXVoltaLibraryUtilities.mm */,
 				C0EFD88D14B7427A0029FDE4 /* FXVoltaPersistentMetaKeys.h */,
 				C0EFD88E14B7427A0029FDE4 /* FXVoltaPersistentMetaKeys.mm */,
-				C0EFD88F14B7427A0029FDE4 /* VoltaLibrary.pch */,
-				C0892D0C14B7304D006A5A7A /* VoltaLibrary-Info.plist */,
+				2A0797C9204074BB004B0A6E /* VoltaModelTypes.h */,
+				2A0797C8204074BB004B0A6E /* VoltaPersistentTypes.h */,
+				2A0797CE2040772C004B0A6E /* VoltaSimulationData.h */,
+				C0EFD88F14B7427A0029FDE4 /* VoltaCore.pch */,
+				C0892D0C14B7304D006A5A7A /* VoltaCore-Info.plist */,
+				2A0797C420406FBE004B0A6E /* VoltaCore.h */,
 			);
-			name = VoltaLibrary;
-			path = ../components/library;
+			name = VoltaCore;
+			path = ../components/core;
 			sourceTree = SOURCE_ROOT;
 		};
 		C08C7B341289822C0041EF57 /* Protocols */ = {
@@ -2070,40 +2080,6 @@
 			path = test;
 			sourceTree = "<group>";
 		};
-		C091A59B150F66E400EE30BB /* test */ = {
-			isa = PBXGroup;
-			children = (
-				C091A59C150F66E400EE30BB /* Gnucap */,
-			);
-			path = test;
-			sourceTree = "<group>";
-		};
-		C091A59C150F66E400EE30BB /* Gnucap */ = {
-			isa = PBXGroup;
-			children = (
-				C091A59D150F66E400EE30BB /* FXGnucapTestController.h */,
-				C091A59E150F66E400EE30BB /* FXGnucapTestController.mm */,
-				C091A59F150F66E400EE30BB /* GnucapTest-Info.plist */,
-				C091A5A0150F66E400EE30BB /* GnucapTest.xib */,
-			);
-			path = Gnucap;
-			sourceTree = "<group>";
-		};
-		C091A5BF150F737A00EE30BB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C091A5C0150F737A00EE30BB /* ngspice_output_1.txt */,
-				C091A5C1150F737A00EE30BB /* ngspice_output_2.txt */,
-				C0B22FF71564E43500D9CD1F /* test_subcircuit.volta */,
-				C0A96AC11585177200B1E8F4 /* TestElementGroup.volta */,
-				C0A96AC31585B19E00B1E8F4 /* TestModelGroup.volta */,
-				C083399415F1418100CFB957 /* test_single_model.lib */,
-				C0648ACF15F2094400B1282B /* test_single_model_no_vendor.lib */,
-			);
-			name = Resources;
-			path = resources;
-			sourceTree = "<group>";
-		};
 		C09911E00E4603D800A6480C /* Volta App */ = {
 			isa = PBXGroup;
 			children = (
@@ -2112,7 +2088,6 @@
 				C047F0E60F42235D00C0A379 /* Views */,
 				2A37F4ABFDCFA73011CA2CEA /* Controllers */,
 				C07D311214D9E66400238084 /* container-migration.plist */,
-				2A60A939203CD2A90016B393 /* main.m */,
 				C0373F2E14B7218200A01E99 /* FXVoltaErrors.h */,
 				C0373F2F14B7218300A01E99 /* FXVoltaErrors.mm */,
 				C0B6A8FA1126B8FC006FBB1C /* FXVoltaNotifications.h */,
@@ -2142,6 +2117,8 @@
 		C09912230E46061F00A6480C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2A0797D82040826B004B0A6E /* FXSchematicToNetlistConverter.h */,
+				2A0797D92040826B004B0A6E /* FXSchematicToNetlistConverter.mm */,
 				DB90AC470FE516DE00891ED1 /* FXVoltaPluginGroup.h */,
 				DB90AC480FE516DE00891ED1 /* FXVoltaPluginGroup.m */,
 				C011EA100E9D323D0016B5ED /* FXVoltaPlugin.h */,
@@ -2153,7 +2130,6 @@
 		C09E903B0E50D77600D88A60 /* Simulators */ = {
 			isa = PBXGroup;
 			children = (
-				C091A59B150F66E400EE30BB /* test */,
 				C08C7B341289822C0041EF57 /* Protocols */,
 				C06A414912C00C7B006EBDF4 /* Resources */,
 				C0B7E8D41103664400097392 /* NGSpice */,
@@ -2296,7 +2272,7 @@
 			name = "File Browser";
 			sourceTree = "<group>";
 		};
-		C0D16FAA154D4E6500BEF274 /* test */ = {
+		C0D16FAA154D4E6500BEF274 /* Test app */ = {
 			isa = PBXGroup;
 			children = (
 				C0D16FAB154D4E6500BEF274 /* ShapeTestController.h */,
@@ -2305,6 +2281,7 @@
 				C0D16FB4154D4E6500BEF274 /* ShapeTest-Info.plist */,
 				C0D16FB5154D4E6500BEF274 /* ShapeTest.pch */,
 			);
+			name = "Test app";
 			path = test;
 			sourceTree = "<group>";
 		};
@@ -2398,7 +2375,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		C0E91975150F561A00465542 /* test */ = {
+		C0E91975150F561A00465542 /* Test App */ = {
 			isa = PBXGroup;
 			children = (
 				C0C54692150FE7B80075A553 /* Resources */,
@@ -2407,13 +2384,14 @@
 				C0E91978150F561A00465542 /* PlotterTest-Info.plist */,
 				C0E91979150F561A00465542 /* PlotterTest.pch */,
 			);
-			path = test;
+			name = "Test App";
+			path = "test-app";
 			sourceTree = "<group>";
 		};
 		C0EFD87614B73C3C0029FDE4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				C0EFD87414B73C310029FDE4 /* VoltaLibrary.h */,
+				C0EFD87414B73C310029FDE4 /* VoltaLibraryProtocol.h */,
 				C08C5AFE16367E7A00CC845E /* VoltaCloudLibraryController.h */,
 			);
 			name = Protocols;
@@ -2465,11 +2443,13 @@
 				C051DAEF150E98810053457F /* FXMultiFoldingView.h in Headers */,
 				C0892CF314B72E04006A5A7A /* FXOutlineView.h in Headers */,
 				C0F1507714A74494007C33F3 /* FXStdStringUtils.h in Headers */,
+				2A979E1920419D1100B31E74 /* UnitTests.pch in Headers */,
 				C0AD1105140B775000C3BB68 /* FXString.h in Headers */,
 				C0AD110B140B85B200C3BB68 /* FXSystemUtils.h in Headers */,
 				C0892CF514B72E04006A5A7A /* FXTableView.h in Headers */,
 				C0D6068F14E2573A00CA605C /* FXTabView.h in Headers */,
 				C0EFF7A014EF972F0022F602 /* FXTextView.h in Headers */,
+				2A0797DA2040826C004B0A6E /* FXSchematicToNetlistConverter.h in Headers */,
 				C0EFD86B14B738700029FDE4 /* FXXMLDocument.h in Headers */,
 				C0EFD86D14B738700029FDE4 /* FXXMLElement.h in Headers */,
 				C037B267158B03D50087042C /* FXImageUtils.h in Headers */,
@@ -2496,6 +2476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0A873CF14B6FAA2009A30B7 /* FXBasicShape.h in Headers */,
+				C0A873D314B6FAA2009A30B7 /* FXShapeView.h in Headers */,
 				C0A873DB14B6FB61009A30B7 /* FXCircle.h in Headers */,
 				C0A873F314B6FE98009A30B7 /* FXDIPShape.h in Headers */,
 				C0A873F514B6FE98009A30B7 /* FXPath.h in Headers */,
@@ -2505,7 +2486,6 @@
 				C0A873DD14B6FB61009A30B7 /* FXShapeConnectionPoint.h in Headers */,
 				C0A8740514B70006009A30B7 /* FXShapeFactory.h in Headers */,
 				C0A873D114B6FAA2009A30B7 /* FXShapeRenderer.h in Headers */,
-				C0A873D314B6FAA2009A30B7 /* FXShapeView.h in Headers */,
 				C0A873DF14B6FB61009A30B7 /* FXVector.h in Headers */,
 				C0274CC2154D223C0061CE7C /* FXShapeRenderDataPool.h in Headers */,
 				C00BFBB7166F21BC003EB484 /* FXTextShape.h in Headers */,
@@ -2516,31 +2496,52 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A0797CD204074E1004B0A6E /* VoltaPersistentTypes.h in Headers */,
+				2A0797C520407272004B0A6E /* VoltaCore.h in Headers */,
+				C0EFD87514B73C310029FDE4 /* VoltaLibraryProtocol.h in Headers */,
 				C08D4439157D0A5400890DC8 /* FXElement.h in Headers */,
 				C08D443E157D0E9100890DC8 /* FXElementGroup.h in Headers */,
 				C0EFD89214B7427A0029FDE4 /* FXModel.h in Headers */,
 				C0AB6D5D1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.h in Headers */,
 				C0EFD89414B7427A0029FDE4 /* FXVoltaArchiver.h in Headers */,
+				2A0797CC204074D9004B0A6E /* VoltaModelTypes.h in Headers */,
 				C08094E115506163005ED761 /* FXVoltaArchiveValidator.h in Headers */,
 				C0EFD89514B7427A0029FDE4 /* FXVoltaCircuitDomainAgent.h in Headers */,
 				C08C5B0016367EFA00CC845E /* VoltaCloudLibraryController.h in Headers */,
 				C0EFD89714B7427A0029FDE4 /* FXVoltaLibrary.h in Headers */,
 				C0EFD89914B7427A0029FDE4 /* FXVoltaLibraryStorage.h in Headers */,
+				2A0797D020407748004B0A6E /* VoltaSimulationData.h in Headers */,
 				C0EFD89D14B7427A0029FDE4 /* FXVoltaLibraryNotifier.h in Headers */,
 				C0EFD89F14B7427A0029FDE4 /* FXVoltaLibraryShapeRepository.h in Headers */,
 				C0EFD8A114B7427A0029FDE4 /* FXVoltaLibraryUtilities.h in Headers */,
 				C0F4EDA8156F180800C51D5A /* FXVoltaLibraryData.h in Headers */,
 				C0EFD8A314B7427A0029FDE4 /* FXVoltaPersistentMetaKeys.h in Headers */,
-				C0EFD87514B73C310029FDE4 /* VoltaLibrary.h in Headers */,
 				C08D4442157D1B7300890DC8 /* FXModelGroup.h in Headers */,
 				C08D4446157D210100890DC8 /* FXProperty.h in Headers */,
-				C083399A15F142D800CFB957 /* FXSPICELibParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2A979DED2041987500B31E74 /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A979DF52041987500B31E74 /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				2A979DEA2041987500B31E74 /* Sources */,
+				2A979DEB2041987500B31E74 /* Frameworks */,
+				2A979DEC2041987500B31E74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A979DF42041987500B31E74 /* PBXTargetDependency */,
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = 2A979DEE2041987500B31E74 /* UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8D15AC270486D014006FF6A4 /* Volta */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "Volta" */;
@@ -2572,27 +2573,6 @@
 			productReference = 8D15AC370486D014006FF6A4 /* Volta.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C005758B0F7F9A0000A0D844 /* UnitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C00575950F7F9A1F00A0D844 /* Build configuration list for PBXNativeTarget "UnitTests" */;
-			buildPhases = (
-				C00575880F7F9A0000A0D844 /* Sources */,
-				C00575890F7F9A0000A0D844 /* Frameworks */,
-				C00575870F7F9A0000A0D844 /* Resources */,
-				C005758A0F7F9A0000A0D844 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C01734EF140928520035F6E1 /* PBXTargetDependency */,
-				C0A8740814B70290009A30B7 /* PBXTargetDependency */,
-				C0D3D67D14B752BC00765E77 /* PBXTargetDependency */,
-			);
-			name = UnitTests;
-			productName = UnitTests;
-			productReference = C005758C0F7F9A0000A0D844 /* UnitTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 		C011F1D90E4516F100D45C11 /* NetlistEditorTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C011F1E00E45170200D45C11 /* Build configuration list for PBXNativeTarget "NetlistEditorTest" */;
@@ -2605,6 +2585,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2A979E542041B25E00B31E74 /* PBXTargetDependency */,
 				C091A598150F64C700EE30BB /* PBXTargetDependency */,
 			);
 			name = NetlistEditorTest;
@@ -2730,9 +2711,9 @@
 			productReference = C0855B260E764A7000471B28 /* SchematicEditorTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C0892CFC14B72EFE006A5A7A /* VoltaLibrary */ = {
+		C0892CFC14B72EFE006A5A7A /* VoltaCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0892D0914B72EFE006A5A7A /* Build configuration list for PBXNativeTarget "VoltaLibrary" */;
+			buildConfigurationList = C0892D0914B72EFE006A5A7A /* Build configuration list for PBXNativeTarget "VoltaCore" */;
 			buildPhases = (
 				C0892CF814B72EFE006A5A7A /* Sources */,
 				C0892CF914B72EFE006A5A7A /* Frameworks */,
@@ -2745,9 +2726,9 @@
 				C0EFD85114B735730029FDE4 /* PBXTargetDependency */,
 				C0892D1114B73129006A5A7A /* PBXTargetDependency */,
 			);
-			name = VoltaLibrary;
+			name = VoltaCore;
 			productName = VoltaLibrary;
-			productReference = C0892CFD14B72EFE006A5A7A /* VoltaLibrary.framework */;
+			productReference = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C0B7E8BC110364D100097392 /* NGSpice */ = {
@@ -2908,8 +2889,13 @@
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				TargetAttributes = {
+					2A979DED2041987500B31E74 = {
+						CreatedOnToolsVersion = 9.2;
+						TestTargetID = 8D15AC270486D014006FF6A4;
+					};
 					8D15AC270486D014006FF6A4 = {
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -2940,28 +2926,44 @@
 			projectRoot = "";
 			targets = (
 				C01734C414090CC80035F6E1 /* FXKit */,
-				C04002E814B6F4FC00ECD7D2 /* FXShape */,
 				C017FDC4151100A900E079F6 /* FXTesting */,
-				C0892CFC14B72EFE006A5A7A /* VoltaLibrary */,
+				C04002E814B6F4FC00ECD7D2 /* FXShape */,
+				C0D16F90154D4D9000BEF274 /* ShapeTest */,
+				C0892CFC14B72EFE006A5A7A /* VoltaCore */,
 				C051DAB4150E8D150053457F /* LibraryEditor */,
+				C0C5462B150FB4510075A553 /* LibraryEditorTest */,
 				C0DD8ACE0E3B7605006B2136 /* NetlistEditor */,
+				C011F1D90E4516F100D45C11 /* NetlistEditorTest */,
 				C0B7E8BC110364D100097392 /* NGSpice */,
 				DB90AB6A0FE5059A00891ED1 /* Plotter */,
-				C04A68B60E75C55F005AABA3 /* SchematicEditor */,
-				C0C628B6150F8DF70021C222 /* SubcircuitEditor */,
-				C005758B0F7F9A0000A0D844 /* UnitTests */,
-				C011F1D90E4516F100D45C11 /* NetlistEditorTest */,
 				DB90AB870FE5074300891ED1 /* PlotterTest */,
-				C0C5462B150FB4510075A553 /* LibraryEditorTest */,
+				C04A68B60E75C55F005AABA3 /* SchematicEditor */,
 				C0855B250E764A7000471B28 /* SchematicEditorTest */,
-				C0D16F90154D4D9000BEF274 /* ShapeTest */,
+				C0C628B6150F8DF70021C222 /* SubcircuitEditor */,
 				C0C54662150FD8070075A553 /* SubcircuitEditorTest */,
 				8D15AC270486D014006FF6A4 /* Volta */,
+				2A979DED2041987500B31E74 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2A979DEC2041987500B31E74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A979E4A2041A0F300B31E74 /* TestModelGroup.volta in Resources */,
+				2A979E492041A0F300B31E74 /* TestElementGroup.volta in Resources */,
+				2A979E4F2041A21700B31E74 /* test_subcircuit.volta in Resources */,
+				2A979E462041A0F300B31E74 /* ngspice_output_2.txt in Resources */,
+				2A979E472041A0F300B31E74 /* test_single_model_no_vendor.lib in Resources */,
+				2A979E4C2041A1D000B31E74 /* volta-v2.rng in Resources */,
+				2A979E452041A0F300B31E74 /* ngspice_output_1.txt in Resources */,
+				2A979E482041A0F300B31E74 /* test_single_model.lib in Resources */,
+				2A979E4B2041A18600B31E74 /* Models_OnSemi.lib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC2B0486D014006FF6A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3005,24 +3007,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C00575870F7F9A0000A0D844 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0D3D68114B7542E00765E77 /* volta-v2.rng in Resources */,
-				C091A5C3150F737A00EE30BB /* ngspice_output_1.txt in Resources */,
-				C091A5C4150F737A00EE30BB /* ngspice_output_2.txt in Resources */,
-				C0BFBDA01556F83200602BAA /* volta-v1.rng in Resources */,
-				C0B22FF81564E43500D9CD1F /* test_subcircuit.volta in Resources */,
-				C0A96AB71584DB8400B1E8F4 /* models.volta in Resources */,
-				C0A96AC21585177300B1E8F4 /* TestElementGroup.volta in Resources */,
-				C0A96AC41585B19E00B1E8F4 /* TestModelGroup.volta in Resources */,
-				C083399515F1418100CFB957 /* test_single_model.lib in Resources */,
-				C0EF75EF15F1D33200AC9CEF /* Models_OnSemi.lib in Resources */,
-				C0648AD015F2094400B1282B /* test_single_model_no_vendor.lib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C011F1D60E4516F100D45C11 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3038,6 +3022,7 @@
 			files = (
 				C051D5F115E8EC20002B2A7D /* FXKit.strings in Resources */,
 				C0CDDE8A168F91CC00A81199 /* FXFileBrowser.xib in Resources */,
+				2A979E4E2041A20C00B31E74 /* test_subcircuit.volta in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3173,7 +3158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E9197D150F561A00465542 /* PlotterTest.xib in Resources */,
-				C0C5469A150FE85B0075A553 /* ngspice_output_2.txt in Resources */,
+				2A979E562041B89C00B31E74 /* ngspice_output_2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3194,19 +3179,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# This must be executed AFTER copying bundle resources and BEFORE code signing.\n# Only the plist in the build targets directory is modified. The source plist is left unchanged.\ncd $PROJECT_DIR/../..\n#--- Subversion ---\n#svn up -q\n#build_number=`svnversion -n`\n#--- Git ---\nbuild_number=`git log --oneline | wc -l`\n# trim whitespace\nbuild_number=`echo $build_number | sed 's/^ *//;s/ *$//'`\n# add an offset to obtain a larger build number for the App Store\n#build_number=`echo $build_number + 300 | bc -l`\n#-----------\nmajor_version_prefix=\"1.\"\nbundle_version=$major_version_prefix$build_number\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${bundle_version}\" \"${TARGET_BUILD_DIR}\"/${INFOPLIST_PATH}\n";
 			showEnvVarsInLog = 0;
-		};
-		C005758A0F7F9A0000A0D844 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 		C0DD808414AC8EB60056CABC /* Localization Bug Workaround: Deleting symbolic links */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3241,12 +3213,45 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2A979DEA2041987500B31E74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A979E2520419D3A00B31E74 /* test_schematicToNetlist.mm in Sources */,
+				2A979E3520419FC400B31E74 /* FXPlotterUtils.mm in Sources */,
+				2A979E2320419D3A00B31E74 /* test_plotter_data.mm in Sources */,
+				2A979E1D20419D3A00B31E74 /* test_fxpath.mm in Sources */,
+				2A979E1A20419D3A00B31E74 /* test_archive_converter_v1_to_v2.mm in Sources */,
+				2A979E1E20419D3A00B31E74 /* test_fxstring.mm in Sources */,
+				2A979E372041A07C00B31E74 /* FXComplexNumber.cpp in Sources */,
+				2A979E2120419D3A00B31E74 /* test_library.mm in Sources */,
+				2A979E2920419D3A00B31E74 /* test_xml_parser.mm in Sources */,
+				2A979E1C20419D3A00B31E74 /* test_archiving.mm in Sources */,
+				2A979E2F20419F4000B31E74 /* FXPlotterAxisData.mm in Sources */,
+				2A979E2020419D3A00B31E74 /* test_library_storage.mm in Sources */,
+				2A979E3120419F6900B31E74 /* FXPlotterNumber.mm in Sources */,
+				2A979E3320419FA100B31E74 /* FXPlotterGraphData.mm in Sources */,
+				2A979E3020419F4E00B31E74 /* FXVoltaLibraryData.mm in Sources */,
+				2A979E362041A03700B31E74 /* FXSpiceOutputParser.mm in Sources */,
+				2A979E1B20419D3A00B31E74 /* test_archive_validator.mm in Sources */,
+				2A979E2620419D3A00B31E74 /* test_spice_lib_parsing.mm in Sources */,
+				2A979E2820419D3A00B31E74 /* test_xml_element.mm in Sources */,
+				2A979E2720419D3A00B31E74 /* test_spice_output_parser.mm in Sources */,
+				2A979E3420419FB900B31E74 /* FXPlotterPlot.mm in Sources */,
+				2A979E3220419F7C00B31E74 /* FXPlotterValueRange.mm in Sources */,
+				2A979E1F20419D3A00B31E74 /* test_library_data.mm in Sources */,
+				2A979E2420419D3A00B31E74 /* test_plotter_utils.mm in Sources */,
+				2A979E2220419D3A00B31E74 /* test_persistent_types.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC300486D014006FF6A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C005732C0F7F09B500A0D844 /* FXVoltaPluginsController.m in Sources */,
 				C005732D0F7F09B700A0D844 /* FXVoltaDocument.mm in Sources */,
+				2A0797DC20408275004B0A6E /* FXSchematicToNetlistConverter.mm in Sources */,
 				C00573300F7F09C100A0D844 /* FXVoltaPlugin.mm in Sources */,
 				DB90AC420FE5161100891ED1 /* FXVoltaPluginsController+TableDataSource.m in Sources */,
 				DB90AC490FE516DE00891ED1 /* FXVoltaPluginGroup.m in Sources */,
@@ -3256,7 +3261,6 @@
 				C0B6A8FC1126B8FC006FBB1C /* FXVoltaNotifications.m in Sources */,
 				C00FD0001130643900C95E7D /* FXAnimatedGearWheelButton.mm in Sources */,
 				C00953511176449600AC5CF8 /* FXVoltaDocumentWindow.m in Sources */,
-				C008C46E12D9C4040011641F /* FXSchematicToNetlistConverter.mm in Sources */,
 				C09B1C6612EB5EAF005FF759 /* FXApplication.m in Sources */,
 				C0373F3014B7218300A01E99 /* FXVoltaErrors.mm in Sources */,
 				C088534114B9FA5E0019175B /* FXSimulationObserver.mm in Sources */,
@@ -3264,42 +3268,8 @@
 				C0DA6F9E155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m in Sources */,
 				C0C571EE1620295E00EC26A5 /* FXSimulatorView.m in Sources */,
 				C065DD6C162F3DBE007BC5C6 /* FXVoltaCloudController.mm in Sources */,
-				2A60A93B203CD2C70016B393 /* main.m in Sources */,
+				2A979E602041B9D000B31E74 /* main.m in Sources */,
 				C08ED7A51785631B00168EFB /* FXVoltaDocumentPrintingViewController.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C00575880F7F9A0000A0D844 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C007D00D1272BC960077DB32 /* FXSpiceOutputParser.mm in Sources */,
-				C053804B127406EC00A6B84D /* FXComplexNumber.cpp in Sources */,
-				C0CB70B914164053005FDB63 /* FXPlotterGraphData.mm in Sources */,
-				C07552D0143854E800D4EFEE /* FXPlotterPlot.mm in Sources */,
-				C0FD771E1297C93100CB5D94 /* FXSchematicToNetlistConverter.mm in Sources */,
-				C091A5B4150F6DEB00EE30BB /* test_archiving.mm in Sources */,
-				C091A5B5150F6DEB00EE30BB /* test_fxpath.mm in Sources */,
-				C091A5B6150F6DEB00EE30BB /* test_fxstring.mm in Sources */,
-				C091A5B7150F6DEB00EE30BB /* test_library.mm in Sources */,
-				C091A5B8150F6DEB00EE30BB /* test_persistent_types.mm in Sources */,
-				C091A5B9150F6DEB00EE30BB /* test_plotter_data.mm in Sources */,
-				C091A5BA150F6DEB00EE30BB /* test_schematicToNetlist.mm in Sources */,
-				C091A5BB150F6DEB00EE30BB /* test_spice_output_parser.mm in Sources */,
-				C091A5BC150F6DEB00EE30BB /* test_archive_converter_v1_to_v2.mm in Sources */,
-				C091A5BD150F6DEB00EE30BB /* test_xml_parser.mm in Sources */,
-				C0AB6D611556971300B26CB5 /* test_xml_element.mm in Sources */,
-				C0BFBD9E1556F35900602BAA /* test_archive_validator.mm in Sources */,
-				C0F4EDAC156F197200C51D5A /* test_library_data.mm in Sources */,
-				C045B25215807314007CF85B /* test_library_storage.mm in Sources */,
-				C0C0C9A615D7C50D00740140 /* test_mac_app_store_receipt_validation.m in Sources */,
-				C083399315F13D3F00CFB957 /* test_spice_lib_parsing.mm in Sources */,
-				C083399C15F142D800CFB957 /* FXSPICELibParser.mm in Sources */,
-				C027364A15F9BF2E00A9B866 /* test_plotter_utils.mm in Sources */,
-				C027364B15F9BFAF00A9B866 /* FXPlotterUtils.mm in Sources */,
-				C027364C15F9BFF200A9B866 /* FXPlotterNumber.mm in Sources */,
-				C027364D15F9C3DE00A9B866 /* FXPlotterValueRange.mm in Sources */,
-				C027364E15F9C3F000A9B866 /* FXPlotterAxisData.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3307,8 +3277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A979E5C2041B9CB00B31E74 /* main.m in Sources */,
 				C00FD2BB113131B100C95E7D /* FXNetlistEditorVoltaPlugin.mm in Sources */,
 				C008C6DA12DA24810011641F /* FXNetlistEditor.mm in Sources */,
+				2A979E552041B29E00B31E74 /* FXNetlistSyntaxHighlighter.m in Sources */,
 				C091A594150F642A00EE30BB /* FXNetlistEditorTestController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3421,6 +3393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A979E5E2041B9CE00B31E74 /* main.m in Sources */,
 				C091A58C150F622B00EE30BB /* FXSchematicEditorTestController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3441,11 +3414,11 @@
 				C0AB6D5E1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.mm in Sources */,
 				C0BFBDA1155724BE00602BAA /* FXVoltaArchiveValidator.mm in Sources */,
 				C0F4EDA7156F180800C51D5A /* FXVoltaLibraryData.mm in Sources */,
+				2A0797D520407AAD004B0A6E /* FXSPICELibParser.mm in Sources */,
 				C08D443A157D0A5400890DC8 /* FXElement.mm in Sources */,
 				C08D443F157D0E9100890DC8 /* FXElementGroup.mm in Sources */,
 				C08D4443157D1B7300890DC8 /* FXModelGroup.mm in Sources */,
 				C08D4447157D210100890DC8 /* FXProperty.mm in Sources */,
-				C083399B15F142D800CFB957 /* FXSPICELibParser.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3462,6 +3435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A979E5B2041B9CA00B31E74 /* main.m in Sources */,
 				C0C54658150FBD9A0075A553 /* LibraryEditorTestController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3470,6 +3444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A979E5F2041B9D000B31E74 /* main.m in Sources */,
 				C0C5468C150FDC670075A553 /* SubcircuitEditorTestController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3487,6 +3462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A979E5A2041B9C600B31E74 /* main.m in Sources */,
 				C0D16FB6154D4E6500BEF274 /* ShapeTestController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3524,6 +3500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09A572E1414BA5A00D654FA /* FXSpiceOutputParser.mm in Sources */,
+				2A979E5D2041B9CD00B31E74 /* main.m in Sources */,
 				C0E9197B150F561A00465542 /* FXPlotterTestController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3531,6 +3508,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2A979DF42041987500B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D15AC270486D014006FF6A4 /* Volta */;
+			targetProxy = 2A979DF32041987500B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E542041B25E00B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0DD8ACE0E3B7605006B2136 /* NetlistEditor */;
+			targetProxy = 2A979E532041B25E00B31E74 /* PBXContainerItemProxy */;
+		};
 		C005735D0F7F0B3C00A0D844 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C04A68B60E75C55F005AABA3 /* SchematicEditor */;
@@ -3550,11 +3537,6 @@
 			isa = PBXTargetDependency;
 			target = C01734C414090CC80035F6E1 /* FXKit */;
 			targetProxy = C01734EB140927B80035F6E1 /* PBXContainerItemProxy */;
-		};
-		C01734EF140928520035F6E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C01734C414090CC80035F6E1 /* FXKit */;
-			targetProxy = C01734EE140928520035F6E1 /* PBXContainerItemProxy */;
 		};
 		C017FDD615110D5F00E079F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3578,7 +3560,7 @@
 		};
 		C051DAE4150E979A0053457F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C0892CFC14B72EFE006A5A7A /* VoltaLibrary */;
+			target = C0892CFC14B72EFE006A5A7A /* VoltaCore */;
 			targetProxy = C051DAE3150E979A0053457F /* PBXContainerItemProxy */;
 		};
 		C051DAE7150E97BB0053457F /* PBXTargetDependency */ = {
@@ -3605,11 +3587,6 @@
 			isa = PBXTargetDependency;
 			target = C01734C414090CC80035F6E1 /* FXKit */;
 			targetProxy = C091A597150F64C700EE30BB /* PBXContainerItemProxy */;
-		};
-		C0A8740814B70290009A30B7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C04002E814B6F4FC00ECD7D2 /* FXShape */;
-			targetProxy = C0A8740714B70290009A30B7 /* PBXContainerItemProxy */;
 		};
 		C0A8740A14B702DE009A30B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3648,7 +3625,7 @@
 		};
 		C0C5465A150FCB870075A553 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C0892CFC14B72EFE006A5A7A /* VoltaLibrary */;
+			target = C0892CFC14B72EFE006A5A7A /* VoltaCore */;
 			targetProxy = C0C54659150FCB870075A553 /* PBXContainerItemProxy */;
 		};
 		C0C5468F150FE1930075A553 /* PBXTargetDependency */ = {
@@ -3661,14 +3638,9 @@
 			target = C04002E814B6F4FC00ECD7D2 /* FXShape */;
 			targetProxy = C0D16FBD154D548A00BEF274 /* PBXContainerItemProxy */;
 		};
-		C0D3D67D14B752BC00765E77 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C0892CFC14B72EFE006A5A7A /* VoltaLibrary */;
-			targetProxy = C0D3D67C14B752BC00765E77 /* PBXContainerItemProxy */;
-		};
 		C0EFD83514B732FE0029FDE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C0892CFC14B72EFE006A5A7A /* VoltaLibrary */;
+			target = C0892CFC14B72EFE006A5A7A /* VoltaCore */;
 			targetProxy = C0EFD83414B732FE0029FDE4 /* PBXContainerItemProxy */;
 		};
 		C0EFD85114B735730029FDE4 /* PBXTargetDependency */ = {
@@ -3678,7 +3650,7 @@
 		};
 		C0EFD87214B73A160029FDE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C0892CFC14B72EFE006A5A7A /* VoltaLibrary */;
+			target = C0892CFC14B72EFE006A5A7A /* VoltaCore */;
 			targetProxy = C0EFD87114B73A160029FDE4 /* PBXContainerItemProxy */;
 		};
 		C0EFD8B414B748F00029FDE4 /* PBXTargetDependency */ = {
@@ -3698,7 +3670,7 @@
 		};
 		C0EFD8BA14B7490D0029FDE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C0892CFC14B72EFE006A5A7A /* VoltaLibrary */;
+			target = C0892CFC14B72EFE006A5A7A /* VoltaCore */;
 			targetProxy = C0EFD8B914B7490D0029FDE4 /* PBXContainerItemProxy */;
 		};
 		C0EFF7A414EF9FE30022F602 /* PBXTargetDependency */ = {
@@ -3917,65 +3889,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C00575930F7F9A0100A0D844 /* Debug */ = {
+		2A979DF62041987500B31E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREFIX_HEADER = "../unit-tests/code/UnitTests.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
 					"$(inherited)",
-					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 				);
-				GCC_PREFIX_HEADER = ../tests/code/UnitTests.pch;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/libxml2,
-					/usr/local/asn1c/share/asn1c,
-				);
-				INFOPLIST_FILE = "../tests/UnitTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "${BUILD_PRODUCTS_DIR}";
-				LIBRARY_SEARCH_PATHS = /usr/local/asn1c/share/lib;
-				OTHER_LDFLAGS = (
-					"-framework",
-					Cocoa,
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fish.robo.volta.test;
-				PRODUCT_NAME = UnitTests;
-				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				WRAPPER_EXTENSION = octest;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "../unit-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = fish.robo.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Volta.app/Contents/MacOS/Volta";
 			};
 			name = Debug;
 		};
-		C00575940F7F9A0100A0D844 /* Release */ = {
+		2A979DF72041987500B31E74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
-				);
-				GCC_PREFIX_HEADER = ../tests/code/UnitTests.pch;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/libxml2,
-					/usr/local/asn1c/share/asn1c,
-				);
-				INFOPLIST_FILE = "../tests/UnitTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "${BUILD_PRODUCTS_DIR}";
-				LIBRARY_SEARCH_PATHS = /usr/local/asn1c/share/lib;
-				OTHER_LDFLAGS = (
-					"-framework",
-					Cocoa,
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = fish.robo.volta.test;
-				PRODUCT_NAME = UnitTests;
-				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				WRAPPER_EXTENSION = octest;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREFIX_HEADER = "../unit-tests/code/UnitTests.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "../unit-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = fish.robo.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Volta.app/Contents/MacOS/Volta";
 			};
 			name = Release;
 		};
@@ -4109,8 +4083,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -4139,8 +4115,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -4412,15 +4390,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ../components/library/code/VoltaLibrary.pch;
+				GCC_PREFIX_HEADER = ../components/core/code/VoltaCore.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -4428,7 +4408,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "../components/library/VoltaLibrary-Info.plist";
+				INFOPLIST_FILE = "../components/core/VoltaCore-Info.plist";
 				INSTALL_PATH = "@rpath";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "fish.robo.volta.${PRODUCT_NAME:rfc1034identifier}";
@@ -4442,17 +4422,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ../components/library/code/VoltaLibrary.pch;
+				GCC_PREFIX_HEADER = ../components/core/code/VoltaCore.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "../components/library/VoltaLibrary-Info.plist";
+				INFOPLIST_FILE = "../components/core/VoltaCore-Info.plist";
 				INSTALL_PATH = "@rpath";
 				PRODUCT_BUNDLE_IDENTIFIER = "fish.robo.volta.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4737,8 +4719,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PREFIX_HEADER = ../components/plotter/test/code/PlotterTest.pch;
-				INFOPLIST_FILE = "../components/plotter/test/PlotterTest-Info.plist";
+				GCC_PREFIX_HEADER = "../components/plotter/test-app/code/PlotterTest.pch";
+				INFOPLIST_FILE = "../components/plotter/test-app/PlotterTest-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fish.robo.volta.plotter;
 				PRODUCT_NAME = PlotterTest;
@@ -4749,8 +4731,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PREFIX_HEADER = ../components/plotter/test/code/PlotterTest.pch;
-				INFOPLIST_FILE = "../components/plotter/test/PlotterTest-Info.plist";
+				GCC_PREFIX_HEADER = "../components/plotter/test-app/code/PlotterTest.pch";
+				INFOPLIST_FILE = "../components/plotter/test-app/PlotterTest-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fish.robo.volta.plotter;
 				PRODUCT_NAME = PlotterTest;
@@ -4760,11 +4742,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C00575950F7F9A1F00A0D844 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+		2A979DF52041987500B31E74 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C00575930F7F9A0100A0D844 /* Debug */,
-				C00575940F7F9A0100A0D844 /* Release */,
+				2A979DF62041987500B31E74 /* Debug */,
+				2A979DF72041987500B31E74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4850,7 +4832,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0892D0914B72EFE006A5A7A /* Build configuration list for PBXNativeTarget "VoltaLibrary" */ = {
+		C0892D0914B72EFE006A5A7A /* Build configuration list for PBXNativeTarget "VoltaCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0892D0A14B72EFE006A5A7A /* Debug */,

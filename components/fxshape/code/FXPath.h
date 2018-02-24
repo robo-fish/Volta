@@ -27,7 +27,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - (CGRect) boundingBox;
 
 /// @short creator from an SVG path data value
-/// @param SVG_path_data the value of the "d" attribute of an SVG 1.1 path element.
+/// @param pathData SVG_path_data the value of the "d" attribute of an SVG 1.1 path element.
 + (FXPath*) pathWithData:(NSString*)pathData;
 
 @end

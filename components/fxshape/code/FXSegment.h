@@ -106,11 +106,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 @property (readonly) BOOL            sweepPositive;
 
 /// @short Draws elliptical arc from current position to given end position
-/// @param radius_x maximum extent of the ellipsis (from the center point) along the x axis
-/// @param radius_y maximum extent of the ellipsis (from the center point) along the y axis
-/// @param rotation_x angle (in radian) by which the arc should be rotated around the current point
-/// @param drawLargeArc indicates whether to draw the larger one of the two possible arc sizes
-/// @param sweepPositive indicates whether the arc sweeps in the counterclockwise direction
+/// @param radiusX maximum extent of the ellipsis (from the center point) along the x axis
+/// @param radiusY maximum extent of the ellipsis (from the center point) along the y axis
+/// @param rotation angle (in radian) by which the arc should be rotated around the current point
+/// @param largeArc indicates whether to draw the larger one of the two possible arc sizes
+/// @param positiveSweep indicates whether the arc sweeps in the counterclockwise direction
 /// @param relative whether the end position is relative or absolute to the current position
 - (id) initWithRadiusX:(CGFloat)radiusX
                radiusY:(CGFloat)radiusY

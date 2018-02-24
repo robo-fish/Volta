@@ -20,47 +20,50 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "FXNetlistEditorTestController.h"
 #import "FXNetlistEditorVoltaPlugin.h"
+#import "VoltaNetlistEditor.h"
+
+@interface FXNetlistEditorTestController () <NSWindowDelegate>
+@end
 
 @implementation FXNetlistEditorTestController
+{
+  IBOutlet NSWindow*     mWindow;
+  IBOutlet NSBox*        mEditorBox;
+
+@private
+  id<VoltaNetlistEditor> _netlistEditor;
+  NSUndoManager*         _undoManager;
+}
 
 - (id) init
 {
-  [super init];
+  self = [super init];
   mEditorBox = nil;
-  mNetlistEditor = nil;
-  mOutputTextView = nil;
   mWindow = nil;
-  mUndoManager = nil;
+  _netlistEditor = nil;
+  _undoManager = nil;
   return self;
 }
-
-
-- (void) dealloc
-{
-  FXRelease(mUndoManager)
-  FXDeallocSuper
-}
-
 
 - (void) awakeFromNib
 {
   NSAssert( mEditorBox != nil, @"Error while awaking NIB" );
   id<VoltaPlugin> netlistEditorPlugin = [[FX(FXNetlistEditorVoltaPlugin) alloc] init];
-  mNetlistEditor = (id<VoltaNetlistEditor>)[netlistEditorPlugin newPluginImplementer];
-  NSView* pluginView = [mNetlistEditor editorView];
+  _netlistEditor = (id<VoltaNetlistEditor>)[netlistEditorPlugin newPluginImplementer];
+  NSView* pluginView = [_netlistEditor editorView];
   [pluginView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
   [pluginView setFrame:[[mEditorBox contentView] frame]];
   [mEditorBox setContentView:pluginView];
-  mUndoManager = [[NSUndoManager alloc] init];
-  [mNetlistEditor setUndoManager:mUndoManager];
+  _undoManager = [[NSUndoManager alloc] init];
+  [_netlistEditor setUndoManager:_undoManager];
 }
 
-#pragma mark -
+//MARK: NSWindowDelegate
 
-- (void) updateDocumentEditedStatus:(NSNotification*)notification
+- (BOOL) windowShouldClose:(NSWindow *)sender
 {
-  [mOutputTextView setString:[mNetlistEditor netlistString]];
+  [[NSApplication sharedApplication] terminate:self];
+  return YES;
 }
-
 
 @end

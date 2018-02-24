@@ -118,13 +118,34 @@ FXString::~FXString()
 }
 
 
-FXString FXString::localize(FXString const table, ...) const
+FXString FXString::localize(NSString* stringsTable) const
 {
-  NSString* localizedString = [[NSBundle mainBundle] localizedStringForKey:(__bridge NSString*)mString value:@"!translate!" table:(__bridge NSString*)table.cfString()];
-  va_list argumentList;
-  va_start(argumentList, table);
-  NSString* formattedString = [[NSString alloc] initWithFormat:localizedString arguments:argumentList];
-  va_end(argumentList);
+  NSString* localizedString = [[NSBundle mainBundle] localizedStringForKey:(__bridge NSString*)mString value:@"!translate!" table:stringsTable];
+  FXString result((__bridge CFStringRef)localizedString);
+  return result;
+}
+
+
+FXString FXString::localize(NSBundle* bundle, NSString* stringsTable) const
+{
+  if ( bundle == nil )
+  {
+    bundle = [NSBundle mainBundle];
+  }
+  NSString* localizedString = [bundle localizedStringForKey:(__bridge NSString*)mString value:@"!translate!" table:stringsTable];
+  FXString result((__bridge CFStringRef)localizedString);
+  return result;
+}
+
+
+FXString FXString::localize(NSBundle* bundle, NSString* stringsTable, va_list arguments) const
+{
+  if ( bundle == nil )
+  {
+    bundle = [NSBundle mainBundle];
+  }
+  NSString* localizedString = [bundle localizedStringForKey:(__bridge NSString*)mString value:@"!translate!" table:stringsTable];
+  NSString* formattedString = [[NSString alloc] initWithFormat:localizedString arguments:arguments];
   FXString result((__bridge CFStringRef)formattedString);
   FXRelease(formattedString)
   return result;

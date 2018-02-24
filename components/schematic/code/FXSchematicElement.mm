@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "FXSchematicElement.h"
 #import "VoltaSchematic.h"
-#import "VoltaLibrary.h"
+#import <VoltaCore/VoltaLibraryProtocol.h>
 #import "FXShape.h"
 #import "FXVector.h"
 

@@ -44,10 +44,19 @@ public:
 
   ~FXString();
 
-  /// @pre The localization strings table must reside in the main bundle.
-  /// @param table the name of the localization strings table.
-  /// Additional parameters are treated as arguments to format specifiers within the string.
-  FXString localize(FXString const table, ...) const;
+  /// @param stringsTable the name of the localization strings table.
+  /// The strings table will be searched in the app main bundle.
+  FXString localize(NSString* stringsTable) const;
+
+  /// @param bundle the bundle which contains the localization strings table.
+  /// @param stringsTable the name of the localization strings table.
+  /// The main bundle of the app will be used if the given bundle is nil.
+  FXString localize(NSBundle* bundle, NSString* stringsTable) const;
+
+  /// @param bundle the bundle which contains the localization strings table.
+  /// @param stringsTable the name of the localization strings table.
+  /// @param arguments values that will be treated as arguments to format specifiers within the string, as in printf()
+  FXString localize(NSBundle* bundle, NSString* stringsTable, va_list arguments) const;
 
   /// @return same string converted to upper case 
   FXString upperCase() const;

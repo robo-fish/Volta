@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "FXSchematicElement.h"
 #import "FXSchematicConnector.h"
 #import "FXAlignmentLine.h"
-#import "VoltaLibrary.h"
+#import <VoltaCore/VoltaLibraryProtocol.h>
 #import "FXVector.h"
 
 NSString* VoltaSchematicSelectionHasChangedNotification          = @"VoltaSchematicSelectionHasChangedNotification";

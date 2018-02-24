@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #import "FXVoltaDocument.h"
-#import "VoltaLibrary.h"
+#import <VoltaCore/VoltaLibraryProtocol.h>
 #import "FXVoltaPluginsController.h"
 #import "FXVoltaPlugin.h"
 #import "FXVoltaLibrary.h"
@@ -773,7 +773,7 @@ NSString* FXResume_DocumentShowsSimulationResults = @"FXResume_DocumentShowsSimu
       FXString allErrors;
       for( FXString const & errorMessage : conversionResult.errors )
       {
-        allErrors = allErrors + FXString("Error: ").localize("ConversionErrors") + errorMessage + "\n";
+        allErrors = allErrors + FXString("Error: ").localize(@"ConversionErrors") + errorMessage + "\n";
       }
 
       success = allErrors.empty();

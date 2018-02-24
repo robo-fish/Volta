@@ -18,15 +18,5 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#import "VoltaNetlistEditor.h"
-
 @interface FXNetlistEditorTestController : NSObject
-{
-  IBOutlet NSWindow*     mWindow;
-  IBOutlet NSBox*        mEditorBox;
-  IBOutlet NSTextView*   mOutputTextView;
-
-  id<VoltaNetlistEditor> mNetlistEditor;
-  NSUndoManager*         mUndoManager;
-}
 @end

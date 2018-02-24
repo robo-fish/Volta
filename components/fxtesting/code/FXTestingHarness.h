@@ -20,6 +20,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 @interface FXTestingHarness : NSObject
 
+@property (assign) IBOutlet NSWindow* harnessWindow;
+
 - (id) initWithTestableView:(NSView*)view testProvider:(id)provider;
 
 - (void) log:(NSString*)message;

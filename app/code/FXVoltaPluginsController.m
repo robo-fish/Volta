@@ -136,6 +136,10 @@ static FXVoltaPluginsController* sharedPluginsControllerInstance = nil;
   NSError* fileError;
   for ( NSString* itemPath in folderContents )
   {
+    if ([[itemPath pathExtension] isEqualToString:@"xctest"])
+    {
+      continue; // XCTest unit test bundles can install themselves into the PlugIn folder of the app bundle.
+    }
     NSString* fullPath = [folder stringByAppendingPathComponent:itemPath];
     NSDictionary* itemAttribs = [fm attributesOfItemAtPath:fullPath error:&fileError];
     if ( itemAttribs != nil )

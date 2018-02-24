@@ -20,9 +20,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "FXCircuitSimulator.h"
 #import "FXCircuitSimulationInfo.h"
-#if SimulatorOutputParser == FXSpiceOutputParser
-  #import "FXSpiceOutputParser.h"
-#endif
 #import "VoltaSimulationObserver.h"
 #import "FXSystemUtils.h"
 
@@ -39,7 +36,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   self = [super init];
   mData = new FXSimulatorData;
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAppTermination:) name:NSApplicationWillTerminateNotification object:nil];
-#if 0 // SimulatorOutputParser == FXSpiceOutputParser
+#if 0
   [self checkAndInstallNgspiceResources];
 #endif
   return self;
