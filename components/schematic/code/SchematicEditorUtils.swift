@@ -1,6 +1,6 @@
 /**
 This file is part of the Volta project.
-Copyright (C) 2007-2013 Kai Berk Oezer
+Copyright (C) 2018 Kai Berk Oezer
 https://robo.fish/wiki/index.php?title=Volta
 https://github.com/robo-fish/Volta
 
@@ -18,14 +18,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#import "FXTableView.h"
+import Foundation
 
-@protocol FXFileBrowserTableViewClient
-/// @return whether the files were processed
-- (BOOL) handleDroppedFiles:(NSArray*)fileURLs;
-@end
+class SchematicEditorUtils
+{
 
+}
 
-@interface FXFileBrowserTableView : FXTableView <NSDraggingDestination>
-@property (weak) id<FXFileBrowserTableViewClient> client;
-@end
+func FXLocString(_ key: String) -> String
+{
+  return Bundle(for:SchematicEditorUtils.self).localizedString(forKey: key, value: "!translate!", table:"Schematic")
+}

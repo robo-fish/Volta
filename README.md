@@ -26,7 +26,7 @@ If necessary, install the command line build tools *autoconf*, *automake*, and *
     make
     cp src/ngspice <Volta project folder>/components/simulator/resources/
 
-Unless you want to use the circuit simulation function of Volta you can also create a dummy *ngspice* file:
+If you don't want to use the circuit simulation function of Volta you can create a dummy *ngspice* file instead:
 
     cd <Volta project folder>/components/simulator/resources
     touch ngspice

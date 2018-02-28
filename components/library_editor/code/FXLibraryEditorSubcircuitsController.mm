@@ -21,9 +21,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "FXLibraryEditorSubcircuitsController.h"
 #import <VoltaCore/VoltaLibraryProtocol.h>
 #import "VoltaCloudLibraryController.h"
-#import "FXTableView.h"
+#import <FXKit/FXKit-Swift.h>
 #import "FXLibraryEditorModelsCellView.h"
-#import "FXClipView.h"
 #import "FXShapeRenderer.h"
 #import "FXModel.h"
 #import "FXLibraryEditorTableRowView.h"
@@ -41,25 +40,10 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 @implementation FXLibraryEditorSubcircuitsController
 {
 @private
-  id<VoltaLibrary> mLibrary;
-  id<VoltaCloudLibraryController> mCloudLibraryController;
-  FXTableView* __unsafe_unretained mSubcircuitsTable;
-  FXClipView* __unsafe_unretained mClipView;
-  NSSearchField* __unsafe_unretained mSearchField;
-  NSButton* __unsafe_unretained mSubcircuitFolderButton;
-
   NSMutableArray* mSubcircuitWrappers;              // contains FXModel objects
   NSMutableArray* mDisplayedSubcircuitWrappers;     // contains a subset of mSubcircuitWrappers, depending on filters
-
   FXLibraryEditorModelsCellView* mDummyCellView;
 }
-
-@synthesize clipView = mClipView;
-@synthesize subcircuitsTable = mSubcircuitsTable;
-@synthesize searchField = mSearchField;
-@synthesize subcircuitFolderButton = mSubcircuitFolderButton;
-@synthesize library = mLibrary;
-@synthesize cloudLibraryController = mCloudLibraryController;
 
 - (id) init
 {
@@ -71,17 +55,6 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
     mDummyCellView = [[FXLibraryEditorModelsCellView alloc] initWithFrame:NSMakeRect(0, 0, 100, 50)];
   }
   return self;
-}
-
-
-- (void) dealloc
-{
-  FXRelease(mDisplayedSubcircuitWrappers)
-  FXRelease(mSubcircuitWrappers)
-  FXRelease(mDummyCellView)
-  FXRelease(mLibrary)
-  FXRelease(mCloudLibraryController)
-  FXDeallocSuper
 }
 
 
@@ -100,17 +73,17 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (void) encodeRestorableStateWithCoder:(NSCoder*)state
 {
-  [mSubcircuitsTable encodeRestorableStateWithCoder:state];
-  NSPoint const scrollPosition = [[[mSubcircuitsTable enclosingScrollView] contentView] documentVisibleRect].origin;
+  [_subcircuitsTable encodeRestorableStateWithCoder:state];
+  NSPoint const scrollPosition = [[[_subcircuitsTable enclosingScrollView] contentView] documentVisibleRect].origin;
   [state encodePoint:scrollPosition forKey:@"Subcircuits_LastScrollPosition"];
 }
 
 
 - (void) restoreStateWithCoder:(NSCoder*)state
 {
-  [mSubcircuitsTable restoreStateWithCoder:state];
+  [_subcircuitsTable restoreStateWithCoder:state];
   NSPoint const lastScrollPosition = [state decodePointForKey:@"Subcircuits_LastScrollPosition"];
-  [mSubcircuitsTable scrollPoint:lastScrollPosition];
+  [_subcircuitsTable scrollPoint:lastScrollPosition];
 }
 
 
@@ -119,11 +92,11 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (void) handleVoltaLibraryWillShutDown:(id<VoltaLibrary>)library
 {
-  if ( library == mLibrary )
+  if ( library == _library )
   {
     @synchronized(self)
     {
-      [mSubcircuitsTable setDataSource:nil];
+      [_subcircuitsTable setDataSource:nil];
       [mSubcircuitWrappers removeAllObjects];
     }
   }
@@ -132,10 +105,10 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (void) handleVoltaLibraryChangedSubcircuits:(id<VoltaLibrary>)library
 {
-  if ( library == mLibrary )
+  if ( library == _library )
   {
     [self loadSubcircuitWrappers:self];
-    [self filterSubcircuitTableItems:[mSearchField stringValue]];
+    [self filterSubcircuitTableItems:[_searchField stringValue]];
   }
 }
 
@@ -167,7 +140,7 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
       return [mDummyCellView height];
     }
   }
-  return [mSubcircuitsTable rowHeight];
+  return [_subcircuitsTable rowHeight];
 }
 
 
@@ -179,9 +152,9 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (void) tableViewSelectionDidChange:(NSNotification *)notification
 {
-  if ( [notification object] == mSubcircuitsTable )
+  if ( [notification object] == _subcircuitsTable )
   {
-    [mSubcircuitsTable enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
+    [_subcircuitsTable enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
     #if 0
       FXLibraryEditorModelsCellView* cellView = [rowView viewAtColumn:0];
       cellView.isSelected = rowView.selected;
@@ -216,15 +189,15 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 {
   [tableView deselectAll:self];
   session.draggingFormation = NSDraggingFormationList;
-  [session enumerateDraggingItemsWithOptions:0 forView:mSubcircuitsTable classes:@[[FXModel class]] searchOptions:@{} usingBlock:^(NSDraggingItem *draggingItem, NSInteger idx, BOOL *stop) {
+  [session enumerateDraggingItemsWithOptions:0 forView:_subcircuitsTable classes:@[[FXModel class]] searchOptions:@{} usingBlock:^(NSDraggingItem *draggingItem, NSInteger idx, BOOL *stop) {
     FXMutableModel* draggedModel = draggingItem.item;
-    draggedModel.library = mLibrary;
+    draggedModel.library = _library;
     FXLibraryEditorModelsCellView* cellView = mDummyCellView;
     draggingItem.imageComponentsProvider = ^() {
       [cellView removeConstraints:[cellView constraints]];
       cellView.model = draggedModel;
       [cellView addConstraint:[NSLayoutConstraint constraintWithItem:cellView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:[cellView height]]];
-      cellView.frame = NSMakeRect(0, 0, [mSubcircuitsTable frame].size.width, [cellView height]);
+      cellView.frame = NSMakeRect(0, 0, [_subcircuitsTable frame].size.width, [cellView height]);
       [cellView setNeedsLayout:YES];
       [cellView layoutSubtreeIfNeeded];
       return [cellView draggingImageComponents];
@@ -239,9 +212,9 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 - (void) controlTextDidChange:(NSNotification *)notification
 {
   id notificationObject = [notification object];
-  if ( notificationObject == mSearchField )
+  if ( notificationObject == _searchField )
   {
-    [self filterSubcircuitTableItems:[mSearchField stringValue]];
+    [self filterSubcircuitTableItems:[_searchField stringValue]];
   }
 }
 
@@ -251,16 +224,14 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (void) setLibrary:(id<VoltaLibrary>)library
 {
-  if ( library != mLibrary )
+  if ( library != _library )
   {
-    FXRelease(mLibrary)
-    mLibrary = library;
-    if ( mLibrary != nil )
+    _library = library;
+    if ( _library != nil )
     {
-      FXRetain(mLibrary)
-      [mLibrary addObserver:self];
+      [_library addObserver:self];
       [self loadSubcircuitWrappers:self];
-      [self filterSubcircuitTableItems:[mSearchField stringValue]];
+      [self filterSubcircuitTableItems:[_searchField stringValue]];
     }
   }
 }
@@ -268,13 +239,13 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (void) setCloudLibraryController:(id<VoltaCloudLibraryController>)cloudLibraryController
 {
-  if ( cloudLibraryController != mCloudLibraryController )
+  if ( cloudLibraryController != _cloudLibraryController )
   {
     FXRelease(mCloudLibraryController)
-    mCloudLibraryController = cloudLibraryController;
+    _cloudLibraryController = cloudLibraryController;
     FXRetain(mCloudLibraryController)
   }
-  if ( (mCloudLibraryController != nil) && mCloudLibraryController.nowUsingCloudLibrary )
+  if ( (_cloudLibraryController != nil) && _cloudLibraryController.nowUsingCloudLibrary )
   {
     self.subcircuitFolderButton.image = [[NSBundle bundleForClass:[self class]] imageForResource:@"iCloud_small"];
     self.subcircuitFolderButton.toolTip = FXLocalizedString(@"ShowCloudFilesButtonTooltip");
@@ -284,13 +255,13 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (IBAction) revealSubcircuitsRootFolder:(id)sender
 {
-  if ( (mCloudLibraryController != nil) && mCloudLibraryController.nowUsingCloudLibrary )
+  if ( (_cloudLibraryController != nil) && _cloudLibraryController.nowUsingCloudLibrary )
   {
-    [mCloudLibraryController showContentsOfCloudFolder:VoltaCloudFolderType_LibrarySubcircuits];
+    [_cloudLibraryController showContentsOfCloudFolder:VoltaCloudFolderType_LibrarySubcircuits];
   }
   else
   {
-    [FXSystemUtils revealFileAtLocation:[mLibrary subcircuitsLocation]];
+    [FXSystemUtils revealFileAtLocation:[_library subcircuitsLocation]];
   }
 }
 
@@ -300,15 +271,15 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (void) initializeSubcircuitsTable
 {
-  NSAssert( mSubcircuitsTable != nil, @"subcircuits table not found in NIB" );
-  mSubcircuitsTable.dataSource = self;
-  mSubcircuitsTable.delegate = self;
-  mSubcircuitsTable.doubleAction = @selector(handleTableViewDoubleClick:);
-  mSubcircuitsTable.target = self;
-  mSubcircuitsTable.focusRingType = NSFocusRingTypeNone;
-  mSubcircuitsTable.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
+  NSAssert( _subcircuitsTable != nil, @"subcircuits table not found in NIB" );
+  _subcircuitsTable.dataSource = self;
+  _subcircuitsTable.delegate = self;
+  _subcircuitsTable.doubleAction = @selector(handleTableViewDoubleClick:);
+  _subcircuitsTable.target = self;
+  _subcircuitsTable.focusRingType = NSFocusRingTypeNone;
+  _subcircuitsTable.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
 
-  NSTableColumn* titleTableColumn = [mSubcircuitsTable tableColumnWithIdentifier:kModelCellViewIdentifier];
+  NSTableColumn* titleTableColumn = [_subcircuitsTable tableColumnWithIdentifier:kModelCellViewIdentifier];
   NSAssert( titleTableColumn != nil, @"table column not found in NIB" );
   [titleTableColumn setResizingMask:NSTableColumnAutoresizingMask];
   [titleTableColumn setMinWidth:60.0];
@@ -319,19 +290,28 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 {
   [self initializeSubcircuitsTable];
 
-  [[[mSubcircuitsTable enclosingScrollView] verticalScroller] setControlSize:NSControlSizeSmall];
+  [[[_subcircuitsTable enclosingScrollView] verticalScroller] setControlSize:NSControlSizeSmall];
 
-  NSAssert( mSearchField != nil, @"search field not found in NIB" );
-  [mSearchField setRecentsAutosaveName:@"Subcircuit Searches"];
-  [mSearchField setDelegate:self];
+  NSAssert( _searchField != nil, @"search field not found in NIB" );
+  [_searchField setRecentsAutosaveName:@"Subcircuit Searches"];
+  [_searchField setDelegate:self];
 
-  NSAssert( mSubcircuitFolderButton != nil, @"folder button does not exist in NIB" );
-  [mSubcircuitFolderButton setImage:[NSImage imageNamed:NSImageNameFolder]];
-  [mSubcircuitFolderButton setToolTip:FXLocalizedString(@"SubcircuitFolderRevealButtonTooltip")];
+  NSAssert( _subcircuitFolderButton != nil, @"folder button does not exist in NIB" );
+  [_subcircuitFolderButton setImage:[NSImage imageNamed:NSImageNameFolder]];
+  [_subcircuitFolderButton setToolTip:FXLocalizedString(@"SubcircuitFolderRevealButtonTooltip")];
 
-  NSAssert( mClipView != nil, @"clip view is missing from NIB" );
-  [mClipView setMinDocumentViewWidth:40.0];
-  [mClipView setMinDocumentViewHeight:80.0];
+  NSAssert( _clipView != nil, @"clip view is missing from NIB" );
+  if( ![_clipView isKindOfClass:[FXClipView class]] )
+  {
+    FXClipView* newClipView = [[FXClipView alloc] initWithFrame:_clipView.frame flipped:NO];
+    newClipView.translatesAutoresizingMaskIntoConstraints = NO;
+    [FXViewUtils transferSubviewsFrom:_clipView to:newClipView];
+    [_clipView removeFromSuperview];
+    _clipView = newClipView;
+    [self.view addSubview:_clipView];
+  }
+  [_clipView setMinDocumentViewWidth:40.0];
+  [_clipView setMinDocumentViewHeight:80.0];
 }
 
 
@@ -339,19 +319,18 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 {
   @synchronized(mDisplayedSubcircuitWrappers)
   {
-    [mSubcircuitsTable setDataSource:nil];
+    [_subcircuitsTable setDataSource:nil];
     [mDisplayedSubcircuitWrappers removeAllObjects];
     [mSubcircuitWrappers removeAllObjects];
 
-    [mLibrary iterateOverSubcircuitsByApplyingBlock:^(VoltaPTModelPtr subcircuitModel, BOOL* stop) {
+    [_library iterateOverSubcircuitsByApplyingBlock:^(VoltaPTModelPtr subcircuitModel, BOOL* stop) {
       FXMutableModel* subcircuit = [[FXMutableModel alloc] initWithPersistentModel:subcircuitModel];
-      [subcircuit setLibrary:self->mLibrary];
-      id<FXShape> subcircuitShape = [self->mLibrary shapeForModelType:subcircuitModel->type name:(__bridge NSString*)subcircuitModel->name.cfString() vendor:(__bridge NSString*)subcircuitModel->vendor.cfString()];
+      [subcircuit setLibrary:self->_library];
+      id<FXShape> subcircuitShape = [self->_library shapeForModelType:subcircuitModel->type name:(__bridge NSString*)subcircuitModel->name.cfString() vendor:(__bridge NSString*)subcircuitModel->vendor.cfString()];
       [subcircuit setShape:subcircuitShape];
       [mSubcircuitWrappers addObject:subcircuit];
-      FXRelease(subcircuit)
     }];
-    [mSubcircuitsTable setDataSource:self]; // implies reloading table data
+    [_subcircuitsTable setDataSource:self]; // implies reloading table data
   }
 }
 
@@ -360,7 +339,7 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 {
   @synchronized(mDisplayedSubcircuitWrappers)
   {
-    [mSubcircuitsTable setDataSource:nil];
+    [_subcircuitsTable setDataSource:nil];
     [mDisplayedSubcircuitWrappers removeAllObjects];
     for ( FXModel* subcircuit in mSubcircuitWrappers )
     {
@@ -374,21 +353,20 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
       }
     }
     [mDisplayedSubcircuitWrappers sortUsingComparator:^NSComparisonResult(id obj1, id obj2){ return [[obj1 name] compare:[obj2 name]];}];
-    [mSubcircuitsTable setDataSource:self];
+    [_subcircuitsTable setDataSource:self];
   }
 }
 
 
 - (NSView*) prepareCellViewForSubcircuitAtRow:(NSInteger)rowIndex
 {
-  FXLibraryEditorModelsCellView* cellView = [mSubcircuitsTable makeViewWithIdentifier:kModelCellViewIdentifier owner:self];
+  FXLibraryEditorModelsCellView* cellView = [_subcircuitsTable makeViewWithIdentifier:kModelCellViewIdentifier owner:self];
   NSAssert( cellView != nil, @"The model cell view was added to the NIB and should therefore be found." );
   if ( cellView == nil )
   {
     NSRect const dummyFrame = { 0, 0, 200, 100 };
     cellView = [[FXLibraryEditorModelsCellView alloc] initWithFrame:dummyFrame];
     cellView.identifier = kModelCellViewIdentifier;
-    FXAutorelease(cellView)
   }
   cellView.isEditable = NO;
   cellView.showsLockSymbol = NO;
@@ -424,16 +402,16 @@ NSString* kModelCellViewIdentifier = @"ModelCell";
 
 - (void) handleTableViewDoubleClick:(id)sender
 {
-  if ( sender == mSubcircuitsTable )
+  if ( sender == _subcircuitsTable )
   {
-    [self openDocumentForSubcircuitAtRow:[mSubcircuitsTable clickedRow]];
+    [self openDocumentForSubcircuitAtRow:[_subcircuitsTable clickedRow]];
   }
 }
 
 
 - (void) handleCellViewActionButton:(id)sender
 {
-  [self openDocumentForSubcircuitAtRow:[mSubcircuitsTable rowForView:sender]];
+  [self openDocumentForSubcircuitAtRow:[_subcircuitsTable rowForView:sender]];
 }
 
 

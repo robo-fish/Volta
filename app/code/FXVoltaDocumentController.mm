@@ -137,7 +137,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     [mAllPreviousDocumentURLs addObject:[doc fileURL]];
   }
 
-  [self closeAllDocumentsWithDelegate:self didCloseAllSelector:@selector(documentController:didCloseAll:contextInfo:) contextInfo:NULL];
+  [self closeAllDocumentsWithDelegate:self didCloseAllSelector:@selector(voltaDocumentController:didCloseAll:contextInfo:) contextInfo:NULL];
 }
 
 
@@ -155,7 +155,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     }
   }
   
-  [self closeAllDocumentsWithDelegate:self didCloseAllSelector:@selector(documentController:didCloseAll:contextInfo:) contextInfo:NULL];
+  [self closeAllDocumentsWithDelegate:self didCloseAllSelector:@selector(voltaDocumentController:didCloseAll:contextInfo:) contextInfo:NULL];
   
   // Reopen the documents
   if ( mAllDocumentsWereClosed )

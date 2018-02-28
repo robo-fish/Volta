@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #import "FXTabView.h"
-#import "FXViewUtils.h"
+#import <FXKit/FXKit-Swift.h>
 
 static const CGFloat skTabMinWidth          = 100.0;
 static const CGFloat skTabRowHeight         = 24.0;
@@ -309,24 +309,18 @@ static const CGFloat skSelectedTextColor[]  = {0.95, 1.0, 0.95, 1.0};
 @implementation FXTabContentView
 {
 @private
-  NSMutableArray* mViewsSavedFromResizing;
-  NSView* mLastSelectedView;
+  NSMutableArray* _viewsSavedFromResizing;
+  NSView* _lastSelectedView;
 }
 
 - (id) initWithFrame:(NSRect)frame
 {
   if ( (self = [super initWithFrame:frame]) != nil )
   {
-    mViewsSavedFromResizing = [[NSMutableArray alloc] init];
-    mLastSelectedView = nil;
+    _viewsSavedFromResizing = [[NSMutableArray alloc] init];
+    _lastSelectedView = nil;
   }
   return self;
-}
-
-- (void) dealloc
-{
-  FXRelease(mViewsSavedFromResizing)
-  FXDeallocSuper
 }
 
 
@@ -335,9 +329,9 @@ static const CGFloat skSelectedTextColor[]  = {0.95, 1.0, 0.95, 1.0};
 
 - (void) showSubviewAtIndex:(NSInteger)index animate:(BOOL)withAnimation
 {
-  @synchronized(mViewsSavedFromResizing)
+  @synchronized(_viewsSavedFromResizing)
   {
-    if ( [mViewsSavedFromResizing count] == 0 )
+    if ( [_viewsSavedFromResizing count] == 0 )
     {
       NSAssert( index < [[self subviews] count], @"The tab view does not contains a subview at the given index." );
       NSView* newSelectedView = self.subviews[index];
@@ -356,7 +350,7 @@ static const CGFloat skSelectedTextColor[]  = {0.95, 1.0, 0.95, 1.0};
         if ( withAnimation )
         {
           [newSelectedView setHidden:NO];
-          mLastSelectedView = currentSelectedView;
+          _lastSelectedView = currentSelectedView;
           [self animateSwitchingFromView:currentSelectedView toView:newSelectedView];
         }
         else
@@ -380,7 +374,7 @@ static const CGFloat skSelectedTextColor[]  = {0.95, 1.0, 0.95, 1.0};
     }
     [self addSubview:view];
 
-    [FXViewUtils layoutInView:self visualFormats:@[@"H:|[view]|", @"V:|[view]|"] metricsInfo:nil viewsInfo:NSDictionaryOfVariableBindings(view)];
+    [FXViewUtils layoutIn:self visualFormats:@[@"H:|[view]|", @"V:|[view]|"] metricsInfo:nil viewsInfo:NSDictionaryOfVariableBindings(view)];
   }
 }
 
@@ -390,8 +384,9 @@ static const CGFloat skSelectedTextColor[]  = {0.95, 1.0, 0.95, 1.0};
 
 - (void) animationDidEnd:(NSAnimation*)animation
 {
-  [mLastSelectedView setHidden:YES];
-  FXRelease(animation)
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [_lastSelectedView setHidden:YES];
+  });
 }
 
 
@@ -399,27 +394,27 @@ static const CGFloat skSelectedTextColor[]  = {0.95, 1.0, 0.95, 1.0};
 
 - (void) setFrameSize:(NSSize)newSize
 {
-  @synchronized(mViewsSavedFromResizing)
+  @synchronized(_viewsSavedFromResizing)
   {
     if ( newSize.width < skTabMinWidth )
     {
       for ( NSView* view in [self subviews] )
       {
-        [mViewsSavedFromResizing addObject:view];
+        [_viewsSavedFromResizing addObject:view];
       }
       [super setSubviews:@[]];
       [self removeConstraints:[self constraints]];
     }
     else
     {
-      if ( [mViewsSavedFromResizing count] > 0 )
+      if ( [_viewsSavedFromResizing count] > 0 )
       {
-        for ( NSView* view in mViewsSavedFromResizing )
+        for ( NSView* view in _viewsSavedFromResizing )
         {
           [super addSubview:view];
-          [FXViewUtils layoutInView:self visualFormats:@[@"H:|[view]|", @"V:|[view]|"] metricsInfo:nil viewsInfo:NSDictionaryOfVariableBindings(view)];
+          [FXViewUtils layoutIn:self visualFormats:@[@"H:|[view]|", @"V:|[view]|"] metricsInfo:nil viewsInfo:NSDictionaryOfVariableBindings(view)];
         }
-        [mViewsSavedFromResizing removeAllObjects];
+        [_viewsSavedFromResizing removeAllObjects];
       }
     }
   }
@@ -506,13 +501,13 @@ static const CGFloat skSelectedTextColor[]  = {0.95, 1.0, 0.95, 1.0};
     FXRelease(mTabContent)
     FXRelease(mTabHeader)
 
-    [FXViewUtils layoutInView:self
-                visualFormats:@[@"H:|[header]|",
-                                @"V:|[header(headerHeight)]-(>=0)-|",
-                                @"H:|[content]|",
-                                @"V:|-(headerHeight)-[content]|"]
-                  metricsInfo:@{ @"headerHeight" : @(skTabRowHeight) }
-                    viewsInfo:@{ @"header" : mTabHeader, @"content" : mTabContent}];
+    [FXViewUtils layoutIn:self
+            visualFormats:@[@"H:|[header]|",
+                            @"V:|[header(headerHeight)]-(>=0)-|",
+                            @"H:|[content]|",
+                            @"V:|-(headerHeight)-[content]|"]
+              metricsInfo:@{ @"headerHeight" : @(skTabRowHeight) }
+                viewsInfo:@{ @"header" : mTabHeader, @"content" : mTabContent}];
   }
   return self;
 }
@@ -536,7 +531,6 @@ static const CGFloat skSelectedTextColor[]  = {0.95, 1.0, 0.95, 1.0};
   [newTab setTitle:title];
   [newTab setContent:view];
   [mTabs addObject:newTab];
-  FXRelease(newTab)
 
   [mTabContent addContent:[newTab content]];
   [mTabHeader addTitle:[newTab title]];

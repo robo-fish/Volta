@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "FXPlotterController.h"
 #import "FXPlotterView.h"
-#import "FXOverlayTextLineView.h"
+#import <FXKit/FXKit-Swift.h>
 
 @interface FX(FXPlotterController) ()
 - (void) updatePlotSelectorMenu;
@@ -35,16 +35,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 @implementation FX(FXPlotterController)
 {
 @private
-  FXPlotterGraphDataPtr mGraphData;
-  FXPlotterView* __unsafe_unretained mPlotterView;
-  FXOverlayTextLineView* mInfoView;
-  NSPopUpButton* __unsafe_unretained mPlotSelector;
-  NSColorWell* mBackgroundColorView;
+  FXPlotterGraphDataPtr _graphData;
+  FXOverlayTextLineView* _infoView;
 }
-
-
-@synthesize plotSelector = mPlotSelector;
-@synthesize plotterView = mPlotterView;
 
 
 - (id) init
@@ -52,25 +45,19 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   self = [super initWithNibName:@"Plotter" bundle:[NSBundle bundleForClass:[self class]]];
   if ( self != nil )
   {
-    mGraphData = FXPlotterGraphDataPtr( new FXPlotterGraphData );
+    _graphData = FXPlotterGraphDataPtr( new FXPlotterGraphData );
   }
   return self;
 }
 
 
-- (void) dealloc
-{
-  FXDeallocSuper
-}
-
-
 - (void) awakeFromNib
 {
-  NSAssert( mPlotterView != nil, @"The plotter view should have been loaded by now." );
+  NSAssert( _plotterView != nil, @"The plotter view should have been loaded by now." );
   CGColorRef whiteColor = CGColorCreateGenericRGB( 1.0, 1.0, 1.0, 1.0 );
-  mPlotterView.client = self;
-  mPlotterView.backgroundColor = whiteColor;
-  mPlotterView.nextResponder = self;
+  _plotterView.client = self;
+  _plotterView.backgroundColor = whiteColor;
+  _plotterView.nextResponder = self;
   CGColorRelease(whiteColor);
   [self addNoDataInfo];
 }
@@ -97,12 +84,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 - (void) clear
 {
-  if ( mGraphData.get() != nullptr )
+  if ( _graphData.get() != nullptr )
   {
-    mGraphData->clear();
+    _graphData->clear();
   }
   [self updatePlotSelectorMenu];
-  [mPlotterView refresh];
+  [_plotterView refresh];
   [self addNoDataInfo];
 }
 
@@ -112,8 +99,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   BOOL showNoDataInfo = YES;
   if ( simulationData.get() != nullptr )
   {
-    mGraphData = FXPlotterGraphDataPtr( new FXPlotterGraphData(simulationData) );
-    showNoDataInfo = mGraphData->plots().empty();
+    _graphData = FXPlotterGraphDataPtr( new FXPlotterGraphData(simulationData) );
+    showNoDataInfo = _graphData->plots().empty();
     [self updatePlotSelectorMenu];
     [self selectPlotAtIndex:0];
   }
@@ -134,10 +121,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - (FXView*) newPrintableView
 {
   FXPlotterView* printableView = nil;
-  if ( !mGraphData->plots().empty() )
+  if ( !_graphData->plots().empty() )
   {
     printableView = [[FXPlotterView alloc] initWithFrame:NSMakeRect(0, 0, 300, 200)];
-    printableView.plotIndex = mPlotterView.plotIndex;
+    printableView.plotIndex = _plotterView.plotIndex;
     printableView.client = self;
   }
   return printableView;
@@ -147,7 +134,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - (NSArray*) optionsForPrintableView:(FXView*)view
 {
   NSMutableArray* plotNames = [NSMutableArray new];
-  for ( FXPlotterPlot const & plot : mGraphData->plots() )
+  for ( FXPlotterPlot const & plot : _graphData->plots() )
   {
     [plotNames addObject:[NSString stringWithString:(__bridge NSString*)plot.getTitle().cfString()]];
   }
@@ -178,13 +165,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 - (BOOL) hasPlotForIndex:(NSInteger)plotIndex
 {
-  return (plotIndex >= 0) && (plotIndex < mGraphData->plots().size());
+  return (plotIndex >= 0) && (plotIndex < _graphData->plots().size());
 }
 
 
 - (FXPlotterPlot const &) plotForIndex:(NSInteger)plotIndex
 {
-  return mGraphData->plots().at(plotIndex);
+  return _graphData->plots().at(plotIndex);
 }
 
 
@@ -193,12 +180,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 - (void) updatePlotSelectorMenu
 {
-  if ( mPlotSelector != nil )
+  if ( _plotSelector != nil )
   {
-    [mPlotSelector removeAllItems];
+    [_plotSelector removeAllItems];
     NSMenu* menu = [[NSMenu alloc] initWithTitle:@""];
     NSInteger tagCounter = 0;
-    for ( FXPlotterPlot const & plot : mGraphData->plots() )
+    for ( FXPlotterPlot const & plot : _graphData->plots() )
     {
       NSString* menuItemTitle = [NSString stringWithFormat:@"%@", plot.getTitle().cfString()];
       NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle:menuItemTitle action:@selector(selectPlotForMenuItem:) keyEquivalent:@""];
@@ -207,12 +194,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
       [menu addItem:menuItem];
       FXRelease(menuItem)
     }
-    [mPlotSelector setMenu:menu];
+    [_plotSelector setMenu:menu];
     FXRelease(menu)
 
     NSPopUpArrowPosition const allowSelection = ([[menu itemArray] count] < 2) ? NSPopUpNoArrow : NSPopUpArrowAtBottom;
-    [(NSPopUpButtonCell*)[mPlotSelector cell] setArrowPosition:allowSelection];
-    [mPlotSelector setEnabled:allowSelection];
+    [(NSPopUpButtonCell*)[_plotSelector cell] setArrowPosition:allowSelection];
+    [_plotSelector setEnabled:allowSelection];
   }
 }
 
@@ -226,21 +213,21 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 - (void) selectPlotAtIndex:(NSInteger)plotIndex
 {
-  mPlotterView.plotIndex = plotIndex;
-  [mPlotterView refresh];
+  _plotterView.plotIndex = plotIndex;
+  [_plotterView refresh];
 }
 
 
 - (void) addNoDataInfo
 {
-  if ( mInfoView == nil )
+  if ( _infoView == nil )
   {
     NSRect overlayFrame = self.view.frame;
     overlayFrame.origin = NSZeroPoint;
-    mInfoView = [[FXOverlayTextLineView alloc] initWithFrame:overlayFrame];
-    mInfoView.autoresizingMask = NSViewHeightSizable | NSViewWidthSizable;
-    mInfoView.text = FXLocalizedString(@"NoData");
-    [self.view addSubview:mInfoView];
+    _infoView = [[FXOverlayTextLineView alloc] initWithFrame:overlayFrame];
+    _infoView.autoresizingMask = NSViewHeightSizable | NSViewWidthSizable;
+    _infoView.text = FXLocalizedString(@"NoData");
+    [self.view addSubview:_infoView];
     FXRelease(mInfoView)
   }
 }
@@ -248,8 +235,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 - (void) removeNoDataInfo
 {
-  [mInfoView removeFromSuperview];
-  mInfoView = nil;
+  [_infoView removeFromSuperview];
+  _infoView = nil;
 }
 
 

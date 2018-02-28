@@ -28,7 +28,7 @@ NSString* const FXVoltaInitialRun = @"InitialRun";
 
 @interface FXVoltaPreferencesController ()
 - (NSToolbarItem*) createToolbarItemWithIdentifier:(NSString*)itemIdentifier
-                                         imageFile:(NSString*)itemImageName
+                                         imageName:(NSString*)itemImageName
                                              label:(NSString*)itemLabel;
 @end
 
@@ -140,7 +140,7 @@ NSString* const FXVoltaInitialRun = @"InitialRun";
     {
       mPluginsToolbarItem = [self
         createToolbarItemWithIdentifier:sPluginToolbarItemIdentifier
-        imageFile:@"preferences_toolbar_plugins_icon"
+        imageName:@"preferences_toolbar_plugins_icon"
         label:FXLocalizedString(@"Plugins")];
     }
     result = mPluginsToolbarItem;
@@ -153,7 +153,7 @@ NSString* const FXVoltaInitialRun = @"InitialRun";
     {
       mServicesToolbarItem = [self
         createToolbarItemWithIdentifier:sServicesToolbarItemIdentifier
-        imageFile:@"preferences_toolbar_services_icon"
+        imageName:@"preferences_toolbar_services_icon"
         label:FXLocalizedString(@"Services")];
     }
     result = mServicesToolbarItem;
@@ -174,14 +174,11 @@ NSString* const FXVoltaInitialRun = @"InitialRun";
 
 
 - (NSToolbarItem*) createToolbarItemWithIdentifier:(NSString*)itemIdentifier
-                                         imageFile:(NSString*)itemImageName
+                                         imageName:(NSString*)itemImageName
                                              label:(NSString*)itemLabel
 {
   NSToolbarItem* result = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
-  NSString* imagePath = [[NSBundle mainBundle] pathForResource:itemImageName ofType:@"png"];
-  NSImage* iconImage = [[NSImage alloc] initWithContentsOfFile:imagePath];
-  result.image = iconImage;
-  FXRelease(iconImage)
+  result.image = [NSImage imageNamed:itemImageName];
   result.label = itemLabel;
   return result;
 }

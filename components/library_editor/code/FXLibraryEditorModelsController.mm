@@ -48,25 +48,10 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 @implementation FXLibraryEditorModelsController
 {
 @private
-  id<VoltaLibrary> mLibrary;
-  id<VoltaCloudLibraryController> mCloudLibraryController;
-  FXOutlineView* __unsafe_unretained mModelsTable;
-  NSMutableArray* mModelGroupWrappers; // contains FXModelGroup objects for mModelsTable
-  FXClipView* __unsafe_unretained mClipView;
-  NSButton* __unsafe_unretained mModelsFolderButton;
-  NSButton* __unsafe_unretained mAddModelButton;
-  NSButton* __unsafe_unretained mRemoveModelsButton;
-  FXLibraryEditorModelsCellView* mDummyCellView;
-  FXLibraryEditorModelsUpdateMode mUpdateMode;
+  NSMutableArray* _modelGroupWrappers; // contains FXModelGroup objects for _modelsTable
+  FXLibraryEditorModelsCellView* _dummyCellView;
+  FXLibraryEditorModelsUpdateMode _updateMode;
 }
-
-@synthesize modelsTable = mModelsTable;
-@synthesize clipView = mClipView;
-@synthesize modelsFolderButton = mModelsFolderButton;
-@synthesize addModelsButton = mAddModelButton;
-@synthesize removeModelsButton = mRemoveModelsButton;
-@synthesize library = mLibrary;
-@synthesize cloudLibraryController = mCloudLibraryController;
 
 
 - (id) init
@@ -74,10 +59,10 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   self = [super initWithNibName:@"Models" bundle:[NSBundle bundleForClass:[self class]]];
   if (self != nil)
   {
-    mModelGroupWrappers = [[NSMutableArray alloc] init];
-    mDummyCellView = [[FXLibraryEditorModelsCellView alloc] initWithFrame:NSMakeRect(0, 0, 100, 50)];
-    [mDummyCellView layoutSubtreeIfNeeded];
-    mUpdateMode = FXLibraryEditorModelsUpdateMode_Generic;
+    _modelGroupWrappers = [[NSMutableArray alloc] init];
+    _dummyCellView = [[FXLibraryEditorModelsCellView alloc] initWithFrame:NSMakeRect(0, 0, 100, 50)];
+    [_dummyCellView layoutSubtreeIfNeeded];
+    _updateMode = FXLibraryEditorModelsUpdateMode_Generic;
   }
   return self;
 }
@@ -85,11 +70,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) dealloc
 {
-  FXRelease(mDummyCellView)
-  FXRelease(mModelGroupWrappers)
-  FXRelease(mLibrary)
   self.cloudLibraryController = nil;
-  FXDeallocSuper
 }
 
 
@@ -108,38 +89,38 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) encodeRestorableStateWithCoder:(NSCoder*)coder
 {
-  [mModelsTable encodeRestorableStateWithCoder:coder];
-  NSMutableArray* expandedGroups = [NSMutableArray arrayWithCapacity:[mModelGroupWrappers count]];
-  for ( FXModelGroup* group in mModelGroupWrappers )
+  [_modelsTable encodeRestorableStateWithCoder:coder];
+  NSMutableArray* expandedGroups = [NSMutableArray arrayWithCapacity:[_modelGroupWrappers count]];
+  for ( FXModelGroup* group in _modelGroupWrappers )
   {
-    if ( [mModelsTable isItemExpanded:group] )
+    if ( [_modelsTable isItemExpanded:group] )
     {
       [expandedGroups addObject:group.name];
     }
   }
   [coder encodeObject:expandedGroups forKey:@"Models_ExpandedGroups"];
-  NSPoint const scrollPosition = [[[mModelsTable enclosingScrollView] contentView] documentVisibleRect].origin;
+  NSPoint const scrollPosition = [[[_modelsTable enclosingScrollView] contentView] documentVisibleRect].origin;
   [coder encodePoint:scrollPosition forKey:@"Models_LastScrollPosition"];
 }
 
 
 - (void) restoreStateWithCoder:(NSCoder*)coder
 {
-  [mModelsTable restoreStateWithCoder:coder];
+  [_modelsTable restoreStateWithCoder:coder];
   NSArray* expandedGroups = [coder decodeObjectForKey:@"Models_ExpandedGroups"];
   for ( NSString* groupName in expandedGroups )
   {
-    for ( FXModelGroup* group in mModelGroupWrappers )
+    for ( FXModelGroup* group in _modelGroupWrappers )
     {
       if ( [group.name isEqualToString:groupName] )
       {
-        [mModelsTable expandItem:group];
+        [_modelsTable expandItem:group];
         break;
       }
     }
   }
   NSPoint const lastScrollPosition = [coder decodePointForKey:@"Models_LastScrollPosition"];
-  [mModelsTable scrollPoint:lastScrollPosition];
+  [_modelsTable scrollPoint:lastScrollPosition];
 }
 
 
@@ -157,20 +138,18 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) setLibrary:(id<VoltaLibrary>)library
 {
-  if ( library != mLibrary )
+  if ( library != _library )
   {
-    FXRelease(mLibrary)
-    mLibrary = library;
-    if ( mLibrary != nil )
+    _library = library;
+    if ( _library != nil )
     {
-      FXRetain(mLibrary)
-      [mLibrary addObserver:self];
+      [_library addObserver:self];
       [self rebuildModelGroupsDataSource];
     }
     else
     {
-      [mModelsTable setDataSource:nil];
-      [mModelGroupWrappers removeAllObjects];
+      [_modelsTable setDataSource:nil];
+      [_modelGroupWrappers removeAllObjects];
     }
   }
 }
@@ -178,28 +157,23 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) setCloudLibraryController:(id<VoltaCloudLibraryController>)cloudLibraryController
 {
-  if ( cloudLibraryController != mCloudLibraryController )
+  _cloudLibraryController = cloudLibraryController;
+  if ( (_cloudLibraryController != nil) && _cloudLibraryController.nowUsingCloudLibrary )
   {
-    FXRelease(mCloudLibraryController)
-    mCloudLibraryController = cloudLibraryController;
-    FXRetain(mCloudLibraryController)
-  }
-  if ( (mCloudLibraryController != nil) && mCloudLibraryController.nowUsingCloudLibrary )
-  {
-    mModelsFolderButton.image = [[NSBundle bundleForClass:[self class]] imageForResource:@"iCloud_small"];
-    mModelsFolderButton.toolTip = FXLocalizedString(@"ShowCloudFilesButtonTooltip");
+    _modelsFolderButton.image = [[NSBundle bundleForClass:[self class]] imageForResource:@"iCloud_small"];
+    _modelsFolderButton.toolTip = FXLocalizedString(@"ShowCloudFilesButtonTooltip");
   }
 }
 
 
 - (void) createModel:(id)sender
 {
-  NSInteger selectedRow = [mModelsTable selectedRow];
+  NSInteger selectedRow = [_modelsTable selectedRow];
   if ( selectedRow >= 0 )
   {
     FXModelGroup* groupWrapper = nil; // the group to add the new model to
     VoltaPTModelPtr templateModel; // the existing model to clone the new model from
-    id selectedItem = [mModelsTable itemAtRow:selectedRow];
+    id selectedItem = [_modelsTable itemAtRow:selectedRow];
 
     if ( [selectedItem isKindOfClass:[FXModelGroup class]] )
     {
@@ -218,7 +192,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
     {
       // Create a new model, cloned from the selected model.
       FXModel* selectedModelWrapper = selectedItem;
-      groupWrapper = [mModelsTable parentForItem:selectedItem];
+      groupWrapper = [_modelsTable parentForItem:selectedItem];
       templateModel = [selectedModelWrapper persistentModel];
     }
 
@@ -226,10 +200,10 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
     NSAssert( templateModel.get() != nullptr, @"A prototype model must exist." );
     VoltaPTModelGroupPtr modelGroup = [groupWrapper persistentGroup];
 
-    VoltaPTModelPtr newModel = [mLibrary createModelFromTemplate:templateModel];
+    VoltaPTModelPtr newModel = [_library createModelFromTemplate:templateModel];
     if ( newModel.get() != nullptr )
     {
-      mUpdateMode = FXLibraryEditorModelsUpdateMode_AddingItems;
+      _updateMode = FXLibraryEditorModelsUpdateMode_AddingItems;
     }
   }
 }
@@ -249,7 +223,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   }
   else
   {
-    [FXSystemUtils revealFileAtLocation:[mLibrary modelsLocation]];
+    [FXSystemUtils revealFileAtLocation:[_library modelsLocation]];
   }
 }
 
@@ -263,10 +237,10 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 {
   if ( editedModel != nil )
   {
-    NSString* groupName = [(FXModelGroup*)[mModelsTable parentForItem:editedModel] name];
+    NSString* groupName = [(FXModelGroup*)[_modelsTable parentForItem:editedModel] name];
     if ( groupName != nil )
     {
-      if (![mLibrary renameModel:[editedModel persistentModel] toName:(CFStringRef)newName])
+      if (![_library renameModel:[editedModel persistentModel] toName:(CFStringRef)newName])
       {
         NSBeep();
         cellView.primaryField.stringValue = editedModel.name; // reverting the change
@@ -282,12 +256,12 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 {
   if ( editedModel != nil )
   {
-    NSString* groupName = [(FXModelGroup*)[mModelsTable parentForItem:editedModel] name];
+    NSString* groupName = [(FXModelGroup*)[_modelsTable parentForItem:editedModel] name];
     if ( groupName != nil )
     {
       VoltaPTModelPtrVector editedModels;
       editedModels.push_back([editedModel persistentModel]);
-      if (![mLibrary setVendor:(CFStringRef)newVendorString forModels:editedModels] )
+      if (![_library setVendor:(CFStringRef)newVendorString forModels:editedModels] )
       {
         NSBeep();
         cellView.secondaryField.stringValue = editedModel.vendor; // reverting the change
@@ -303,15 +277,15 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 {
   if ( editedModel != nil )
   {
-    NSString* groupName = [(FXModelGroup*)[mModelsTable parentForItem:editedModel] name];
+    NSString* groupName = [(FXModelGroup*)[_modelsTable parentForItem:editedModel] name];
     if ( groupName != nil )
     {
-      [mLibrary beginEditingModels];
+      [_library beginEditingModels];
       for ( VoltaPTProperty const & property : properties )
       {
-        [mLibrary setPropertyValueOfModel:[editedModel persistentModel] propertyName:property.name propertyValue:property.value];
+        [_library setPropertyValueOfModel:[editedModel persistentModel] propertyName:property.name propertyValue:property.value];
       }
-      [mLibrary endEditingModels];
+      [_library endEditingModels];
     }
   }
 }
@@ -327,9 +301,9 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   {
     if ( item == nil )
     {
-      if ( outlineView == mModelsTable )
+      if ( outlineView == _modelsTable )
       {
-        result = mModelGroupWrappers[index];
+        result = _modelGroupWrappers[index];
       }
     }
     else if ( [item isKindOfClass:[FXModelGroup class]] )
@@ -364,9 +338,9 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   {
     if ( item == nil )
     {
-      if ( outlineView == mModelsTable )
+      if ( outlineView == _modelsTable )
       {
-        result = [mModelGroupWrappers count];
+        result = [_modelGroupWrappers count];
       }
     }
     else if ( [item isKindOfClass:[FXModelGroup class]] )
@@ -394,17 +368,17 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) outlineView:(NSOutlineView*)outlineView draggingSession:(NSDraggingSession*)session willBeginAtPoint:(NSPoint)screenPoint forItems:(NSArray*)draggedItems
 {
-  [mModelsTable deselectAll:self];
+  [_modelsTable deselectAll:self];
   session.draggingFormation = NSDraggingFormationList;
-  [session enumerateDraggingItemsWithOptions:0 forView:mModelsTable classes:@[[FXModel class]] searchOptions:@{} usingBlock:^(NSDraggingItem *draggingItem, NSInteger idx, BOOL *stop) {
+  [session enumerateDraggingItemsWithOptions:0 forView:_modelsTable classes:@[[FXModel class]] searchOptions:@{} usingBlock:^(NSDraggingItem *draggingItem, NSInteger idx, BOOL *stop) {
     FXMutableModel* draggedModel = draggingItem.item;
-    draggedModel.library = mLibrary;
-    FXLibraryEditorModelsCellView* cellView = mDummyCellView;
+    draggedModel.library = _library;
+    FXLibraryEditorModelsCellView* cellView = _dummyCellView;
     draggingItem.imageComponentsProvider = ^() {
       [cellView removeConstraints:[cellView constraints]];
       cellView.model = draggedModel;
       [cellView addConstraint:[NSLayoutConstraint constraintWithItem:cellView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:[cellView height]]];
-      cellView.frame = NSMakeRect(0, 0, [mModelsTable frame].size.width, [cellView height]);
+      cellView.frame = NSMakeRect(0, 0, [_modelsTable frame].size.width, [cellView height]);
       [cellView setNeedsLayout:YES];
       [cellView layoutSubtreeIfNeeded];
       return [cellView draggingImageComponents];
@@ -450,7 +424,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   BOOL result = NO;
   @synchronized(self)
   {
-    if ( outlineView == mModelsTable )
+    if ( outlineView == _modelsTable )
     {
       if ( [item isKindOfClass:[FXModelGroup class]] )
       {
@@ -471,7 +445,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   BOOL result = NO;
   @synchronized(self)
   {
-    if ( outlineView == mModelsTable )
+    if ( outlineView == _modelsTable )
     {
       if ( [item isKindOfClass:[FXModelGroup class]] )
       {
@@ -489,7 +463,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) outlineViewSelectionDidChange:(NSNotification*)notification
 {
-  if ( [notification object] == mModelsTable )
+  if ( [notification object] == _modelsTable )
   {
     [self handleSelectedItems];
   }
@@ -500,8 +474,8 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 {
   if ( [item isKindOfClass:[FXModel class]] )
   {
-    mDummyCellView.model = (FXModel*)item;
-    return [mDummyCellView height];
+    _dummyCellView.model = (FXModel*)item;
+    return [_dummyCellView height];
   }
   return [outlineView rowHeight];
 }
@@ -515,24 +489,24 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   static const CGFloat skLockColumnWidth = 16.0;
   static const CGFloat skTitleColumnMinWidth = 100.0;
 
-  NSAssert(mModelsTable != nil, @"The table view for displaying models was not created.");
-  mModelsTable.headerView = nil;
-  mModelsTable.allowsMultipleSelection = YES;
-  mModelsTable.allowsEmptySelection = YES;
-  mModelsTable.dataSource = self;
-  mModelsTable.delegate = self;
-  mModelsTable.focusRingType = NSFocusRingTypeNone;
-  mModelsTable.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
+  NSAssert(_modelsTable != nil, @"The table view for displaying models was not created.");
+  _modelsTable.headerView = nil;
+  _modelsTable.allowsMultipleSelection = YES;
+  _modelsTable.allowsEmptySelection = YES;
+  _modelsTable.dataSource = self;
+  _modelsTable.delegate = self;
+  _modelsTable.focusRingType = NSFocusRingTypeNone;
+  _modelsTable.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
 
-  mModelsTable.doubleAction = @selector(handleOutlineViewDoubleClick:);
-  mModelsTable.target = self;
+  _modelsTable.doubleAction = @selector(handleOutlineViewDoubleClick:);
+  _modelsTable.target = self;
 
-  NSTableColumn* titleTableColumn = [mModelsTable tableColumnWithIdentifier:@"ModelCell"];
+  NSTableColumn* titleTableColumn = [_modelsTable tableColumnWithIdentifier:@"ModelCell"];
   NSAssert(titleTableColumn != nil, @"table column does not exist");
-  [titleTableColumn setWidth:mModelsTable.frame.size.width - skLockColumnWidth];
+  [titleTableColumn setWidth:_modelsTable.frame.size.width - skLockColumnWidth];
   [titleTableColumn setMinWidth:skTitleColumnMinWidth];
   [titleTableColumn setResizingMask:NSTableColumnAutoresizingMask];
-  [mModelsTable setOutlineTableColumn:titleTableColumn];
+  [_modelsTable setOutlineTableColumn:titleTableColumn];
 }
 
 
@@ -540,17 +514,17 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 {
   [self initializeModelsTable];
 
-  NSScrollView* tableScroller = [mModelsTable enclosingScrollView];
+  NSScrollView* tableScroller = [_modelsTable enclosingScrollView];
   [[tableScroller verticalScroller] setControlSize:NSControlSizeSmall];
   NSAssert([tableScroller horizontalScroller] != nil, @"The horizontal scroller is needed so that all columns are resized correctly");
 
-  NSAssert(mClipView != nil, @"clip view missing from NIB");
-  [mClipView setMinDocumentViewWidth:100.0];
-  [mClipView setMinDocumentViewHeight:60.0];
+  NSAssert(_clipView != nil, @"clip view missing from NIB");
+  [_clipView setMinDocumentViewWidth:CGFloat(100.0)];
+  [_clipView setMinDocumentViewHeight:CGFloat(60.0)];
 
-  NSAssert(mModelsFolderButton != nil, @"button is missing in NIB");
-  mModelsFolderButton.image = [NSImage imageNamed:NSImageNameFolder];
-  mModelsFolderButton.toolTip = FXLocalizedString(@"ModelsFolderRevealButtonTooltip");
+  NSAssert(_modelsFolderButton != nil, @"button is missing in NIB");
+  _modelsFolderButton.image = [NSImage imageNamed:NSImageNameFolder];
+  _modelsFolderButton.toolTip = FXLocalizedString(@"ModelsFolderRevealButtonTooltip");
 
   [self handleSelectedItems];
 }
@@ -559,21 +533,21 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 - (void) updateModelsFromLibraryData
 {
   __block NSMutableArray* newModelGroups = [[NSMutableArray alloc] initWithCapacity:VMT_Count];
-  [mLibrary iterateOverModelGroupsByApplyingBlock:^(VoltaPTModelGroupPtr group, BOOL* stop) {
-    FXModelGroup* groupWrapper = [[FXModelGroup alloc] initWithPersistentGroup:group library:self->mLibrary];
+  [_library iterateOverModelGroupsByApplyingBlock:^(VoltaPTModelGroupPtr group, BOOL* stop) {
+    FXModelGroup* groupWrapper = [[FXModelGroup alloc] initWithPersistentGroup:group library:self->_library];
     groupWrapper.name = [FXVoltaLibraryUtilities userVisibleNameForModelGroupOfType:group->modelType];
     [newModelGroups addObject:groupWrapper];
     FXRelease(groupWrapper)
   }];
   [self transitionDisplaySettingsToModelGroups:newModelGroups];
-  if ( mUpdateMode == FXLibraryEditorModelsUpdateMode_Generic )
+  if ( _updateMode == FXLibraryEditorModelsUpdateMode_Generic )
   {
     [self replaceTableContentsWithModelGroups:newModelGroups];
   }
   else
   {
     [self transitionTableContentsToModelGroups:newModelGroups];
-    mUpdateMode = FXLibraryEditorModelsUpdateMode_Generic;
+    _updateMode = FXLibraryEditorModelsUpdateMode_Generic;
   }
   FXRelease(newModelGroups)
   newModelGroups = nil;
@@ -582,31 +556,31 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) replaceTableContentsWithModelGroups:(NSArray*)modelGroups
 {
-  NSPoint const scrollPoint = [[[mModelsTable enclosingScrollView] contentView] documentVisibleRect].origin;
-  NSMutableArray* expandedGroupNames = [NSMutableArray arrayWithCapacity:[mModelGroupWrappers count]];
-  for ( FXModelGroup* group in mModelGroupWrappers )
+  NSPoint const scrollPoint = [[[_modelsTable enclosingScrollView] contentView] documentVisibleRect].origin;
+  NSMutableArray* expandedGroupNames = [NSMutableArray arrayWithCapacity:[_modelGroupWrappers count]];
+  for ( FXModelGroup* group in _modelGroupWrappers )
   {
-    if ([mModelsTable isItemExpanded:group])
+    if ([_modelsTable isItemExpanded:group])
     {
       [expandedGroupNames addObject:[group name]];
     }
   }
-  [mModelGroupWrappers setArray:modelGroups];
-  [mModelsTable reloadData];
-  for ( FXModelGroup* group in mModelGroupWrappers )
+  [_modelGroupWrappers setArray:modelGroups];
+  [_modelsTable reloadData];
+  for ( FXModelGroup* group in _modelGroupWrappers )
   {
     if ( [expandedGroupNames containsObject:[group name]] )
     {
-      [mModelsTable expandItem:group];
+      [_modelsTable expandItem:group];
     }
   }
-  [mModelsTable scrollPoint:scrollPoint];
+  [_modelsTable scrollPoint:scrollPoint];
 }
 
 
 - (void) transitionDisplaySettingsToModelGroups:(NSArray*)newModelGroups
 {
-  for ( FXModelGroup* existingGroup in mModelGroupWrappers )
+  for ( FXModelGroup* existingGroup in _modelGroupWrappers )
   {
     for ( FXModelGroup* newGroup in newModelGroups )
     {
@@ -632,22 +606,22 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) transitionTableContentsToModelGroups:(NSArray*)modelGroups
 {
-  [mModelsTable beginUpdates];
-  if ( mUpdateMode == FXLibraryEditorModelsUpdateMode_AddingItems )
+  [_modelsTable beginUpdates];
+  if ( _updateMode == FXLibraryEditorModelsUpdateMode_AddingItems )
   {
     [self transitionTableContentsByAddingItemsFromModelGroups:modelGroups];
   }
-  else if ( mUpdateMode == FXLibraryEditorModelsUpdateMode_RemovingItems )
+  else if ( _updateMode == FXLibraryEditorModelsUpdateMode_RemovingItems )
   {
     [self transitionTableContentsByRemovingItemsNotFoundInModelGroups:modelGroups];
   }
-  [mModelsTable endUpdates];
+  [_modelsTable endUpdates];
 }
 
 
 - (void) transitionTableContentsByAddingItemsFromModelGroups:(NSArray*)modelGroups
 {
-  for ( FXModelGroup* existingGroup in mModelGroupWrappers )
+  for ( FXModelGroup* existingGroup in _modelGroupWrappers )
   {
     NSMutableIndexSet* indexesOfModelsToBeInserted = [NSMutableIndexSet indexSet];
     for ( FXModelGroup* newGroup in modelGroups )
@@ -678,7 +652,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
     }
     if ( [indexesOfModelsToBeInserted count] > 0 )
     {
-      [mModelsTable insertItemsAtIndexes:indexesOfModelsToBeInserted inParent:existingGroup withAnimation:NSTableViewAnimationEffectFade];
+      [_modelsTable insertItemsAtIndexes:indexesOfModelsToBeInserted inParent:existingGroup withAnimation:NSTableViewAnimationEffectFade];
     }
   }
 }
@@ -690,7 +664,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   // can not select items if they are not displayed (i.e. inside collapsed parent items) by the table view.
   NSMutableIndexSet* indexesOfGroupItemsToRemove = [NSMutableIndexSet indexSet];
   NSInteger existingGroupIndex = -1;
-  for ( FXModelGroup* existingGroup in mModelGroupWrappers )
+  for ( FXModelGroup* existingGroup in _modelGroupWrappers )
   {
     existingGroupIndex++;
     FXModelGroup* matchingNewGroup = nil;
@@ -704,10 +678,10 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
     }
     if ( matchingNewGroup != nil )
     {
-      if ( [mModelsTable isItemExpanded:existingGroup] )
+      if ( [_modelsTable isItemExpanded:existingGroup] )
       {
         NSMutableIndexSet* indexesOfModelItemsToRemove = [NSMutableIndexSet indexSet];
-        NSInteger const parentRowIndex = [mModelsTable rowForItem:existingGroup];
+        NSInteger const parentRowIndex = [_modelsTable rowForItem:existingGroup];
         for ( FXModel* existingModel in existingGroup.models )
         {
           BOOL foundMatchingModel = NO;
@@ -721,12 +695,12 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
           }
           if ( !foundMatchingModel )
           {
-            [indexesOfModelItemsToRemove addIndex:([mModelsTable rowForItem:existingModel] - parentRowIndex - 1)];
+            [indexesOfModelItemsToRemove addIndex:([_modelsTable rowForItem:existingModel] - parentRowIndex - 1)];
           }
         }
         if ( [indexesOfModelItemsToRemove count] > 0 )
         {
-          [mModelsTable removeItemsAtIndexes:indexesOfModelItemsToRemove inParent:existingGroup withAnimation:NSTableViewAnimationEffectFade];
+          [_modelsTable removeItemsAtIndexes:indexesOfModelItemsToRemove inParent:existingGroup withAnimation:NSTableViewAnimationEffectFade];
           [existingGroup.models removeObjectsAtIndexes:indexesOfModelItemsToRemove];
         }
       }
@@ -738,8 +712,8 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
   }
   if ( [indexesOfGroupItemsToRemove count] > 0 )
   {
-    [mModelsTable removeItemsAtIndexes:indexesOfGroupItemsToRemove inParent:nil withAnimation:NSTableViewAnimationEffectFade];
-    [mModelGroupWrappers removeObjectsAtIndexes:indexesOfGroupItemsToRemove];
+    [_modelsTable removeItemsAtIndexes:indexesOfGroupItemsToRemove inParent:nil withAnimation:NSTableViewAnimationEffectFade];
+    [_modelGroupWrappers removeObjectsAtIndexes:indexesOfGroupItemsToRemove];
   }
 }
 
@@ -748,16 +722,16 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 {
   @synchronized(self)
   {
-    [mModelsTable setDataSource:nil];
-    NSAssert( [mModelGroupWrappers count] == 0, @"This is supposed to be called only once." );
-    [mLibrary iterateOverModelGroupsByApplyingBlock:^(VoltaPTModelGroupPtr group, BOOL* stop) {
-      FXModelGroup* groupWrapper = [[FXModelGroup alloc] initWithPersistentGroup:group library:self->mLibrary];
+    [_modelsTable setDataSource:nil];
+    NSAssert( [_modelGroupWrappers count] == 0, @"This is supposed to be called only once." );
+    [_library iterateOverModelGroupsByApplyingBlock:^(VoltaPTModelGroupPtr group, BOOL* stop) {
+      FXModelGroup* groupWrapper = [[FXModelGroup alloc] initWithPersistentGroup:group library:self->_library];
       groupWrapper.name = [FXVoltaLibraryUtilities userVisibleNameForModelGroupOfType:group->modelType];
-      [mModelGroupWrappers addObject:groupWrapper];
+      [_modelGroupWrappers addObject:groupWrapper];
       FXRelease(groupWrapper)
     }];
-    [mModelsTable setDataSource:self];
-    [mModelsTable reloadData];
+    [_modelsTable setDataSource:self];
+    [_modelsTable reloadData];
   }
 }
 
@@ -786,7 +760,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) handleSelectedItems
 {
-  [mModelsTable enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
+  [_modelsTable enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
 #if 0
     NSView* cellView = [rowView viewAtColumn:0];
     if ( [cellView isKindOfClass:[FXLibraryEditorModelsCellView class]] )
@@ -804,28 +778,28 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
   @synchronized(self)
   {
-    NSInteger const selectedRow = [mModelsTable selectedRow];
+    NSInteger const selectedRow = [_modelsTable selectedRow];
     if ( selectedRow >= 0 )
     {
-      id selectedItem = [mModelsTable itemAtRow:selectedRow];
+      id selectedItem = [_modelsTable itemAtRow:selectedRow];
       selectedAModelGroup = [selectedItem isKindOfClass:[FXModelGroup class]];
       selectedAModel = !selectedAModelGroup && [selectedItem isKindOfClass:[FXModel class]];
       selectedAMutableModel = selectedAModel && [(FXModel*)selectedItem isMutable];
     }
   }
 
-  mAddModelButton.enabled = selectedAModelGroup || selectedAModel;
-  mRemoveModelsButton.enabled = selectedAMutableModel;
+  _addModelsButton.enabled = selectedAModelGroup || selectedAModel;
+  _removeModelsButton.enabled = selectedAMutableModel;
 }
 
 
 - (void) removeSelectedItems
 {
   VoltaPTModelPtrSet modelsToBeRemoved = [self persistentModelsForSelectedItemsFromModelsTable];
-  VoltaPTModelPtrSet removedModels = [mLibrary removeModels:modelsToBeRemoved];
+  VoltaPTModelPtrSet removedModels = [_library removeModels:modelsToBeRemoved];
   if ( !removedModels.empty() )
   {
-    mUpdateMode = FXLibraryEditorModelsUpdateMode_RemovingItems;
+    _updateMode = FXLibraryEditorModelsUpdateMode_RemovingItems;
   }
 }
 
@@ -833,13 +807,13 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 - (VoltaPTModelPtrSet) persistentModelsForSelectedItemsFromModelsTable
 {
   VoltaPTModelPtrSet result;
-  NSIndexSet* selectedRows = [mModelsTable selectedRowIndexes];
+  NSIndexSet* selectedRows = [_modelsTable selectedRowIndexes];
   if ( [selectedRows count] > 0 )
   {
     NSUInteger currentIndex = [selectedRows firstIndex];
     while ( currentIndex != NSNotFound )
     {
-      id selectedItem = [mModelsTable itemAtRow:currentIndex];
+      id selectedItem = [_modelsTable itemAtRow:currentIndex];
       if ( [selectedItem isKindOfClass:[FXModel class]] )
       {
         FXModel* selectedModelWrapper = selectedItem;
@@ -857,7 +831,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (NSView*) prepareCellViewForModel:(FXModel*)model
 {
-  FXLibraryEditorModelsCellView* cellView = [mModelsTable makeViewWithIdentifier:@"ModelCell" owner:self];
+  FXLibraryEditorModelsCellView* cellView = [_modelsTable makeViewWithIdentifier:@"ModelCell" owner:self];
   if ( cellView == nil )
   {
     NSRect const dummyFrame = { 0, 0, 100, 100 };
@@ -890,7 +864,7 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (NSView*) prepareCellViewForModelGroup:(FXModelGroup*)modelGroup
 {
-  NSTableCellView* cellView = [mModelsTable makeViewWithIdentifier:@"ModelGroupCell" owner:self];
+  NSTableCellView* cellView = [_modelsTable makeViewWithIdentifier:@"ModelGroupCell" owner:self];
   if ( cellView == nil )
   {
     NSRect const dummyFrame = { 0, 0, 100, 100 };
@@ -905,18 +879,18 @@ typedef NS_ENUM(short, FXLibraryEditorModelsUpdateMode)
 
 - (void) toggleShowModelProperties:(id)sender
 {
-  NSInteger rowIndex = [mModelsTable rowForView:sender];
+  NSInteger rowIndex = [_modelsTable rowForView:sender];
   if ( rowIndex >= 0 )
   {
-    [mModelsTable noteHeightOfRowsWithIndexesChanged:[NSIndexSet indexSetWithIndex:(NSUInteger)rowIndex]];
+    [_modelsTable noteHeightOfRowsWithIndexesChanged:[NSIndexSet indexSetWithIndex:(NSUInteger)rowIndex]];
   }
 }
 
 
 - (void) handleCellViewActionButton:(id)sender
 {
-  NSInteger rowIndex = [mModelsTable rowForView:sender];
-  FXModel* model = [mModelsTable itemAtRow:rowIndex];
+  NSInteger rowIndex = [_modelsTable rowForView:sender];
+  FXModel* model = [_modelsTable itemAtRow:rowIndex];
 
   if ( (self.cloudLibraryController != nil) && self.cloudLibraryController.nowUsingCloudLibrary )
   {

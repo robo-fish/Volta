@@ -50,48 +50,29 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
 @implementation FXVoltaMainController
 {
 @private
-  FXVoltaLibrary* mLibrary;
-  id<VoltaLibraryEditor> mLibraryEditor;
+  FXVoltaLibrary* _library;
 #if VOLTA_SUPPORTS_ICLOUD
-  FXVoltaCloudController* mCloudController;
-  BOOL mUsingCloudLibrary;
-  BOOL mCopyLocalLibraryToCloudOnNextCloudLibrarySetup;
+  FXVoltaCloudController* _cloudController;
+  BOOL _usingCloudLibrary;
+  BOOL _copyLocalLibraryToCloudOnNextCloudLibrarySetup;
 #endif
-  NSMutableArray* mLastOpenDocumentURLs;
+  NSMutableArray* _lastOpenDocumentURLs;
 
-  NSPanel* mAboutPanel;
-  NSTextView* __unsafe_unretained mVersionView;
-  NSTextView* __unsafe_unretained mCopyrightView;
-  NSMenuItem* __weak mPreferencesMenuItem;
-  NSMenuItem* __weak mCircuitMenuItem;
-  NSMenuItem* __weak mUseCloudLibraryItem;
-  NSMenuItem* __weak mCopyCloudLibraryItem;
-  NSMenuItem* __weak mCopyLocalLibraryItem;
-
-  BOOL mCurrentlySwitchingLibrary;
+  BOOL _currentlySwitchingLibrary;
 }
 
-@synthesize libraryEditor = mLibraryEditor;
-#if VOLTA_SUPPORTS_ICLOUD
-@synthesize cloudController = mCloudController;
-#endif
-@synthesize aboutPanel = mAboutPanel;
-@synthesize aboutPanel_versionView = mVersionView;
-@synthesize aboutPanel_copyrightTextView = mCopyrightView;
-@synthesize menuItem_preferences = mPreferencesMenuItem;
-@synthesize menuItem_circuit = mCircuitMenuItem;
-@synthesize menuItem_useCloudLibrary = mUseCloudLibraryItem;
-@synthesize menuItem_copyCloudLibrary = mCopyCloudLibraryItem;
-@synthesize menuItem_copyLocalLibrary = mCopyLocalLibraryItem;
-
+@synthesize menuItem_preferences = _preferencesMenuItem;
+@synthesize menuItem_circuit = _circuitMenuItem;
+@synthesize aboutPanel_copyrightTextView = _copyrightView;
+@synthesize aboutPanel_versionView = _versionView;
 
 - (id) init
 {
   self = [super init];
-  mCurrentlySwitchingLibrary = NO;
+  _currentlySwitchingLibrary = NO;
 #if VOLTA_SUPPORTS_ICLOUD
-  mUsingCloudLibrary = NO;
-  mCopyLocalLibraryToCloudOnNextCloudLibrarySetup = NO;
+  _usingCloudLibrary = NO;
+  _copyLocalLibraryToCloudOnNextCloudLibrarySetup = NO;
 #endif
   return self;
 }
@@ -119,7 +100,7 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
   [mPreferencesMenuItem setAction:@selector(showPreferences:)];
 #else
   // Hiding the Preferences menu item
-  [mPreferencesMenuItem setHidden:YES];
+  [_preferencesMenuItem setHidden:YES];
 #endif
 }
 
@@ -168,11 +149,11 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
 
 - (NSPanel*) aboutPanel
 {
-  if (mAboutPanel == nil)
+  if (_aboutPanel == nil)
   {
     [self buildAboutPanel];
   }
-  return mAboutPanel;
+  return _aboutPanel;
 }
 
 
@@ -248,7 +229,7 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
     }
   }
   [self fitWindowIntoScreen:self.libraryEditor.window];
-  [self fitWindowIntoScreen:mAboutPanel];
+  [self fitWindowIntoScreen:_aboutPanel];
 }
 
 
@@ -296,7 +277,7 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
   FXIssue(177)
   if ( window == self.aboutPanel )
   {
-    NSScrollView* scrollView = [mCopyrightView enclosingScrollView];
+    NSScrollView* scrollView = [_copyrightView enclosingScrollView];
     NSAssert( scrollView != nil, @"The text view should have an enclosing scroll view." );
     NSPoint const scrollPoint = [scrollView documentVisibleRect].origin;
     [state encodePoint:scrollPoint forKey:FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint];
@@ -310,7 +291,7 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
   if ( window == self.aboutPanel )
   {
     NSPoint const scrollPoint = [state decodePointForKey:FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint];
-    [mCopyrightView scrollPoint:scrollPoint];
+    [_copyrightView scrollPoint:scrollPoint];
   }
 }
 
@@ -356,14 +337,14 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
     FXVoltaCloudController* cloudController = [FXVoltaCloudController new];
     self.cloudController = cloudController;
     FXRelease(cloudController)
-    mUsingCloudLibrary = self.cloudController.cloudStorageIsAvailable && self.cloudController.useCloudLibrary;
-    if ( mUsingCloudLibrary )
+    _usingCloudLibrary = self.cloudController.cloudStorageIsAvailable && self.cloudController.useCloudLibrary;
+    if ( _usingCloudLibrary )
     {
       rootLocation = [self.cloudController libraryStorageLocationForFolder:VoltaCloudFolderType_LibraryRoot];
-      if (mCopyLocalLibraryToCloudOnNextCloudLibrarySetup)
+      if (_copyLocalLibraryToCloudOnNextCloudLibrarySetup)
       {
         [self.cloudController copyContentsFromLibraryAtLocation:[FXVoltaLibrary localStandardRootLocation]];
-        mCopyLocalLibraryToCloudOnNextCloudLibrarySetup = NO;
+        _copyLocalLibraryToCloudOnNextCloudLibrarySetup = NO;
       }
       self.menuItem_useCloudLibrary.state = NSOnState;
     }
@@ -380,19 +361,19 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
   }
 #endif
 
-  mLibrary = [[FXVoltaLibrary alloc] initWithRootLocation:rootLocation];
-  NSAssert(mLibrary != nil, @"The library could not be created.");
+  _library = [[FXVoltaLibrary alloc] initWithRootLocation:rootLocation];
+  NSAssert(_library != nil, @"The library could not be created.");
 
   id<VoltaLibraryEditor> libraryEditor = (id<VoltaLibraryEditor>)[[[FXVoltaPluginsController sharedController] activePluginForType:VoltaPluginType_LibraryEditor] newPluginImplementer];
   NSAssert( (libraryEditor != nil) && [libraryEditor conformsToProtocol:@protocol(VoltaLibraryEditor)], @"Could not load library editor plug-in." );
-  libraryEditor.library = mLibrary;
+  libraryEditor.library = _library;
 #if VOLTA_SUPPORTS_ICLOUD
   libraryEditor.cloudLibraryController = self.cloudController;
 #endif
   self.libraryEditor = libraryEditor;
   FXRelease(libraryEditor)
 
-  [(FXVoltaDocumentController*)[NSDocumentController sharedDocumentController] setLibrary:mLibrary];
+  [(FXVoltaDocumentController*)[NSDocumentController sharedDocumentController] setLibrary:_library];
 }
 
 
@@ -407,13 +388,13 @@ static NSString* FXResume_VoltaAboutWindowCopyrightNoticeScrollPoint            
     self.libraryEditor.library = nil;
     self.libraryEditor = nil;
   #if VOLTA_SUPPORTS_ICLOUD
-    mCopyLocalLibraryToCloudOnNextCloudLibrarySetup = self.cloudController.userWantsLocalLibraryToBeCopied;
+    _copyLocalLibraryToCloudOnNextCloudLibrarySetup = self.cloudController.userWantsLocalLibraryToBeCopied;
     self.cloudController = nil;
   #endif
     [(FXVoltaDocumentController*)[NSDocumentController sharedDocumentController] setLibrary:nil];
-    [mLibrary shutDown];
+    [_library shutDown];
     FXRelease(mLibrary)
-    mLibrary = nil;
+    _library = nil;
   }
 }
 
@@ -429,7 +410,7 @@ FXIssue(23)
   // each time a different circuit document becomes key.
 
   // Important: Making sure that unused menu items are removed from their menus. Otherwise AppKit bails out.
-  [[mCircuitMenuItem submenu] removeAllItems];
+  [[_circuitMenuItem submenu] removeAllItems];
 
   NSMenu* newCircuitMenu = [[NSMenu alloc] initWithTitle:FXLocalizedString(@"Circuit")];
 
@@ -446,7 +427,7 @@ FXIssue(23)
     [newCircuitMenu addItem:menuItem];
   }
 
-  [mCircuitMenuItem setSubmenu:newCircuitMenu];
+  [_circuitMenuItem setSubmenu:newCircuitMenu];
   FXRelease(newCircuitMenu)
 }
 
@@ -497,34 +478,34 @@ FXIssue(23)
 {
   if ( [[NSBundle mainBundle] loadNibNamed:@"VoltaAboutWindow" owner:self topLevelObjects:NULL] )
   {
-    NSAssert( mAboutPanel != nil, @"The About window does not exist." );
-    [mAboutPanel setTitle:FXLocalizedString(@"AboutWindowTitle")];
+    NSAssert( _aboutPanel != nil, @"The About window does not exist." );
+    [_aboutPanel setTitle:FXLocalizedString(@"AboutWindowTitle")];
   #if VOLTA_SUPPORTS_RESUME
-    [mAboutPanel setIdentifier:FXVoltaAboutWindowIdentifier];
-    [mAboutPanel setRestorable:YES];
-    [mAboutPanel setRestorationClass:[self class]];
-    [mAboutPanel setDelegate:self];
+    [_aboutPanel setIdentifier:FXVoltaAboutWindowIdentifier];
+    [_aboutPanel setRestorable:YES];
+    [_aboutPanel setRestorationClass:[self class]];
+    [_aboutPanel setDelegate:self];
   #endif
     
-    NSAssert( mVersionView != nil, @"The version field must exist in the About panel." );
+    NSAssert( _versionView != nil, @"The version field must exist in the About panel." );
     NSDictionary* bundleInfoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSAssert( bundleInfoDictionary != nil, @"The app bundle does not contain a plist." );
     if ( bundleInfoDictionary != nil )
     {
       NSString* bundleVersionString = [bundleInfoDictionary valueForKey:@"CFBundleShortVersionString"];
       NSAssert( bundleVersionString != nil, @"The app bundle plist does not contain the version string." );
-      [mVersionView setString:bundleVersionString];
+      [_versionView setString:bundleVersionString];
     }
     
-    NSAssert( mCopyrightView != nil, @"The copyright message view must exist in the About panel." );
-    NSScrollView* scrollView = [mCopyrightView enclosingScrollView];
+    NSAssert( _copyrightView != nil, @"The copyright message view must exist in the About panel." );
+    NSScrollView* scrollView = [_copyrightView enclosingScrollView];
     [[scrollView verticalScroller] setControlSize:NSControlSizeSmall];
     [scrollView setScrollerKnobStyle:NSScrollerKnobStyleLight];
     // Simplifying the link text attributes of the text view so that the attributes in the HTML are observed.
-    NSMutableDictionary* linkTextAttributes = [NSMutableDictionary dictionaryWithDictionary:[mCopyrightView linkTextAttributes]];
+    NSMutableDictionary* linkTextAttributes = [NSMutableDictionary dictionaryWithDictionary:[_copyrightView linkTextAttributes]];
     [linkTextAttributes removeObjectForKey:NSForegroundColorAttributeName];
     [linkTextAttributes removeObjectForKey:NSUnderlineStyleAttributeName];
-    [mCopyrightView setLinkTextAttributes:linkTextAttributes];
+    [_copyrightView setLinkTextAttributes:linkTextAttributes];
     NSURL* creditsPageLocation = [[NSBundle mainBundle] URLForResource:@"Credits" withExtension:@"html"];
     if (creditsPageLocation != nil)
     {
@@ -532,16 +513,16 @@ FXIssue(23)
       NSAssert( creditsString != nil, @"The credits file is missing!" );
       if ( creditsString == nil )
       {
-        [mCopyrightView setString:FXLocalizedString(@"AboutText")];
+        [_copyrightView setString:FXLocalizedString(@"AboutText")];
       }
       else
       {
-        [[mCopyrightView textStorage] setAttributedString:creditsString];
-        [mCopyrightView scrollToBeginningOfDocument:self];
+        [[_copyrightView textStorage] setAttributedString:creditsString];
+        [_copyrightView scrollToBeginningOfDocument:self];
       }
       FXRelease(creditsString)
     }
-    [mCopyrightView setAlignment:NSTextAlignmentCenter range:NSMakeRange(0, [[mCopyrightView string] length])];
+    [_copyrightView setAlignment:NSTextAlignmentCenter range:NSMakeRange(0, [[_copyrightView string] length])];
   }
 }
 
@@ -658,37 +639,37 @@ NSString* kVoltaFileExtension = @"volta";
   NSURL* bundleResourcesLocation = [NSURL fileURLWithPath:[[NSBundle mainBundle] resourcePath]];
   {
     NSArray* paletteFileLocations = [self filesWithPrefix:@"Palette_" atLocation:bundleResourcesLocation];
-    [self copyFiles:paletteFileLocations toFolder:[mLibrary paletteLocation] localizeFileNames:YES stripPrefix:nil];
+    [self copyFiles:paletteFileLocations toFolder:[_library paletteLocation] localizeFileNames:YES stripPrefix:nil];
   }
   {
     FXIssue(123)
     NSString* prefix = @"Subcircuit_";
     NSArray* subcircuitFileLocations = [self filesWithPrefix:prefix atLocation:bundleResourcesLocation];
-    [self copyFiles:subcircuitFileLocations toFolder:[mLibrary subcircuitsLocation] localizeFileNames:NO stripPrefix:prefix];
+    [self copyFiles:subcircuitFileLocations toFolder:[_library subcircuitsLocation] localizeFileNames:NO stripPrefix:prefix];
   }
   {
     NSString* prefix = @"Models_";
     NSArray* modelFileLocations = [self filesWithPrefix:prefix atLocation:bundleResourcesLocation];
-    [self copyFiles:modelFileLocations toFolder:[mLibrary modelsLocation] localizeFileNames:NO stripPrefix:prefix];
+    [self copyFiles:modelFileLocations toFolder:[_library modelsLocation] localizeFileNames:NO stripPrefix:prefix];
   }
 }
 
 
 - (void) switchLibrary
 {
-  mCurrentlySwitchingLibrary = YES;
+  _currentlySwitchingLibrary = YES;
   NSDocumentController* docController = [NSDocumentController sharedDocumentController];
-  if ( mLastOpenDocumentURLs != nil )
+  if ( _lastOpenDocumentURLs != nil )
   {
     FXRelease(mLastOpenDocumentURLs)
   }
-  mLastOpenDocumentURLs = [[NSMutableArray alloc] initWithCapacity:[[docController documents] count]];
+  _lastOpenDocumentURLs = [[NSMutableArray alloc] initWithCapacity:[[docController documents] count]];
   for ( NSDocument* document in [docController documents] )
   {
     NSURL* fileURL = [document fileURL];
     if ( fileURL != nil )
     {
-      [mLastOpenDocumentURLs addObject:fileURL];
+      [_lastOpenDocumentURLs addObject:fileURL];
     }
   }
   [docController closeAllDocumentsWithDelegate:self didCloseAllSelector:@selector(documentController:didCloseAll:contextInfo:) contextInfo:NULL];
@@ -697,7 +678,7 @@ NSString* kVoltaFileExtension = @"volta";
 
 - (void) documentController:(NSDocumentController*)docController didCloseAll:(BOOL)didCloseAll contextInfo:(void*)contextInfo
 {
-  if ( didCloseAll && mCurrentlySwitchingLibrary )
+  if ( didCloseAll && _currentlySwitchingLibrary )
   {
     NSRect const libraryWindowFrame = self.libraryEditor.window.frame;
     [self shutDownLibrary];
@@ -705,18 +686,18 @@ NSString* kVoltaFileExtension = @"volta";
     [self.libraryEditor.window setFrame:libraryWindowFrame display:YES];
     [self.libraryEditor show];
   }
-  for ( NSURL* documentFileURL in mLastOpenDocumentURLs )
+  for ( NSURL* documentFileURL in _lastOpenDocumentURLs )
   {
     [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:documentFileURL display:YES completionHandler:NULL];
   }
-  mCurrentlySwitchingLibrary = NO;
+  _currentlySwitchingLibrary = NO;
 }
 
 
 #if VOLTA_SUPPORTS_ICLOUD
 - (void) handleCloudLibraryStateChanged:(NSNotification*)notification
 {
-  if (mUsingCloudLibrary != self.cloudController.useCloudLibrary)
+  if (_usingCloudLibrary != self.cloudController.useCloudLibrary)
   {
     [self switchLibrary];
   }

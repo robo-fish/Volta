@@ -20,8 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 @protocol VoltaLibrary;
 @protocol VoltaCloudLibraryController;
-#import "FXTableView.h"
-#import "FXClipView.h"
+#import <FXKit/FXKit-Swift.h>
 
 @interface FXLibraryEditorSubcircuitsController : NSViewController
 

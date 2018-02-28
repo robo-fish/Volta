@@ -1,6 +1,6 @@
 /**
 This file is part of the Volta project.
-Copyright (C) 2007-2013 Kai Berk Oezer
+Copyright (C) 2018 Kai Berk Oezer
 https://robo.fish/wiki/index.php?title=Volta
 https://github.com/robo-fish/Volta
 
@@ -17,18 +17,5 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+#pragma once
 
-@interface FXFileBrowserFileData : NSObject <NSPasteboardWriting, NSPasteboardReading, NSCoding, NSCopying>
-
-@property (readonly) NSString* fileName;
-@property (readonly) NSDate* lastModified;
-@property (readonly) NSUInteger sizeInBytes;
-@property (readonly) NSURL* location;
-
-- (id) initWithLocation:(NSURL*)fileLocation modificationDate:(NSDate*)lastModified size:(NSUInteger)fileSize;
-
-+ (id) fileDataWithLocation:(NSURL*)fileName modificationDate:(NSDate*)lastModified size:(NSUInteger)fileSize;
-
-- (NSComparisonResult) compare:(FXFileBrowserFileData*)other;
-
-@end

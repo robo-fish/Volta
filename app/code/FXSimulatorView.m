@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #import "FXSimulatorView.h"
-#import "FXOverlayTextLineView.h"
+#import <FXKit/FXKit-Swift.h>
 
 
 @interface FXSimulatorView ()

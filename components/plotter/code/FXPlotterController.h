@@ -27,6 +27,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 @interface FX(FXPlotterController) : NSViewController <VoltaPlotter, FXPlotterViewClient>
 
 @property (assign) IBOutlet NSPopUpButton* plotSelector;
-@property (assign) IBOutlet FX(FXPlotterView)* plotterView;
+@property (assign) IBOutlet FXPlotterView* plotterView;
 
 @end

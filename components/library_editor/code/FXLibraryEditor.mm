@@ -19,12 +19,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #import "FXLibraryEditor.h"
-#import "FXMultiFoldingView.h"
+#import <FXKit/FXKit-Swift.h>
 #import "FXTabView.h"
 #import "FXLibraryEditorSubcircuitsController.h"
 #import "FXLibraryEditorModelsController.h"
 #import "FXLibraryEditorPaletteController.h"
-#import "FXViewUtils.h"
 
 NSString* FXVoltaLibraryWindowIdentifier = @"FXVoltaLibraryWindow";
 
@@ -186,7 +185,7 @@ NSSize const skWindowMinSize = { 200.0, 300.0 };
   [window.contentView addSubview:mFoldingView];
   FXRelease(mFoldingView)
 
-  [FXViewUtils layoutInView:window.contentView visualFormats:@[@"H:|[folder]|", @"V:|[folder]|"] metricsInfo:nil viewsInfo:@{ @"folder" : mFoldingView }];
+  [FXViewUtils layoutIn:window.contentView visualFormats:@[@"H:|[folder]|", @"V:|[folder]|"] metricsInfo:nil viewsInfo:@{ @"folder" : mFoldingView }];
 
   return window;
 }

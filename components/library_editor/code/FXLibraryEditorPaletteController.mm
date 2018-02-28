@@ -59,13 +59,8 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 @implementation FXLibraryEditorPaletteController
 {
 @private
-  id<VoltaLibrary> mLibrary;
-  id<VoltaCloudLibraryController> mCloudLibraryController;
-  NSOutlineView* __unsafe_unretained mPaletteTable;
-  FXClipView* __unsafe_unretained mClipView;
-  NSButton* __unsafe_unretained mCreateGroupButton;
-  NSButton* __unsafe_unretained mRemoveItemsButtons;
-  NSButton* __unsafe_unretained mPaletteFolderButton;
+  id<VoltaLibrary> _library;
+  id<VoltaCloudLibraryController> _cloudLibraryController;
   NSMutableArray* mElementGroups;
   FXLibraryEditorPaletteCellView* mDummyCellView;
   __weak id mElementGroupWrapperFromWhichElementsAreDragged; FXIssue(155)
@@ -76,14 +71,6 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   NSRange mFinalIndexRangeOfElementsThatWereMoved;
   NSMutableIndexSet* mOriginalIndexesOfDraggedElements;
 }
-
-@synthesize clipView = mClipView;
-@synthesize paletteTable = mPaletteTable;
-@synthesize createGroupButton = mCreateGroupButton;
-@synthesize removeItemsButton = mRemoveItemsButtons;
-@synthesize paletteFolderButton = mPaletteFolderButton;
-@synthesize library = mLibrary;
-@synthesize cloudLibraryController = mCloudLibraryController;
 
 
 - (id) init
@@ -101,18 +88,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 }
 
 
-- (void) dealloc
-{
-  FXRelease(mDummyCellView)
-  FXRelease(mElementGroups)
-  FXRelease(mLibrary)
-  FXRelease(mCloudLibraryController)
-  FXRelease(mOriginalIndexesOfDraggedElements)
-  FXDeallocSuper
-}
-
-
-#pragma mark NSViewController overrides
+//MARK: NSViewController overrides
 
 
 - (void) loadView
@@ -122,25 +98,25 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 }
 
 
-#pragma mark Public
+//MARK: Public
 
 
 - (void) setLibrary:(id<VoltaLibrary>)library
 {
-  if ( mLibrary != library )
+  if ( _library != library )
   {
     FXRelease(mLibrary)
-    mLibrary = library;
+    _library = library;
     FXRetain(mLibrary)
 
-    if ( mLibrary != nil )
+    if ( _library != nil )
     {
-      [mLibrary addObserver:self];
+      [_library addObserver:self];
       [self updateTableFromLibraryData];
     }
     else
     {
-      [mPaletteTable setDataSource:nil];
+      [_paletteTable setDataSource:nil];
       @synchronized(mElementGroups)
       {
         [mElementGroups removeAllObjects];
@@ -152,13 +128,13 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) setCloudLibraryController:(id<VoltaCloudLibraryController>)cloudLibraryController
 {
-  if ( cloudLibraryController != mCloudLibraryController )
+  if ( cloudLibraryController != _cloudLibraryController )
   {
     FXRelease(mCloudLibraryController)
-    mCloudLibraryController = cloudLibraryController;
+    _cloudLibraryController = cloudLibraryController;
     FXRetain(mCloudLibraryController)
   }
-  if ( (mCloudLibraryController != nil) && mCloudLibraryController.nowUsingCloudLibrary )
+  if ( (_cloudLibraryController != nil) && _cloudLibraryController.nowUsingCloudLibrary )
   {
     self.paletteFolderButton.image = [[NSBundle bundleForClass:[self class]] imageForResource:@"iCloud_small"];
     self.paletteFolderButton.toolTip = FXLocalizedString(@"ShowCloudFilesButtonTooltip");
@@ -168,32 +144,32 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (IBAction) createOrCopyGroup:(id)sender
 {
-  [mLibrary beginEditingPalette];
-  NSIndexSet* selectedItems = [mPaletteTable selectedRowIndexes];
+  [_library beginEditingPalette];
+  NSIndexSet* selectedItems = [_paletteTable selectedRowIndexes];
   if ( [selectedItems count] > 0 )
   {
     FXIssue(148)
     [selectedItems enumerateIndexesUsingBlock:^(NSUInteger rowIndex, BOOL* stop) {
-      id item = [mPaletteTable itemAtRow:rowIndex];
+      id item = [_paletteTable itemAtRow:rowIndex];
       if ( [item isKindOfClass:[FXElementGroup class]] )
       {
         FXString const originalGroupName( (__bridge CFStringRef)[(FXElementGroup*)item name] );
-        [mLibrary copyElementGroup:originalGroupName];
+        [_library copyElementGroup:originalGroupName];
       }
     }];
   }
   else
   {
-    [mLibrary createElementGroup];
+    [_library createElementGroup];
   }
   mUpdateMode = FXLibraryEditorPaletteUpdateMode_AddingItems;
-  [mLibrary endEditingPalette];
+  [_library endEditingPalette];
 }
 
 
 - (IBAction) removeSelectedItems:(id)sender
 {
-  NSIndexSet* selectedRows = [mPaletteTable selectedRowIndexes];
+  NSIndexSet* selectedRows = [_paletteTable selectedRowIndexes];
   if ( [selectedRows count] > 0 )
   {
     [self removeSelectedElementsAndGroups];
@@ -203,13 +179,13 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (IBAction) revealPaletteFolder:(id)sender
 {
-  if ( (mCloudLibraryController != nil) && mCloudLibraryController.nowUsingCloudLibrary )
+  if ( (_cloudLibraryController != nil) && _cloudLibraryController.nowUsingCloudLibrary )
   {
-    [mCloudLibraryController showContentsOfCloudFolder:VoltaCloudFolderType_LibraryPalette];
+    [_cloudLibraryController showContentsOfCloudFolder:VoltaCloudFolderType_LibraryPalette];
   }
   else
   {
-    [FXSystemUtils revealFileAtLocation:[mLibrary paletteLocation]];
+    [FXSystemUtils revealFileAtLocation:[_library paletteLocation]];
   }
 }
 
@@ -219,24 +195,24 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) encodeRestorableStateWithCoder:(NSCoder*)state
 {
-  [mPaletteTable encodeRestorableStateWithCoder:state];
+  [_paletteTable encodeRestorableStateWithCoder:state];
   NSMutableArray* expandedGroups = [NSMutableArray arrayWithCapacity:[mElementGroups count]];
   for ( FXModelGroup* group in mElementGroups )
   {
-    if ( [mPaletteTable isItemExpanded:group] )
+    if ( [_paletteTable isItemExpanded:group] )
     {
       [expandedGroups addObject:group.name];
     }
   }
   [state encodeObject:expandedGroups forKey:@"Palette_ExpandedGroups"];
-  NSPoint const scrollPosition = [[[mPaletteTable enclosingScrollView] contentView] documentVisibleRect].origin;
+  NSPoint const scrollPosition = [[[_paletteTable enclosingScrollView] contentView] documentVisibleRect].origin;
   [state encodePoint:scrollPosition forKey:@"Palette_LastScrollPosition"];
 }
 
 
 - (void) restoreStateWithCoder:(NSCoder*)state
 {
-  [mPaletteTable restoreStateWithCoder:state];
+  [_paletteTable restoreStateWithCoder:state];
   NSArray* expandedGroups = [state decodeObjectForKey:@"Palette_ExpandedGroups"];
   for ( NSString* groupName in expandedGroups )
   {
@@ -244,13 +220,13 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
     {
       if ( [group.name isEqualToString:groupName] )
       {
-        [mPaletteTable expandItem:group];
+        [_paletteTable expandItem:group];
         break;
       }
     }
   }
   NSPoint const lastScrollPosition = [state decodePointForKey:@"Palette_LastScrollPosition"];
-  [mPaletteTable scrollPoint:lastScrollPosition];
+  [_paletteTable scrollPoint:lastScrollPosition];
 }
 
 
@@ -264,7 +240,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   {
     if ( item == nil )
     {
-      if ( outlineView == mPaletteTable )
+      if ( outlineView == _paletteTable )
       {
         @synchronized(mElementGroups)
         {
@@ -301,7 +277,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   {
     if ( item == nil )
     {
-      if ( outlineView == mPaletteTable )
+      if ( outlineView == _paletteTable )
       {
         @synchronized(mElementGroups)
         {
@@ -322,7 +298,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 {
   @synchronized(self)
   {
-    if ( outlineView == mPaletteTable )
+    if ( outlineView == _paletteTable )
     {
       if ( [item isKindOfClass:[FXElementGroup class]] )
       {
@@ -332,7 +308,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
           NSString* stringObject = object;
           FXString newName( (__bridge CFStringRef)stringObject );
           FXString groupName( (__bridge CFStringRef)[groupWrapper name] );
-          [mLibrary renameElementGroup:groupName proposedName:newName];
+          [_library renameElementGroup:groupName proposedName:newName];
         }
       }
     }
@@ -342,30 +318,30 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) outlineView:(NSOutlineView*)outlineView draggingSession:(NSDraggingSession*)session willBeginAtPoint:(NSPoint)screenPoint forItems:(NSArray*)draggedItems
 {
-  [mPaletteTable deselectAll:self];
+  [_paletteTable deselectAll:self];
   mElementGroupWrapperFromWhichElementsAreDragged = [self findCommonGroupForItems:draggedItems];
   [mOriginalIndexesOfDraggedElements removeAllIndexes];
-  NSInteger const elementGroupRowIndex = [mPaletteTable rowForItem:mElementGroupWrapperFromWhichElementsAreDragged];
+  NSInteger const elementGroupRowIndex = [_paletteTable rowForItem:mElementGroupWrapperFromWhichElementsAreDragged];
   if ( elementGroupRowIndex >= 0 )
   {
     for ( id draggedItem in draggedItems )
     {
-      NSInteger rowIndex = [mPaletteTable rowForItem:draggedItem];
+      NSInteger rowIndex = [_paletteTable rowForItem:draggedItem];
       NSAssert(rowIndex >= 0, @"dragged item has no row index");
       [mOriginalIndexesOfDraggedElements addIndex:(rowIndex - elementGroupRowIndex - 1)];
     }
   }
 
   session.draggingFormation = NSDraggingFormationList;
-  [session enumerateDraggingItemsWithOptions:0 forView:mPaletteTable classes:@[[FXElement class]] searchOptions:@{} usingBlock:^(NSDraggingItem *draggingItem, NSInteger idx, BOOL *stop) {
+  [session enumerateDraggingItemsWithOptions:0 forView:_paletteTable classes:@[[FXElement class]] searchOptions:@{} usingBlock:^(NSDraggingItem *draggingItem, NSInteger idx, BOOL *stop) {
     FXElement* draggedElement = draggingItem.item;
     FXLibraryEditorPaletteCellView* cellView = mDummyCellView;
-    cellView.library = mLibrary;
+    cellView.library = _library;
     draggingItem.imageComponentsProvider = ^() {
       [cellView removeConstraints:[cellView constraints]];
       cellView.element = draggedElement;
       [cellView addConstraint:[NSLayoutConstraint constraintWithItem:cellView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:[cellView height]]];
-      cellView.frame = NSMakeRect(0, 0, [mPaletteTable frame].size.width, [cellView height]);
+      cellView.frame = NSMakeRect(0, 0, [_paletteTable frame].size.width, [cellView height]);
       [cellView setNeedsLayout:YES];
       [cellView layoutSubtreeIfNeeded];
       return [cellView draggingImageComponents];
@@ -389,14 +365,14 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   BOOL acceptsDrop = NO;
   @synchronized(self)
   {
-    if ( outlineView == mPaletteTable )
+    if ( outlineView == _paletteTable )
     {
       acceptsDrop = YES;
 
       NSPasteboard* pboard = [info draggingPasteboard];
       if ( [self objectsHaveSameClass:[pboard pasteboardItems]] )
       {
-        [mLibrary beginEditingPalette];
+        [_library beginEditingPalette];
 
         NSArray* droppedElements = [pboard readObjectsForClasses:@[[FXElement class]] options:nil];
         [self handleDroppedElements:droppedElements onElementGroup:targetItem atIndex:index];
@@ -407,7 +383,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
         NSArray* droppedModels = [pboard readObjectsForClasses:@[[FXModel class]] options:nil];
         [self handleDroppedModels:droppedModels onElementGroup:targetItem atIndex:index];
 
-        [mLibrary endEditingPalette];
+        [_library endEditingPalette];
       }
     }
     mElementGroupWrapperFromWhichElementsAreDragged = nil;
@@ -418,7 +394,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (NSDragOperation) outlineView:(NSOutlineView*)outlineView validateDrop:(id<NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)index
 {
-  if (outlineView == mPaletteTable)
+  if (outlineView == _paletteTable)
   {
     NSPasteboard* pboard = [info draggingPasteboard];
     if ( [item isKindOfClass:[FXElementGroup class]] )
@@ -440,7 +416,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 - (NSView*) outlineView:(NSOutlineView*)outlineView viewForTableColumn:(NSTableColumn*)tableColumn item:(id)item
 {
   NSView* result = nil;
-  NSAssert( outlineView == mPaletteTable, @"NSOutlineView delegate method called for wrong table." );
+  NSAssert( outlineView == _paletteTable, @"NSOutlineView delegate method called for wrong table." );
   if ( [item isKindOfClass:[FXElement class]] )
   {
     result = [self prepareCellViewForElement:(FXElement*)item];
@@ -471,7 +447,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 {
   if ( [item isKindOfClass:[FXElement class]] )
   {
-    NSInteger rowIndex = [mPaletteTable rowForItem:item];
+    NSInteger rowIndex = [_paletteTable rowForItem:item];
     if ( rowIndex >= 0 )
     {
       [mDummyCellView setElement:(FXElement*)item];
@@ -487,7 +463,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   BOOL result = NO;
   @synchronized(self)
   {
-    if ( outlineView == mPaletteTable )
+    if ( outlineView == _paletteTable )
     {
       result = YES;
     }
@@ -501,7 +477,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   BOOL result = NO;
   @synchronized(self)
   {
-    if ( outlineView == mPaletteTable )
+    if ( outlineView == _paletteTable )
     {
       result = [item isKindOfClass:[FXElementGroup class]];
     }
@@ -534,10 +510,10 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 {
   if ( editedElement != nil )
   {
-    NSString* groupName = [(FXElementGroup*)[mPaletteTable parentForItem:editedElement] name];
+    NSString* groupName = [(FXElementGroup*)[_paletteTable parentForItem:editedElement] name];
     if ( groupName != nil )
     {
-      if (![mLibrary renameElement:(CFStringRef)editedElement.name inGroup:(CFStringRef)groupName toName:(CFStringRef)newName])
+      if (![_library renameElement:(CFStringRef)editedElement.name inGroup:(CFStringRef)groupName toName:(CFStringRef)newName])
       {
         NSBeep();
         cellView.primaryField.stringValue = editedElement.name; // reverting the change
@@ -552,10 +528,10 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 {
   if ( editedElement != nil )
   {
-    NSString* groupName = [(FXElementGroup*)[mPaletteTable parentForItem:editedElement] name];
+    NSString* groupName = [(FXElementGroup*)[_paletteTable parentForItem:editedElement] name];
     if ( groupName != nil )
     {
-      [mLibrary updateProperties:editedElement.properties ofElement:(CFStringRef)editedElement.name inGroup:(CFStringRef)groupName];
+      [_library updateProperties:editedElement.properties ofElement:(CFStringRef)editedElement.name inGroup:(CFStringRef)groupName];
     }
   }
 }
@@ -566,15 +542,15 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) controlTextDidEndEditing:(NSNotification*)notification
 {
-  NSInteger row = [mPaletteTable rowForView:[notification object]];
-  id item = [mPaletteTable itemAtRow:row];
+  NSInteger row = [_paletteTable rowForView:[notification object]];
+  id item = [_paletteTable itemAtRow:row];
   if ( [item isKindOfClass:[FXElementGroup class]] )
   {
     FXElementGroup* group = item;
     NSString* newGroupName = [(NSTextField*)[notification object] stringValue];
     if ( ![group.name isEqualToString:newGroupName] )
     {
-      if (![mLibrary renameElementGroup:(CFStringRef)group.name proposedName:(CFStringRef)newGroupName])
+      if (![_library renameElementGroup:(CFStringRef)group.name proposedName:(CFStringRef)newGroupName])
       {
         NSBeep();
         [(NSTextField*)[notification object] setStringValue:group.name]; // reverting the change
@@ -589,25 +565,25 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) initializeUI
 {
-  NSAssert( mPaletteFolderButton != nil, @"folder button does not exist in NIB" );
-  [mPaletteFolderButton setImage:[NSImage imageNamed:NSImageNameFolder]];
-  [mPaletteFolderButton setToolTip:FXLocalizedString(@"PaletteFolderRevealButtonTooltip")];
+  NSAssert( _paletteFolderButton != nil, @"folder button does not exist in NIB" );
+  [_paletteFolderButton setImage:[NSImage imageNamed:NSImageNameFolder]];
+  [_paletteFolderButton setToolTip:FXLocalizedString(@"PaletteFolderRevealButtonTooltip")];
 
-  [mPaletteTable registerForDraggedTypes:@[FXPasteboardDataTypeModelGroup, FXPasteboardDataTypeModel, FXPasteboardDataTypeElement, FXPasteboardDataTypeElementGroup]];
-  mPaletteTable.verticalMotionCanBeginDrag = NO;
-  mPaletteTable.dataSource = self;
-  mPaletteTable.delegate = self;
-  mPaletteTable.doubleAction = @selector(handleOutlineViewDoubleClick:);
-  mPaletteTable.target = self;
-  mPaletteTable.intercellSpacing = NSZeroSize;
-  mPaletteTable.gridStyleMask = NSTableViewGridNone;
-  mPaletteTable.focusRingType = NSFocusRingTypeNone;
-  mPaletteTable.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
+  [_paletteTable registerForDraggedTypes:@[FXPasteboardDataTypeModelGroup, FXPasteboardDataTypeModel, FXPasteboardDataTypeElement, FXPasteboardDataTypeElementGroup]];
+  _paletteTable.verticalMotionCanBeginDrag = NO;
+  _paletteTable.dataSource = self;
+  _paletteTable.delegate = self;
+  _paletteTable.doubleAction = @selector(handleOutlineViewDoubleClick:);
+  _paletteTable.target = self;
+  _paletteTable.intercellSpacing = NSZeroSize;
+  _paletteTable.gridStyleMask = NSTableViewGridNone;
+  _paletteTable.focusRingType = NSFocusRingTypeNone;
+  _paletteTable.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
 
-  NSTableColumn* titleTableColumn = [mPaletteTable tableColumnWithIdentifier:skLibraryEditorTableColumnIdentifier_Title];
+  NSTableColumn* titleTableColumn = [_paletteTable tableColumnWithIdentifier:skLibraryEditorTableColumnIdentifier_Title];
   titleTableColumn.resizingMask = NSTableColumnAutoresizingMask;
-  [mPaletteTable setOutlineTableColumn:titleTableColumn];
-  [[[mPaletteTable enclosingScrollView] verticalScroller] setControlSize:NSControlSizeSmall];
+  [_paletteTable setOutlineTableColumn:titleTableColumn];
+  [[[_paletteTable enclosingScrollView] verticalScroller] setControlSize:NSControlSizeSmall];
 
   [self handleSelectedItems];
 }
@@ -626,7 +602,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
       elements.push_back([elementWrapper toElement]);
     }
     FXString const groupName((__bridge CFStringRef)[elementGroupWrapper name]);
-    if ( [mLibrary insertElements:elements intoGroup:groupName atIndex:index dueToReordering:reorderingInsideGroup] )
+    if ( [_library insertElements:elements intoGroup:groupName atIndex:index dueToReordering:reorderingInsideGroup] )
     {
       if (reorderingInsideGroup)
       {
@@ -663,7 +639,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
     }];
 
     FXString const groupName((__bridge CFStringRef)[elementGroupWrapper name]);
-    if ( [mLibrary insertElements:elements intoGroup:groupName atIndex:index dueToReordering:NO] )
+    if ( [_library insertElements:elements intoGroup:groupName atIndex:index dueToReordering:NO] )
     {
       mUpdateMode = FXLibraryEditorPaletteUpdateMode_AddingItems;
     }
@@ -699,7 +675,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
       [itemIndexes addIndex:[mElementGroups indexOfObject:currentGroupWrapper]];
     }
     NSAssert([itemIndexes count] == [movedGroups count], @"Couldn't find indexes for all dropped model group wrappers.");
-    if  ( [mLibrary moveElementGroupsAtIndexes:itemIndexes inFrontOfElementGroupAtIndex:index] )
+    if  ( [_library moveElementGroupsAtIndexes:itemIndexes inFrontOfElementGroupAtIndex:index] )
     {
       [self rearrangeObjects:movedGroups ofArray:mElementGroups byInsertingAtIndex:index];
       [self reloadTableByPreservingSelection:NO];
@@ -713,7 +689,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   FXElementGroup* commonParent = nil;
   for ( id item in items )
   {
-    id parent = [mPaletteTable parentForItem:item];
+    id parent = [_paletteTable parentForItem:item];
     if ( parent == nil )
     {
       commonParent = nil;
@@ -764,7 +740,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 - (void) updateTableFromLibraryData
 {
   __block NSMutableArray* newElementGroups = [[NSMutableArray alloc] initWithCapacity:20];
-  [mLibrary iterateOverElementGroupsByApplyingBlock:^(VoltaPTElementGroup const & group, BOOL* stop) {
+  [_library iterateOverElementGroupsByApplyingBlock:^(VoltaPTElementGroup const & group, BOOL* stop) {
     FXElementGroup* groupWrapper = [[FXElementGroup alloc] initWithElementGroup:group];
     [newElementGroups addObject:groupWrapper];
     FXRelease(groupWrapper)
@@ -786,12 +762,12 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) replaceTableContentsWithElementGroups:(NSArray*)elementGroups
 {
-  NSPoint const scrollPoint = [[[mPaletteTable enclosingScrollView] contentView] documentVisibleRect].origin;
-  [mPaletteTable beginUpdates];
+  NSPoint const scrollPoint = [[[_paletteTable enclosingScrollView] contentView] documentVisibleRect].origin;
+  [_paletteTable beginUpdates];
   NSMutableArray* expandedItems = [NSMutableArray arrayWithCapacity:[mElementGroups count]];
   for ( FXElementGroup* group in mElementGroups )
   {
-    if ([mPaletteTable isItemExpanded:group])
+    if ([_paletteTable isItemExpanded:group])
     {
       [expandedItems addObject:[group name]];
     }
@@ -802,17 +778,17 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   {
     if ( [expandedItems containsObject:[group name]] )
     {
-      [mPaletteTable expandItem:group];
+      [_paletteTable expandItem:group];
     }
   }
-  [mPaletteTable endUpdates];
-  [mPaletteTable scrollPoint:scrollPoint];
+  [_paletteTable endUpdates];
+  [_paletteTable scrollPoint:scrollPoint];
 }
 
 
 - (void) transitionTableContentsToElementGroups:(NSArray*)elementGroups
 {
-  [mPaletteTable beginUpdates];
+  [_paletteTable beginUpdates];
   switch ( mUpdateMode )
   {
     case FXLibraryEditorPaletteUpdateMode_AddingItems:   [self transitionTableContentsByAddingItemsFromElementGroups:elementGroups]; break;
@@ -821,7 +797,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
     default:
       break;
   }
-  [mPaletteTable endUpdates];
+  [_paletteTable endUpdates];
 }
 
 
@@ -867,7 +843,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   }
   if ( [newGroupIndexes count] > 0 )
   {
-    [mPaletteTable insertItemsAtIndexes:newGroupIndexes inParent:nil withAnimation:NSTableViewAnimationEffectFade];
+    [_paletteTable insertItemsAtIndexes:newGroupIndexes inParent:nil withAnimation:NSTableViewAnimationEffectFade];
   }
 }
 
@@ -905,7 +881,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
     }
     if ( [indexesOfElementsToBeInserted count] > 0 )
     {
-      [mPaletteTable insertItemsAtIndexes:indexesOfElementsToBeInserted inParent:existingGroup withAnimation:NSTableViewAnimationEffectFade];
+      [_paletteTable insertItemsAtIndexes:indexesOfElementsToBeInserted inParent:existingGroup withAnimation:NSTableViewAnimationEffectFade];
     }
   }
 }
@@ -931,10 +907,10 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
     }
     if ( matchingNewGroup != nil )
     {
-      if ( [mPaletteTable isItemExpanded:existingGroup] )
+      if ( [_paletteTable isItemExpanded:existingGroup] )
       {
         NSMutableIndexSet* indexesOfElementItemsToRemove = [NSMutableIndexSet indexSet];
-        NSInteger const parentRowIndex = [mPaletteTable rowForItem:existingGroup];
+        NSInteger const parentRowIndex = [_paletteTable rowForItem:existingGroup];
         for ( FXElement* existingElement in existingGroup.elements )
         {
           BOOL foundMatchingElement = NO;
@@ -948,12 +924,12 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
           }
           if ( !foundMatchingElement )
           {
-            [indexesOfElementItemsToRemove addIndex:([mPaletteTable rowForItem:existingElement] - parentRowIndex - 1)];
+            [indexesOfElementItemsToRemove addIndex:([_paletteTable rowForItem:existingElement] - parentRowIndex - 1)];
           }
         }
         if ( [indexesOfElementItemsToRemove count] > 0 )
         {
-          [mPaletteTable removeItemsAtIndexes:indexesOfElementItemsToRemove inParent:existingGroup withAnimation:NSTableViewAnimationEffectFade];
+          [_paletteTable removeItemsAtIndexes:indexesOfElementItemsToRemove inParent:existingGroup withAnimation:NSTableViewAnimationEffectFade];
           [existingGroup.elements removeObjectsAtIndexes:indexesOfElementItemsToRemove];
         }
       }
@@ -965,7 +941,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   }
   if ( [indexesOfGroupItemsToRemove count] > 0 )
   {
-    [mPaletteTable removeItemsAtIndexes:indexesOfGroupItemsToRemove inParent:nil withAnimation:NSTableViewAnimationEffectFade];
+    [_paletteTable removeItemsAtIndexes:indexesOfGroupItemsToRemove inParent:nil withAnimation:NSTableViewAnimationEffectFade];
     [mElementGroups removeObjectsAtIndexes:indexesOfGroupItemsToRemove];
   }
 }
@@ -988,11 +964,11 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
             {
               // First the moved elements are deleted
               [existingGroup.elements removeObjectsAtIndexes:mOriginalIndexesOfDraggedElements];
-              [mPaletteTable removeItemsAtIndexes:mOriginalIndexesOfDraggedElements inParent:existingGroup withAnimation:NSTableViewAnimationEffectGap];
+              [_paletteTable removeItemsAtIndexes:mOriginalIndexesOfDraggedElements inParent:existingGroup withAnimation:NSTableViewAnimationEffectGap];
               // Then, the new items are inserted in the model
               NSIndexSet* insertionIndexSet = [NSIndexSet indexSetWithIndexesInRange:mFinalIndexRangeOfElementsThatWereMoved];
               [existingGroup.elements insertObjects:[group.elements subarrayWithRange:mFinalIndexRangeOfElementsThatWereMoved] atIndexes:insertionIndexSet];
-              [mPaletteTable insertItemsAtIndexes:insertionIndexSet inParent:existingGroup withAnimation:NSTableViewAnimationEffectGap];
+              [_paletteTable insertItemsAtIndexes:insertionIndexSet inParent:existingGroup withAnimation:NSTableViewAnimationEffectGap];
               break;
             }
           }
@@ -1036,7 +1012,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (NSView*) prepareCellViewForElement:(FXElement*)element
 {
-  FXLibraryEditorPaletteCellView* cellView = [mPaletteTable makeViewWithIdentifier:@"ElementCell" owner:self];
+  FXLibraryEditorPaletteCellView* cellView = [_paletteTable makeViewWithIdentifier:@"ElementCell" owner:self];
   NSAssert(cellView != nil, @"The cell view prototype should have been added to the NIB file.");
   if ( cellView == nil )
   {
@@ -1045,7 +1021,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
     cellView.identifier = @"ElementCell";
     FXAutorelease(cellView)
   }
-  cellView.library = mLibrary;
+  cellView.library = _library;
   cellView.showsLockSymbol = NO;
   cellView.element = element;
   cellView.isEditable = YES;
@@ -1058,7 +1034,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (NSView*) prepareCellViewForElementGroup:(FXElementGroup*)group
 {
-  NSTableCellView* cellView = [mPaletteTable makeViewWithIdentifier:@"ElementGroupCell" owner:self];
+  NSTableCellView* cellView = [_paletteTable makeViewWithIdentifier:@"ElementGroupCell" owner:self];
   cellView.textField.stringValue = group.name;
   [(NSTextFieldCell*)cellView.textField.cell setLineBreakMode:NSLineBreakByTruncatingTail];
   cellView.textField.editable = YES;
@@ -1109,14 +1085,14 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   NSArray* selectedItems = nil;
   if ( preserveSelection )
   {
-    selectedItems = [self selectedItemsForOutlineView:mPaletteTable];
+    selectedItems = [self selectedItemsForOutlineView:_paletteTable];
   }
 
-  [mPaletteTable reloadData];
+  [_paletteTable reloadData];
 
   if ( preserveSelection && (selectedItems != nil) )
   {
-    [self restoreSelection:selectedItems forOutlineView:mPaletteTable];
+    [self restoreSelection:selectedItems forOutlineView:_paletteTable];
   }
 }
 
@@ -1148,20 +1124,20 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   @synchronized(self)
   {
     FXIssue(167)
-    NSIndexSet* selectedIndexes = [mPaletteTable selectedRowIndexes];
+    NSIndexSet* selectedIndexes = [_paletteTable selectedRowIndexes];
     __block BOOL emptySelectionOrGroupsOnly = YES;
     [selectedIndexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL* stop) {
-      id selectedItem = [mPaletteTable itemAtRow:index];
+      id selectedItem = [_paletteTable itemAtRow:index];
       if ( ![selectedItem isKindOfClass:[FXElementGroup class]] )
       {
         emptySelectionOrGroupsOnly = NO;
         *stop = YES;
       }
     }];
-    [mCreateGroupButton setEnabled:emptySelectionOrGroupsOnly];
-    [mRemoveItemsButtons setEnabled:([selectedIndexes count] > 0)];
+    [_createGroupButton setEnabled:emptySelectionOrGroupsOnly];
+    [_removeItemsButton setEnabled:([selectedIndexes count] > 0)];
 
-    [mPaletteTable enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
+    [_paletteTable enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
       [rowView setNeedsDisplay:YES];
     }];
   }
@@ -1170,18 +1146,18 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) selectTableItemOfClass:(Class)itemClass atRow:(NSUInteger)rowIndex
 {
-  NSUInteger const newNumberOfRows = [mPaletteTable numberOfRows];
+  NSUInteger const newNumberOfRows = [_paletteTable numberOfRows];
   if ( newNumberOfRows > 0 )
   {
     NSUInteger const newSelectedRowIndex = (newNumberOfRows > rowIndex) ? rowIndex : (newNumberOfRows - 1);
-    if ( [[mPaletteTable itemAtRow:newSelectedRowIndex] isKindOfClass:itemClass] )
+    if ( [[_paletteTable itemAtRow:newSelectedRowIndex] isKindOfClass:itemClass] )
     {
-      [mPaletteTable selectRowIndexes:[NSIndexSet indexSetWithIndex:newSelectedRowIndex] byExtendingSelection:NO];
-      [mPaletteTable scrollRowToVisible:newSelectedRowIndex];
+      [_paletteTable selectRowIndexes:[NSIndexSet indexSetWithIndex:newSelectedRowIndex] byExtendingSelection:NO];
+      [_paletteTable scrollRowToVisible:newSelectedRowIndex];
     }
     else
     {
-      [mPaletteTable deselectAll:self];
+      [_paletteTable deselectAll:self];
     }
   }
 }
@@ -1189,15 +1165,15 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) removeSelectedElementsAndGroups
 {
-  [mLibrary beginEditingPalette];
+  [_library beginEditingPalette];
 
-  NSIndexSet* selectedRows = [mPaletteTable selectedRowIndexes];
+  NSIndexSet* selectedRows = [_paletteTable selectedRowIndexes];
 
   __block NSMutableArray* groupWrappersToBeRemoved = [[NSMutableArray alloc] initWithCapacity:[selectedRows count]];
   __block NSMutableArray* elementWrappersToBeRemoved = [[NSMutableArray alloc] initWithCapacity:[selectedRows count]];
 
   [selectedRows enumerateIndexesUsingBlock:^(NSUInteger currentIndex, BOOL *stop) {
-    id tableItem = [mPaletteTable itemAtRow:currentIndex];
+    id tableItem = [_paletteTable itemAtRow:currentIndex];
     if ( [tableItem isKindOfClass:[FXElementGroup class]] )
     {
       FXElementGroup* groupWrapper = tableItem;
@@ -1205,10 +1181,10 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
     }
     else if ( [tableItem isKindOfClass:[FXElement class]] )
     {
-      NSInteger const rowIndexOfParentItem = [mPaletteTable rowForItem:[mPaletteTable parentForItem:tableItem]];
+      NSInteger const rowIndexOfParentItem = [_paletteTable rowForItem:[_paletteTable parentForItem:tableItem]];
       if ( rowIndexOfParentItem >= 0 )
       {
-        if ( ![mPaletteTable isRowSelected:rowIndexOfParentItem] )
+        if ( ![_paletteTable isRowSelected:rowIndexOfParentItem] )
         {
           [elementWrappersToBeRemoved addObject:tableItem];
         }
@@ -1225,7 +1201,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   groupWrappersToBeRemoved = nil;
 
   mUpdateMode = FXLibraryEditorPaletteUpdateMode_RemovingItems;
-  [mLibrary endEditingPalette];
+  [_library endEditingPalette];
 }
 
 
@@ -1236,14 +1212,14 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
   {
     for ( FXElement* elementWrapper in elementWrappersToBeRemoved )
     {
-      FXElementGroup* groupWrapper = [mPaletteTable parentForItem:elementWrapper];
+      FXElementGroup* groupWrapper = [_paletteTable parentForItem:elementWrapper];
       if ( groupWrapper != nil )
       {
         elementsAndGroups.push_back( { (__bridge CFStringRef)elementWrapper.name, (__bridge CFStringRef)groupWrapper.name } );
       }
     }
   }
-  BOOL const removedAllElements = [mLibrary removeElements:elementsAndGroups];
+  BOOL const removedAllElements = [_library removeElements:elementsAndGroups];
   NSAssert( removedAllElements, @"All selected elements should have been removed." );
 }
 
@@ -1258,7 +1234,7 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
       groupNames.push_back( (__bridge CFStringRef)[groupWrapper name] );
     }
   }
-  [mLibrary removeElementGroups:groupNames];
+  [_library removeElementGroups:groupNames];
 }
 
 
@@ -1283,10 +1259,10 @@ typedef NS_ENUM(short, FXLibraryEditorPaletteUpdateMode)
 
 - (void) toggleShowPropertiesTable:(id)sender
 {
-  NSInteger rowIndex = [mPaletteTable rowForView:sender];
+  NSInteger rowIndex = [_paletteTable rowForView:sender];
   if ( rowIndex >= 0 )
   {
-    [mPaletteTable noteHeightOfRowsWithIndexesChanged:[NSIndexSet indexSetWithIndex:(NSUInteger)rowIndex]];
+    [_paletteTable noteHeightOfRowsWithIndexesChanged:[NSIndexSet indexSetWithIndex:(NSUInteger)rowIndex]];
   }
 }
 

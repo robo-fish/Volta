@@ -88,36 +88,19 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 @implementation FXSubcircuitEditor
 {
 @private
-  NSTableView* __unsafe_unretained mNodeAssignmentTable;
-  NSTextField* __unsafe_unretained mVendorField;
-  NSTextField* __unsafe_unretained mTitleField;
-  NSPopUpButton* __unsafe_unretained mDIPSelector;
-  NSButton* __unsafe_unretained mEnablerCheckbox;
-  NSBox* __unsafe_unretained mShapeContainer;
-  FXShapeView* mShapePreviewer;
-  
-  NSMutableArray* mPinNodePairs;
-  VoltaPTSubcircuitDataPtr mSubcircuitData;
-  
-  __weak NSUndoManager* mUndoManager;
-
-  __weak id<VoltaSubcircuitEditorClient> mClient;
+  FXShapeView* _shapePreviewer;
+  NSMutableArray* _pinNodePairs;
+  VoltaPTSubcircuitDataPtr _subcircuitData;
+  __weak NSUndoManager* _undoManager;
+  __weak id<VoltaSubcircuitEditorClient> _client;
 }
-
-@synthesize nodeAssignmentTable = mNodeAssignmentTable;
-@synthesize vendorField = mVendorField;
-@synthesize titleField = mTitleField;
-@synthesize shapeSelector = mDIPSelector;
-@synthesize enablerCheckbox = mEnablerCheckbox;
-@synthesize shapeContainer = mShapeContainer;
-
 
 - (id) init
 {
   if ( (self = [super initWithNibName:@"SubcircuitEditor" bundle:[NSBundle bundleForClass:[self class]]]) != nil )
   {
-    mPinNodePairs = [[NSMutableArray alloc] init];
-    mSubcircuitData = [self createDefaultSubcircuitData];
+    _pinNodePairs = [[NSMutableArray alloc] init];
+    _subcircuitData = [self createDefaultSubcircuitData];
   }
   return self;
 }
@@ -126,8 +109,6 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 - (void) dealloc
 {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
-  FXRelease(mPinNodePairs)
-  FXDeallocSuper
 }
 
 
@@ -136,18 +117,18 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (VoltaPTSubcircuitDataPtr) subcircuitData;
 {
-  return mSubcircuitData;
+  return _subcircuitData;
 }
 
 
 - (void) setSubcircuitData:(VoltaPTSubcircuitDataPtr)subcircuitData
 {
-  mSubcircuitData = subcircuitData;
-  if ( mSubcircuitData->pins.size() == 0 )
+  _subcircuitData = subcircuitData;
+  if ( _subcircuitData->pins.size() == 0 )
   {
     VoltaPTSubcircuitDataPtr defaultSubcircuit = [self createDefaultSubcircuitData];
-    mSubcircuitData->pins = defaultSubcircuit->pins;
-    mSubcircuitData->externals = defaultSubcircuit->externals;
+    _subcircuitData->pins = defaultSubcircuit->pins;
+    _subcircuitData->externals = defaultSubcircuit->externals;
   }
   [self updateUIFromModel];
 }
@@ -155,13 +136,13 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (void) setUndoManager:(NSUndoManager*)undoManager
 {
-  mUndoManager = undoManager;
+  _undoManager = undoManager;
 }
 
 
 - (void) setClient:(id<VoltaSubcircuitEditorClient>)client
 {
-  mClient = client;
+  _client = client;
 }
 
 
@@ -212,16 +193,16 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (void) handleDIPSelection:(id)sender
 {
-  NSAssert( sender == mDIPSelector, @"This handler must be called by the shape selector." );
-  NSInteger numPins = [[mDIPSelector titleOfSelectedItem] integerValue];
+  NSAssert( sender == _shapeSelector, @"This handler must be called by the shape selector." );
+  NSInteger numPins = [[_shapeSelector titleOfSelectedItem] integerValue];
   NSString* shapeType = @""; 
   if ( numPins > 0 )
   {
-    shapeType = [NSString stringWithFormat:@"DIP%@", [mDIPSelector titleOfSelectedItem]];
+    shapeType = [NSString stringWithFormat:@"DIP%@", [_shapeSelector titleOfSelectedItem]];
   }
   
   BOOL foundExistingMetaDataItem = NO;
-  for( VoltaPTMetaDataItem & metaDataItem : mSubcircuitData->metaData )
+  for( VoltaPTMetaDataItem & metaDataItem : _subcircuitData->metaData )
   {
     if ( metaDataItem.first == FXVolta_SubcircuitShapeType )
     {
@@ -232,10 +213,10 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
   }
   if ( !foundExistingMetaDataItem )
   {
-    mSubcircuitData->metaData.push_back( { FXVolta_SubcircuitShapeType, (__bridge CFStringRef)shapeType } );
+    _subcircuitData->metaData.push_back( { FXVolta_SubcircuitShapeType, (__bridge CFStringRef)shapeType } );
   }
-  id<FXShape> newShape = [FXShapeFactory shapeFromMetaData:mSubcircuitData->metaData];
-  [mShapePreviewer setShape:newShape];
+  id<FXShape> newShape = [FXShapeFactory shapeFromMetaData:_subcircuitData->metaData];
+  [_shapePreviewer setShape:newShape];
   [self handleUIShapeDidChange:self];
 }
 
@@ -255,10 +236,10 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (void) handleEnablerCheckbox:(id)sender
 {
-  NSAssert( sender == mEnablerCheckbox, @"action called by wrong sender" );
-  [self createUndoPointForActionName: (mSubcircuitData->enabled ? FXLocalizedString(@"Action_disable_subcircuit") : FXLocalizedString(@"Action_enable_subcircuit")) ];
-  mSubcircuitData->enabled = ([mEnablerCheckbox state] == NSOnState);
-  [mClient subcircuitEditor:self changedActivationState:mSubcircuitData->enabled];
+  NSAssert( sender == _enablerCheckbox, @"action called by wrong sender" );
+  [self createUndoPointForActionName: (_subcircuitData->enabled ? FXLocalizedString(@"Action_disable_subcircuit") : FXLocalizedString(@"Action_enable_subcircuit")) ];
+  _subcircuitData->enabled = ([_enablerCheckbox state] == NSOnState);
+  [_client subcircuitEditor:self changedActivationState:_subcircuitData->enabled];
   [self updateUIEnableStateFromModel];
 }
 
@@ -276,8 +257,8 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (void) initializeDIPSelector
 {
-  NSAssert( mDIPSelector != nil, @"view must exist" );
-  [mDIPSelector removeAllItems];
+  NSAssert( _shapeSelector != nil, @"view must exist" );
+  [_shapeSelector removeAllItems];
   NSInteger i = skMinPinCount;
   NSMenu* menu = [[NSMenu alloc] initWithTitle:@"DIP Selection"];
   for ( ; i <= skMaxPinCount; i+=2 )
@@ -287,71 +268,71 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
     [menu addItem:menuItem];
     FXRelease(menuItem)
   }
-  [mDIPSelector setMenu:menu];
+  [_shapeSelector setMenu:menu];
   FXRelease(menu)
-  [mDIPSelector setAction:@selector(handleDIPSelection:)];
-  [mDIPSelector setTarget:self];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUIShapeWillChange:) name:NSPopUpButtonWillPopUpNotification object:mDIPSelector];
+  [_shapeSelector setAction:@selector(handleDIPSelection:)];
+  [_shapeSelector setTarget:self];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUIShapeWillChange:) name:NSPopUpButtonWillPopUpNotification object:_shapeSelector];
 }
 
 
 - (void) initializeEnablerCheckbox
 {
-  NSAssert( mEnablerCheckbox != nil, @"the view must exist" );
-  [mEnablerCheckbox setTitle:FXLocalizedString(@"SubcircuitEditorEnablerCheckboxTitle")];
-  [mEnablerCheckbox setState:(mSubcircuitData->enabled ? NSOnState : NSOffState)];
-  [mEnablerCheckbox setTarget:self];
-  [mEnablerCheckbox setAction:@selector(handleEnablerCheckbox:)];
+  NSAssert( _enablerCheckbox != nil, @"the view must exist" );
+  [_enablerCheckbox setTitle:FXLocalizedString(@"SubcircuitEditorEnablerCheckboxTitle")];
+  [_enablerCheckbox setState:(_subcircuitData->enabled ? NSOnState : NSOffState)];
+  [_enablerCheckbox setTarget:self];
+  [_enablerCheckbox setAction:@selector(handleEnablerCheckbox:)];
 }
 
 
 - (void) initializeShapePreviewer
 {
-  NSAssert( mShapeContainer != nil, @"the view must exist" );
-  mShapePreviewer = [[FX(FXShapeView) alloc] initWithFrame:[mShapeContainer frame]];
-  mShapePreviewer.verticalAlignment = FXShapeViewVerticalAlignment_Top;
-  mShapePreviewer.scaleMode = FXShapeViewScaleMode_ScaleDownToFit;
-  mShapePreviewer.isCached = NO;
-  [mShapeContainer setContentView:mShapePreviewer];
+  NSAssert( _shapeContainer != nil, @"the view must exist" );
+  _shapePreviewer = [[FX(FXShapeView) alloc] initWithFrame:[_shapeContainer frame]];
+  _shapePreviewer.verticalAlignment = FXShapeViewVerticalAlignment_Top;
+  _shapePreviewer.scaleMode = FXShapeViewScaleMode_ScaleDownToFit;
+  _shapePreviewer.isCached = NO;
+  [_shapeContainer setContentView:_shapePreviewer];
   FXRelease(mShapePreviewer)
 }
 
 
 - (void) initializeTitleField
 {
-  NSAssert( mTitleField != nil, @"the view must exist" );
-  [[mTitleField cell] setPlaceholderString:FXLocalizedString(@"SubcircuitEditorNameFieldPlaceholder")];
-  [mTitleField setDelegate:self];
+  NSAssert( _titleField != nil, @"the view must exist" );
+  [[_titleField cell] setPlaceholderString:FXLocalizedString(@"SubcircuitEditorNameFieldPlaceholder")];
+  [_titleField setDelegate:self];
 }
 
 
 - (void) initializeVendorField
 {
-  NSAssert( mVendorField != nil, @"the view must exist" );
-  [[mVendorField cell] setPlaceholderString:FXLocalizedString(@"SubcircuitEditorVendorFieldPlaceholder")];
-  [mVendorField setDelegate:self];
+  NSAssert( _vendorField != nil, @"the view must exist" );
+  [[_vendorField cell] setPlaceholderString:FXLocalizedString(@"SubcircuitEditorVendorFieldPlaceholder")];
+  [_vendorField setDelegate:self];
 }
 
 
 - (void) initializeNodeAssignmentTable
 {
-  NSAssert( mNodeAssignmentTable != nil, @"the view must exists" );
-  [[[mNodeAssignmentTable enclosingScrollView] verticalScroller] setControlSize:NSControlSizeSmall];
-  NSTableColumn* pinsColumn = [mNodeAssignmentTable tableColumnWithIdentifier:sNodeAssignmentTable_PinsColumn];
+  NSAssert( _nodeAssignmentTable != nil, @"the view must exists" );
+  [[[_nodeAssignmentTable enclosingScrollView] verticalScroller] setControlSize:NSControlSizeSmall];
+  NSTableColumn* pinsColumn = [_nodeAssignmentTable tableColumnWithIdentifier:sNodeAssignmentTable_PinsColumn];
   NSAssert( pinsColumn != nil, @"the table column must exist" );
   [[pinsColumn headerCell] setStringValue:FXLocalizedString(@"SubcircuitEditorNodeAssignmentTablePinsColumnTitle")];
-  NSTableColumn* nodesColumn = [mNodeAssignmentTable tableColumnWithIdentifier:sNodeAssignmentTable_NodesColumn];
+  NSTableColumn* nodesColumn = [_nodeAssignmentTable tableColumnWithIdentifier:sNodeAssignmentTable_NodesColumn];
   NSAssert( nodesColumn != nil, @"the table column must exist" );
   [[nodesColumn headerCell] setStringValue:FXLocalizedString(@"SubcircuitEditorNodeAssignmentTableNodesColumnTitle")];
-  [mNodeAssignmentTable setDataSource:self];
-  [mNodeAssignmentTable setDelegate:self];
+  [_nodeAssignmentTable setDataSource:self];
+  [_nodeAssignmentTable setDelegate:self];
 }
 
 
 - (void) updateUIFromModel
 {
-  [mTitleField setStringValue:(__bridge NSString*)mSubcircuitData->name.cfString()];
-  [mVendorField setStringValue:(__bridge NSString*)mSubcircuitData->vendor.cfString()];
+  [_titleField setStringValue:(__bridge NSString*)_subcircuitData->name.cfString()];
+  [_vendorField setStringValue:(__bridge NSString*)_subcircuitData->vendor.cfString()];
   [self updateUIDIPSelectorFromModel];
   [self updateUIShapePreviewFromModel];
   [self updateUINodeAssignmentsFromModel];
@@ -361,75 +342,75 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (void) updateUIEnableStateFromModel
 {
-  BOOL enabled = mSubcircuitData->enabled;
+  BOOL enabled = _subcircuitData->enabled;
   NSCellStateValue newState = (enabled ? NSOnState : NSOffState);
-  if ( [mEnablerCheckbox state] != newState )
+  if ( [_enablerCheckbox state] != newState )
   {
     // This branch is executed when the change was not triggered by the user pressing the checkbox.
-    [mEnablerCheckbox setState:newState];
-    [mClient subcircuitEditor:self changedActivationState:enabled];
+    [_enablerCheckbox setState:newState];
+    [_client subcircuitEditor:self changedActivationState:enabled];
   }
-  [mDIPSelector setEnabled:enabled];
-  [mNodeAssignmentTable setEnabled:enabled];
-  [mVendorField setEnabled:enabled];
-  [mTitleField setEnabled:enabled];
-  [mShapePreviewer setEnabled:enabled];
+  [_shapeSelector setEnabled:enabled];
+  [_nodeAssignmentTable setEnabled:enabled];
+  [_vendorField setEnabled:enabled];
+  [_titleField setEnabled:enabled];
+  [_shapePreviewer setEnabled:enabled];
 }
 
 
 - (void) updateUIShapePreviewFromModel
 {
-  if ( mSubcircuitData.get() != nullptr )
+  if ( _subcircuitData.get() != nullptr )
   {
-    id<FXShape> shape = [FXShapeFactory shapeFromMetaData:mSubcircuitData->metaData];
+    id<FXShape> shape = [FXShapeFactory shapeFromMetaData:_subcircuitData->metaData];
     if ( shape == nil )
     {
-      shape = [FXShapeFactory shapeWithPersistentShape:mSubcircuitData->shape persistentPins:mSubcircuitData->pins];
+      shape = [FXShapeFactory shapeWithPersistentShape:_subcircuitData->shape persistentPins:_subcircuitData->pins];
     }
-    NSString* label = [NSString stringWithString:(__bridge NSString*)mSubcircuitData->name.cfString()];
-    mShapePreviewer.shapeAttributes = @{ @"label" : label };
-    [mShapePreviewer setShape:shape];
+    NSString* label = [NSString stringWithString:(__bridge NSString*)_subcircuitData->name.cfString()];
+    _shapePreviewer.shapeAttributes = @{ @"label" : label };
+    [_shapePreviewer setShape:shape];
   }
 }
 
 
 - (void) updateUIDIPSelectorFromModel
 {
-  size_t numDIPLeads = mSubcircuitData->pins.size();
-  [mDIPSelector selectItemWithTag:numDIPLeads];
+  size_t numDIPLeads = _subcircuitData->pins.size();
+  [_shapeSelector selectItemWithTag:numDIPLeads];
 }
 
 
 - (void) updateUINodeAssignmentsFromModel
 {
-  [mNodeAssignmentTable setDataSource:nil];
-  [mPinNodePairs removeAllObjects];
-  if ( mSubcircuitData.get() != nullptr )
+  [_nodeAssignmentTable setDataSource:nil];
+  [_pinNodePairs removeAllObjects];
+  if ( _subcircuitData.get() != nullptr )
   {
-    for( VoltaPTSubcircuitExternal const & external : mSubcircuitData->externals )
+    for( VoltaPTSubcircuitExternal const & external : _subcircuitData->externals )
     {
       FXSubcircuitData_PinNodePair* pinNodePair = [[FXSubcircuitData_PinNodePair alloc] init];
       [pinNodePair setPin:(__bridge NSString*)external.first.cfString()];
       [pinNodePair setNode:(__bridge NSString*)external.second.cfString()];
-      [mPinNodePairs addObject:pinNodePair];
+      [_pinNodePairs addObject:pinNodePair];
       FXRelease(pinNodePair)
     }
-    [mPinNodePairs sortUsingSelector:@selector(compare:)];
+    [_pinNodePairs sortUsingSelector:@selector(compare:)];
   }
-  [mNodeAssignmentTable setDataSource:self];
+  [_nodeAssignmentTable setDataSource:self];
 }
 
 
 - (void) updateModelFromUIShape
 {
-  mSubcircuitData->externals.clear();
-  mSubcircuitData->pins.clear();
-  id<FXShape> shape = [mShapePreviewer shape];
+  _subcircuitData->externals.clear();
+  _subcircuitData->pins.clear();
+  id<FXShape> shape = [_shapePreviewer shape];
   for ( FXShapeConnectionPoint* connectionPoint in [shape connectionPoints] )
   {
     FXString key( (__bridge CFStringRef)[connectionPoint name] );
-    mSubcircuitData->externals[key] = "";
-    mSubcircuitData->pins.push_back( VoltaPTPin(key, [connectionPoint location].x, [connectionPoint location].y) );
+    _subcircuitData->externals[key] = "";
+    _subcircuitData->pins.push_back( VoltaPTPin(key, [connectionPoint location].x, [connectionPoint location].y) );
   }
   // TODO: Convert id<FXShape> to VoltaPTShape when a shape editor is added.
 }
@@ -437,9 +418,9 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (void) updateModelName:(NSString*)newName
 {
-  mSubcircuitData->name = (__bridge CFStringRef)newName;
+  _subcircuitData->name = (__bridge CFStringRef)newName;
   BOOL foundExistingMetaDataItem = NO;
-  for( VoltaPTMetaDataItem & metaDataItem : mSubcircuitData->metaData )
+  for( VoltaPTMetaDataItem & metaDataItem : _subcircuitData->metaData )
   {
     if ( metaDataItem.first == FXVolta_SubcircuitShapeLabel )
     {
@@ -450,14 +431,14 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
   }
   if ( !foundExistingMetaDataItem )
   {
-    mSubcircuitData->metaData.push_back( { FXVolta_SubcircuitShapeLabel, (__bridge CFStringRef)newName } );
+    _subcircuitData->metaData.push_back( { FXVolta_SubcircuitShapeLabel, (__bridge CFStringRef)newName } );
   }
 }
 
 
 - (void) updateModelVendor:(NSString*)newVendor
 {
-  mSubcircuitData->vendor = (__bridge CFStringRef)newVendor;
+  _subcircuitData->vendor = (__bridge CFStringRef)newVendor;
 }
 
 
@@ -465,7 +446,7 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 {
   { // Setting the redo state
     FXSubcircuitDataCapture* currentState = [[FXSubcircuitDataCapture alloc] initWithSubcircuitData:[self subcircuitData]];
-    [mUndoManager registerUndoWithTarget:self selector:@selector(performUndo:) object:currentState];
+    [_undoManager registerUndoWithTarget:self selector:@selector(performUndo:) object:currentState];
     FXRelease(currentState)
   }
   [self setSubcircuitData:[stateData subcircuitData]];
@@ -476,8 +457,8 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 - (void) createUndoPointForActionName:(NSString*)actionName
 {
   FXSubcircuitDataCapture* currentState = [[FXSubcircuitDataCapture alloc] initWithSubcircuitData:[self subcircuitData]];
-  [mUndoManager registerUndoWithTarget:self selector:@selector(performUndo:) object:currentState];
-  [mUndoManager setActionName:actionName];
+  [_undoManager registerUndoWithTarget:self selector:@selector(performUndo:) object:currentState];
+  [_undoManager setActionName:actionName];
   FXRelease(currentState)
 }
 
@@ -487,15 +468,15 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (NSInteger) numberOfRowsInTableView:(NSTableView*)tableView
 {
-  NSAssert( tableView = mNodeAssignmentTable, @"Wrong table!");
-  return [mPinNodePairs count];
+  NSAssert( tableView = _nodeAssignmentTable, @"Wrong table!");
+  return [_pinNodePairs count];
 }
 
 - (id) tableView:(NSTableView*)tableView objectValueForTableColumn:(NSTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
-  NSAssert( tableView = mNodeAssignmentTable, @"Wrong table!");
-  NSAssert( rowIndex < [mPinNodePairs count], @"node assignment table row index out of bounds" );
-  FXSubcircuitData_PinNodePair* pinNodePair = mPinNodePairs[rowIndex];
+  NSAssert( tableView = _nodeAssignmentTable, @"Wrong table!");
+  NSAssert( rowIndex < [_pinNodePairs count], @"node assignment table row index out of bounds" );
+  FXSubcircuitData_PinNodePair* pinNodePair = _pinNodePairs[rowIndex];
   if ( [[tableColumn identifier] isEqualToString:sNodeAssignmentTable_PinsColumn] )
   {
     return pinNodePair.pin;
@@ -511,10 +492,10 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
   if ( [[tableColumn identifier] isEqualToString:sNodeAssignmentTable_NodesColumn] )
   {
     NSAssert( [anObject isKindOfClass:[NSString class]], @"The node value must be NSString." );
-    FXSubcircuitData_PinNodePair* pinNodePair = mPinNodePairs[rowIndex];
+    FXSubcircuitData_PinNodePair* pinNodePair = _pinNodePairs[rowIndex];
     [self createUndoPointForActionName:FXLocalizedString(@"Action_node_assignment")];
     [pinNodePair setNode:anObject];
-    mSubcircuitData->externals[ (__bridge CFStringRef)[pinNodePair pin] ] = (__bridge CFStringRef)[pinNodePair node]; // store in model
+    _subcircuitData->externals[ (__bridge CFStringRef)[pinNodePair pin] ] = (__bridge CFStringRef)[pinNodePair node]; // store in model
   }
 }
 
@@ -524,7 +505,7 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 
 - (BOOL) tableView:(NSTableView*)tableView shouldEditTableColumn:(NSTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
-  NSAssert( tableView = mNodeAssignmentTable, @"Wrong table!");
+  NSAssert( tableView = _nodeAssignmentTable, @"Wrong table!");
   return [[tableColumn identifier] isEqualToString:sNodeAssignmentTable_NodesColumn];
 }
 
@@ -536,11 +517,11 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 {
   // Note: this delegate method is also called when editing table text cells.
   NSString* actionName = nil;
-  if ( control == mTitleField )
+  if ( control == _titleField )
   {
     actionName = FXLocalizedString(@"Action_edit_title");
   }
-  else if ( control == mVendorField )
+  else if ( control == _vendorField )
   {
     actionName = FXLocalizedString(@"Action_edit_vendor");
   }
@@ -555,14 +536,14 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 - (void) controlTextDidChange:(NSNotification*)notification
 {
   NSControl* control = [notification object];
-  if ( control == mTitleField )
+  if ( control == _titleField )
   {
-    [self updateModelName:[mTitleField stringValue]];
+    [self updateModelName:[_titleField stringValue]];
     [self updateUIShapePreviewFromModel];
   }
-  else if ( control == mVendorField )
+  else if ( control == _vendorField )
   {
-    [self updateModelVendor:[mVendorField stringValue]];
+    [self updateModelVendor:[_vendorField stringValue]];
   }
 }
 
@@ -570,16 +551,16 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
 - (BOOL) control:(NSControl*)control textView:(NSTextView*)textView doCommandBySelector:(SEL)commandSelector
 {
   BOOL handled = NO;
-  if ( textView == mNodeAssignmentTable.currentEditor )
+  if ( textView == _nodeAssignmentTable.currentEditor )
   {
     if ( (commandSelector == @selector(insertTab:))
         || (commandSelector == @selector(insertBacktab:)) )
     {
-      NSInteger const lastRow = mNodeAssignmentTable.numberOfRows - 1;
+      NSInteger const lastRow = _nodeAssignmentTable.numberOfRows - 1;
       if ( lastRow > 0 )
       {
-        NSInteger const currentRow = mNodeAssignmentTable.editedRow;
-        NSInteger const currentColumn = mNodeAssignmentTable.editedColumn;
+        NSInteger const currentRow = _nodeAssignmentTable.editedRow;
+        NSInteger const currentColumn = _nodeAssignmentTable.editedColumn;
         NSInteger nextRow = 0;
         if (commandSelector == @selector(insertTab:))
         {
@@ -589,13 +570,13 @@ static NSString* sNodeAssignmentTable_PinsColumn = @"pins";
         {
           nextRow = (currentRow > 0) ? currentRow - 1 : lastRow;
         }
-        [mNodeAssignmentTable editColumn:currentColumn row:nextRow withEvent:nil select:YES];
+        [_nodeAssignmentTable editColumn:currentColumn row:nextRow withEvent:nil select:YES];
         handled = YES;
       }
     }
     else if ( commandSelector == @selector(cancelOperation:) )
     {
-      [[[mNodeAssignmentTable tableColumnWithIdentifier:sNodeAssignmentTable_NodesColumn] dataCell] endEditing:textView];
+      [[[_nodeAssignmentTable tableColumnWithIdentifier:sNodeAssignmentTable_NodesColumn] dataCell] endEditing:textView];
       handled = YES;
     }
   }

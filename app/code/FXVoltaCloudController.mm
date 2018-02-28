@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "FXVoltaCloudController.h"
 #import "FXSystemUtils.h"
-#import "FXFileBrowser.h"
+#import <FXKit/FXKit-Swift.h>
 #import "FXVoltaPreferencesController.h"
 
 NSString* const FXCloudStorageIdentityKey = @"CloudStorageIdentity";
@@ -212,7 +212,7 @@ static NSWindow* sFileBrowserWindow = nil;
 
 - (void) highlightFiles:(NSArray*)fileNames
 {
-  [sFileBrowser highlightFiles:fileNames];
+  [sFileBrowser highlight:fileNames];
 }
 
 

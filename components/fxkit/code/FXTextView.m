@@ -29,13 +29,6 @@ static float const skInitialGutterWidth = 25.0f;
 
 
 @interface FXGutterView : NSView <NSCoding>
-{
-@private
-  NSMutableDictionary* mStringAttributes;
-  NSTextView* __unsafe_unretained mTextView;
-  NSFont* mFont;
-  NSColor* mTextColor;
-}
 @property (assign) NSTextView* textView;
 @property (copy) NSFont* font;
 @property NSColor* backgroundColor;
@@ -45,10 +38,11 @@ static float const skInitialGutterWidth = 25.0f;
 
 
 @implementation FXGutterView
-
-@synthesize textView = mTextView;
-@synthesize font = mFont;
-@synthesize textColor = mTextColor;
+{
+@private
+  NSMutableDictionary* mStringAttributes;
+}
+@synthesize font = _font;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -64,24 +58,12 @@ static float const skInitialGutterWidth = 25.0f;
     mStringAttributes[NSFontAttributeName] = [self font];
     mStringAttributes[NSForegroundColorAttributeName] = [self textColor];
 
-    {
-      // using a right-aligned paragraph style
-      NSMutableParagraphStyle* mps = [NSMutableParagraphStyle new];
-      mps.alignment = NSTextAlignmentRight;
-      mStringAttributes[NSParagraphStyleAttributeName] = mps;
-      FXRelease(mps)
-    }
-
+    // using a right-aligned paragraph style
+    NSMutableParagraphStyle* mps = [NSMutableParagraphStyle new];
+    mps.alignment = NSTextAlignmentRight;
+    mStringAttributes[NSParagraphStyleAttributeName] = mps;
   }
   return self;
-}
-
-
-- (void) dealloc
-{
-  FXRelease(mStringAttributes)
-  mTextView = nil;
-  FXDeallocSuper
 }
 
 
@@ -90,25 +72,22 @@ static float const skInitialGutterWidth = 25.0f;
 
 - (void) setFont:(NSFont*)font
 {
-  mFont = font;
-  mStringAttributes[NSFontAttributeName] = mFont;
+  _font = font;
+  mStringAttributes[NSFontAttributeName] = _font;
 }
 
 
 - (NSFont*) font
 {
-  return mFont;
+  return _font;
 }
 
 
 - (void) setTextColor:(NSColor*)textColor
 {
-  if ( mTextColor != textColor )
+  if ( _textColor != textColor )
   {
-    FXRelease(mTextColor)
-    mTextColor = textColor;
-    FXRetain(mTextColor)
-
+    _textColor = textColor;
     mStringAttributes[NSForegroundColorAttributeName] = textColor;
     [self setNeedsDisplay:YES];
   }
@@ -129,7 +108,7 @@ static NSString* const GUTTER_TEXT_COLOR_ARCHIVING_KEY = @"text color";
 {
   [super encodeWithCoder:encoder];
   [encoder encodeObject:mStringAttributes forKey:GUTTER_STRING_ATTRIBUTES_ARCHIVING_KEY];
-  [encoder encodeObject:mFont forKey:GUTTER_FONT_ARCHIVING_KEY];
+  [encoder encodeObject:_font forKey:GUTTER_FONT_ARCHIVING_KEY];
   [encoder encodeObject:self.backgroundColor forKey:GUTTER_BACKGROUND_COLOR_ARCHIVING_KEY];
   [encoder encodeObject:self.separatorColor forKey:GUTTER_SEPARATOR_COLOR_ARCHIVING_KEY];
   [encoder encodeObject:self.textColor forKey:GUTTER_TEXT_COLOR_ARCHIVING_KEY];
@@ -140,9 +119,7 @@ static NSString* const GUTTER_TEXT_COLOR_ARCHIVING_KEY = @"text color";
 {
   self = [super initWithCoder:decoder];
   mStringAttributes = [decoder decodeObjectForKey:GUTTER_STRING_ATTRIBUTES_ARCHIVING_KEY];
-  FXRetain(mStringAttributes)
-  mFont = [decoder decodeObjectForKey:GUTTER_FONT_ARCHIVING_KEY];
-  FXRetain(mFont)
+  _font = [decoder decodeObjectForKey:GUTTER_FONT_ARCHIVING_KEY];
   self.backgroundColor = [decoder decodeObjectForKey:GUTTER_BACKGROUND_COLOR_ARCHIVING_KEY];
   self.separatorColor = [decoder decodeObjectForKey:GUTTER_SEPARATOR_COLOR_ARCHIVING_KEY];
   self.textColor = [decoder decodeObjectForKey:GUTTER_TEXT_COLOR_ARCHIVING_KEY];

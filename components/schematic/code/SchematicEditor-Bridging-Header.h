@@ -1,6 +1,6 @@
 /**
 This file is part of the Volta project.
-Copyright (C) 2007-2013 Kai Berk Oezer
+Copyright (C) 2018 Kai Berk Oezer
 https://robo.fish/wiki/index.php?title=Volta
 https://github.com/robo-fish/Volta
 
@@ -17,18 +17,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+#pragma once
 
-@interface FXFileBrowser : NSViewController
-
-@property (nonatomic, copy) NSURL* rootFolderLocation;
-
-@property (readonly) NSString* identifier;
-
-- (id) initWithIdentifier:(NSString*)identifier;
-
-- (void) refresh;
-
-// @param fileNames the names of the items to be highlighted
-- (void) highlightFiles:(NSArray*)fileNames;
-
-@end
+#import "FXKit-Bridging-Header.h"

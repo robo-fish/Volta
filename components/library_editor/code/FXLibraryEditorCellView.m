@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "FXShape.h"
 #import "FXShapeView.h"
 #import "FXImageUtils.h"
-#import "FXViewUtils.h"
+#import <FXKit/FXKit-Swift.h>
 
 
 static const CGFloat FXLibraryEditorCellViewHeight = 60.0;
@@ -173,15 +173,15 @@ NSString* const FXLibraryEditorCell_PropertyNamesTableColumnIdentifier = @"Name"
 
 - (NSArray*) draggingImageComponents
 {
-  NSImage* shapeViewImage = [FXViewUtils imageOfView:mShapeView];
+  NSImage* shapeViewImage = [FXViewUtils imageOf:mShapeView];
   NSDraggingImageComponent* shapeViewDraggingImageComponent = [NSDraggingImageComponent draggingImageComponentWithKey:NSDraggingImageComponentIconKey];
   shapeViewDraggingImageComponent.contents = shapeViewImage;
   shapeViewDraggingImageComponent.frame = mShapeView.frame;
-  NSImage* primaryFieldImage = [FXViewUtils imageOfView:mPrimaryField];
+  NSImage* primaryFieldImage = [FXViewUtils imageOf:mPrimaryField];
   NSDraggingImageComponent* primaryFieldDraggingImageComponent = [NSDraggingImageComponent draggingImageComponentWithKey:NSDraggingImageComponentLabelKey];
   primaryFieldDraggingImageComponent.contents = primaryFieldImage;
   primaryFieldDraggingImageComponent.frame = mPrimaryField.frame;
-  NSImage* secondaryFieldImage = [FXViewUtils imageOfView:mSecondaryField];
+  NSImage* secondaryFieldImage = [FXViewUtils imageOf:mSecondaryField];
   NSDraggingImageComponent* secondaryFieldDraggingImageComponent = [NSDraggingImageComponent draggingImageComponentWithKey:NSDraggingImageComponentLabelKey];
   secondaryFieldDraggingImageComponent.contents = secondaryFieldImage;
   secondaryFieldDraggingImageComponent.frame = mSecondaryField.frame;

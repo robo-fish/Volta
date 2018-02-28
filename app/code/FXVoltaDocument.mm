@@ -33,7 +33,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "VoltaPlotter.h"
 #import "FXSubcircuitEditor.h"
 #import "FXSimulationObserver.h"
-#import "FXClipView.h"
+#import <FXKit/FXKit-Swift.h>
 #import "FXTabView.h"
 #import "FXVoltaPersistentMetaKeys.h"
 #import "FXVoltaDocumentWindow.h"
@@ -477,7 +477,7 @@ NSString* FXResume_DocumentShowsSimulationResults = @"FXResume_DocumentShowsSimu
       mPlotToolbarItem.action = @selector(handleToolbarAction_Plot:);
       mPlotToolbarItem.target = self;
       mPlotToolbarItem.toolTip = FXLocalizedString(@"ToolbarItemToolTip_Plot");
-      NSImage* toolbarImage = [NSImage imageNamed:@"document_plot.png"];
+      NSImage* toolbarImage = [NSImage imageNamed:@"document_plot"];
       NSAssert( toolbarImage != nil, @"The plot image is missing." );
       mPlotToolbarItem.image = toolbarImage;
     }
@@ -492,7 +492,7 @@ NSString* FXResume_DocumentShowsSimulationResults = @"FXResume_DocumentShowsSimu
       mCaptureToolbarItem.action = @selector(handleToolbarAction_Capture:);
       mCaptureToolbarItem.target = self;
       mCaptureToolbarItem.toolTip = FXLocalizedString(@"ToolbarItemToolTip_Capture");
-      NSImage* toolbarImage = [NSImage imageNamed:@"document_schematic_capture.png"];
+      NSImage* toolbarImage = [NSImage imageNamed:@"document_schematic_capture"];
       NSAssert( toolbarImage != nil, @"The schematic capture image is missing." );
       [mCaptureToolbarItem setImage:toolbarImage];
     }
@@ -523,7 +523,7 @@ NSString* FXResume_DocumentShowsSimulationResults = @"FXResume_DocumentShowsSimu
       mOpenClosePlotterToolbarItem.action = @selector(togglePlotterPanel:);
       mOpenClosePlotterToolbarItem.target = [self circuitDocumentWindowController];
       mOpenClosePlotterToolbarItem.toolTip = FXLocalizedString(@"ToolbarItemToolTip_TogglePlotter");
-      NSImage* toolbarImage = [NSImage imageNamed:@"document_plotter_open_close.png"];
+      NSImage* toolbarImage = [NSImage imageNamed:@"document_plotter_open_close"];
       NSAssert( toolbarImage != nil, @"The plotter open/close image is missing." );
       mOpenClosePlotterToolbarItem.image = toolbarImage;
     }
@@ -536,7 +536,7 @@ NSString* FXResume_DocumentShowsSimulationResults = @"FXResume_DocumentShowsSimu
       mSubcircuitIndicatorToolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier:VoltaDocumentToolbarItemIdentifier_SubcircuitIndicator];
       mSubcircuitIndicatorToolbarItem.label = @"";
       mSubcircuitIndicatorToolbarItem.toolTip = FXLocalizedString(@"ToolbarItemToolTip_SubcircuitEditor");
-      mSubcircuitIndicatorImage = [NSImage imageNamed:@"document_subcircuit_indicator.png"];
+      mSubcircuitIndicatorImage = [NSImage imageNamed:@"document_subcircuit_indicator"];
       FXRetain(mSubcircuitIndicatorImage)
       NSAssert( mSubcircuitIndicatorImage != nil, @"The subcircuit indicator image is missing." );
       mSubcircuitIndicatorToolbarItem.image = nil;

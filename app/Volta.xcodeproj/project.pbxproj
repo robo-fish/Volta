@@ -64,6 +64,17 @@
 		2A979E5E2041B9CE00B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
 		2A979E5F2041B9D000B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
 		2A979E602041B9D000B31E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E582041B9BE00B31E74 /* main.m */; };
+		2A979E632042277F00B31E74 /* FXClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E612042276C00B31E74 /* FXClipView.swift */; };
+		2A979E6820422D7100B31E74 /* FXFileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E6720422D7100B31E74 /* FXFileBrowser.swift */; };
+		2A979E6A20422D8000B31E74 /* FXUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E6920422D7F00B31E74 /* FXUtils.swift */; };
+		2A979E6C2043731500B31E74 /* FXTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E6B2043731500B31E74 /* FXTableView.swift */; };
+		2A979E6E2045038100B31E74 /* FXMultiFoldingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E65204229BA00B31E74 /* FXMultiFoldingView.swift */; };
+		2A979E7120450C7C00B31E74 /* FXSchematicPropertiesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E7020450C7C00B31E74 /* FXSchematicPropertiesTableView.swift */; };
+		2A979E732045186C00B31E74 /* SchematicEditorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E722045186C00B31E74 /* SchematicEditorUtils.swift */; };
+		2A979E852045FA2000B31E74 /* FXOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E842045FA2000B31E74 /* FXOutlineView.swift */; };
+		2A979E882045FEF900B31E74 /* FXOverlayTextLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E872045FEF900B31E74 /* FXOverlayTextLineView.swift */; };
+		2A979E8C204606C300B31E74 /* FXViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A979E8B204606C300B31E74 /* FXViewUtils.swift */; };
+		2A979E8E2046579A00B31E74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A979E8D2046579A00B31E74 /* Images.xcassets */; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		B7956E5A0EDA0E8300F69D25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		B7956E620EDA0EB300F69D25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
@@ -145,8 +156,6 @@
 		C03AB4C71604CC8B00EC90F3 /* Plotter.xib in Resources */ = {isa = PBXBuildFile; fileRef = C03AB4C61604CC8B00EC90F3 /* Plotter.xib */; };
 		C03B59621568F35E004A0BED /* container-migration.plist in Resources */ = {isa = PBXBuildFile; fileRef = C07D311214D9E66400238084 /* container-migration.plist */; };
 		C03D081E1590611900BFDA93 /* FXSchematicPaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = C03D081D1590611900BFDA93 /* FXSchematicPaletteView.m */; };
-		C03DF6CF15C40C840062041A /* FXViewUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C03DF6CD15C40C840062041A /* FXViewUtils.h */; };
-		C03DF6D015C40C840062041A /* FXViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C03DF6CE15C40C840062041A /* FXViewUtils.m */; };
 		C03FB06614BAD4730048EA45 /* VoltaCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C04002E014B6CF3A00ECD7D2 /* FXDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C04002DF14B6CF3A00ECD7D2 /* FXDebug.cpp */; };
 		C04002E314B6CF6500ECD7D2 /* FXDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = C04002E214B6CF6500ECD7D2 /* FXDebug.h */; settings = {ATTRIBUTES = (); }; };
@@ -164,7 +173,6 @@
 		C04B727B1148D3DE00D14ACF /* FXSchematicSchematicInspector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C04B72791148D3DE00D14ACF /* FXSchematicSchematicInspector.mm */; };
 		C04C31A21632C2B700A55CE7 /* iCloudPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04C31A11632C2B700A55CE7 /* iCloudPrompt.xib */; };
 		C04E9065127C3F8A003CC7ED /* FXAutoTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = C04E9063127C3F89003CC7ED /* FXAutoTool.mm */; };
-		C050141214B86D0C004B97E2 /* document_plot.png in Resources */ = {isa = PBXBuildFile; fileRef = C050141114B86D0C004B97E2 /* document_plot.png */; };
 		C051D5F115E8EC20002B2A7D /* FXKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = C051D5F315E8EC20002B2A7D /* FXKit.strings */; };
 		C051D5F715EA7111002B2A7D /* Palette_Inductors_E12.volta in Resources */ = {isa = PBXBuildFile; fileRef = C051D5F615EA7111002B2A7D /* Palette_Inductors_E12.volta */; };
 		C051DAB6150E8D150053457F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
@@ -172,10 +180,6 @@
 		C051DAE2150E977F0053457F /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C051DAE5150E97A00053457F /* VoltaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */; };
 		C051DAE8150E97C90053457F /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
-		C051DAED150E98810053457F /* FXClipView.h in Headers */ = {isa = PBXBuildFile; fileRef = C051DAE9150E98810053457F /* FXClipView.h */; };
-		C051DAEE150E98810053457F /* FXClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = C051DAEA150E98810053457F /* FXClipView.m */; };
-		C051DAEF150E98810053457F /* FXMultiFoldingView.h in Headers */ = {isa = PBXBuildFile; fileRef = C051DAEB150E98810053457F /* FXMultiFoldingView.h */; };
-		C051DAF0150E98810053457F /* FXMultiFoldingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C051DAEC150E98810053457F /* FXMultiFoldingView.m */; };
 		C051DAF4150E9A800053457F /* LibraryEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C051DAB5150E8D150053457F /* LibraryEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C051DAF7150E9D390053457F /* FXLibraryEditorPlugin.mm in Sources */ = {isa = PBXBuildFile; fileRef = C051DAF6150E9D390053457F /* FXLibraryEditorPlugin.mm */; };
 		C053804C127406EC00A6B84D /* FXComplexNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0538047127406EC00A6B84D /* FXComplexNumber.cpp */; };
@@ -183,7 +187,6 @@
 		C054AE421166940300F27466 /* FXSchematicUndoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = C054AE411166940300F27466 /* FXSchematicUndoManager.mm */; };
 		C054FD15156499BD00000E56 /* BuiltinModelGroupNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = C054FD13156499BD00000E56 /* BuiltinModelGroupNames.strings */; };
 		C054FD18156499C900000E56 /* BuiltinModelNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = C054FD16156499C900000E56 /* BuiltinModelNames.strings */; };
-		C05A5AC915D6C7BA00305983 /* about_volta_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C05A5AC715D6C7BA00305983 /* about_volta_background@2x.png */; };
 		C05E219F161843D50043DEDA /* Models_NXP.lib in Resources */ = {isa = PBXBuildFile; fileRef = C05E219E161843D50043DEDA /* Models_NXP.lib */; };
 		C05E21A3161853850043DEDA /* Subcircuit_1N4148.volta in Resources */ = {isa = PBXBuildFile; fileRef = C05E21A0161853850043DEDA /* Subcircuit_1N4148.volta */; };
 		C05E21A4161853850043DEDA /* Subcircuit_2N7002.volta in Resources */ = {isa = PBXBuildFile; fileRef = C05E21A1161853850043DEDA /* Subcircuit_2N7002.volta */; };
@@ -202,17 +205,10 @@
 		C072473212A2A36E0087E869 /* FXSchematicElementView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C072473112A2A36E0087E869 /* FXSchematicElementView.mm */; };
 		C072473512A2A3B30087E869 /* FXSchematicPaletteElementsView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C072473412A2A3B30087E869 /* FXSchematicPaletteElementsView.mm */; };
 		C07552CF143854E800D4EFEE /* FXPlotterPlot.mm in Sources */ = {isa = PBXBuildFile; fileRef = C07552CE143854E800D4EFEE /* FXPlotterPlot.mm */; };
-		C076B9EF16A2E32000884083 /* FXFileBrowserFileData.h in Headers */ = {isa = PBXBuildFile; fileRef = C076B9ED16A2E32000884083 /* FXFileBrowserFileData.h */; };
-		C076B9F016A2E32000884083 /* FXFileBrowserFileData.m in Sources */ = {isa = PBXBuildFile; fileRef = C076B9EE16A2E32000884083 /* FXFileBrowserFileData.m */; };
-		C079756615D597BA0010392C /* Volta.iconset in Resources */ = {isa = PBXBuildFile; fileRef = C079756515D597BA0010392C /* Volta.iconset */; };
 		C08094DE15505D60005ED761 /* volta-v1.rng in Resources */ = {isa = PBXBuildFile; fileRef = C08094DD15505D60005ED761 /* volta-v1.rng */; };
 		C08094E115506163005ED761 /* FXVoltaArchiveValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = C08094DF15506163005ED761 /* FXVoltaArchiveValidator.h */; };
 		C088534114B9FA5E0019175B /* FXSimulationObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0A2C1DD14B9DDC700795699 /* FXSimulationObserver.mm */; };
 		C088F3D2158DEADC008D2BD5 /* FXLibraryEditorTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C088F3D1158DEADC008D2BD5 /* FXLibraryEditorTableRowView.m */; };
-		C0892CF314B72E04006A5A7A /* FXOutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0892CEF14B72E04006A5A7A /* FXOutlineView.h */; settings = {ATTRIBUTES = (); }; };
-		C0892CF414B72E04006A5A7A /* FXOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0892CF014B72E04006A5A7A /* FXOutlineView.m */; };
-		C0892CF514B72E04006A5A7A /* FXTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0892CF114B72E04006A5A7A /* FXTableView.h */; settings = {ATTRIBUTES = (); }; };
-		C0892CF614B72E04006A5A7A /* FXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0892CF214B72E04006A5A7A /* FXTableView.m */; };
 		C0892CFE14B72EFE006A5A7A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		C0892D1214B7313E006A5A7A /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C08C5B0016367EFA00CC845E /* VoltaCloudLibraryController.h in Headers */ = {isa = PBXBuildFile; fileRef = C08C5AFE16367E7A00CC845E /* VoltaCloudLibraryController.h */; };
@@ -281,7 +277,6 @@
 		C0AD1108140B796300C3BB68 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C0AD110B140B85B200C3BB68 /* FXSystemUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C0AD1109140B85B200C3BB68 /* FXSystemUtils.h */; settings = {ATTRIBUTES = (); }; };
 		C0AD110C140B85B200C3BB68 /* FXSystemUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AD110A140B85B200C3BB68 /* FXSystemUtils.mm */; };
-		C0AD354712B6125200F37465 /* FXSchematicPropertiesTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AD354612B6125200F37465 /* FXSchematicPropertiesTableView.mm */; };
 		C0AE0CC311FCE3A2000438A8 /* FXSpiceOutputParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AE0CC211FCE3A2000438A8 /* FXSpiceOutputParser.mm */; };
 		C0B10810150F7DDD00E9A220 /* FXNetlistSyntaxHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B1080F150F7DDD00E9A220 /* FXNetlistSyntaxHighlighter.m */; };
 		C0B6A8F91126B791006FBB1C /* FXVoltaDocumentController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0B6A8F81126B791006FBB1C /* FXVoltaDocumentController.mm */; };
@@ -305,8 +300,6 @@
 		C0C54688150FDAC50075A553 /* SubcircuitEditorTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C54683150FDAC50075A553 /* SubcircuitEditorTest.xib */; };
 		C0C5468C150FDC670075A553 /* SubcircuitEditorTestController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0C5468B150FDC670075A553 /* SubcircuitEditorTestController.mm */; };
 		C0C54691150FE1B80075A553 /* SubcircuitEditor.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = C0C628B7150F8DF70021C222 /* SubcircuitEditor.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C0C571E0161F364400EC26A5 /* FXOverlayTextLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C571DE161F364400EC26A5 /* FXOverlayTextLineView.h */; };
-		C0C571E1161F364400EC26A5 /* FXOverlayTextLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C571DF161F364400EC26A5 /* FXOverlayTextLineView.m */; };
 		C0C571EE1620295E00EC26A5 /* FXSimulatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C571ED1620295E00EC26A5 /* FXSimulatorView.m */; };
 		C0C628B8150F8DF70021C222 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		C0C628CD150F8F380021C222 /* FXSubcircuitEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0C628C6150F8F380021C222 /* FXSubcircuitEditor.mm */; };
@@ -316,12 +309,8 @@
 		C0C667BE0F88970000BBD027 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C667BC0F88970000BBD027 /* QuartzCore.framework */; };
 		C0CDDE7F168F291200A81199 /* iCloud_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CDDE7D168F291200A81199 /* iCloud_small@2x.png */; };
 		C0CDDE80168F291200A81199 /* iCloud_small.png in Resources */ = {isa = PBXBuildFile; fileRef = C0CDDE7E168F291200A81199 /* iCloud_small.png */; };
-		C0CDDE87168F91CC00A81199 /* FXFileBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = C0CDDE84168F91CC00A81199 /* FXFileBrowser.h */; };
-		C0CDDE88168F91CC00A81199 /* FXFileBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CDDE85168F91CC00A81199 /* FXFileBrowser.m */; };
 		C0CDDE8A168F91CC00A81199 /* FXFileBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CDDE86168F91CC00A81199 /* FXFileBrowser.xib */; };
 		C0CDDE8B168F91CC00A81199 /* FXFileBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CDDE86168F91CC00A81199 /* FXFileBrowser.xib */; };
-		C0CDDE8F16917B9E00A81199 /* FXFileBrowserTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0CDDE8D16917B9E00A81199 /* FXFileBrowserTableView.h */; };
-		C0CDDE9016917B9E00A81199 /* FXFileBrowserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CDDE8E16917B9E00A81199 /* FXFileBrowserTableView.m */; };
 		C0D16F93154D4D9000BEF274 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		C0D16FB6154D4E6500BEF274 /* ShapeTestController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0D16FAC154D4E6500BEF274 /* ShapeTestController.mm */; };
 		C0D16FB9154D4E6500BEF274 /* ShapeTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D16FB1154D4E6500BEF274 /* ShapeTest.xib */; };
@@ -332,11 +321,6 @@
 		C0DA6F9E155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DA6F9D155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m */; };
 		C0DDF49A14167F1E004C8EE3 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C0E1A52D14D54FAF00ACE0CE /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E1A52C14D54FAF00ACE0CE /* CoreServices.framework */; };
-		C0E4336913CCFA31000E6B48 /* about_volta_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E4336213CCFA31000E6B48 /* about_volta_background.png */; };
-		C0E4336A13CCFA31000E6B48 /* document_plotter_open_close.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E4336313CCFA31000E6B48 /* document_plotter_open_close.png */; };
-		C0E4336B13CCFA31000E6B48 /* document_schematic_capture.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E4336413CCFA31000E6B48 /* document_schematic_capture.png */; };
-		C0E4336C13CCFA31000E6B48 /* document_schematic_maximize.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E4336513CCFA31000E6B48 /* document_schematic_maximize.png */; };
-		C0E4336D13CCFA31000E6B48 /* document_subcircuit_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = C0E4336613CCFA31000E6B48 /* document_subcircuit_indicator.png */; };
 		C0E91964150F484C00465542 /* LibraryEditor.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0E91962150F484C00465542 /* LibraryEditor.strings */; };
 		C0E9197B150F561A00465542 /* FXPlotterTestController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0E91977150F561A00465542 /* FXPlotterTestController.mm */; };
 		C0E9197D150F561A00465542 /* PlotterTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0E9197A150F561A00465542 /* PlotterTest.xib */; };
@@ -411,6 +395,69 @@
 			proxyType = 1;
 			remoteGlobalIDString = C0DD8ACE0E3B7605006B2136;
 			remoteInfo = NetlistEditor;
+		};
+		2A979E7420456CE000B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0892CFC14B72EFE006A5A7A;
+			remoteInfo = VoltaCore;
+		};
+		2A979E7620456CE000B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C051DAB4150E8D150053457F;
+			remoteInfo = LibraryEditor;
+		};
+		2A979E7820456CE000B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0DD8ACE0E3B7605006B2136;
+			remoteInfo = NetlistEditor;
+		};
+		2A979E7A20456CE000B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0B7E8BC110364D100097392;
+			remoteInfo = NGSpice;
+		};
+		2A979E7C20456CE000B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB90AB6A0FE5059A00891ED1;
+			remoteInfo = Plotter;
+		};
+		2A979E7E20456CE000B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C04A68B60E75C55F005AABA3;
+			remoteInfo = SchematicEditor;
+		};
+		2A979E8020456CE000B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0C628B6150F8DF70021C222;
+			remoteInfo = SubcircuitEditor;
+		};
+		2A979E8220456CE900B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C01734C414090CC80035F6E1;
+			remoteInfo = FXKit;
+		};
+		2A979E89204604E600B31E74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C01734C414090CC80035F6E1;
+			remoteInfo = FXKit;
 		};
 		C005735C0F7F0B3C00A0D844 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -799,6 +846,19 @@
 		2A979E3E2041A0EB00B31E74 /* ngspice_output_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ngspice_output_2.txt; sourceTree = "<group>"; };
 		2A979E4D2041A20C00B31E74 /* test_subcircuit.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_subcircuit.volta; sourceTree = "<group>"; };
 		2A979E582041B9BE00B31E74 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = code/main.m; sourceTree = "<group>"; };
+		2A979E612042276C00B31E74 /* FXClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FXClipView.swift; path = code/FXClipView.swift; sourceTree = "<group>"; };
+		2A979E64204228B500B31E74 /* FXKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FXKit-Bridging-Header.h"; path = "code/FXKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		2A979E65204229BA00B31E74 /* FXMultiFoldingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FXMultiFoldingView.swift; path = code/FXMultiFoldingView.swift; sourceTree = "<group>"; };
+		2A979E6720422D7100B31E74 /* FXFileBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FXFileBrowser.swift; path = code/FXFileBrowser.swift; sourceTree = "<group>"; };
+		2A979E6920422D7F00B31E74 /* FXUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FXUtils.swift; path = code/FXUtils.swift; sourceTree = "<group>"; };
+		2A979E6B2043731500B31E74 /* FXTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FXTableView.swift; path = code/FXTableView.swift; sourceTree = "<group>"; };
+		2A979E6F20450C7C00B31E74 /* SchematicEditor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SchematicEditor-Bridging-Header.h"; path = "code/SchematicEditor-Bridging-Header.h"; sourceTree = "<group>"; };
+		2A979E7020450C7C00B31E74 /* FXSchematicPropertiesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FXSchematicPropertiesTableView.swift; path = code/FXSchematicPropertiesTableView.swift; sourceTree = "<group>"; };
+		2A979E722045186C00B31E74 /* SchematicEditorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchematicEditorUtils.swift; path = code/SchematicEditorUtils.swift; sourceTree = "<group>"; };
+		2A979E842045FA2000B31E74 /* FXOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FXOutlineView.swift; path = code/FXOutlineView.swift; sourceTree = "<group>"; };
+		2A979E872045FEF900B31E74 /* FXOverlayTextLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FXOverlayTextLineView.swift; path = code/FXOverlayTextLineView.swift; sourceTree = "<group>"; };
+		2A979E8B204606C300B31E74 /* FXViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FXViewUtils.swift; path = code/FXViewUtils.swift; sourceTree = "<group>"; };
+		2A979E8D2046579A00B31E74 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Volta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C000C11B1543D9BD00BC014C /* SubcircuitEditor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubcircuitEditor.xib; sourceTree = "<group>"; };
 		C000C12D1543DE4D00BC014C /* FXLibraryEditorModelsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLibraryEditorModelsController.h; path = code/FXLibraryEditorModelsController.h; sourceTree = "<group>"; };
@@ -944,8 +1004,6 @@
 		C03AB4C61604CC8B00EC90F3 /* Plotter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Plotter.xib; sourceTree = "<group>"; };
 		C03D081C1590611900BFDA93 /* FXSchematicPaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSchematicPaletteView.h; path = code/FXSchematicPaletteView.h; sourceTree = "<group>"; };
 		C03D081D1590611900BFDA93 /* FXSchematicPaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXSchematicPaletteView.m; path = code/FXSchematicPaletteView.m; sourceTree = "<group>"; };
-		C03DF6CD15C40C840062041A /* FXViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXViewUtils.h; path = code/FXViewUtils.h; sourceTree = "<group>"; };
-		C03DF6CE15C40C840062041A /* FXViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXViewUtils.m; path = code/FXViewUtils.m; sourceTree = "<group>"; };
 		C04002DF14B6CF3A00ECD7D2 /* FXDebug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FXDebug.cpp; path = code/FXDebug.cpp; sourceTree = "<group>"; };
 		C04002E214B6CF6500ECD7D2 /* FXDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXDebug.h; path = code/FXDebug.h; sourceTree = "<group>"; };
 		C04002E914B6F4FC00ECD7D2 /* FXShape.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FXShape.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -983,7 +1041,6 @@
 		C04C31A11632C2B700A55CE7 /* iCloudPrompt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iCloudPrompt.xib; sourceTree = "<group>"; };
 		C04E9061127C3BDD003CC7ED /* FXSchematicSnappingTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FXSchematicSnappingTable.h; path = code/FXSchematicSnappingTable.h; sourceTree = "<group>"; };
 		C04E9063127C3F89003CC7ED /* FXAutoTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXAutoTool.mm; path = code/FXAutoTool.mm; sourceTree = "<group>"; };
-		C050141114B86D0C004B97E2 /* document_plot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = document_plot.png; path = resources/graphics/document_plot.png; sourceTree = "<group>"; };
 		C051D5F215E8EC20002B2A7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FXKit.strings; sourceTree = "<group>"; };
 		C051D5F415E8EC35002B2A7D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/FXKit.strings; sourceTree = "<group>"; };
 		C051D5F615EA7111002B2A7D /* Palette_Inductors_E12.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Palette_Inductors_E12.volta; path = resources/Palette_Inductors_E12.volta; sourceTree = "<group>"; };
@@ -991,10 +1048,6 @@
 		C051DAD1150E96070053457F /* FXLibraryEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLibraryEditor.h; path = code/FXLibraryEditor.h; sourceTree = "<group>"; };
 		C051DAD2150E96070053457F /* FXLibraryEditor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXLibraryEditor.mm; path = code/FXLibraryEditor.mm; sourceTree = "<group>"; };
 		C051DAD8150E96070053457F /* LibraryEditor.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryEditor.pch; path = code/LibraryEditor.pch; sourceTree = "<group>"; };
-		C051DAE9150E98810053457F /* FXClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXClipView.h; path = code/FXClipView.h; sourceTree = "<group>"; };
-		C051DAEA150E98810053457F /* FXClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXClipView.m; path = code/FXClipView.m; sourceTree = "<group>"; };
-		C051DAEB150E98810053457F /* FXMultiFoldingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXMultiFoldingView.h; path = code/FXMultiFoldingView.h; sourceTree = "<group>"; };
-		C051DAEC150E98810053457F /* FXMultiFoldingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXMultiFoldingView.m; path = code/FXMultiFoldingView.m; sourceTree = "<group>"; };
 		C051DAF5150E9D390053457F /* FXLibraryEditorPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLibraryEditorPlugin.h; path = code/FXLibraryEditorPlugin.h; sourceTree = "<group>"; };
 		C051DAF6150E9D390053457F /* FXLibraryEditorPlugin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXLibraryEditorPlugin.mm; path = code/FXLibraryEditorPlugin.mm; sourceTree = "<group>"; };
 		C05369D411962A8800E2F40B /* VoltaPlotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoltaPlotter.h; path = protocols/VoltaPlotter.h; sourceTree = "<group>"; };
@@ -1007,7 +1060,6 @@
 		C054FD17156499C900000E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BuiltinModelNames.strings; sourceTree = "<group>"; };
 		C054FD19156499F100000E56 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BuiltinModelGroupNames.strings; sourceTree = "<group>"; };
 		C054FD1A156499F100000E56 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/BuiltinModelNames.strings; sourceTree = "<group>"; };
-		C05A5AC715D6C7BA00305983 /* about_volta_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_volta_background@2x.png"; path = "resources/graphics/about_volta_background@2x.png"; sourceTree = "<group>"; };
 		C05E219E161843D50043DEDA /* Models_NXP.lib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Models_NXP.lib; path = resources/Models_NXP.lib; sourceTree = "<group>"; };
 		C05E21A0161853850043DEDA /* Subcircuit_1N4148.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Subcircuit_1N4148.volta; path = resources/Subcircuit_1N4148.volta; sourceTree = "<group>"; };
 		C05E21A1161853850043DEDA /* Subcircuit_2N7002.volta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Subcircuit_2N7002.volta; path = resources/Subcircuit_2N7002.volta; sourceTree = "<group>"; };
@@ -1028,9 +1080,6 @@
 		C0731B290F7D999000814313 /* VoltaPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoltaPlugin.h; sourceTree = "<group>"; };
 		C0731B2A0F7D999000814313 /* VoltaPluginTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoltaPluginTypes.h; sourceTree = "<group>"; };
 		C07552CE143854E800D4EFEE /* FXPlotterPlot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXPlotterPlot.mm; path = code/FXPlotterPlot.mm; sourceTree = "<group>"; };
-		C076B9ED16A2E32000884083 /* FXFileBrowserFileData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXFileBrowserFileData.h; path = code/FXFileBrowserFileData.h; sourceTree = "<group>"; };
-		C076B9EE16A2E32000884083 /* FXFileBrowserFileData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXFileBrowserFileData.m; path = code/FXFileBrowserFileData.m; sourceTree = "<group>"; };
-		C079756515D597BA0010392C /* Volta.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = Volta.iconset; path = resources/graphics/Volta.iconset; sourceTree = "<group>"; };
 		C07AAA5D16FE004B006CBCD6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "resources/zh-Hans.lproj/Netlist.strings"; sourceTree = "<group>"; };
 		C07CB6DA1597B59100D3BCC3 /* LLDBFormatters.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = LLDBFormatters.py; path = ../scripts/LLDBFormatters.py; sourceTree = "<group>"; };
 		C07D311014D9DA3100238084 /* Volta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Volta.entitlements; sourceTree = "<group>"; };
@@ -1044,10 +1093,6 @@
 		C0863BF3178833CC0025FE4F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VoltaDocumentPrintingAccessoryView.strings"; sourceTree = "<group>"; };
 		C088F3D0158DEADC008D2BD5 /* FXLibraryEditorTableRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLibraryEditorTableRowView.h; path = code/FXLibraryEditorTableRowView.h; sourceTree = "<group>"; };
 		C088F3D1158DEADC008D2BD5 /* FXLibraryEditorTableRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXLibraryEditorTableRowView.m; path = code/FXLibraryEditorTableRowView.m; sourceTree = "<group>"; };
-		C0892CEF14B72E04006A5A7A /* FXOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXOutlineView.h; path = code/FXOutlineView.h; sourceTree = "<group>"; };
-		C0892CF014B72E04006A5A7A /* FXOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXOutlineView.m; path = code/FXOutlineView.m; sourceTree = "<group>"; };
-		C0892CF114B72E04006A5A7A /* FXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXTableView.h; path = code/FXTableView.h; sourceTree = "<group>"; };
-		C0892CF214B72E04006A5A7A /* FXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXTableView.m; path = code/FXTableView.m; sourceTree = "<group>"; };
 		C0892CFD14B72EFE006A5A7A /* VoltaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VoltaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0892D0C14B7304D006A5A7A /* VoltaCore-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VoltaCore-Info.plist"; sourceTree = "<group>"; };
 		C08C5AFE16367E7A00CC845E /* VoltaCloudLibraryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoltaCloudLibraryController.h; sourceTree = "<group>"; };
@@ -1121,8 +1166,6 @@
 		C0AB6D5C1556456100B26CB5 /* FXVoltaArchiveConverterV1To2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXVoltaArchiveConverterV1To2.mm; path = code/FXVoltaArchiveConverterV1To2.mm; sourceTree = "<group>"; };
 		C0AD1109140B85B200C3BB68 /* FXSystemUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSystemUtils.h; path = code/FXSystemUtils.h; sourceTree = "<group>"; };
 		C0AD110A140B85B200C3BB68 /* FXSystemUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSystemUtils.mm; path = code/FXSystemUtils.mm; sourceTree = "<group>"; };
-		C0AD354512B6125200F37465 /* FXSchematicPropertiesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSchematicPropertiesTableView.h; path = code/FXSchematicPropertiesTableView.h; sourceTree = "<group>"; };
-		C0AD354612B6125200F37465 /* FXSchematicPropertiesTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicPropertiesTableView.mm; path = code/FXSchematicPropertiesTableView.mm; sourceTree = "<group>"; };
 		C0AE0CC211FCE3A2000438A8 /* FXSpiceOutputParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSpiceOutputParser.mm; path = code/FXSpiceOutputParser.mm; sourceTree = "<group>"; };
 		C0AE0CC411FCE4B6000438A8 /* FXComplexNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXComplexNumber.h; path = code/FXComplexNumber.h; sourceTree = "<group>"; };
 		C0B1080F150F7DDD00E9A220 /* FXNetlistSyntaxHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXNetlistSyntaxHighlighter.m; path = code/FXNetlistSyntaxHighlighter.m; sourceTree = "<group>"; };
@@ -1147,8 +1190,6 @@
 		C0C5468A150FDC670075A553 /* SubcircuitEditorTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubcircuitEditorTestController.h; path = code/SubcircuitEditorTestController.h; sourceTree = "<group>"; };
 		C0C5468B150FDC670075A553 /* SubcircuitEditorTestController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SubcircuitEditorTestController.mm; path = code/SubcircuitEditorTestController.mm; sourceTree = "<group>"; };
 		C0C54695150FE8280075A553 /* ngspice_output_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ngspice_output_2.txt; path = ../../../unit_tests/resources/ngspice_output_2.txt; sourceTree = "<group>"; };
-		C0C571DE161F364400EC26A5 /* FXOverlayTextLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXOverlayTextLineView.h; path = code/FXOverlayTextLineView.h; sourceTree = "<group>"; };
-		C0C571DF161F364400EC26A5 /* FXOverlayTextLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXOverlayTextLineView.m; path = code/FXOverlayTextLineView.m; sourceTree = "<group>"; };
 		C0C571EC1620295E00EC26A5 /* FXSimulatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSimulatorView.h; path = code/FXSimulatorView.h; sourceTree = "<group>"; };
 		C0C571ED1620295E00EC26A5 /* FXSimulatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXSimulatorView.m; path = code/FXSimulatorView.m; sourceTree = "<group>"; };
 		C0C628B7150F8DF70021C222 /* SubcircuitEditor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubcircuitEditor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1167,11 +1208,7 @@
 		C0CB730911895E520052DF43 /* SchematicRelativePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchematicRelativePosition.h; path = code/SchematicRelativePosition.h; sourceTree = "<group>"; };
 		C0CDDE7D168F291200A81199 /* iCloud_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iCloud_small@2x.png"; path = "resources/iCloud_small@2x.png"; sourceTree = "<group>"; };
 		C0CDDE7E168F291200A81199 /* iCloud_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iCloud_small.png; path = resources/iCloud_small.png; sourceTree = "<group>"; };
-		C0CDDE84168F91CC00A81199 /* FXFileBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXFileBrowser.h; path = code/FXFileBrowser.h; sourceTree = "<group>"; };
-		C0CDDE85168F91CC00A81199 /* FXFileBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXFileBrowser.m; path = code/FXFileBrowser.m; sourceTree = "<group>"; };
 		C0CDDE86168F91CC00A81199 /* FXFileBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FXFileBrowser.xib; path = code/FXFileBrowser.xib; sourceTree = "<group>"; };
-		C0CDDE8D16917B9E00A81199 /* FXFileBrowserTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXFileBrowserTableView.h; path = code/FXFileBrowserTableView.h; sourceTree = "<group>"; };
-		C0CDDE8E16917B9E00A81199 /* FXFileBrowserTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXFileBrowserTableView.m; path = code/FXFileBrowserTableView.m; sourceTree = "<group>"; };
 		C0D07C4A16E25BC3003D74F3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Library.strings"; sourceTree = "<group>"; };
 		C0D16F91154D4D9000BEF274 /* ShapeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShapeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D16FAB154D4E6500BEF274 /* ShapeTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShapeTestController.h; path = code/ShapeTestController.h; sourceTree = "<group>"; };
@@ -1185,13 +1222,6 @@
 		C0DA6F9D155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXDocumentUpgradeDialogAccessoryView.m; path = code/FXDocumentUpgradeDialogAccessoryView.m; sourceTree = "<group>"; };
 		C0DD8ACF0E3B7605006B2136 /* NetlistEditor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetlistEditor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E1A52C14D54FAF00ACE0CE /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		C0E4336213CCFA31000E6B48 /* about_volta_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_volta_background.png; path = resources/graphics/about_volta_background.png; sourceTree = "<group>"; };
-		C0E4336313CCFA31000E6B48 /* document_plotter_open_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = document_plotter_open_close.png; path = resources/graphics/document_plotter_open_close.png; sourceTree = "<group>"; };
-		C0E4336413CCFA31000E6B48 /* document_schematic_capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = document_schematic_capture.png; path = resources/graphics/document_schematic_capture.png; sourceTree = "<group>"; };
-		C0E4336513CCFA31000E6B48 /* document_schematic_maximize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = document_schematic_maximize.png; path = resources/graphics/document_schematic_maximize.png; sourceTree = "<group>"; };
-		C0E4336613CCFA31000E6B48 /* document_subcircuit_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = document_subcircuit_indicator.png; path = resources/graphics/document_subcircuit_indicator.png; sourceTree = "<group>"; };
-		C0E4336713CCFA31000E6B48 /* preferences_toolbar_plugins_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preferences_toolbar_plugins_icon.png; path = resources/graphics/preferences_toolbar_plugins_icon.png; sourceTree = "<group>"; };
-		C0E4336813CCFA31000E6B48 /* preferences_toolbar_services_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preferences_toolbar_services_icon.png; path = resources/graphics/preferences_toolbar_services_icon.png; sourceTree = "<group>"; };
 		C0E9195A150F2DFC00465542 /* LibraryEditor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LibraryEditor-Info.plist"; sourceTree = "<group>"; };
 		C0E91961150F392200465542 /* VoltaLibraryEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VoltaLibraryEditor.h; path = protocols/VoltaLibraryEditor.h; sourceTree = "<group>"; };
 		C0E91963150F484C00465542 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = resources/en.lproj/LibraryEditor.strings; sourceTree = "<group>"; };
@@ -1528,8 +1558,7 @@
 			isa = PBXGroup;
 			children = (
 				C05E219C16183B4E0043DEDA /* Preinstalled Library Content */,
-				C02310BC0EEC70D80097D260 /* Images */,
-				C079756515D597BA0010392C /* Volta.iconset */,
+				2A979E8D2046579A00B31E74 /* Images.xcassets */,
 				C0F738B31624F96000A9EFE2 /* VoltaFile.iconset */,
 				C012E9301792B1D000C00BB8 /* VoltaImportedFile.iconset */,
 				C0475181176E61C900CB0FBB /* Credits.html */,
@@ -1648,8 +1677,7 @@
 				C0185A4D1293CB92006A0E9F /* FXSchematicInspectorController.mm */,
 				C04ACE8E13EDA1740003B7D0 /* FXSchematicInspectorUtilities.h */,
 				C04ACE8F13EDA1740003B7D0 /* FXSchematicInspectorUtilities.mm */,
-				C0AD354512B6125200F37465 /* FXSchematicPropertiesTableView.h */,
-				C0AD354612B6125200F37465 /* FXSchematicPropertiesTableView.mm */,
+				2A979E7020450C7C00B31E74 /* FXSchematicPropertiesTableView.swift */,
 				C00FD330113134D800C95E7D /* FXSchematicInspectorView.h */,
 				C00FD331113134D800C95E7D /* FXSchematicInspectorView.m */,
 				C04B72781148D3DE00D14ACF /* FXSchematicSchematicInspector.h */,
@@ -1709,6 +1737,7 @@
 				C0CDDE82168F914300A81199 /* XML */,
 				C00E219814B70ACB003A219B /* FXKit-Info.plist */,
 				C0FBFA20140B92B100139FB1 /* FXKit.pch */,
+				2A979E64204228B500B31E74 /* FXKit-Bridging-Header.h */,
 				C04002E214B6CF6500ECD7D2 /* FXDebug.h */,
 				C04002DF14B6CF3A00ECD7D2 /* FXDebug.cpp */,
 				C037B265158B03D50087042C /* FXImageUtils.h */,
@@ -1720,8 +1749,8 @@
 				C0EFF7A214EF97FB0022F602 /* FXSyntaxHighlighter.h */,
 				C0AD1109140B85B200C3BB68 /* FXSystemUtils.h */,
 				C0AD110A140B85B200C3BB68 /* FXSystemUtils.mm */,
-				C03DF6CD15C40C840062041A /* FXViewUtils.h */,
-				C03DF6CE15C40C840062041A /* FXViewUtils.m */,
+				2A979E6920422D7F00B31E74 /* FXUtils.swift */,
+				2A979E8B204606C300B31E74 /* FXViewUtils.swift */,
 			);
 			name = FXKit;
 			path = ../components/fxkit;
@@ -1748,22 +1777,6 @@
 				C017FDE815112D8E00E079F6 /* TestingHarness.xib */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		C02310BC0EEC70D80097D260 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				C0E4336213CCFA31000E6B48 /* about_volta_background.png */,
-				C05A5AC715D6C7BA00305983 /* about_volta_background@2x.png */,
-				C050141114B86D0C004B97E2 /* document_plot.png */,
-				C0E4336313CCFA31000E6B48 /* document_plotter_open_close.png */,
-				C0E4336413CCFA31000E6B48 /* document_schematic_capture.png */,
-				C0E4336513CCFA31000E6B48 /* document_schematic_maximize.png */,
-				C0E4336613CCFA31000E6B48 /* document_subcircuit_indicator.png */,
-				C0E4336713CCFA31000E6B48 /* preferences_toolbar_plugins_icon.png */,
-				C0E4336813CCFA31000E6B48 /* preferences_toolbar_services_icon.png */,
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 		C0371ECA1179FBFD00A03E06 /* Resources */ = {
@@ -1829,6 +1842,7 @@
 		C04A68A40E75C4E5005AABA3 /* Schematic Editor */ = {
 			isa = PBXGroup;
 			children = (
+				2A979E6F20450C7C00B31E74 /* SchematicEditor-Bridging-Header.h */,
 				C091A586150F622B00EE30BB /* test */,
 				C00FCF1C11304F4200C95E7D /* Protocols */,
 				C0F4920A110D8DD800106E53 /* Resources */,
@@ -1869,6 +1883,7 @@
 				C0FB21CC140CC05A009DF8B2 /* SchematicEditor-Info.plist */,
 				C0CB730911895E520052DF43 /* SchematicRelativePosition.h */,
 				C00FD2E71131330E00C95E7D /* SchematicRenderingProbes.d */,
+				2A979E722045186C00B31E74 /* SchematicEditorUtils.swift */,
 			);
 			name = "Schematic Editor";
 			path = schematic;
@@ -1963,18 +1978,13 @@
 		C0892CF714B72E1B006A5A7A /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				C051DAE9150E98810053457F /* FXClipView.h */,
-				C051DAEA150E98810053457F /* FXClipView.m */,
-				C051DAEB150E98810053457F /* FXMultiFoldingView.h */,
-				C051DAEC150E98810053457F /* FXMultiFoldingView.m */,
-				C0892CEF14B72E04006A5A7A /* FXOutlineView.h */,
-				C0892CF014B72E04006A5A7A /* FXOutlineView.m */,
-				C0C571DE161F364400EC26A5 /* FXOverlayTextLineView.h */,
-				C0C571DF161F364400EC26A5 /* FXOverlayTextLineView.m */,
+				2A979E612042276C00B31E74 /* FXClipView.swift */,
+				2A979E65204229BA00B31E74 /* FXMultiFoldingView.swift */,
+				2A979E842045FA2000B31E74 /* FXOutlineView.swift */,
+				2A979E872045FEF900B31E74 /* FXOverlayTextLineView.swift */,
 				C0D6068D14E2573A00CA605C /* FXTabView.h */,
 				C0D6068E14E2573A00CA605C /* FXTabView.m */,
-				C0892CF114B72E04006A5A7A /* FXTableView.h */,
-				C0892CF214B72E04006A5A7A /* FXTableView.m */,
+				2A979E6B2043731500B31E74 /* FXTableView.swift */,
 				C0EFF79E14EF972F0022F602 /* FXTextView.h */,
 				C0EFF79F14EF972F0022F602 /* FXTextView.m */,
 			);
@@ -2261,13 +2271,8 @@
 		C0CDDE83168F918200A81199 /* File Browser */ = {
 			isa = PBXGroup;
 			children = (
-				C0CDDE84168F91CC00A81199 /* FXFileBrowser.h */,
-				C0CDDE85168F91CC00A81199 /* FXFileBrowser.m */,
+				2A979E6720422D7100B31E74 /* FXFileBrowser.swift */,
 				C0CDDE86168F91CC00A81199 /* FXFileBrowser.xib */,
-				C076B9ED16A2E32000884083 /* FXFileBrowserFileData.h */,
-				C076B9EE16A2E32000884083 /* FXFileBrowserFileData.m */,
-				C0CDDE8D16917B9E00A81199 /* FXFileBrowserTableView.h */,
-				C0CDDE8E16917B9E00A81199 /* FXFileBrowserTableView.m */,
 			);
 			name = "File Browser";
 			sourceTree = "<group>";
@@ -2438,26 +2443,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C051DAED150E98810053457F /* FXClipView.h in Headers */,
 				C04002E314B6CF6500ECD7D2 /* FXDebug.h in Headers */,
-				C051DAEF150E98810053457F /* FXMultiFoldingView.h in Headers */,
-				C0892CF314B72E04006A5A7A /* FXOutlineView.h in Headers */,
 				C0F1507714A74494007C33F3 /* FXStdStringUtils.h in Headers */,
 				2A979E1920419D1100B31E74 /* UnitTests.pch in Headers */,
 				C0AD1105140B775000C3BB68 /* FXString.h in Headers */,
 				C0AD110B140B85B200C3BB68 /* FXSystemUtils.h in Headers */,
-				C0892CF514B72E04006A5A7A /* FXTableView.h in Headers */,
 				C0D6068F14E2573A00CA605C /* FXTabView.h in Headers */,
 				C0EFF7A014EF972F0022F602 /* FXTextView.h in Headers */,
 				2A0797DA2040826C004B0A6E /* FXSchematicToNetlistConverter.h in Headers */,
 				C0EFD86B14B738700029FDE4 /* FXXMLDocument.h in Headers */,
 				C0EFD86D14B738700029FDE4 /* FXXMLElement.h in Headers */,
 				C037B267158B03D50087042C /* FXImageUtils.h in Headers */,
-				C03DF6CF15C40C840062041A /* FXViewUtils.h in Headers */,
-				C0C571E0161F364400EC26A5 /* FXOverlayTextLineView.h in Headers */,
-				C0CDDE87168F91CC00A81199 /* FXFileBrowser.h in Headers */,
-				C0CDDE8F16917B9E00A81199 /* FXFileBrowserTableView.h in Headers */,
-				C076B9EF16A2E32000884083 /* FXFileBrowserFileData.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2535,6 +2531,14 @@
 			buildRules = (
 			);
 			dependencies = (
+				2A979E8320456CE900B31E74 /* PBXTargetDependency */,
+				2A979E7520456CE000B31E74 /* PBXTargetDependency */,
+				2A979E7720456CE000B31E74 /* PBXTargetDependency */,
+				2A979E7920456CE000B31E74 /* PBXTargetDependency */,
+				2A979E7B20456CE000B31E74 /* PBXTargetDependency */,
+				2A979E7D20456CE000B31E74 /* PBXTargetDependency */,
+				2A979E7F20456CE000B31E74 /* PBXTargetDependency */,
+				2A979E8120456CE000B31E74 /* PBXTargetDependency */,
 				2A979DF42041987500B31E74 /* PBXTargetDependency */,
 			);
 			name = UnitTests;
@@ -2877,6 +2881,7 @@
 			);
 			dependencies = (
 				C05F26F9140BC6E500CEA3A2 /* PBXTargetDependency */,
+				2A979E8A204604E600B31E74 /* PBXTargetDependency */,
 			);
 			name = PlotterTest;
 			productName = PlotterTest;
@@ -2905,6 +2910,12 @@
 								enabled = 0;
 							};
 						};
+					};
+					C01734C414090CC80035F6E1 = {
+						LastSwiftMigration = 0920;
+					};
+					C04A68B60E75C55F005AABA3 = {
+						LastSwiftMigration = 0920;
 					};
 				};
 			};
@@ -2970,20 +2981,13 @@
 			files = (
 				C0BF7AC00F856C90000E4648 /* Volta.sdef in Resources */,
 				C00CD4081315C1CF00CCBF48 /* Subcircuit_DIFF.volta in Resources */,
-				C0E4336913CCFA31000E6B48 /* about_volta_background.png in Resources */,
-				C0E4336A13CCFA31000E6B48 /* document_plotter_open_close.png in Resources */,
-				C0E4336B13CCFA31000E6B48 /* document_schematic_capture.png in Resources */,
-				C0E4336C13CCFA31000E6B48 /* document_schematic_maximize.png in Resources */,
-				C0E4336D13CCFA31000E6B48 /* document_subcircuit_indicator.png in Resources */,
-				C050141214B86D0C004B97E2 /* document_plot.png in Resources */,
+				2A979E8E2046579A00B31E74 /* Images.xcassets in Resources */,
 				C03B59621568F35E004A0BED /* container-migration.plist in Resources */,
 				C0A96ABC1584DBDE00B1E8F4 /* Palette_Most_Used.volta in Resources */,
 				C0A96ABE1584DBDE00B1E8F4 /* Palette_Meters.volta in Resources */,
 				C0A96AC01584DBDE00B1E8F4 /* Palette_Semis.volta in Resources */,
 				C08FF860158E69F800D266ED /* Palette_Resistors_E12.volta in Resources */,
 				C08FF863158E710B00D266ED /* Palette_Capacitors_E12.volta in Resources */,
-				C079756615D597BA0010392C /* Volta.iconset in Resources */,
-				C05A5AC915D6C7BA00305983 /* about_volta_background@2x.png in Resources */,
 				C051D5F715EA7111002B2A7D /* Palette_Inductors_E12.volta in Resources */,
 				C0EF75F015F1D33200AC9CEF /* Models_OnSemi.lib in Resources */,
 				2A68B06E203ECB8A00E1CED8 /* VoltaAboutWindow.xib in Resources */,
@@ -3289,24 +3293,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A979E6820422D7100B31E74 /* FXFileBrowser.swift in Sources */,
 				C01734DD140911B20035F6E1 /* FXString.mm in Sources */,
 				C0AD110C140B85B200C3BB68 /* FXSystemUtils.mm in Sources */,
+				2A979E852045FA2000B31E74 /* FXOutlineView.swift in Sources */,
 				C0F1507514A7446F007C33F3 /* FXStdStringUtils.cpp in Sources */,
 				C04002E014B6CF3A00ECD7D2 /* FXDebug.cpp in Sources */,
-				C0892CF414B72E04006A5A7A /* FXOutlineView.m in Sources */,
-				C0892CF614B72E04006A5A7A /* FXTableView.m in Sources */,
+				2A979E6E2045038100B31E74 /* FXMultiFoldingView.swift in Sources */,
+				2A979E6C2043731500B31E74 /* FXTableView.swift in Sources */,
 				C0EFD86C14B738700029FDE4 /* FXXMLDocument.mm in Sources */,
 				C0EFD86E14B738700029FDE4 /* FXXMLElement.mm in Sources */,
+				2A979E8C204606C300B31E74 /* FXViewUtils.swift in Sources */,
 				C0D6069014E2573A00CA605C /* FXTabView.m in Sources */,
+				2A979E632042277F00B31E74 /* FXClipView.swift in Sources */,
 				C0EFF7A114EF972F0022F602 /* FXTextView.m in Sources */,
-				C051DAEE150E98810053457F /* FXClipView.m in Sources */,
-				C051DAF0150E98810053457F /* FXMultiFoldingView.m in Sources */,
 				C037B268158B03D50087042C /* FXImageUtils.m in Sources */,
-				C03DF6D015C40C840062041A /* FXViewUtils.m in Sources */,
-				C0C571E1161F364400EC26A5 /* FXOverlayTextLineView.m in Sources */,
-				C0CDDE88168F91CC00A81199 /* FXFileBrowser.m in Sources */,
-				C0CDDE9016917B9E00A81199 /* FXFileBrowserTableView.m in Sources */,
-				C076B9F016A2E32000884083 /* FXFileBrowserFileData.m in Sources */,
+				2A979E882045FEF900B31E74 /* FXOverlayTextLineView.swift in Sources */,
+				2A979E6A20422D8000B31E74 /* FXUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3353,9 +3356,11 @@
 				C00FD2F81131330E00C95E7D /* SchematicRenderingProbes.d in Sources */,
 				C00FD30D1131342A00C95E7D /* FXInternalDrawerView.m in Sources */,
 				C00FD3191131347A00C95E7D /* FXConnectionTool.mm in Sources */,
+				2A979E732045186C00B31E74 /* SchematicEditorUtils.swift in Sources */,
 				C00FD333113134D800C95E7D /* FXSchematicInspectorView.m in Sources */,
 				C04B727B1148D3DE00D14ACF /* FXSchematicSchematicInspector.mm in Sources */,
 				C02F4F6F115EC63000AE426D /* FXPositionSelectorView.m in Sources */,
+				2A979E7120450C7C00B31E74 /* FXSchematicPropertiesTableView.swift in Sources */,
 				C054AE421166940300F27466 /* FXSchematicUndoManager.mm in Sources */,
 				C02748E7116A0B1A00E4E8E1 /* FXSchematicCapture.mm in Sources */,
 				C0067367117596CD00FB70C4 /* FXSelectionTool.mm in Sources */,
@@ -3367,7 +3372,6 @@
 				C072472F12A2A3310087E869 /* FXSchematicElementGroup.mm in Sources */,
 				C072473212A2A36E0087E869 /* FXSchematicElementView.mm in Sources */,
 				C072473512A2A3B30087E869 /* FXSchematicPaletteElementsView.mm in Sources */,
-				C0AD354712B6125200F37465 /* FXSchematicPropertiesTableView.mm in Sources */,
 				C04ACE9013EDA1740003B7D0 /* FXSchematicInspectorUtilities.mm in Sources */,
 				C03D081E1590611900BFDA93 /* FXSchematicPaletteView.m in Sources */,
 			);
@@ -3517,6 +3521,51 @@
 			isa = PBXTargetDependency;
 			target = C0DD8ACE0E3B7605006B2136 /* NetlistEditor */;
 			targetProxy = 2A979E532041B25E00B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E7520456CE000B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0892CFC14B72EFE006A5A7A /* VoltaCore */;
+			targetProxy = 2A979E7420456CE000B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E7720456CE000B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C051DAB4150E8D150053457F /* LibraryEditor */;
+			targetProxy = 2A979E7620456CE000B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E7920456CE000B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0DD8ACE0E3B7605006B2136 /* NetlistEditor */;
+			targetProxy = 2A979E7820456CE000B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E7B20456CE000B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0B7E8BC110364D100097392 /* NGSpice */;
+			targetProxy = 2A979E7A20456CE000B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E7D20456CE000B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB90AB6A0FE5059A00891ED1 /* Plotter */;
+			targetProxy = 2A979E7C20456CE000B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E7F20456CE000B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C04A68B60E75C55F005AABA3 /* SchematicEditor */;
+			targetProxy = 2A979E7E20456CE000B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E8120456CE000B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0C628B6150F8DF70021C222 /* SubcircuitEditor */;
+			targetProxy = 2A979E8020456CE000B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E8320456CE900B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C01734C414090CC80035F6E1 /* FXKit */;
+			targetProxy = 2A979E8220456CE900B31E74 /* PBXContainerItemProxy */;
+		};
+		2A979E8A204604E600B31E74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C01734C414090CC80035F6E1 /* FXKit */;
+			targetProxy = 2A979E89204604E600B31E74 /* PBXContainerItemProxy */;
 		};
 		C005735D0F7F0B3C00A0D844 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3956,6 +4005,7 @@
 		C011F1DC0E4516F100D45C11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREFIX_HEADER = ../components/netlist/code/NetlistEditor.pch;
 				INFOPLIST_FILE = "../components/netlist/test/NetlistEditorTest-Info.plist";
@@ -3969,6 +4019,7 @@
 		C011F1DD0E4516F100D45C11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREFIX_HEADER = ../components/netlist/code/NetlistEditor.pch;
 				INFOPLIST_FILE = "../components/netlist/test/NetlistEditorTest-Info.plist";
@@ -3983,8 +4034,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -4001,10 +4054,13 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "../components/fxkit/FXKit-Info.plist";
 				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "fish.robo.volta.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "../components/fxkit/code/FXKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -4013,8 +4069,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -4025,9 +4083,11 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "../components/fxkit/FXKit-Info.plist";
 				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fish.robo.volta.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "../components/fxkit/code/FXKit-Bridging-Header.h";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -4140,7 +4200,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = "${BUILD_PRODUCTS_DIR}";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -4152,6 +4214,9 @@
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fish.robo.volta.SchematicEditor;
 				PRODUCT_NAME = SchematicEditor;
+				SWIFT_OBJC_BRIDGING_HEADER = "../components/schematic/code/SchematicEditor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -4160,7 +4225,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = "${BUILD_PRODUCTS_DIR}";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4170,6 +4237,8 @@
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fish.robo.volta.SchematicEditor;
 				PRODUCT_NAME = SchematicEditor;
+				SWIFT_OBJC_BRIDGING_HEADER = "../components/schematic/code/SchematicEditor-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -4212,6 +4281,8 @@
 		C05733C808A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_POSTPROCESSING = NO;
@@ -4240,6 +4311,8 @@
 		C05733C908A9546B00998B17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
@@ -4308,6 +4381,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
@@ -4350,6 +4424,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
@@ -4357,6 +4432,7 @@
 		C0855B290E764A7100471B28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -4374,6 +4450,7 @@
 		C0855B2A0E764A7100471B28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_MODEL_TUNING = G5;
@@ -4480,6 +4557,7 @@
 		C0C54641150FB4520075A553 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -4507,6 +4585,7 @@
 		C0C54642150FB4520075A553 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -4528,6 +4607,7 @@
 		C0C54679150FD8070075A553 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -4550,6 +4630,7 @@
 		C0C5467A150FD8070075A553 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -4612,6 +4693,7 @@
 		C0D16FA6154D4D9000BEF274 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(BUILD_PRODUCTS_DIR)";
@@ -4639,6 +4721,7 @@
 		C0D16FA7154D4D9000BEF274 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -4718,6 +4801,7 @@
 		DB90AB8B0FE5074300891ED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREFIX_HEADER = "../components/plotter/test-app/code/PlotterTest.pch";
 				INFOPLIST_FILE = "../components/plotter/test-app/PlotterTest-Info.plist";
@@ -4730,6 +4814,7 @@
 		DB90AB8C0FE5074300891ED1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREFIX_HEADER = "../components/plotter/test-app/code/PlotterTest.pch";
 				INFOPLIST_FILE = "../components/plotter/test-app/PlotterTest-Info.plist";

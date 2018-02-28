@@ -19,8 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #import <VoltaCore/VoltaLibraryProtocol.h>
-#import "FXOutlineView.h"
-#import "FXClipView.h"
+#import <FXKit/FXKit-Swift.h>
 #import "VoltaCloudLibraryController.h"
 
 @interface FXLibraryEditorModelsController : NSViewController

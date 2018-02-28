@@ -23,7 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "VoltaCircuitSimulator.h"
 #import "VoltaNetlistEditor.h"
 #import "VoltaPlotter.h"
-#import "FXViewUtils.h"
+#import <FXKit/FXKit-Swift.h>
 
 
 @interface FXVoltaDocumentPrintingViewController () <NSTextFieldDelegate>
@@ -230,7 +230,7 @@ NSString* const FXVoltaDocumentPrintHeader    = @"FXVoltaDocumentPrintHeader";
     BOOL const plot = self.printsPlot && (mPlotterPrintableView != nil);
     if ( schematic && plot )
     {
-      if ( mPrintInfo.orientation == NSPortraitOrientation )
+      if ( mPrintInfo.orientation == NSPaperOrientationPortrait )
       {
         [self layoutWithTopView:mSchematicPrintableView andBottomView:mPlotterPrintableView];
       }
@@ -273,25 +273,25 @@ static CGFloat const kLayoutMargin = 16;
     NSTextField* title = mTitleLabel;
     [title sizeToFit];
     mPreviewView.subviews = @[title, leftView, rightView];
-    [FXViewUtils layoutInView:mPreviewView
-                visualFormats:@[ @"H:|[title]|",
-                                 @"H:|[leftView(viewWidth)]-(margin)-[rightView]|",
-                                 @"V:|[title]-(margin)-[leftView]|",
-                                 @"V:|[title]-(margin)-[rightView]|"]
-                  metricsInfo:@{ @"margin" : @(kLayoutMargin) ,
-                                 @"viewWidth" : @(floor((mPreviewView.frame.size.width - kLayoutMargin)/2)) }
-                    viewsInfo:NSDictionaryOfVariableBindings(title, leftView, rightView)];
+    [FXViewUtils layoutIn:mPreviewView
+            visualFormats:@[ @"H:|[title]|",
+                             @"H:|[leftView(viewWidth)]-(margin)-[rightView]|",
+                             @"V:|[title]-(margin)-[leftView]|",
+                             @"V:|[title]-(margin)-[rightView]|"]
+              metricsInfo:@{ @"margin" : @(kLayoutMargin) ,
+                             @"viewWidth" : @(floor((mPreviewView.frame.size.width - kLayoutMargin)/2)) }
+                viewsInfo:NSDictionaryOfVariableBindings(title, leftView, rightView)];
   }
   else
   {
     mPreviewView.subviews = @[leftView, rightView];
-    [FXViewUtils layoutInView:mPreviewView
-                visualFormats:@[ @"H:|[leftView(viewWidth)]-(margin)-[rightView]|",
-                                 @"V:|[leftView]|",
-                                 @"V:|[rightView]|"]
-                  metricsInfo:@{ @"margin" : @(kLayoutMargin) ,
-                                 @"viewWidth" : @(floor((mPreviewView.frame.size.width - kLayoutMargin)/2)) }
-                    viewsInfo:NSDictionaryOfVariableBindings(leftView, rightView)];
+    [FXViewUtils layoutIn:mPreviewView
+            visualFormats:@[ @"H:|[leftView(viewWidth)]-(margin)-[rightView]|",
+                             @"V:|[leftView]|",
+                             @"V:|[rightView]|"]
+              metricsInfo:@{ @"margin" : @(kLayoutMargin) ,
+                             @"viewWidth" : @(floor((mPreviewView.frame.size.width - kLayoutMargin)/2)) }
+                viewsInfo:NSDictionaryOfVariableBindings(leftView, rightView)];
   }
 }
 
@@ -302,22 +302,22 @@ static CGFloat const kLayoutMargin = 16;
   {
     NSTextField* title = mTitleLabel;
     mPreviewView.subviews = @[title, topView, bottomView];
-    [FXViewUtils layoutInView:mPreviewView
-                visualFormats:@[@"H:|[title]|",
-                                @"H:|[topView]|",
-                                @"H:|[bottomView]|",
-                                @"V:|[title]-(margin)-[topView(topHeight)]-(margin)-[bottomView]|"]
-                  metricsInfo:@{ @"margin" : @(kLayoutMargin) ,
-                                 @"topHeight" : @(floor(mPreviewView.frame.size.height/2) - kLayoutMargin) }
-                    viewsInfo:NSDictionaryOfVariableBindings(title, topView, bottomView)];
+    [FXViewUtils layoutIn:mPreviewView
+            visualFormats:@[@"H:|[title]|",
+                            @"H:|[topView]|",
+                            @"H:|[bottomView]|",
+                            @"V:|[title]-(margin)-[topView(topHeight)]-(margin)-[bottomView]|"]
+              metricsInfo:@{ @"margin" : @(kLayoutMargin) ,
+                             @"topHeight" : @(floor(mPreviewView.frame.size.height/2) - kLayoutMargin) }
+                viewsInfo:NSDictionaryOfVariableBindings(title, topView, bottomView)];
   }
   else
   {
     mPreviewView.subviews = @[topView, bottomView];
-    [FXViewUtils layoutInView:mPreviewView
-                visualFormats:@[@"H:|[topView]|", @"H:|[bottomView]|", @"V:|[topView(height)]-(margin)-[bottomView]|"]
-                  metricsInfo:@{ @"margin" : @(kLayoutMargin) , @"height" : @(floor(mPreviewView.frame.size.height/2) - kLayoutMargin) }
-                    viewsInfo:NSDictionaryOfVariableBindings(topView, bottomView)];
+    [FXViewUtils layoutIn:mPreviewView
+            visualFormats:@[@"H:|[topView]|", @"H:|[bottomView]|", @"V:|[topView(height)]-(margin)-[bottomView]|"]
+              metricsInfo:@{ @"margin" : @(kLayoutMargin) , @"height" : @(floor(mPreviewView.frame.size.height/2) - kLayoutMargin) }
+                viewsInfo:NSDictionaryOfVariableBindings(topView, bottomView)];
   }
 }
 
@@ -328,18 +328,18 @@ static CGFloat const kLayoutMargin = 16;
   {
     NSTextField* title = mTitleLabel;
     mPreviewView.subviews = @[title, view];
-    [FXViewUtils layoutInView:mPreviewView
-                visualFormats:@[@"H:|[title]|", @"H:|[view]|", @"V:|[title]-(margin)-[view]|"]
-                  metricsInfo:@{ @"margin" : @(kLayoutMargin) }
-                    viewsInfo:NSDictionaryOfVariableBindings(title, view)];
+    [FXViewUtils layoutIn:mPreviewView
+            visualFormats:@[@"H:|[title]|", @"H:|[view]|", @"V:|[title]-(margin)-[view]|"]
+              metricsInfo:@{ @"margin" : @(kLayoutMargin) }
+                viewsInfo:NSDictionaryOfVariableBindings(title, view)];
   }
   else
   {
     mPreviewView.subviews = @[view];
-    [FXViewUtils layoutInView:mPreviewView
-                visualFormats:@[@"H:|[view]|", @"V:|[view]|"]
-                  metricsInfo:nil
-                    viewsInfo:NSDictionaryOfVariableBindings(view)];
+    [FXViewUtils layoutIn:mPreviewView
+            visualFormats:@[@"H:|[view]|", @"V:|[view]|"]
+              metricsInfo:nil
+                viewsInfo:NSDictionaryOfVariableBindings(view)];
   }
 }
 
@@ -348,10 +348,10 @@ static CGFloat const kLayoutMargin = 16;
 {
   NSTextField* title = mTitleLabel;
   mPreviewView.subviews = @[title];
-  [FXViewUtils layoutInView:mPreviewView
-              visualFormats:@[@"H:|[title]|", @"V:|[title]"]
-                metricsInfo:nil
-                  viewsInfo:NSDictionaryOfVariableBindings(title)];
+  [FXViewUtils layoutIn:mPreviewView
+          visualFormats:@[@"H:|[title]|", @"V:|[title]"]
+            metricsInfo:nil
+              viewsInfo:NSDictionaryOfVariableBindings(title)];
 }
 
 

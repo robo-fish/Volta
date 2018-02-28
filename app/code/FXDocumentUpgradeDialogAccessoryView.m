@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "FXDocumentUpgradeDialogAccessoryView.h"
 #import "FXSystemUtils.h"
-#import "FXViewUtils.h"
+#import <FXKit/FXKit-Swift.h>
 
 
 @implementation FXDocumentUpgradeDialogAccessoryView
@@ -40,10 +40,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     [self addSubview:finderButton];
     FXRelease(finderButton)
     
-    [FXViewUtils layoutInView:self
-                visualFormats:@[@"H:|-0-[button(>=50)]-|", @"V:|-[button(24)]-(>=0)-|"]
-                  metricsInfo:nil
-                    viewsInfo:@{ @"button" : finderButton }];
+    [FXViewUtils layoutIn:self
+            visualFormats:@[@"H:|-0-[button(>=50)]-|", @"V:|-[button(24)]-(>=0)-|"]
+              metricsInfo:nil
+                viewsInfo:@{ @"button" : finderButton }];
   }
   return self;
 }

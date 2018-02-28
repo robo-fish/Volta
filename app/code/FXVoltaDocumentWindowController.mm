@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "FXVoltaDocumentWindow.h"
 #import "FXVoltaPersistentMetaKeys.h"
 #import "FXTabView.h"
-#import "FXClipView.h"
+#import <FXKit/FXKit-Swift.h>
 
 
 static const CGFloat skPlotterWorkAreaMinimumHeight                             = 25.0;

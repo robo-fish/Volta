@@ -19,7 +19,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #import "FXSchematicSchematicInspector.h"
-#import "FXSchematicPropertiesTableView.h"
+#import <FXKit/FXKit-Swift.h>
+#import "SchematicEditor-Swift.h"
 #import "FXSchematicInspectorUtilities.h"
 #import "FXSchematicUndoManager.h"
 
@@ -142,7 +143,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     }
     else if ( commandSelector == @selector(cancelOperation:) )
     {
-      [[[mPropertiesTableView tableColumnWithIdentifier:FXSchematicPropertiesTableValuesColumnIdentifier] dataCell] endEditing:textView];
+      [[[mPropertiesTableView tableColumnWithIdentifier:FXSchematicPropertiesTableView.ValuesColumnIdentifier] dataCell] endEditing:textView];
       handled = YES;
     }
   }
@@ -162,11 +163,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - (id) tableView:(NSTableView*)aTableView objectValueForTableColumn:(NSTableColumn*)aTableColumn row:(NSInteger)rowIndex
 {
   NSAssert( aTableView == mPropertiesTableView, @"Wrong table." );
-  if ( [(NSString*)[aTableColumn identifier] isEqualToString:FXSchematicPropertiesTableNamesColumnIdentifier] )
+  if ( [(NSString*)[aTableColumn identifier] isEqualToString:FXSchematicPropertiesTableView.NamesColumnIdentifier] )
   {
     return [(FXSchematicPropertyWrapper*)(mPropertyWrappers[rowIndex]) name];
   }
-  else if ( [(NSString*)[aTableColumn identifier] isEqualToString:FXSchematicPropertiesTableValuesColumnIdentifier] )
+  else if ( [(NSString*)[aTableColumn identifier] isEqualToString:FXSchematicPropertiesTableView.ValuesColumnIdentifier] )
   {
     FXSchematicPropertyWrapper* propertyWrapper = mPropertyWrappers[rowIndex];
     if ( [propertyWrapper hasMultipleValues] )
@@ -188,7 +189,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     forTableColumn:(NSTableColumn*)aTableColumn
                row:(NSInteger)rowIndex
 {
-  if ( [[aTableColumn identifier] isEqualToString:FXSchematicPropertiesTableValuesColumnIdentifier] )
+  if ( [[aTableColumn identifier] isEqualToString:FXSchematicPropertiesTableView.ValuesColumnIdentifier] )
   {
     NSAssert( rowIndex >= 0, @"Invalid table row index" );
     if ( rowIndex < [mPropertyWrappers count] )
@@ -216,7 +217,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 - (BOOL) tableView:(NSTableView*)aTableView shouldEditTableColumn:(NSTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
-  return [[tableColumn identifier] isEqualToString:FXSchematicPropertiesTableValuesColumnIdentifier] ? YES : NO;
+  return [[tableColumn identifier] isEqualToString:FXSchematicPropertiesTableView.ValuesColumnIdentifier] ? YES : NO;
 }
 
 
