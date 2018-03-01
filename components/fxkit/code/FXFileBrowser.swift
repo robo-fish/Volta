@@ -497,6 +497,8 @@ private extension FXFileBrowser
   }
 }
 
+//MARK:-
+
 class FXFileBrowserFileData : NSObject, NSCoding, NSCopying, NSPasteboardWriting, NSPasteboardReading
 {
   var fileName : String?
@@ -590,10 +592,14 @@ class FXFileBrowserFileData : NSObject, NSCoding, NSCopying, NSPasteboardWriting
 
 }
 
+//MARK:-
+
 protocol FXFileBrowserTableViewClient : NSObjectProtocol
 {
   func handleDroppedFiles(_ files : [URL]) -> Bool
 }
+
+//MARK:-
 
 class FXFileBrowserTableView : NSTableView
 {

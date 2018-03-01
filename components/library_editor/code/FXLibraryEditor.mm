@@ -20,7 +20,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #import "FXLibraryEditor.h"
 #import <FXKit/FXKit-Swift.h>
-#import "FXTabView.h"
 #import "FXLibraryEditorSubcircuitsController.h"
 #import "FXLibraryEditorModelsController.h"
 #import "FXLibraryEditorPaletteController.h"

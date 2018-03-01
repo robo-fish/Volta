@@ -14,6 +14,7 @@
 		2A0797D520407AAD004B0A6E /* FXSPICELibParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A0797D220407A99004B0A6E /* FXSPICELibParser.mm */; };
 		2A0797DA2040826C004B0A6E /* FXSchematicToNetlistConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A0797D82040826B004B0A6E /* FXSchematicToNetlistConverter.h */; };
 		2A0797DC20408275004B0A6E /* FXSchematicToNetlistConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A0797D92040826B004B0A6E /* FXSchematicToNetlistConverter.mm */; };
+		2A65FE662046A96100E107AF /* FXTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65FE652046A96100E107AF /* FXTabView.swift */; };
 		2A68B06E203ECB8A00E1CED8 /* VoltaAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A68B06C203ECB8A00E1CED8 /* VoltaAboutWindow.xib */; };
 		2A979E1920419D1100B31E74 /* UnitTests.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2A979E0820419D1100B31E74 /* UnitTests.pch */; };
 		2A979E1A20419D3A00B31E74 /* test_archive_converter_v1_to_v2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A979DFA20419D1100B31E74 /* test_archive_converter_v1_to_v2.mm */; };
@@ -316,8 +317,6 @@
 		C0D16FB9154D4E6500BEF274 /* ShapeTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D16FB1154D4E6500BEF274 /* ShapeTest.xib */; };
 		C0D16FBF154D549100BEF274 /* FXShape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
 		C0D16FC0154D549E00BEF274 /* FXShape.framework in Resources */ = {isa = PBXBuildFile; fileRef = C04002E914B6F4FC00ECD7D2 /* FXShape.framework */; };
-		C0D6068F14E2573A00CA605C /* FXTabView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0D6068D14E2573A00CA605C /* FXTabView.h */; };
-		C0D6069014E2573A00CA605C /* FXTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D6068E14E2573A00CA605C /* FXTabView.m */; };
 		C0DA6F9E155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DA6F9D155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m */; };
 		C0DDF49A14167F1E004C8EE3 /* FXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01734C514090CC80035F6E1 /* FXKit.framework */; };
 		C0E1A52D14D54FAF00ACE0CE /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E1A52C14D54FAF00ACE0CE /* CoreServices.framework */; };
@@ -818,6 +817,7 @@
 		2A0797D220407A99004B0A6E /* FXSPICELibParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSPICELibParser.mm; path = code/FXSPICELibParser.mm; sourceTree = "<group>"; };
 		2A0797D82040826B004B0A6E /* FXSchematicToNetlistConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXSchematicToNetlistConverter.h; path = code/FXSchematicToNetlistConverter.h; sourceTree = "<group>"; };
 		2A0797D92040826B004B0A6E /* FXSchematicToNetlistConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FXSchematicToNetlistConverter.mm; path = code/FXSchematicToNetlistConverter.mm; sourceTree = "<group>"; };
+		2A65FE652046A96100E107AF /* FXTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FXTabView.swift; path = code/FXTabView.swift; sourceTree = "<group>"; };
 		2A68B06D203ECB8A00E1CED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VoltaAboutWindow.xib; sourceTree = "<group>"; };
 		2A979DEE2041987500B31E74 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A979DF22041987500B31E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1216,8 +1216,6 @@
 		C0D16FB2154D4E6500BEF274 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ShapeTest.xib; sourceTree = "<group>"; };
 		C0D16FB4154D4E6500BEF274 /* ShapeTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShapeTest-Info.plist"; sourceTree = "<group>"; };
 		C0D16FB5154D4E6500BEF274 /* ShapeTest.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShapeTest.pch; path = code/ShapeTest.pch; sourceTree = "<group>"; };
-		C0D6068D14E2573A00CA605C /* FXTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXTabView.h; path = code/FXTabView.h; sourceTree = "<group>"; };
-		C0D6068E14E2573A00CA605C /* FXTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXTabView.m; path = code/FXTabView.m; sourceTree = "<group>"; };
 		C0DA6F9C155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXDocumentUpgradeDialogAccessoryView.h; path = code/FXDocumentUpgradeDialogAccessoryView.h; sourceTree = "<group>"; };
 		C0DA6F9D155FE59400761654 /* FXDocumentUpgradeDialogAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXDocumentUpgradeDialogAccessoryView.m; path = code/FXDocumentUpgradeDialogAccessoryView.m; sourceTree = "<group>"; };
 		C0DD8ACF0E3B7605006B2136 /* NetlistEditor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetlistEditor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1731,7 +1729,6 @@
 		C01734D914090D200035F6E1 /* FXKit */ = {
 			isa = PBXGroup;
 			children = (
-				C0CDDE83168F918200A81199 /* File Browser */,
 				C0892CF714B72E1B006A5A7A /* Custom Views */,
 				C051D5F515E8EC3D002B2A7D /* Resources */,
 				C0CDDE82168F914300A81199 /* XML */,
@@ -1978,12 +1975,13 @@
 		C0892CF714B72E1B006A5A7A /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A979E6720422D7100B31E74 /* FXFileBrowser.swift */,
+				C0CDDE86168F91CC00A81199 /* FXFileBrowser.xib */,
 				2A979E612042276C00B31E74 /* FXClipView.swift */,
 				2A979E65204229BA00B31E74 /* FXMultiFoldingView.swift */,
 				2A979E842045FA2000B31E74 /* FXOutlineView.swift */,
 				2A979E872045FEF900B31E74 /* FXOverlayTextLineView.swift */,
-				C0D6068D14E2573A00CA605C /* FXTabView.h */,
-				C0D6068E14E2573A00CA605C /* FXTabView.m */,
+				2A65FE652046A96100E107AF /* FXTabView.swift */,
 				2A979E6B2043731500B31E74 /* FXTableView.swift */,
 				C0EFF79E14EF972F0022F602 /* FXTextView.h */,
 				C0EFF79F14EF972F0022F602 /* FXTextView.m */,
@@ -2268,15 +2266,6 @@
 			name = XML;
 			sourceTree = "<group>";
 		};
-		C0CDDE83168F918200A81199 /* File Browser */ = {
-			isa = PBXGroup;
-			children = (
-				2A979E6720422D7100B31E74 /* FXFileBrowser.swift */,
-				C0CDDE86168F91CC00A81199 /* FXFileBrowser.xib */,
-			);
-			name = "File Browser";
-			sourceTree = "<group>";
-		};
 		C0D16FAA154D4E6500BEF274 /* Test app */ = {
 			isa = PBXGroup;
 			children = (
@@ -2448,7 +2437,6 @@
 				2A979E1920419D1100B31E74 /* UnitTests.pch in Headers */,
 				C0AD1105140B775000C3BB68 /* FXString.h in Headers */,
 				C0AD110B140B85B200C3BB68 /* FXSystemUtils.h in Headers */,
-				C0D6068F14E2573A00CA605C /* FXTabView.h in Headers */,
 				C0EFF7A014EF972F0022F602 /* FXTextView.h in Headers */,
 				2A0797DA2040826C004B0A6E /* FXSchematicToNetlistConverter.h in Headers */,
 				C0EFD86B14B738700029FDE4 /* FXXMLDocument.h in Headers */,
@@ -3303,8 +3291,8 @@
 				2A979E6C2043731500B31E74 /* FXTableView.swift in Sources */,
 				C0EFD86C14B738700029FDE4 /* FXXMLDocument.mm in Sources */,
 				C0EFD86E14B738700029FDE4 /* FXXMLElement.mm in Sources */,
+				2A65FE662046A96100E107AF /* FXTabView.swift in Sources */,
 				2A979E8C204606C300B31E74 /* FXViewUtils.swift in Sources */,
-				C0D6069014E2573A00CA605C /* FXTabView.m in Sources */,
 				2A979E632042277F00B31E74 /* FXClipView.swift in Sources */,
 				C0EFF7A114EF972F0022F602 /* FXTextView.m in Sources */,
 				C037B268158B03D50087042C /* FXImageUtils.m in Sources */,

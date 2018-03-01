@@ -21,7 +21,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "FXVoltaDocumentWindowController.h"
 #import "FXVoltaDocumentWindow.h"
 #import "FXVoltaPersistentMetaKeys.h"
-#import "FXTabView.h"
 #import <FXKit/FXKit-Swift.h>
 
 

@@ -34,7 +34,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #import "FXSubcircuitEditor.h"
 #import "FXSimulationObserver.h"
 #import <FXKit/FXKit-Swift.h>
-#import "FXTabView.h"
 #import "FXVoltaPersistentMetaKeys.h"
 #import "FXVoltaDocumentWindow.h"
 #import "FXVoltaDocumentWindowController.h"

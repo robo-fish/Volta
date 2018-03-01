@@ -1,5 +1,4 @@
-![Volta logo](https://raw.githubusercontent.com/robo-fish/Volta/master/app/resources/graphics/Volta.iconset/icon_256x256.png)
-
+![Volta logo](https://raw.githubusercontent.com/robo-fish/Volta/master/app/resources/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
 # Volta
 
 Volta is a simple circuit design application that I developed between 2007 and 2013. Volta is the successor of [MI-SUGAR](https://github.com/robo-fish/MI-SUGAR). Just as with MI-SUGAR, you can draw a circuit, capture it as a SPICE-compatible netlist, run the netlist in circuit simulator, and plot the simulation results. Unlike MI-SUGAR it features an XML file format, a plug-in based modular structure, and supports modern macOS features. The XML file format is used both for circuit files (including SPICE netlist with analysis commands) and for component library files. A library file can define electric components whose shapes are defined in a subset of the vector graphics format [SVG](https://www.w3.org/Graphics/SVG/).
