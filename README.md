@@ -7,6 +7,8 @@ The code in this repository is based on the source code of the unreleased versio
 
 For more information about Volta visit the [wiki page on robo.fish](https://robo.fish/wiki/index.php?title=Volta).
 
+# This project has been [updated on GitLab](https://gitlab.com/Kai.Oezer/Volta).
+
 ## How to Build
 
 ### Dependencies
